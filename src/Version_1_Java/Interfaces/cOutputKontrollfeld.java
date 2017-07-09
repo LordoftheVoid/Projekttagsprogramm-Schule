@@ -21,7 +21,6 @@ public class cOutputKontrollfeld extends JFrame {
 
 
 
-
     public void Darstellung_der_Schueler(cErweiterteHashMapProjekteSchuelerListe objSpeicherLoesung){
 
         arrFelderOutput = new JTextField[4][objSpeicherLoesung.iLaengeallerListen()];
@@ -108,5 +107,4 @@ public class cOutputKontrollfeld extends JFrame {
             }
         }
     }
-
 }

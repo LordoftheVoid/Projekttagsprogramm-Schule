@@ -1,14 +1,15 @@
 package Version_1_Java.Interfaces;
 
-import Version_1_Java.DateiSchnittstellen.cDateiLeser;
-import Version_1_Java.DateiSchnittstellen.cSpeicherDateiErzeugerSchueler;
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertSchueler;
 import Version_1_Java.Objekte.cSchueler;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -22,7 +23,7 @@ public class cSchuelerInput extends JFrame {
 
 
 
-   static JTextField[][] arrTextfields_Input= new JTextField[cSchueler.iMaximalanzahl_Projekte + 3][15];
+   static JTextField[][] arrTextfields_Input= new JTextField[cSchueler.iMaximalanzahl_Projekte + 3][200];
 
    static JTextField [] arrTextFields_Menue= new JTextField[cSchueler.iMaximalanzahl_Projekte+3];
 
@@ -319,22 +320,6 @@ public class cSchuelerInput extends JFrame {
         list_Schueler_Main.clear();
 
 
-        cDateiLeser obj_DateiVerwalter_Schueler= new cDateiLeser(new File("C:/Informatik/Projekte/Projekttagprogramm Schule"));
-
-        obj_DateiVerwalter_Schueler.Dateiscan();
-
-        list_Schueler_Main.addAll(obj_DateiVerwalter_Schueler.erstellenSchuelerListeausDatei());
-        list_Schueler_Main.addAll(obj_DateiVerwalter_Schueler.SchuelerAusExel());
-
-
-
-
-        if(this.bAktualisieren){
-            this.update_des_Interface(list_Schueler_Main);
-            this.bAktualisieren=false;
-        }
-
-        obj_DateiVerwalter_Schueler.schließen();
 
 
 
@@ -385,32 +370,24 @@ public class cSchuelerInput extends JFrame {
 
         }
 
-
-
-        cSpeicherDateiErzeugerSchueler objDateiErzeuger = new cSpeicherDateiErzeugerSchueler(list_Schueler_Main.toString());
-
-
-
-
-
     }
 
-    public void update_des_Interface( cArrayListErweitertSchueler listSchueler_uebergeben){
+    public void update_des_Interface( Connection Datenbankverbindung) throws SQLException {
 
-        for(int i_Y=0;i_Y<listSchueler_uebergeben.size();i_Y++){
-            arrTextfields_Input[0][i_Y].setText(listSchueler_uebergeben.get(i_Y).sVorname);
-            arrTextfields_Input[1][i_Y].setText(listSchueler_uebergeben.get(i_Y).sNachname);
-            arrTextfields_Input[2][i_Y].setText(""+listSchueler_uebergeben.get(i_Y).sKlassenstufe_mit_Buchstaben);
-            arrTextfields_Input[3][i_Y].setText(""+listSchueler_uebergeben.get(i_Y).arrPraeferenzen[0]);
-            arrTextfields_Input[4][i_Y].setText(""+listSchueler_uebergeben.get(i_Y).arrPraeferenzen[1]);
-            arrTextfields_Input[5][i_Y].setText(""+listSchueler_uebergeben.get(i_Y).arrPraeferenzen[2]);
-            arrTextfields_Input[6][i_Y].setText(""+listSchueler_uebergeben.get(i_Y).arrPraeferenzen[3]);
-        }
+            PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT * FROM schüler");
+            ResultSet set_entrys= extract_entrys.executeQuery();
 
+            int iRowCounter=0;
+            while (set_entrys.next()){
+                arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(2));
+                arrTextfields_Input[1][iRowCounter].setText(set_entrys.getString(3));
+                arrTextfields_Input[2][iRowCounter].setText(set_entrys.getString(4));
+                iRowCounter++;
+            }
+        /*
+        Bekommt ein ResultSet
+         */
     }
-
-    
-
 }
 
 

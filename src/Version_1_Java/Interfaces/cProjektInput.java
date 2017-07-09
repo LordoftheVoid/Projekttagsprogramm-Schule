@@ -1,14 +1,12 @@
 package Version_1_Java.Interfaces;
 
-import Version_1_Java.DateiSchnittstellen.cDateiLeser;
-import Version_1_Java.DateiSchnittstellen.cSpeicherDateiErzeugerProjekte;
+
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertProjekte;
 import Version_1_Java.Objekte.cProjekt;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -113,17 +111,6 @@ public class cProjektInput extends JFrame {
             list_main.clear();
 
 
-            cDateiLeser obj_Datei_Verwalter_Projekte= new cDateiLeser(new File("C:/Informatik/Projekte/Projekttagprogramm Schule"));
-
-
-
-            obj_Datei_Verwalter_Projekte.Dateiscan();
-
-            list_main.addAll(obj_Datei_Verwalter_Projekte.erstellenProjektListeausDatei());
-
-
-            obj_Datei_Verwalter_Projekte.schließen();
-
 
                 /*
 
@@ -143,8 +130,6 @@ public class cProjektInput extends JFrame {
 
                        }
                 }
-
-            cSpeicherDateiErzeugerProjekte objDateiErzeugung= new cSpeicherDateiErzeugerProjekte(list_main.toString());
 
 
 
@@ -278,8 +263,6 @@ public class cProjektInput extends JFrame {
                 }
             }
         }
-
-
 
     }
 

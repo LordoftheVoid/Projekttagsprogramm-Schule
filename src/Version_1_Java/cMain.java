@@ -177,7 +177,17 @@ public class cMain {
             public void mouseClicked(MouseEvent e) {
               obj_Schueler_Input.setVisible(true);
               obj_Schueler_Input.setEnabled(true);
-                obj_Schueler_Input.update_des_Interface(listSchueler);
+
+                try {
+                    obj_Schueler_Input.update_des_Interface(objDatabaseManager.Datenbankverbindung);
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+
+                    /*
+
+                    Wichtige Catch-Stelle
+                     */
+                }
 
             }
             @Override
