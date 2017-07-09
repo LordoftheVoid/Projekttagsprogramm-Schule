@@ -1,0 +1,286 @@
+package Version_1_Java.Interfaces;
+
+import Version_1_Java.DateiSchnittstellen.cDateiLeser;
+import Version_1_Java.DateiSchnittstellen.cSpeicherDateiErzeugerProjekte;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertProjekte;
+import Version_1_Java.Objekte.cProjekt;
+
+import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
+
+/**
+ * Created by Aaron on 30.03.2017.
+ */
+public class cProjektInput extends JFrame {
+
+
+  static  JTextField[] []arrFelderInput;
+    static JTextField [] arrFelderMenue= new JTextField[3];
+
+
+
+    public  static void Suche (String arrStrings []){
+
+        ArrayList< JTextField []> listArrYX_Anordnung= new ArrayList<>();
+        class classarrBoolean{
+            boolean [] arrBoolean;
+            classarrBoolean(int iGröße){
+                arrBoolean= new boolean[iGröße];
+            }
+            int iMengeanWertendesTypsTrue(){
+                int iMengeanBooleans=0;
+                for (boolean Schleifenelement:this.arrBoolean
+                        ) {
+                    if(Schleifenelement){
+                        iMengeanBooleans++;
+                    }
+                }
+                return iMengeanBooleans;
+            }
+        }
+
+        HashMap<Integer, classarrBoolean> mapIntegerBooleanArray= new HashMap<>();
+        int iLängeListe=0;
+        for (int i = 0; i <arrFelderInput[0].length ; i++) {
+            listArrYX_Anordnung.add(new JTextField[arrFelderInput.length]);
+            for (int küberX = 0; küberX <arrFelderInput.length ; küberX++) {
+                listArrYX_Anordnung.get(iLängeListe)[küberX]=arrFelderInput[küberX][i];
+            }
+            iLängeListe++;
+        }
+
+        for (int i = 0; i < listArrYX_Anordnung.size() ; i++) {
+            mapIntegerBooleanArray.put(i,new classarrBoolean(arrFelderInput.length));
+        }
+
+        for (int iüberY = 0; iüberY < listArrYX_Anordnung.size(); iüberY++) {
+            for (int küberX = 0; küberX <listArrYX_Anordnung.get(iüberY).length ; küberX++) {
+                try {
+                    if (listArrYX_Anordnung.get(iüberY)[küberX].getText().contains(arrStrings[küberX])) {
+                        mapIntegerBooleanArray.get(iüberY).arrBoolean[küberX]=true;
+                    }
+                }catch(NullPointerException e_1){
+                    mapIntegerBooleanArray.get(iüberY).arrBoolean[küberX]=true;
+                }
+            }
+        }
+        ArrayList<Integer> PositionenSpeicher= new ArrayList<>();
+
+        for (Integer Schleifenobjekt :mapIntegerBooleanArray.keySet()
+                ) {
+            if(mapIntegerBooleanArray.get(Schleifenobjekt).iMengeanWertendesTypsTrue()==arrFelderInput.length){
+                PositionenSpeicher.add(Schleifenobjekt);
+            }
+        }
+
+
+        for (int i = 0; i <arrFelderInput.length ; i++) {
+            for (int j = 0; j <arrFelderInput[i].length ; j++) {
+                arrFelderInput[i][j].setVisible(false);
+            }
+        }
+
+        for (int küberY = 0; küberY <PositionenSpeicher.size() ; küberY++) {
+            for (int iüberX = 0; iüberX <arrFelderInput.length ; iüberX++) {
+                listArrYX_Anordnung.get(PositionenSpeicher.get(küberY))[iüberX].setBounds(arrFelderMenue[iüberX].getX(),50+20*küberY,arrFelderMenue[iüberX].getWidth(),arrFelderMenue[iüberX].getHeight());
+                listArrYX_Anordnung.get(PositionenSpeicher.get(küberY))[iüberX].setVisible(true);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void update_der_Daten(cArrayListErweitertProjekte  list_main) {
+
+
+            list_main.clear();
+
+
+            cDateiLeser obj_Datei_Verwalter_Projekte= new cDateiLeser(new File("C:/Informatik/Projekte/Projekttagprogramm Schule"));
+
+
+
+            obj_Datei_Verwalter_Projekte.Dateiscan();
+
+            list_main.addAll(obj_Datei_Verwalter_Projekte.erstellenProjektListeausDatei());
+
+
+            obj_Datei_Verwalter_Projekte.schließen();
+
+
+                /*
+
+                Wertepruefung
+
+
+                 */
+
+
+
+
+
+                for (int k_y = 0; k_y < arrFelderMenue.length; k_y++) {
+                       try{
+                           list_main.add(new cProjekt(arrFelderInput[1][k_y].getText(),Integer.valueOf(arrFelderInput[0][k_y].getText()),Integer.valueOf(arrFelderInput[2][k_y].getText())));
+                       }catch(NullPointerException | NumberFormatException e_1){
+
+                       }
+                }
+
+            cSpeicherDateiErzeugerProjekte objDateiErzeugung= new cSpeicherDateiErzeugerProjekte(list_main.toString());
+
+
+
+
+        }
+
+
+
+        public void update_des_Interfaces(cArrayListErweitertProjekte listuebergebeneProjekte){
+                for(int i=0;i<listuebergebeneProjekte.size();i++){
+                    arrFelderInput[0][i].setText(""+listuebergebeneProjekte.get(i).iProjektnummer);
+                    arrFelderInput[1][i].setText(""+listuebergebeneProjekte.get(i).sLehrerkuerzel);
+                    arrFelderInput[2][i].setText(""+listuebergebeneProjekte.get(i).iMaximaleSchueleranzahl);
+            }
+        }
+
+
+    public cProjektInput(){
+
+
+
+        JTextField [] arrSuchmaskenMenü=new JTextField[3];
+        JTextField [] arrSuchmasken= new JTextField[3];
+
+
+        for (int i = 0; i <arrSuchmasken.length ; i++) {
+            arrSuchmasken[i]= new JTextField();
+            this.getContentPane().add(arrSuchmasken[i]);
+
+            arrSuchmasken[i].setBounds(300+150*i,50,150,20);
+            arrSuchmasken[i].addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+
+                }
+                @Override
+                public void keyPressed(KeyEvent e) {
+                }
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    String [] arrArgumente= new String[arrSuchmasken.length];
+                    for (int j = 0; j < arrArgumente.length; j++) {
+                        if(!Objects.equals(arrSuchmasken[j].getText(), "")){
+                            arrArgumente[j]=arrSuchmasken[j].getText();
+                        }else{
+                            arrArgumente[j]=null;
+                        }
+                    }
+                    Suche(arrArgumente);
+
+
+
+
+                }
+            });
+
+
+        }
+        for (int i = 0; i < arrSuchmaskenMenü.length; i++) {
+            arrSuchmaskenMenü[i]= new JTextField();
+            this.getContentPane().add(arrSuchmaskenMenü[i]);
+            arrSuchmaskenMenü[i].setBounds(300+150*i,0,150,20);
+            switch (i){
+                case 0:
+                    arrSuchmaskenMenü[i].setText("Projektnummersuche");
+                    break;
+                case 1:
+                    arrSuchmaskenMenü[i].setText("Lehrerkürzelsuche");
+                    break;
+                case 2:
+                    arrSuchmaskenMenü[i].setText("Schüleranzahlsuche");
+                    break;
+            }
+        }
+
+
+
+
+
+
+        this.setBounds(1500,500,500,500);
+        this.setTitle("Fenster zur Eingabe der Projekte  ");
+
+        this.getContentPane().setLayout(null);
+
+        for (int i_x=0;i_x<arrFelderMenue.length;i_x++){
+                arrFelderMenue[i_x]= new JTextField();
+                arrFelderMenue[i_x].setVisible(true);
+                this.getContentPane().add(arrFelderMenue[i_x]);
+                switch(i_x){
+                    case 0:
+                        arrFelderMenue[i_x].setBounds(0,0,90,20);
+                        break;
+
+                    case 1:
+                        arrFelderMenue[i_x].setBounds(90,0,90,20);
+                        break;
+
+                    case 2:
+                        arrFelderMenue[i_x].setBounds(180,0,100,20);
+                        break;
+
+                    case 3:
+                        arrFelderMenue[i_x].setBounds(280,0,210,20);
+                        break;
+                }
+
+
+        }
+
+
+        arrFelderMenue[0].setText("Projektnumer");
+        arrFelderMenue[1].setText("Lehrerkuerzel");
+        arrFelderMenue[2].setText("Schueleranzahl");
+
+
+
+        arrFelderInput= new JTextField[3][100];
+        for (int i_x=0;i_x<arrFelderInput.length;i_x++){
+            for(int k_y=0;k_y<arrFelderInput[i_x].length;k_y++){
+                arrFelderInput[i_x][k_y]= new JTextField();
+                this.getContentPane().add(arrFelderInput[i_x][k_y]);
+                arrFelderInput[i_x][k_y].setVisible(true);
+                if(i_x==0) {
+                    arrFelderInput[i_x][k_y].setText(""+k_y);
+                }
+                if(i_x==0) {
+                    arrFelderInput[i_x][k_y].setBounds(0, 20 * k_y + arrFelderMenue[0].getHeight(), arrFelderMenue[i_x].getWidth(), 20);
+                }else{
+                    arrFelderInput[i_x][k_y].setBounds(arrFelderMenue[i_x-1].getX()+arrFelderMenue[i_x-1].getWidth(), 20 * k_y + arrFelderMenue[0].getHeight(), arrFelderMenue[i_x].getWidth(), 20);
+                }
+            }
+        }
+
+
+
+    }
+
+}
