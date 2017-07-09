@@ -1,5 +1,6 @@
 package Version_1_Java.Interfaces;
 
+import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertSchueler;
 import Version_1_Java.Objekte.cSchueler;
 
@@ -27,7 +28,7 @@ public class cSchuelerInput extends JFrame {
 
    static JTextField [] arrTextFields_Menue= new JTextField[cSchueler.iMaximalanzahl_Projekte+3];
 
-
+    cDatabaseManager Database;
 
     /*
 
@@ -44,17 +45,19 @@ public class cSchuelerInput extends JFrame {
 
 
 
-    public cSchuelerInput() {
+    public cSchuelerInput( cDatabaseManager objDatabaseManager_Input) {
+
+        this.Database=objDatabaseManager_Input;
+
+
 
         JTextField []  arrSuchmasken = new JTextField[arrTextfields_Input.length];
         JTextField [] arrSuchmaskenmenue= new JTextField[arrTextfields_Input.length];
-
 
         this.setBounds(500, 500, 1000, 500);
         this.setTitle("Fenster zur Eingabe der Schueler ");
 
         this.getContentPane().setLayout(null);
-
 
         {
             int iPraeferenzenzaehler=1;
@@ -168,6 +171,29 @@ public class cSchuelerInput extends JFrame {
                         break;
                 }
         }
+
+        /*
+
+        Datenbankenerzeugung
+         */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -367,23 +393,26 @@ public class cSchuelerInput extends JFrame {
             }
 
             list_Schueler_Main.add(obj_zu_Erzeugend);
-
         }
 
     }
 
+
+
+
     public void update_des_Interface( Connection Datenbankverbindung) throws SQLException {
 
-            PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT * FROM schüler");
+            PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT preName, surName, grade FROM schüler");
             ResultSet set_entrys= extract_entrys.executeQuery();
 
             int iRowCounter=0;
             while (set_entrys.next()){
-                arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(2));
-                arrTextfields_Input[1][iRowCounter].setText(set_entrys.getString(3));
-                arrTextfields_Input[2][iRowCounter].setText(set_entrys.getString(4));
+                arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(1));
+                arrTextfields_Input[1][iRowCounter].setText(set_entrys.getString(2));
+                arrTextfields_Input[2][iRowCounter].setText(set_entrys.getString(3));
                 iRowCounter++;
             }
+
         /*
         Bekommt ein ResultSet
          */

@@ -14,8 +14,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,25 +28,40 @@ public class cMain {
    public static JTextArea Ausgabe;
 
 
-
+    public static  int iamountofEntrys=0;
 
     public static void main(String args[])  {
-
 
 
         /*
           TESTS databases
          */
 
-
         cDatabaseManager objDatabaseManager = new cDatabaseManager();
 
         try {
             objDatabaseManager.initialisierung();
+            iamountofEntrys=objDatabaseManager.row_count();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+
+
+
+
+
+        /*
+        Momentane Notlösung für das ID-Problem
+
+
+        try {
+            PreparedStatement delete_entrys=objDatabaseManager.Datenbankverbindung.prepareStatement("DELETE FROM Schüler");
+            delete_entrys.executeUpdate();
+            objDatabaseManager.Datenbankverbindung.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         try {
             objDatabaseManager.create_entry(4);
@@ -57,26 +70,28 @@ public class cMain {
         }
 
         try {
-            objDatabaseManager.create_entry(6);
+            objDatabaseManager.create_entry(7);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
         try {
-            objDatabaseManager.update_entry(7,11,"Hi","Test","8");
+            objDatabaseManager.update_entry(7,"surName"," Max");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
+
+
         try {
-            PreparedStatement output = objDatabaseManager.Datenbankverbindung.prepareStatement("SELECT * FROM schüler WHERE unique_id=7");
+            PreparedStatement output = objDatabaseManager.Datenbankverbindung.prepareStatement("SELECT surName FROM schüler ");
             ResultSet testset= output.executeQuery();
 
 
             while (testset.next()){
-                System.out.println(testset.getString(1));
+                System.out.println(testset.getString(1)+"Surname");
             }
 
 
@@ -85,10 +100,14 @@ public class cMain {
         }
 
 
+        Ende Notlösung
+
+         */
+
+
         /*
 
         End Tests Database
-
 
          */
 
@@ -99,9 +118,8 @@ public class cMain {
 
 
         URL location = cMain.class.getProtectionDomain().getCodeSource().getLocation();
-            System.out.println(location.getFile());
 
-            File Eingabeort= new File(location.getFile());
+        File Eingabeort= new File(location.getFile());
 
         /*
 
@@ -113,7 +131,7 @@ public class cMain {
 
 
 
-        cSchuelerInput obj_Schueler_Input = new cSchuelerInput();
+        cSchuelerInput obj_Schueler_Input = new cSchuelerInput(objDatabaseManager);
         cProjektInput obj_Projekt_Input =new cProjektInput();
         cOutputKontrollfeld obj_Output = new cOutputKontrollfeld();
 

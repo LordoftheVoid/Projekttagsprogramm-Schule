@@ -27,23 +27,27 @@ public class cDatabaseManager {
         }
 
 
+
+
         boolean btableCreation=true;
 
         ResultSet existingTables= Datenbankverbindung.getMetaData().getTables(null,null, "%",null);
         while (existingTables.next()) {
-            System.out.println(existingTables.getString(3));
             if(existingTables.getString(3).equals("SCHÜLER")){
                 btableCreation=false;
             }
         }
 
         if(btableCreation) {
-            constructionTable = Datenbankverbindung.prepareStatement("CREATE TABLE schüler (unique_id CHARACTER(4), preName VARCHAR(30), surName VARCHAR(30), preferences ARRAY)");
+            constructionTable = Datenbankverbindung.prepareStatement("CREATE TABLE schüler (unique_id CHARACTER(4), preName VARCHAR(30), surName VARCHAR(30), grade VARCHAR,  pref1 INT, pref2 INT, pref3 INT, pref4 INT)");
             constructionTable.executeUpdate();
             Datenbankverbindung.commit();
         }else{
             System.out.println("Tabelle existiert");
         }
+
+
+
 
     }
 
@@ -58,27 +62,22 @@ public class cDatabaseManager {
 
     }
 
+    public void update_entry (int old_unique_ID, String colum, String value) throws SQLException {
 
+        update_Entry= Datenbankverbindung.prepareStatement("UPDATE schüler SET "+ colum +" = '"+value+"' WHERE unique_id= ?");
 
-
-    public void update_entry (int old_unique_ID, int new_unique_ID, String new_pre_name, String new_sur_name, String grade) throws SQLException {
-
-
-        update_Entry= Datenbankverbindung.prepareStatement("UPDATE schüler SET unique_id = ? WHERE unique_id=?");
-
-
-        update_Entry.setInt(1,new_unique_ID);
-
-        update_Entry.setInt(2,old_unique_ID);
-
-
-
-
-
+        update_Entry.setInt(1,old_unique_ID);
         update_Entry.executeUpdate();
 
-        Datenbankverbindung.commit();
 
+        Datenbankverbindung.commit();
     }
 
+
+    public int row_count() throws SQLException {
+            PreparedStatement row_count = Datenbankverbindung.prepareStatement("SELECT COUNT(*) FROM schüler");
+            ResultSet number_of_rows =row_count.executeQuery();
+            number_of_rows.next();
+            return number_of_rows.getInt(1);
+    }
 }
