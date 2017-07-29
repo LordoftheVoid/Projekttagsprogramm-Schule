@@ -19,7 +19,7 @@ public class cDatabaseManager {
     public void initialisierung() throws SQLException {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
-            Datenbankverbindung = DriverManager.getConnection("jdbc:hsqldb:file:C:/Informatik/Sonstige Dateien/Test_Programm.db;shutdown=true", "sa", "");
+            Datenbankverbindung = DriverManager.getConnection("jdbc:hsqldb:file:C:/Informatik/Datenbanken/Datenbanken rund um Schulprojekt/Test_Programm.db;shutdown=true", "sa", "");
         } catch (ClassNotFoundException e) {
             System.err.println("Keine Treiberklasse gefunden.");
         } catch (SQLException e) {
@@ -51,10 +51,10 @@ public class cDatabaseManager {
 
     }
 
-    public void create_entry (int unique_id ) throws SQLException {
+    public void create_entry (String unique_id ) throws SQLException {
 
        insertInto = Datenbankverbindung.prepareStatement("INSERT INTO schüler  (unique_id) VALUES (?)");
-       insertInto.setInt(1,unique_id);
+       insertInto.setString(1,unique_id);
 
        insertInto.executeUpdate();
 
@@ -62,11 +62,11 @@ public class cDatabaseManager {
 
     }
 
-    public void update_entry (int old_unique_ID, String colum, String value) throws SQLException {
+    public void update_entry (String old_unique_ID, String colum, String value) throws SQLException {
 
         update_Entry= Datenbankverbindung.prepareStatement("UPDATE schüler SET "+ colum +" = '"+value+"' WHERE unique_id= ?");
 
-        update_Entry.setInt(1,old_unique_ID);
+        update_Entry.setString(1,old_unique_ID);
         update_Entry.executeUpdate();
 
 
@@ -80,4 +80,12 @@ public class cDatabaseManager {
             number_of_rows.next();
             return number_of_rows.getInt(1);
     }
+    public boolean entry_check(String unique_id) throws SQLException {
+
+        PreparedStatement id_check = Datenbankverbindung.prepareStatement("SELECT unique_id FROM schüler WHERE EXISTS(SELECT unique_id FROM schüler WHERE unique_id="+unique_id+" )");
+        ResultSet entrys_with_specific_id =id_check.executeQuery();
+        entrys_with_specific_id.next();
+        return  entrys_with_specific_id.next();
+    }
+
 }

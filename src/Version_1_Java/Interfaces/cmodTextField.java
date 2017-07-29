@@ -11,6 +11,12 @@ public class cmodTextField extends JTextField {
     String colum;
 
 
+    boolean bcorrect_unique_ID=false;
+
+
+    String sunique_ID_Textfieldrow;
+
+
 
 
 }
