@@ -17,6 +17,4 @@ public class cmodTextField extends JTextField {
     String sunique_ID_Textfieldrow;
 
 
-
-
 }

@@ -57,9 +57,9 @@ public class cDatabaseManager {
 
     public boolean entry_check(String unique_id) throws SQLException {
 
-        PreparedStatement id_check = Datenbankverbindung.prepareStatement("SELECT unique_id FROM schueler WHERE EXISTS(SELECT unique_id FROM schueler WHERE unique_id="+unique_id+" )");
+        PreparedStatement id_check = Datenbankverbindung.prepareStatement("SELECT * FROM schueler WHERE unique_id= ? ");
+        id_check.setString(1, unique_id);
         ResultSet entrys_with_specific_id =id_check.executeQuery();
-        entrys_with_specific_id.next();
         return  entrys_with_specific_id.next();
     }
 

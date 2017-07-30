@@ -110,31 +110,33 @@ public class cSchuelerInput extends JFrame {
                     case 0:
                         arrTextfields_Input[i_x][k_y].colum="preName";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID());
+                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID());
                         break;
                     case 1:
                         arrTextfields_Input[i_x][k_y].colum="surName";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID());
+                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID());
                         break;
                     case 2:
                         arrTextfields_Input[i_x][k_y].colum="grade";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID());
                         break;
                     case 3:
-                        arrTextfields_Input[i_x][k_y].colum="pref1";
+                        arrTextfields_Input[i_x][k_y].colum="pref0";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID());
                         break;
                     case 4:
-                        arrTextfields_Input[i_x][k_y].colum="pref2";
+                        arrTextfields_Input[i_x][k_y].colum="pref1";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID());
                         break;
 
                     case 5:
-                        arrTextfields_Input[i_x][k_y].colum="pref3";
+                        arrTextfields_Input[i_x][k_y].colum="pref2";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID());
                         break;
 
                     case 6:
-                        arrTextfields_Input[i_x][k_y].colum="pref4";
+                        arrTextfields_Input[i_x][k_y].colum="pref3";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID());
                         break;
 
@@ -421,12 +423,14 @@ public class cSchuelerInput extends JFrame {
         }
 
 
-
+        /*
         for(int i=0;i<listSchuelerwerte.size();i++){
             for(int k=0;k<cSchueler.iMaximalanzahl_Projekte;k++){
                 arrSchuelerpraeferenzen[i][k]= listSchuelerwerte.get(i).get(k);
             }
         }
+        */
+
 
         for(int i=0;i<listSchuelerwerte.size();i++) {
 
@@ -451,17 +455,28 @@ public class cSchuelerInput extends JFrame {
 
     public void update_des_Interface( Connection Datenbankverbindung) throws SQLException {
 
-            PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT unique_id, preName, surName, grade FROM schueler");
+            PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT unique_id, preName, surName, grade, pref0, pref1, pref2, pref3 FROM schueler");
             ResultSet set_entrys= extract_entrys.executeQuery();
 
             int iRowCounter=0;
             while (set_entrys.next()){
                 arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(2));
                 arrTextfields_Input[1][iRowCounter].setText(set_entrys.getString(3));
-                arrTextfields_Input[2][iRowCounter].setText(set_entrys.getString(3));
-                arrTextfields_Input[2][iRowCounter].sunique_ID_Textfieldrow= set_entrys.getString(1);
+                arrTextfields_Input[2][iRowCounter].setText(set_entrys.getString(4));
+                arrTextfields_Input[3][iRowCounter].setText(set_entrys.getString(5));
+                arrTextfields_Input[4][iRowCounter].setText(set_entrys.getString(6));
+                arrTextfields_Input[5][iRowCounter].setText(set_entrys.getString(7));
+                arrTextfields_Input[6][iRowCounter].setText(set_entrys.getString(8));
+
+                for (int i_x = 0; i_x < arrTextfields_Input.length; i_x++) {
+                    arrTextfields_Input[i_x][iRowCounter].sunique_ID_Textfieldrow= set_entrys.getString(1);
+                    arrTextfields_Input[i_x][iRowCounter].bcorrect_unique_ID=true;
+                }
                 iRowCounter++;
             }
+
+
+
 
         /*
         Bekommt ein ResultSet
@@ -475,30 +490,7 @@ public class cSchuelerInput extends JFrame {
         @Override
         public void keyTyped(KeyEvent e) {
 
-            cmodTextField objsource = ((cmodTextField) e.getSource());
 
-
-            if(arrTextfields_Input[0][objsource.iRow_position].getText().length()>=3 & arrTextfields_Input[1][objsource.iRow_position].getText().length()>=3){
-                String unique_id="";
-
-                for(int i=0; i< 2; i++){
-                    for( int k=0; k<3; k++){
-                        unique_id =unique_id +arrTextfields_Input[i][objsource.iRow_position].getText().charAt(k);
-                    }
-                }
-
-                try {
-                    Database.create_entry(unique_id);
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-
-
-                for (int i_x = 0; i_x < arrTextfields_Input.length; i_x++) {
-                    arrTextfields_Input[i_x][objsource.iRow_position].bcorrect_unique_ID=true;
-                    arrTextfields_Input[i_x][objsource.iRow_position].sunique_ID_Textfieldrow=unique_id;
-                }
-            }
         }
 
         @Override
@@ -509,6 +501,33 @@ public class cSchuelerInput extends JFrame {
         @Override
         public void keyReleased(KeyEvent e) {
 
+            cmodTextField objsource = ((cmodTextField) e.getSource());
+
+
+            if(arrTextfields_Input[0][objsource.iRow_position].getText().length()>=3 & arrTextfields_Input[1][objsource.iRow_position].getText().length()>=3) {
+                String unique_id = "";
+
+                for (int i = 0; i < 2; i++) {
+                    for (int k = 0; k < 2; k++) {
+                        unique_id = unique_id + arrTextfields_Input[i][objsource.iRow_position].getText().charAt(k);
+                    }
+                }
+
+
+                try {
+                    if (!Database.entry_check(unique_id)) {
+                        Database.create_entry(unique_id);
+                        for (int i_x = 0; i_x < arrTextfields_Input.length; i_x++) {
+                            arrTextfields_Input[i_x][objsource.iRow_position].bcorrect_unique_ID = true;
+                            arrTextfields_Input[i_x][objsource.iRow_position].sunique_ID_Textfieldrow = unique_id;
+                        }
+                        Database.update_entry(objsource.sunique_ID_Textfieldrow,"preName", arrTextfields_Input[0][objsource.iRow_position].getText());
+                    }
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+
+            }
         }
     }
 
@@ -519,12 +538,7 @@ public class cSchuelerInput extends JFrame {
     class cmodKeyListener_NON_ID implements  KeyListener{
         @Override
         public void keyTyped(KeyEvent e) {
-            cmodTextField objsource = ((cmodTextField) e.getSource());
-            try {
-                Database.update_entry(objsource.sunique_ID_Textfieldrow,objsource.colum,objsource.getText());
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
+
         }
 
         @Override
@@ -534,6 +548,15 @@ public class cSchuelerInput extends JFrame {
 
         @Override
         public void keyReleased(KeyEvent e) {
+
+            cmodTextField objsource = ((cmodTextField) e.getSource());
+            if(objsource.bcorrect_unique_ID) {
+                try {
+                    Database.update_entry(objsource.sunique_ID_Textfieldrow, objsource.colum, objsource.getText());
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
 
         }
     }
