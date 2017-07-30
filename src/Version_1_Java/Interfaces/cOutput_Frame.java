@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by Aaron on 30.03.2017.
  */
-public class cOutputKontrollfeld extends JFrame {
+public class cOutput_Frame extends JFrame {
 
 
 
@@ -67,7 +67,7 @@ public class cOutputKontrollfeld extends JFrame {
     }
 
 
-    public cOutputKontrollfeld(){
+    public cOutput_Frame(){
 
 
         this.setBounds(1500,500,500,500);

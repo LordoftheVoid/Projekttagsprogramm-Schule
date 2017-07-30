@@ -2,9 +2,9 @@ package Version_1_Java;
 
 import Version_1_Java.DateiSchnittstellen.cOutPutDateiErzeuger;
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
-import Version_1_Java.Interfaces.cOutputKontrollfeld;
-import Version_1_Java.Interfaces.cProjektInput;
-import Version_1_Java.Interfaces.cSchuelerInput;
+import Version_1_Java.Interfaces.cOutput_Frame;
+import Version_1_Java.Interfaces.c_Projekt_Frame_Input;
+import Version_1_Java.Interfaces.c_Schueler_Frame_Input;
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertProjekte;
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertSchueler;
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjekteSchuelerListe;
@@ -12,11 +12,7 @@ import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProj
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 /**
@@ -25,99 +21,53 @@ import java.util.TimerTask;
 public class cMain {
 
 
-   public static JTextArea Ausgabe;
 
 
-    public static  int iamountofEntrys=0;
+    public static  int i_Schueler_Menge_in_Datenbank =0;
+    public static  int i_Projekt_Menge_in_Datenbank =0;
 
-    public static void main(String args[])  {
-
-
-
+    public static void main(String args[]) {
 
 
-
-        cDatabaseManager objDatabaseManager = new cDatabaseManager();
+        cDatabaseManager objDatabaseManager_main = new cDatabaseManager();
 
         try {
-            objDatabaseManager.initialisierung();
-            iamountofEntrys=objDatabaseManager.row_count();
+            objDatabaseManager_main.initialisierung();
+            i_Schueler_Menge_in_Datenbank = objDatabaseManager_main.i_Reihenmenge_in_Datenbank("schueler");
+            i_Projekt_Menge_in_Datenbank = objDatabaseManager_main.i_Reihenmenge_in_Datenbank("projekte");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-
-        URL location = cMain.class.getProtectionDomain().getCodeSource().getLocation();
-
-        File Eingabeort= new File(location.getFile());
-
-        /*
-            Speicherung des Inputs, Kalkulation nutzt diese beiden Listen als Input
-         */
+        cArrayListErweitertSchueler listSchueler_in_Programm = new cArrayListErweitertSchueler();
+        cArrayListErweitertProjekte listProjekte_in_Programm = new cArrayListErweitertProjekte();
 
 
-        cArrayListErweitertSchueler listSchueler = new cArrayListErweitertSchueler();
-        cArrayListErweitertProjekte listProjekte = new cArrayListErweitertProjekte();
+        c_Schueler_Frame_Input obj_Schueler_Input = new c_Schueler_Frame_Input(objDatabaseManager_main);
+        c_Projekt_Frame_Input obj_Projekt_Input = new c_Projekt_Frame_Input(objDatabaseManager_main);
+        cOutput_Frame obj_Output = new cOutput_Frame();
 
 
-
-        cSchuelerInput obj_Schueler_Input = new cSchuelerInput(objDatabaseManager);
-        cProjektInput obj_Projekt_Input =new cProjektInput();
-        cOutputKontrollfeld obj_Output = new cOutputKontrollfeld();
-
-
+        JFrame Haupt_Frame = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
+        Haupt_Frame.setVisible(true);
+        Haupt_Frame.setBounds(0, 0, 1000, 1000);
+        Haupt_Frame.getContentPane().setLayout(null);
 
 
+        JButton Button_Schueler_Frame_Aktivierung = new JButton("Schueler-Eingabe-Feld aufrufen");
+        Button_Schueler_Frame_Aktivierung.setVisible(true);
+        Button_Schueler_Frame_Aktivierung.setBounds(0, 0, 300, 300);
+        Haupt_Frame.getContentPane().add(Button_Schueler_Frame_Aktivierung);
 
-
-        JFrame Hauptinterface= new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
-        Hauptinterface.setVisible(true);
-        Hauptinterface.setBounds(0,0,1000,1000);
-        Hauptinterface.getContentPane().setLayout(null);
-
-
-
-        Ausgabe= new JTextArea();
-
-
-        Ausgabe.setVisible(true);
-        Ausgabe.setBounds(0,500,300,300);
-        Hauptinterface.getContentPane().add(Ausgabe);
-
-
-
-        Timer tUpdate_der_Daten= new Timer();
-        tUpdate_der_Daten.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                obj_Projekt_Input.update_der_Daten(listProjekte);
-                obj_Schueler_Input.update_der_Daten(listSchueler);
-
-            }
-        },0,10000);
-
-        /*
-        Achtung 100, ist Test!
-         */
-
-
-
-
-
-        JButton Button_Schueler_Interface= new JButton("Schueler-Eingabe-Feld aufrufen");
-        Button_Schueler_Interface.setVisible(true);
-        Button_Schueler_Interface.setBounds(0,0,300,300);
-        Hauptinterface.getContentPane().add(Button_Schueler_Interface);
-
-        Button_Schueler_Interface.addMouseListener(new MouseListener() {
+        Button_Schueler_Frame_Aktivierung.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-              obj_Schueler_Input.setVisible(true);
-              obj_Schueler_Input.setEnabled(true);
+                obj_Schueler_Input.setVisible(true);
+                obj_Schueler_Input.setEnabled(true);
 
                 try {
-                    obj_Schueler_Input.update_des_Interface(objDatabaseManager.Datenbankverbindung);
+                    obj_Schueler_Input.update_des_Interface(objDatabaseManager_main);
                 } catch (SQLException e1) {
                     e1.printStackTrace();
 
@@ -128,9 +78,11 @@ public class cMain {
                 }
 
             }
+
             @Override
             public void mousePressed(MouseEvent e) {
             }
+
             @Override
             public void mouseReleased(MouseEvent e) {
 
@@ -148,21 +100,18 @@ public class cMain {
         });
 
 
+        JButton Button_Projekt_Frame_Aktivierung = new JButton("Projekt-Eingabe-Feld aufrufen");
+        Button_Projekt_Frame_Aktivierung.setVisible(true);
+        Button_Projekt_Frame_Aktivierung.setBounds(300, 0, 300, 300);
+        Haupt_Frame.getContentPane().add(Button_Projekt_Frame_Aktivierung);
 
-
-        JButton Button_Projekt_Interface= new JButton("Projekt-Eingabe-Feld aufrufen");
-        Button_Projekt_Interface.setVisible(true);
-        Button_Projekt_Interface.setBounds(300,0,300,300);
-        Hauptinterface.getContentPane().add(Button_Projekt_Interface);
-
-        Button_Projekt_Interface.addMouseListener(new MouseListener() {
+        Button_Projekt_Frame_Aktivierung.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                    obj_Projekt_Input.setVisible(true);
-                    obj_Projekt_Input.update_der_Daten(listProjekte);
-                    obj_Projekt_Input.update_des_Interfaces(listProjekte);
-
+                obj_Projekt_Input.setVisible(true);
+                obj_Projekt_Input.update_der_Daten(listProjekte_in_Programm);
+                obj_Projekt_Input.update_des_Interfaces(objDatabaseManager_main);
 
 
             }
@@ -181,7 +130,6 @@ public class cMain {
             public void mouseEntered(MouseEvent e) {
 
 
-
             }
 
             @Override
@@ -190,25 +138,10 @@ public class cMain {
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        JButton Kalkulation= new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
+        JButton Kalkulation = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
         Kalkulation.setVisible(true);
-        Kalkulation.setBounds(300,300,300,20);
-        Hauptinterface.getContentPane().add(Kalkulation);
+        Kalkulation.setBounds(300, 300, 300, 20);
+        Haupt_Frame.getContentPane().add(Kalkulation);
         Kalkulation.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -217,16 +150,16 @@ public class cMain {
 
 
                 cErweiterteHashMapProjekteSchuelerListe[] arrMapsSchueler = new cErweiterteHashMapProjekteSchuelerListe[10];
-                cErweiterteHashMapProjekteSchuelerListe SpeicherBesteLoesung=arrMapsSchueler[0];
+                cErweiterteHashMapProjekteSchuelerListe SpeicherBesteLoesung = arrMapsSchueler[0];
 
                 for (int i = 0; i < arrMapsSchueler.length; i++) {
-                    arrMapsSchueler[i]= new cErweiterteHashMapProjekteSchuelerListe(listProjekte);
-                    arrMapsSchueler[i].Erstellung(listSchueler);
+                    arrMapsSchueler[i] = new cErweiterteHashMapProjekteSchuelerListe(listProjekte_in_Programm);
+                    arrMapsSchueler[i].Erstellung(listSchueler_in_Programm);
                     try {
                         if (arrMapsSchueler[i].getListSchuelerohneProjekte().size() < SpeicherBesteLoesung.getListSchuelerohneProjekte().size()) {
                             SpeicherBesteLoesung = arrMapsSchueler[i];
                         }
-                    }catch (NullPointerException nPointerexc){
+                    } catch (NullPointerException nPointerexc) {
                         SpeicherBesteLoesung = arrMapsSchueler[i];
                     }
                 }
@@ -235,15 +168,10 @@ public class cMain {
                 obj_Output.Darstellung_der_Schueler(SpeicherBesteLoesung);
 
 
-
-
                 cOutPutDateiErzeuger objDateiSchreiber = new cOutPutDateiErzeuger(SpeicherBesteLoesung);
 
 
-
                 objDateiSchreiber.ExcelDateienschreiben();
-
-
 
 
             }
@@ -270,10 +198,6 @@ public class cMain {
         });
 
 
-
-
-
     }
-
 
 }

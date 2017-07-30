@@ -10,11 +10,6 @@ public class cSchueler {
     public static final int iMaximalanzahl_Projekte=4;
 
 
-    /*
-            Moeglicherweise in spaeteren Implementationen
-    public cProjekt[] Praeferenzen= new cProjekt[iMaximalanzahl_Projekte];
-
-    */
 
    public  int iStufe;
 
@@ -114,8 +109,4 @@ public class cSchueler {
             this.arrPraeferenzen[i]=arg.arrPraeferenzen[i];
         }
     }
-
-
-
-
 }
