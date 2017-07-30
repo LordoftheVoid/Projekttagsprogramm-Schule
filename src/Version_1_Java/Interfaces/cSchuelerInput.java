@@ -141,7 +141,7 @@ public class cSchuelerInput extends JFrame {
 
                         /*
 
-                        Einfügen der Listener
+                        Einfuegen der Listener
                          */
                 }
             }
@@ -269,8 +269,8 @@ public class cSchuelerInput extends JFrame {
         int iLängeListe=0;
         for (int i = 0; i <arrTextfields_Input[0].length ; i++) {
             listArrYX_Anordnung.add(new JTextField[arrTextfields_Input.length]);
-            for (int küberX = 0; küberX <arrTextfields_Input.length ; küberX++) {
-                listArrYX_Anordnung.get(iLängeListe)[küberX]=arrTextfields_Input[küberX][i];
+            for (int kueberX = 0; kueberX <arrTextfields_Input.length ; kueberX++) {
+                listArrYX_Anordnung.get(iLängeListe)[kueberX]=arrTextfields_Input[kueberX][i];
             }
             iLängeListe++;
         }
@@ -279,14 +279,14 @@ public class cSchuelerInput extends JFrame {
             mapIntegerBooleanArray.put(i,new classarrBoolean(arrTextfields_Input.length));
         }
 
-        for (int iüberY = 0; iüberY < listArrYX_Anordnung.size(); iüberY++) {
-            for (int küberX = 0; küberX <listArrYX_Anordnung.get(iüberY).length ; küberX++) {
+        for (int iueberY = 0; iueberY < listArrYX_Anordnung.size(); iueberY++) {
+            for (int kueberX = 0; kueberX <listArrYX_Anordnung.get(iueberY).length ; kueberX++) {
                 try {
-                    if (listArrYX_Anordnung.get(iüberY)[küberX].getText().contains(arrStrings[küberX])) {
-                        mapIntegerBooleanArray.get(iüberY).arrBoolean[küberX]=true;
+                    if (listArrYX_Anordnung.get(iueberY)[kueberX].getText().contains(arrStrings[kueberX])) {
+                        mapIntegerBooleanArray.get(iueberY).arrBoolean[kueberX]=true;
                     }
                 }catch(NullPointerException e_1){
-                    mapIntegerBooleanArray.get(iüberY).arrBoolean[küberX]=true;
+                    mapIntegerBooleanArray.get(iueberY).arrBoolean[kueberX]=true;
                 }
             }
         }
@@ -306,10 +306,10 @@ public class cSchuelerInput extends JFrame {
             }
         }
 
-        for (int küberY = 0; küberY <PositionenSpeicher.size() ; küberY++) {
-            for (int iüberX = 0; iüberX <arrTextfields_Input.length ; iüberX++) {
-                listArrYX_Anordnung.get(PositionenSpeicher.get(küberY))[iüberX].setBounds(arrTextFields_Menue[iüberX].getX(),50+20*küberY,arrTextFields_Menue[iüberX].getWidth(),arrTextFields_Menue[iüberX].getHeight());
-                listArrYX_Anordnung.get(PositionenSpeicher.get(küberY))[iüberX].setVisible(true);
+        for (int kueberY = 0; kueberY <PositionenSpeicher.size() ; kueberY++) {
+            for (int iueberX = 0; iueberX <arrTextfields_Input.length ; iueberX++) {
+                listArrYX_Anordnung.get(PositionenSpeicher.get(kueberY))[iueberX].setBounds(arrTextFields_Menue[iueberX].getX(),50+20*kueberY,arrTextFields_Menue[iueberX].getWidth(),arrTextFields_Menue[iueberX].getHeight());
+                listArrYX_Anordnung.get(PositionenSpeicher.get(kueberY))[iueberX].setVisible(true);
             }
         }
     }
@@ -420,12 +420,13 @@ public class cSchuelerInput extends JFrame {
 
         }
 
+
+
         for(int i=0;i<listSchuelerwerte.size();i++){
             for(int k=0;k<cSchueler.iMaximalanzahl_Projekte;k++){
                 arrSchuelerpraeferenzen[i][k]= listSchuelerwerte.get(i).get(k);
             }
         }
-
 
         for(int i=0;i<listSchuelerwerte.size();i++) {
 
@@ -450,7 +451,7 @@ public class cSchuelerInput extends JFrame {
 
     public void update_des_Interface( Connection Datenbankverbindung) throws SQLException {
 
-            PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT unique_id, preName, surName, grade FROM schüler");
+            PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT unique_id, preName, surName, grade FROM schueler");
             ResultSet set_entrys= extract_entrys.executeQuery();
 
             int iRowCounter=0;
@@ -477,10 +478,7 @@ public class cSchuelerInput extends JFrame {
             cmodTextField objsource = ((cmodTextField) e.getSource());
 
 
-
-
             if(arrTextfields_Input[0][objsource.iRow_position].getText().length()>=3 & arrTextfields_Input[1][objsource.iRow_position].getText().length()>=3){
-
                 String unique_id="";
 
                 for(int i=0; i< 2; i++){
@@ -488,18 +486,19 @@ public class cSchuelerInput extends JFrame {
                         unique_id =unique_id +arrTextfields_Input[i][objsource.iRow_position].getText().charAt(k);
                     }
                 }
+
                 try {
-                    System.out.println(String.valueOf(Database.entry_check(unique_id)));
+                    Database.create_entry(unique_id);
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                 }
 
 
+                for (int i_x = 0; i_x < arrTextfields_Input.length; i_x++) {
+                    arrTextfields_Input[i_x][objsource.iRow_position].bcorrect_unique_ID=true;
+                    arrTextfields_Input[i_x][objsource.iRow_position].sunique_ID_Textfieldrow=unique_id;
+                }
             }
-
-
-
-
         }
 
         @Override

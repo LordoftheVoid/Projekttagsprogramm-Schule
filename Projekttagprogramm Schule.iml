@@ -20,5 +20,6 @@
     <orderEntry type="library" name="org.apache.poi:poi-ooxml:3.16-beta1" level="project" />
     <orderEntry type="library" name="hsqldb:hsqldb:1.8.0.10" level="project" />
     <orderEntry type="library" name="apidocs" level="project" />
+    <orderEntry type="library" name="org.xerial:sqlite-jdbc:3.8.5-pre1" level="project" />
   </component>
 </module>

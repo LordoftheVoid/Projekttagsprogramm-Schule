@@ -46,8 +46,8 @@ public class cProjektInput extends JFrame {
         int iLängeListe=0;
         for (int i = 0; i <arrFelderInput[0].length ; i++) {
             listArrYX_Anordnung.add(new JTextField[arrFelderInput.length]);
-            for (int küberX = 0; küberX <arrFelderInput.length ; küberX++) {
-                listArrYX_Anordnung.get(iLängeListe)[küberX]=arrFelderInput[küberX][i];
+            for (int kueberX = 0; kueberX <arrFelderInput.length ; kueberX++) {
+                listArrYX_Anordnung.get(iLängeListe)[kueberX]=arrFelderInput[kueberX][i];
             }
             iLängeListe++;
         }
@@ -56,14 +56,14 @@ public class cProjektInput extends JFrame {
             mapIntegerBooleanArray.put(i,new classarrBoolean(arrFelderInput.length));
         }
 
-        for (int iüberY = 0; iüberY < listArrYX_Anordnung.size(); iüberY++) {
-            for (int küberX = 0; küberX <listArrYX_Anordnung.get(iüberY).length ; küberX++) {
+        for (int iueberY = 0; iueberY < listArrYX_Anordnung.size(); iueberY++) {
+            for (int kueberX = 0; kueberX <listArrYX_Anordnung.get(iueberY).length ; kueberX++) {
                 try {
-                    if (listArrYX_Anordnung.get(iüberY)[küberX].getText().contains(arrStrings[küberX])) {
-                        mapIntegerBooleanArray.get(iüberY).arrBoolean[küberX]=true;
+                    if (listArrYX_Anordnung.get(iueberY)[kueberX].getText().contains(arrStrings[kueberX])) {
+                        mapIntegerBooleanArray.get(iueberY).arrBoolean[kueberX]=true;
                     }
                 }catch(NullPointerException e_1){
-                    mapIntegerBooleanArray.get(iüberY).arrBoolean[küberX]=true;
+                    mapIntegerBooleanArray.get(iueberY).arrBoolean[kueberX]=true;
                 }
             }
         }
@@ -83,10 +83,10 @@ public class cProjektInput extends JFrame {
             }
         }
 
-        for (int küberY = 0; küberY <PositionenSpeicher.size() ; küberY++) {
-            for (int iüberX = 0; iüberX <arrFelderInput.length ; iüberX++) {
-                listArrYX_Anordnung.get(PositionenSpeicher.get(küberY))[iüberX].setBounds(arrFelderMenue[iüberX].getX(),50+20*küberY,arrFelderMenue[iüberX].getWidth(),arrFelderMenue[iüberX].getHeight());
-                listArrYX_Anordnung.get(PositionenSpeicher.get(küberY))[iüberX].setVisible(true);
+        for (int kueberY = 0; kueberY <PositionenSpeicher.size() ; kueberY++) {
+            for (int iueberX = 0; iueberX <arrFelderInput.length ; iueberX++) {
+                listArrYX_Anordnung.get(PositionenSpeicher.get(kueberY))[iueberX].setBounds(arrFelderMenue[iueberX].getX(),50+20*kueberY,arrFelderMenue[iueberX].getWidth(),arrFelderMenue[iueberX].getHeight());
+                listArrYX_Anordnung.get(PositionenSpeicher.get(kueberY))[iueberX].setVisible(true);
             }
         }
     }
@@ -151,7 +151,7 @@ public class cProjektInput extends JFrame {
 
 
 
-        JTextField [] arrSuchmaskenMenü=new JTextField[3];
+        JTextField [] arrSuchmaskenMenue=new JTextField[3];
         JTextField [] arrSuchmasken= new JTextField[3];
 
 
@@ -188,19 +188,19 @@ public class cProjektInput extends JFrame {
 
 
         }
-        for (int i = 0; i < arrSuchmaskenMenü.length; i++) {
-            arrSuchmaskenMenü[i]= new JTextField();
-            this.getContentPane().add(arrSuchmaskenMenü[i]);
-            arrSuchmaskenMenü[i].setBounds(300+150*i,0,150,20);
+        for (int i = 0; i < arrSuchmaskenMenue.length; i++) {
+            arrSuchmaskenMenue[i]= new JTextField();
+            this.getContentPane().add(arrSuchmaskenMenue[i]);
+            arrSuchmaskenMenue[i].setBounds(300+150*i,0,150,20);
             switch (i){
                 case 0:
-                    arrSuchmaskenMenü[i].setText("Projektnummersuche");
+                    arrSuchmaskenMenue[i].setText("Projektnummersuche");
                     break;
                 case 1:
-                    arrSuchmaskenMenü[i].setText("Lehrerkürzelsuche");
+                    arrSuchmaskenMenue[i].setText("Lehrerkuerzelsuche");
                     break;
                 case 2:
-                    arrSuchmaskenMenü[i].setText("Schüleranzahlsuche");
+                    arrSuchmaskenMenue[i].setText("Schueleranzahlsuche");
                     break;
             }
         }

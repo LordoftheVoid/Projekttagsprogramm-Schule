@@ -34,11 +34,11 @@ public class cOutputKontrollfeld extends JFrame {
 
         }
 
-        ArrayList <cSchueler> listSchüler= new ArrayList<>();
+        ArrayList <cSchueler> listSchueler= new ArrayList<>();
 
         for (cProjekt Schleifenobjekt:objSpeicherLoesung.keySet()
                 ) {
-           listSchüler.addAll(objSpeicherLoesung.get(Schleifenobjekt));
+           listSchueler.addAll(objSpeicherLoesung.get(Schleifenobjekt));
         }
 
 
@@ -46,19 +46,19 @@ public class cOutputKontrollfeld extends JFrame {
             for (int k_y=0;k_y<arrFelderOutput[i_x].length;k_y++){
                 switch (i_x){
                     case 0:
-                        arrFelderOutput[i_x][k_y].setText(listSchüler.get(k_y).sVorname);
+                        arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).sVorname);
                         break;
                     case 1:
-                        arrFelderOutput[i_x][k_y].setText(listSchüler.get(k_y).sNachname);
+                        arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).sNachname);
                         break;
                     case 2:
-                        arrFelderOutput[i_x][k_y].setText(listSchüler.get(k_y).sKlassenstufe_mit_Buchstaben);
+                        arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).sKlassenstufe_mit_Buchstaben);
                         break;
                     case 3:
                         try {
-                            arrFelderOutput[i_x][k_y].setText(listSchüler.get(k_y).Zugewiesenes_Projekt.sLehrerkuerzel);
+                            arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).Zugewiesenes_Projekt.sLehrerkuerzel);
                         }catch (NullPointerException e_1){
-                            arrFelderOutput[i_x][k_y].setText("Dieser Schüler hat kein Projekt!");
+                            arrFelderOutput[i_x][k_y].setText("Dieser Schueler hat kein Projekt!");
                         }
                         break;
                 }

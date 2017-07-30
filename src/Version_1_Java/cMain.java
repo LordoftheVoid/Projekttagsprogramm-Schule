@@ -33,9 +33,9 @@ public class cMain {
     public static void main(String args[])  {
 
 
-        /*
-          TESTS databases
-         */
+
+
+
 
         cDatabaseManager objDatabaseManager = new cDatabaseManager();
 
@@ -48,84 +48,15 @@ public class cMain {
 
 
 
-
-
-
-        /*
-        Momentane Notlösung für das ID-Problem
-
-
-        try {
-            PreparedStatement delete_entrys=objDatabaseManager.Datenbankverbindung.prepareStatement("DELETE FROM Schüler");
-            delete_entrys.executeUpdate();
-            objDatabaseManager.Datenbankverbindung.commit();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            objDatabaseManager.create_entry(4);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            objDatabaseManager.create_entry(7);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        try {
-            objDatabaseManager.update_entry(7,"surName"," Max");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-        try {
-            PreparedStatement output = objDatabaseManager.Datenbankverbindung.prepareStatement("SELECT surName FROM schüler ");
-            ResultSet testset= output.executeQuery();
-
-
-            while (testset.next()){
-                System.out.println(testset.getString(1)+"Surname");
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        Ende Notlösung
-
-         */
-
-
-        /*
-
-        End Tests Database
-
-         */
-
-
-
-
-
-
-
         URL location = cMain.class.getProtectionDomain().getCodeSource().getLocation();
 
         File Eingabeort= new File(location.getFile());
 
         /*
-
             Speicherung des Inputs, Kalkulation nutzt diese beiden Listen als Input
-
          */
+
+
         cArrayListErweitertSchueler listSchueler = new cArrayListErweitertSchueler();
         cArrayListErweitertProjekte listProjekte = new cArrayListErweitertProjekte();
 
@@ -134,16 +65,6 @@ public class cMain {
         cSchuelerInput obj_Schueler_Input = new cSchuelerInput(objDatabaseManager);
         cProjektInput obj_Projekt_Input =new cProjektInput();
         cOutputKontrollfeld obj_Output = new cOutputKontrollfeld();
-
-
-        /*
-
-        Testzwecke!!!
-
-
-         */
-
-
 
 
 
@@ -158,7 +79,6 @@ public class cMain {
 
 
         Ausgabe= new JTextArea();
-
 
 
         Ausgabe.setVisible(true);
