@@ -1,6 +1,6 @@
 package Version_1_Java.DateiSchnittstellen;
 
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjekteSchuelerListe;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
 import Version_1_Java.Objekte.cProjekt;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -19,16 +19,13 @@ import java.util.Formatter;
 public class cOutPutDateiErzeuger  {
 
 
-    cErweiterteHashMapProjekteSchuelerListe objSpeicher;
+    cErweiterteHashMapProjektepupilsListe objSpeicher;
 
 
 
-    public cOutPutDateiErzeuger(cErweiterteHashMapProjekteSchuelerListe argMap) {
-
+    public cOutPutDateiErzeuger(cErweiterteHashMapProjektepupilsListe argMap) {
 
         this.objSpeicher=argMap;
-
-
 
     }
 
@@ -69,34 +66,33 @@ public class cOutPutDateiErzeuger  {
 
 
 
-        public void ExcelDateienschreiben(){
+        public void ExcelDateienschreiben() {
 
 
-            for (cProjekt Schleifenobjekt: objSpeicher.keySet()
-                 ) {
+            for (cProjekt loop_objekt : objSpeicher.keySet()
+                    ) {
 
-                String  outputFilename = "Projekt von "+ Schleifenobjekt.sLehrerkuerzel;
+                String outputFilename = "Projekt von " + loop_objekt.sLehrerkuerzel;
 
-                File file = new File("C:/Informatik/" + outputFilename+".xls");
+                File file = new File("C:/Informatik/" + outputFilename + ".xls");
 
                 HSSFWorkbook wb = new HSSFWorkbook();
-                try {
                     HSSFSheet s = wb.createSheet();
-                    HSSFRow arrRow [] = new HSSFRow[objSpeicher.get(Schleifenobjekt).size()];
+                    HSSFRow arrRow[] = new HSSFRow[objSpeicher.get(loop_objekt).size()];
                     HSSFCell arrCell[] = new HSSFCell[3];
-                    for (int i = 0; i <arrRow.length ; i++) {
+                    for (int i = 0; i < arrRow.length; i++) {
                         arrRow[i] = s.createRow(i);
                         for (int k = 0; k < arrCell.length; k++) {
                             arrCell[k] = arrRow[i].createCell(k);
                             switch (k) {
                                 case 0:
-                                    arrCell[k].setCellValue(objSpeicher.get(Schleifenobjekt).get(i).sVorname);
+                                    arrCell[k].setCellValue(objSpeicher.get(loop_objekt).get(i).sVorname);
                                     break;
                                 case 1:
-                                    arrCell[k].setCellValue(objSpeicher.get(Schleifenobjekt).get(i).sNachname);
+                                    arrCell[k].setCellValue(objSpeicher.get(loop_objekt).get(i).sNachname);
                                     break;
                                 case 2:
-                                    arrCell[k].setCellValue(objSpeicher.get(Schleifenobjekt).get(i).sKlassenstufe_mit_Buchstaben);
+                                    arrCell[k].setCellValue(objSpeicher.get(loop_objekt).get(i).sKlassenstufe_mit_Buchstaben);
                                     break;
                             }
                         }
@@ -109,29 +105,13 @@ public class cOutPutDateiErzeuger  {
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
+
                     try {
-                        try {
-                            wb.write(out);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } finally {
-                        try {
-                            out.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } finally {
-                    try {
-                        wb.close();
+                        wb.write(out);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-
-
             }
-        }
+    }
 
 }

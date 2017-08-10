@@ -11,8 +11,6 @@ import java.sql.SQLException;
  */
 public class cmodKeyListener_NON_ID implements KeyListener {
 
-
-
     cDatabaseManager objDatabaseManager_keyListener;
 
     cmodTextField[][] arrInout_Keylistener;
@@ -25,9 +23,6 @@ public class cmodKeyListener_NON_ID implements KeyListener {
         arrInout_Keylistener =arrInput_Interface;
 
     }
-
-
-
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -42,10 +37,12 @@ public class cmodKeyListener_NON_ID implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+
+
         cmodTextField objsource = ((cmodTextField) e.getSource());
         if(objsource.bcorrect_unique_ID) {
             try {
-                objDatabaseManager_keyListener.update_entry("schueler",objsource.sunique_ID_Textfieldrow, objsource.colum, objsource.getText());
+                objDatabaseManager_keyListener.update_entry(table,objsource.sunique_ID_Textfieldrow, objsource.colum, objsource.getText());
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }

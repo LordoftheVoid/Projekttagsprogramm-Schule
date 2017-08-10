@@ -81,7 +81,7 @@ public class c_Projekt_Frame_Input extends JFrame {
                     arrSuchmaskenMenue[i].setText("Lehrerkuerzelsuche");
                     break;
                 case 2:
-                    arrSuchmaskenMenue[i].setText("Schueleranzahlsuche");
+                    arrSuchmaskenMenue[i].setText("pupilsanzahlsuche");
                     break;
             }
         }
@@ -120,7 +120,7 @@ public class c_Projekt_Frame_Input extends JFrame {
 
         arrFelderMenue[0].setText("Projektnumer");
         arrFelderMenue[1].setText("Lehrerkuerzel");
-        arrFelderMenue[2].setText("Schueleranzahl");
+        arrFelderMenue[2].setText("pupilsanzahl");
 
 
         arrFelderInput = new cmodTextField[3][100];
@@ -128,30 +128,24 @@ public class c_Projekt_Frame_Input extends JFrame {
             for (int k_y = 0; k_y < arrFelderInput[i_x].length; k_y++) {
                 arrFelderInput[i_x][k_y] = new cmodTextField();
                 this.getContentPane().add(arrFelderInput[i_x][k_y]);
-
-
+                arrFelderInput[i_x][k_y]. iRow_position=k_y;
                 switch (i_x) {
                     case 0:
-                        arrFelderInput[i_x][k_y].colum = "id";
+                        arrFelderInput[i_x][k_y].colum = "unique_id";
                         arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
-                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
                         break;
                     case 1:
                         arrFelderInput[i_x][k_y].colum = "lehrer_name";
                         arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
                         break;
                     case 2:
-                        arrFelderInput[i_x][k_y].colum = "max_schueler";
-                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
+                        arrFelderInput[i_x][k_y].colum = "max_pupils";
                         arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
                         break;
                 }
 
 
                     arrFelderInput[i_x][k_y].setVisible(true);
-                    if (i_x == 0) {
-                        arrFelderInput[i_x][k_y].setText("" + k_y);
-                    }
                     if (i_x == 0) {
                         arrFelderInput[i_x][k_y].setBounds(0, 20 * k_y + arrFelderMenue[0].getHeight(), arrFelderMenue[i_x].getWidth(), 20);
                     } else {
@@ -214,10 +208,10 @@ public class c_Projekt_Frame_Input extends JFrame {
         }
         ArrayList<Integer> PositionenSpeicher= new ArrayList<>();
 
-        for (Integer Schleifenobjekt :mapIntegerBooleanArray.keySet()
+        for (Integer loop_objekt :mapIntegerBooleanArray.keySet()
                 ) {
-            if(mapIntegerBooleanArray.get(Schleifenobjekt).iMengeanWertendesTypsTrue()==arrFelderInput.length){
-                PositionenSpeicher.add(Schleifenobjekt);
+            if(mapIntegerBooleanArray.get(loop_objekt).iMengeanWertendesTypsTrue()==arrFelderInput.length){
+                PositionenSpeicher.add(loop_objekt);
             }
         }
 
@@ -287,6 +281,7 @@ public class c_Projekt_Frame_Input extends JFrame {
 
                 int iRowcount=0;
                 while (entrys.next()){
+
                     arrFelderInput[0][iRowcount].setText(entrys.getString(1));
                     arrFelderInput[1][iRowcount].setText(entrys.getString(2));
                     arrFelderInput[2][iRowcount].setText(entrys.getString(3));

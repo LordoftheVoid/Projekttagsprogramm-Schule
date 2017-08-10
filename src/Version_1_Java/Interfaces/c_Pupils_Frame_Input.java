@@ -1,8 +1,8 @@
 package Version_1_Java.Interfaces;
 
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertSchueler;
-import Version_1_Java.Objekte.cSchueler;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertpupils;
+import Version_1_Java.Objekte.cpupils;
 import Version_1_Java.cMain;
 
 import javax.swing.*;
@@ -18,14 +18,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Created by Aaron on 30.03.2017.
  */
-public class c_Schueler_Frame_Input extends JFrame {
+public class c_Pupils_Frame_Input extends JFrame {
 
 
 
 
-   static cmodTextField[][] arrTextfields_Input= new cmodTextField[cSchueler.iMaximalanzahl_Projekte + 3][200];
+   static cmodTextField[][] arrTextfields_Input= new cmodTextField[cpupils.iMaximalanzahl_Projekte + 3][200];
 
-   static JTextField [] arrTextFields_Menue= new JTextField[cSchueler.iMaximalanzahl_Projekte+3];
+   static JTextField [] arrTextFields_Menue= new JTextField[cpupils.iMaximalanzahl_Projekte+3];
 
     cDatabaseManager Database;
 
@@ -44,7 +44,7 @@ public class c_Schueler_Frame_Input extends JFrame {
 
 
 
-    public c_Schueler_Frame_Input(cDatabaseManager objDatabaseManager_Input) {
+    public c_Pupils_Frame_Input(cDatabaseManager objDatabaseManager_Input) {
 
         this.Database=objDatabaseManager_Input;
 
@@ -54,7 +54,7 @@ public class c_Schueler_Frame_Input extends JFrame {
         JTextField [] arrSuchmaskenmenue= new JTextField[arrTextfields_Input.length];
 
         this.setBounds(500, 500, 1000, 500);
-        this.setTitle("Fenster zur Eingabe der Schueler ");
+        this.setTitle("Fenster zur Eingabe der pupils ");
 
         this.getContentPane().setLayout(null);
 
@@ -69,10 +69,10 @@ public class c_Schueler_Frame_Input extends JFrame {
                     if (i_x < 3) {
 
                         if ( i_x == 0) {
-                            arrTextFields_Menue[i_x].setText("Vorname");
+                            arrTextFields_Menue[i_x].setText("Nachname");
                         }
                         if (i_x== 1) {
-                            arrTextFields_Menue[i_x].setText("Nachname");
+                            arrTextFields_Menue[i_x].setText("Vorname");
                         }
                         if (i_x == 2) {
                             arrTextFields_Menue[i_x].setText("Klassenstufe");
@@ -97,7 +97,7 @@ public class c_Schueler_Frame_Input extends JFrame {
                 }
                 arrTextfields_Input[i_x][k_y] = new cmodTextField();
 
-                if(k_y< cMain.i_Schueler_Menge_in_Datenbank){
+                if(k_y< cMain.i_amount_of_pupils_in_database){
                     arrTextfields_Input[i_x][k_y].bcorrect_unique_ID=true;
                 }
 
@@ -106,36 +106,36 @@ public class c_Schueler_Frame_Input extends JFrame {
                 arrTextfields_Input[i_x][k_y].iRow_position=k_y;
                 switch (i_x) {
                     case 0:
-                        arrTextfields_Input[i_x][k_y].colum="preName";
-                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
+                        arrTextfields_Input[i_x][k_y].colum="surName";
+                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
                         break;
                     case 1:
-                        arrTextfields_Input[i_x][k_y].colum="surName";
-                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
+                        arrTextfields_Input[i_x][k_y].colum="preName";
+                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
                         break;
                     case 2:
                         arrTextfields_Input[i_x][k_y].colum="grade";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
                         break;
                     case 3:
                         arrTextfields_Input[i_x][k_y].colum="pref0";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
                         break;
                     case 4:
                         arrTextfields_Input[i_x][k_y].colum="pref1";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
                         break;
 
                     case 5:
                         arrTextfields_Input[i_x][k_y].colum="pref2";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
                         break;
 
                     case 6:
                         arrTextfields_Input[i_x][k_y].colum="pref3";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "schueler"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
                         break;
 
 
@@ -201,11 +201,12 @@ public class c_Schueler_Frame_Input extends JFrame {
                 arrSuchmaskenmenue[i].setBounds(arrTextfields_Input[arrTextfields_Input.length-1][0].getX()+arrTextfields_Input[arrTextfields_Input.length-1][0].getWidth()+(110*i)+100,0,110,20);
                 switch(i){
                     case 0:
-                        arrSuchmaskenmenue[i].setText("Vornamensuche");
+
+                        arrSuchmaskenmenue[i].setText("Nachnamensuche");
                         break;
 
                     case 1:
-                        arrSuchmaskenmenue[i].setText("Nachnamensuche");
+                        arrSuchmaskenmenue[i].setText("Vornamensuche");
 
                         break;
                     case 2:
@@ -292,10 +293,10 @@ public class c_Schueler_Frame_Input extends JFrame {
         }
         ArrayList<Integer> PositionenSpeicher= new ArrayList<>();
 
-        for (Integer Schleifenobjekt :mapIntegerBooleanArray.keySet()
+        for (Integer loop_objekt :mapIntegerBooleanArray.keySet()
                 ) {
-            if(mapIntegerBooleanArray.get(Schleifenobjekt).iMengeanWertendesTypsTrue()==arrTextfields_Input.length){
-                PositionenSpeicher.add(Schleifenobjekt);
+            if(mapIntegerBooleanArray.get(loop_objekt).iMengeanWertendesTypsTrue()==arrTextfields_Input.length){
+                PositionenSpeicher.add(loop_objekt);
             }
         }
 
@@ -380,7 +381,7 @@ public class c_Schueler_Frame_Input extends JFrame {
 
 
         /*
-        Pruefung auf Integer, und, ob der Schueler in das Projekt rein darf!!!
+        Pruefung auf Integer, und, ob der pupils in das Projekt rein darf!!!
 
          */
 
@@ -388,10 +389,10 @@ public class c_Schueler_Frame_Input extends JFrame {
         return  lRueckgabeWerte;
     }
 
-    public void update_der_Daten(  cArrayListErweitertSchueler list_Schueler_Main) {
+    public void update_der_Daten(  cArrayListErweitertpupils list_pupils_Main) {
 
 
-        list_Schueler_Main.clear();
+        list_pupils_Main.clear();
 
 
 
@@ -400,16 +401,16 @@ public class c_Schueler_Frame_Input extends JFrame {
 
         ArrayList <Integer> ZwischenspeicherWertePruefung= this.WertePruefung();
 
-        int [] [] arrSchuelerpraeferenzen= new int [ZwischenspeicherWertePruefung.size()][cSchueler.iMaximalanzahl_Projekte];
+        int [] [] arrpupilspraeferenzen= new int [ZwischenspeicherWertePruefung.size()][cpupils.iMaximalanzahl_Projekte];
 
-        CopyOnWriteArrayList<ArrayList<Integer> > listSchuelerwerte= new CopyOnWriteArrayList<>();
+        CopyOnWriteArrayList<ArrayList<Integer> > listpupilswerte= new CopyOnWriteArrayList<>();
 
 
         for (int i = 0; i < ZwischenspeicherWertePruefung.size(); i++) {
-            listSchuelerwerte.add(new ArrayList<>());
+            listpupilswerte.add(new ArrayList<>());
             for (int k = 3; k < arrTextfields_Input.length; k++) {
                 try {
-                    listSchuelerwerte.get(i).add(Integer.valueOf(arrTextfields_Input[k][ZwischenspeicherWertePruefung.get(i)].getText()));
+                    listpupilswerte.get(i).add(Integer.valueOf(arrTextfields_Input[k][ZwischenspeicherWertePruefung.get(i)].getText()));
                 } catch (NumberFormatException e) {
 
                     /*
@@ -422,28 +423,28 @@ public class c_Schueler_Frame_Input extends JFrame {
 
 
         /*
-        for(int i=0;i<listSchuelerwerte.size();i++){
-            for(int k=0;k<cSchueler.iMaximalanzahl_Projekte;k++){
-                arrSchuelerpraeferenzen[i][k]= listSchuelerwerte.get(i).get(k);
+        for(int i=0;i<listpupilswerte.size();i++){
+            for(int k=0;k<cpupils.iMaximalanzahl_Projekte;k++){
+                arrpupilspraeferenzen[i][k]= listpupilswerte.get(i).get(k);
             }
         }
         */
 
 
-        for(int i=0;i<listSchuelerwerte.size();i++) {
+        for(int i=0;i<listpupilswerte.size();i++) {
 
-            cSchueler obj_zu_Erzeugend = new cSchueler(arrTextfields_Input[0][ZwischenspeicherWertePruefung.get(i)].getText(),arrTextfields_Input[1][ZwischenspeicherWertePruefung.get(i)].getText(), -1, arrSchuelerpraeferenzen[i], arrTextfields_Input[2][ZwischenspeicherWertePruefung.get(i)].getText());
+            cpupils obj_zu_Erzeugend = new cpupils(arrTextfields_Input[0][ZwischenspeicherWertePruefung.get(i)].getText(),arrTextfields_Input[1][ZwischenspeicherWertePruefung.get(i)].getText(), -1, arrpupilspraeferenzen[i], arrTextfields_Input[2][ZwischenspeicherWertePruefung.get(i)].getText());
 
 
-            for ( cSchueler Schleifenobjekt:list_Schueler_Main
+            for ( cpupils loop_objekt:list_pupils_Main
                  ) {
-                if(Schleifenobjekt.sIdentifikation.equals(obj_zu_Erzeugend.sIdentifikation)){
-                   list_Schueler_Main.remove(Schleifenobjekt);
+                if(loop_objekt.sIdentifikation.equals(obj_zu_Erzeugend.sIdentifikation)){
+                   list_pupils_Main.remove(loop_objekt);
                     break;
                 }
             }
 
-            list_Schueler_Main.add(obj_zu_Erzeugend);
+            list_pupils_Main.add(obj_zu_Erzeugend);
         }
 
     }
@@ -453,11 +454,11 @@ public class c_Schueler_Frame_Input extends JFrame {
 
     public void update_des_Interface( cDatabaseManager objDatabase) throws SQLException {
 
-        ResultSet set_entrys= objDatabase.read_entrys("schueler");
+        ResultSet set_entrys= objDatabase.read_entrys("pupils");
         int iRowCounter=0;
         while (set_entrys.next()){
-            arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(2));
-            arrTextfields_Input[1][iRowCounter].setText(set_entrys.getString(3));
+            arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(3));
+            arrTextfields_Input[1][iRowCounter].setText(set_entrys.getString(2));
             arrTextfields_Input[2][iRowCounter].setText(set_entrys.getString(4));
             arrTextfields_Input[3][iRowCounter].setText(set_entrys.getString(5));
             arrTextfields_Input[4][iRowCounter].setText(set_entrys.getString(6));
@@ -471,17 +472,6 @@ public class c_Schueler_Frame_Input extends JFrame {
             iRowCounter++;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

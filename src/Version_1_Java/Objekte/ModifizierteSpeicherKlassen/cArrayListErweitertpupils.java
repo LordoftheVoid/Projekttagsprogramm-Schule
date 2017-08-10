@@ -1,27 +1,27 @@
 package Version_1_Java.Objekte.ModifizierteSpeicherKlassen;
 
-import Version_1_Java.Objekte.cSchueler;
+import Version_1_Java.Objekte.cpupils;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Aaron on 09.04.2017.
  */
-public class cArrayListErweitertSchueler extends CopyOnWriteArrayList<cSchueler> {
+public class cArrayListErweitertpupils extends CopyOnWriteArrayList<cpupils> {
 
 
 
         public int SummeProjektwerteueberListe(){
         int sum=0;
-            for (cSchueler SchleifenObjekt:this
+            for (cpupils loop_objekt:this
                  ) {
-                sum=sum+SchleifenObjekt.iPraeferenznummer_zugewiesenesProjekt;
+                sum=sum+loop_objekt.iPraeferenznummer_zugewiesenesProjekt;
             }
         return sum;
         }
 
 
-        public int AnzahlSchuelerOhneProjekt(){
+        public int AnzahlpupilsOhneProjekt(){
             return this.size();
         }
 
@@ -65,7 +65,7 @@ public class cArrayListErweitertSchueler extends CopyOnWriteArrayList<cSchueler>
 
                         case Klasse:
                             if(this.get(iAbtastposition_1).iStufe>this.get(iAbtastposition_2).iStufe){
-                                cSchueler iZwischenspeicher= this.get(iAbtastposition_2);
+                                cpupils iZwischenspeicher= this.get(iAbtastposition_2);
                                 this.set(iAbtastposition_2,this.get(iAbtastposition_1));
                                 this.set(iAbtastposition_1,iZwischenspeicher);
                                 bsortiert = false;
@@ -110,14 +110,14 @@ public class cArrayListErweitertSchueler extends CopyOnWriteArrayList<cSchueler>
 
         String sReturnwert="";
 
-        for (cSchueler Schleifenobjekt:this
+        for (cpupils loop_objekt:this
                 ) {
-            sReturnwert=sReturnwert+Schleifenobjekt.sVorname;
-            sReturnwert=sReturnwert+" "+Schleifenobjekt.sNachname;
-            sReturnwert=sReturnwert+" "+Schleifenobjekt.sKlassenstufe_mit_Buchstaben;
+            sReturnwert=sReturnwert+loop_objekt.sVorname;
+            sReturnwert=sReturnwert+" "+loop_objekt.sNachname;
+            sReturnwert=sReturnwert+" "+loop_objekt.sKlassenstufe_mit_Buchstaben;
 
-            for(int i=0;i<cSchueler.iMaximalanzahl_Projekte;i++){
-                sReturnwert=sReturnwert+" "+Schleifenobjekt.arrPraeferenzen[i]+" ";
+            for(int i=0;i<cpupils.iMaximalanzahl_Projekte;i++){
+                sReturnwert=sReturnwert+" "+loop_objekt.arrPraeferenzen[i]+" ";
             }
         }
 

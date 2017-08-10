@@ -16,19 +16,19 @@ public class cArrayListErweitertProjekte extends CopyOnWriteArrayList<cProjekt> 
 
         String sReturnwert="";
 
-        for (cProjekt Schleifenobjekt:this
+        for (cProjekt loop_objekt:this
                 ) {
-            sReturnwert=sReturnwert+Schleifenobjekt.iProjektnummer;
-            sReturnwert=sReturnwert+" "+Schleifenobjekt.sLehrerkuerzel;
-            sReturnwert=sReturnwert+" "+Schleifenobjekt.iMaximaleSchueleranzahl+" ";
+            sReturnwert=sReturnwert+loop_objekt.iProjektnummer;
+            sReturnwert=sReturnwert+" "+loop_objekt.sLehrerkuerzel;
+            sReturnwert=sReturnwert+" "+loop_objekt.iMaximalepupilsanzahl+" ";
 
 
 
             /*
 
             Output inklusive Stufenbegrenzung
-            sReturnwert=sReturnwert+" "+String.valueOf(Schleifenobjekt.arrAufStufenVonBisBegrenzt[0]);
-            sReturnwert=sReturnwert+" "+String.valueOf(+Schleifenobjekt.arrAufStufenVonBisBegrenzt[Schleifenobjekt.arrAufStufenVonBisBegrenzt.length-1])+" ";
+            sReturnwert=sReturnwert+" "+String.valueOf(loop_objekt.arrAufStufenVonBisBegrenzt[0]);
+            sReturnwert=sReturnwert+" "+String.valueOf(+loop_objekt.arrAufStufenVonBisBegrenzt[loop_objekt.arrAufStufenVonBisBegrenzt.length-1])+" ";
                 */
         }
         return sReturnwert;

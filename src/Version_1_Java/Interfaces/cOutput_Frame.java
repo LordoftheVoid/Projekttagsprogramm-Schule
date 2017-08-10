@@ -1,9 +1,9 @@
 package Version_1_Java.Interfaces;
 
 
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjekteSchuelerListe;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
 import Version_1_Java.Objekte.cProjekt;
-import Version_1_Java.Objekte.cSchueler;
+import Version_1_Java.Objekte.cpupils;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class cOutput_Frame extends JFrame {
 
 
 
-    public void Darstellung_der_Schueler(cErweiterteHashMapProjekteSchuelerListe objSpeicherLoesung){
+    public void Darstellung_der_pupils(cErweiterteHashMapProjektepupilsListe objSpeicherLoesung){
 
         arrFelderOutput = new JTextField[4][objSpeicherLoesung.iLaengeallerListen()];
         for(int i_x=0; i_x< arrFelderOutput.length;i_x++){
@@ -34,11 +34,11 @@ public class cOutput_Frame extends JFrame {
 
         }
 
-        ArrayList <cSchueler> listSchueler= new ArrayList<>();
+        ArrayList <cpupils> listpupils= new ArrayList<>();
 
-        for (cProjekt Schleifenobjekt:objSpeicherLoesung.keySet()
+        for (cProjekt loop_objekt:objSpeicherLoesung.keySet()
                 ) {
-           listSchueler.addAll(objSpeicherLoesung.get(Schleifenobjekt));
+           listpupils.addAll(objSpeicherLoesung.get(loop_objekt));
         }
 
 
@@ -46,19 +46,19 @@ public class cOutput_Frame extends JFrame {
             for (int k_y=0;k_y<arrFelderOutput[i_x].length;k_y++){
                 switch (i_x){
                     case 0:
-                        arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).sVorname);
+                        arrFelderOutput[i_x][k_y].setText(listpupils.get(k_y).sVorname);
                         break;
                     case 1:
-                        arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).sNachname);
+                        arrFelderOutput[i_x][k_y].setText(listpupils.get(k_y).sNachname);
                         break;
                     case 2:
-                        arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).sKlassenstufe_mit_Buchstaben);
+                        arrFelderOutput[i_x][k_y].setText(listpupils.get(k_y).sKlassenstufe_mit_Buchstaben);
                         break;
                     case 3:
                         try {
-                            arrFelderOutput[i_x][k_y].setText(listSchueler.get(k_y).Zugewiesenes_Projekt.sLehrerkuerzel);
+                            arrFelderOutput[i_x][k_y].setText(listpupils.get(k_y).Zugewiesenes_Projekt.sLehrerkuerzel);
                         }catch (NullPointerException e_1){
-                            arrFelderOutput[i_x][k_y].setText("Dieser Schueler hat kein Projekt!");
+                            arrFelderOutput[i_x][k_y].setText("Dieser pupils hat kein Projekt!");
                         }
                         break;
                 }
@@ -71,7 +71,7 @@ public class cOutput_Frame extends JFrame {
 
 
         this.setBounds(1500,500,500,500);
-        this.setTitle("Zuordnung der Schueler zu Projekten  ");
+        this.setTitle("Zuordnung der pupils zu Projekten  ");
 
         this.getContentPane().setLayout(null);
 

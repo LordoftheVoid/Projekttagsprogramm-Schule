@@ -10,11 +10,11 @@ public class cDatabaseManager {
     public Connection Datenbankverbindung;
 
 
-
     PreparedStatement insertInto;
 
     PreparedStatement update_Entry;
 
+    PreparedStatement delete_Entry;
 
     public void initialisierung() throws SQLException {
         try {
@@ -47,15 +47,24 @@ public class cDatabaseManager {
 
     }
 
-    public void update_entry (String table, String old_unique_ID, String colum, String value) throws SQLException {
-
+    public void update_entry (String table, String unique_ID, String colum, String value) throws SQLException {
         update_Entry= Datenbankverbindung.prepareStatement("UPDATE "+table+" SET "+ colum +" = '"+value+"' WHERE unique_id= ?");
-
-        update_Entry.setString(1,old_unique_ID);
+        update_Entry.setString(1,unique_ID);
         update_Entry.executeUpdate();
 
-
     }
+
+
+
+
+    public void delete_entry (String table, String unique_ID) throws SQLException {
+        delete_Entry= Datenbankverbindung.prepareStatement("DELETE FROM "+table+" WHERE unique_id= ?");
+        delete_Entry.setString(1,unique_ID);
+        delete_Entry.executeUpdate();
+    }
+
+
+
 
     public int i_Reihenmenge_in_Datenbank(String table) throws SQLException {
             PreparedStatement row_count = Datenbankverbindung.prepareStatement("SELECT COUNT(*) FROM "+table);

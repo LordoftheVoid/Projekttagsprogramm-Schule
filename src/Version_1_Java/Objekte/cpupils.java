@@ -3,7 +3,7 @@ package Version_1_Java.Objekte;
 /**
  * Created by Aaron on 29.03.2017.
  */
-public class cSchueler {
+public class cpupils {
 
 
 
@@ -34,7 +34,12 @@ public class cSchueler {
     public int iPraeferenznummer_zugewiesenesProjekt=0;
 
 
-    public cSchueler(String sVorname, String sNachname, int iStufe_uebergeben, int[] arrPraeferenzargumente, String sKlasse_mit_Buchstaben ){
+    public cpupils(String sNachname, String sVorname) {
+        this.sVorname = sVorname;
+        this.sNachname = sNachname;
+    }
+
+    public cpupils(String sVorname, String sNachname, int iStufe_uebergeben, int[] arrPraeferenzargumente, String sKlasse_mit_Buchstaben ){
 
         this.sKlassenstufe_mit_Buchstaben=sKlasse_mit_Buchstaben;
         this.sVorname=sVorname;
@@ -81,7 +86,7 @@ public class cSchueler {
 
 
 
-    public cSchueler(cSchueler arg){
+    public cpupils(cpupils arg){
 
         this.sKlassenstufe_mit_Buchstaben=arg.sKlassenstufe_mit_Buchstaben;
         this.sVorname=arg.sVorname;

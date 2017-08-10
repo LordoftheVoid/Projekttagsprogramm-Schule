@@ -9,7 +9,7 @@ public class cProjekt {
     Statischer Speicher sowie Konstruktor
      */
 
-    public  final int iMaximaleSchueleranzahl;
+    public  final int iMaximalepupilsanzahl;
 
 
     public String sLehrerkuerzel;
@@ -22,25 +22,25 @@ public class cProjekt {
     public String sIdentifikation;
 
 
-    public cProjekt(String sLehrerkuerzel_uebergeben, int iProjektnummer_uebergeben, int iMaximaleSchueleranzahl_uebergeben){
+    public cProjekt(String sLehrerkuerzel_uebergeben, int iProjektnummer_uebergeben, int iMaximalepupilsanzahl_uebergeben){
 
         this.sLehrerkuerzel=sLehrerkuerzel_uebergeben;
 
         this.iProjektnummer=iProjektnummer_uebergeben;
 
-        this.iMaximaleSchueleranzahl=iMaximaleSchueleranzahl_uebergeben;
+        this.iMaximalepupilsanzahl=iMaximalepupilsanzahl_uebergeben;
 
 
         sIdentifikation= sLehrerkuerzel_uebergeben+String.valueOf(iProjektnummer_uebergeben);
     }
 
 
-    public int iteilnehmendeSchueler=0;
+    public int iteilnehmendepupils=0;
 
 
 
     public void reset(){
-      this.iteilnehmendeSchueler=0;
+      this.iteilnehmendepupils=0;
       this.bvoll=false;
     }
 
