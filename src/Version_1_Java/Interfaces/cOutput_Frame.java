@@ -69,12 +69,10 @@ public class cOutput_Frame extends JFrame {
 
     public cOutput_Frame(){
 
-
         this.setBounds(1500,500,500,500);
         this.setTitle("Zuordnung der pupils zu Projekten  ");
 
         this.getContentPane().setLayout(null);
-
 
 
         for (int i_x=0;i_x<arrFelderMenue.length;i_x++){

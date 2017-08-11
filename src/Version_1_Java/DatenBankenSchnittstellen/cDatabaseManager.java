@@ -41,9 +41,7 @@ public class cDatabaseManager {
 
        insertInto = Datenbankverbindung.prepareStatement("INSERT INTO "+table+"  (unique_id) VALUES (?)");
        insertInto.setString(1,unique_id);
-
        insertInto.executeUpdate();
-
 
     }
 
