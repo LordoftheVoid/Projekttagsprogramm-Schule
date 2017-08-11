@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Created by Aaron on 09.04.2017.
  */
 public class cArrayListErweitertpupils extends CopyOnWriteArrayList<cpupils> {
-
+/*
 
 
         public int SummeProjektwerteueberListe(){
@@ -116,7 +116,7 @@ public class cArrayListErweitertpupils extends CopyOnWriteArrayList<cpupils> {
             sReturnwert=sReturnwert+" "+loop_objekt.sNachname;
             sReturnwert=sReturnwert+" "+loop_objekt.sKlassenstufe_mit_Buchstaben;
 
-            for(int i=0;i<cpupils.iMaximalanzahl_Projekte;i++){
+            for(int i = 0; i< cpupils.iMaximalanzahl_Projekte; i++){
                 sReturnwert=sReturnwert+" "+loop_objekt.arrPraeferenzen[i]+" ";
             }
         }
@@ -127,6 +127,6 @@ public class cArrayListErweitertpupils extends CopyOnWriteArrayList<cpupils> {
 
 
 
-
+    */
 
 }

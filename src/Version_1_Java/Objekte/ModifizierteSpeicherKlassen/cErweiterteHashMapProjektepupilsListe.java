@@ -1,17 +1,15 @@
 package Version_1_Java.Objekte.ModifizierteSpeicherKlassen;
 
 import Version_1_Java.Objekte.cProjekt;
-import Version_1_Java.Objekte.cpupils;
 
-import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Aaron on 14.04.2017.
  */
 public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cArrayListErweitertpupils>  {
 
-
+/*
 
 
     cArrayListErweitertpupils listpupilsohneProjekte= new cArrayListErweitertpupils();
@@ -52,9 +50,7 @@ public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cAr
 
 
 
-
     public void Erstellung ( cArrayListErweitertpupils objListpupils_Main){
-
 
 
        CopyOnWriteArrayList <cpupils> objListpupils_Methode= new CopyOnWriteArrayList<>();
@@ -130,7 +126,7 @@ public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cAr
         }
     }
 
-
+*/
 }
 
 

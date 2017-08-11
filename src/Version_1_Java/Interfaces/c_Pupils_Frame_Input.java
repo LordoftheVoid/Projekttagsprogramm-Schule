@@ -1,8 +1,6 @@
 package Version_1_Java.Interfaces;
 
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertpupils;
-import Version_1_Java.Objekte.cpupils;
 import Version_1_Java.cMain;
 
 import javax.swing.*;
@@ -13,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Aaron on 30.03.2017.
@@ -23,11 +20,11 @@ public class c_Pupils_Frame_Input extends JFrame {
 
 
 
-   static cmodTextField[][] arrTextfields_Input= new cmodTextField[cpupils.iMaximalanzahl_Projekte + 3][200];
+   private static cmodTextField[][] arrTextfields_Input= new cmodTextField[cMain.iMaximalanzahl_Projekte + 3][200];
 
-   static JTextField [] arrTextFields_Menue= new JTextField[cpupils.iMaximalanzahl_Projekte+3];
+   private static JTextField [] arrTextFields_Menue= new JTextField[cMain.iMaximalanzahl_Projekte+3];
 
-    cDatabaseManager Database;
+    // --Commented out by Inspection (11.08.2017 15:26):private cDatabaseManager Database;
 
     /*
 
@@ -35,11 +32,11 @@ public class c_Pupils_Frame_Input extends JFrame {
 
 
      */
-    ArrayList < ArrayList<JTextField> > listFeldersichtbar = new ArrayList<>();
-    ArrayList < ArrayList<JTextField> > listFelderUnsichtbar = new ArrayList<>();
+    private ArrayList < ArrayList<JTextField> > listFeldersichtbar = new ArrayList<>();
+    // --Commented out by Inspection (11.08.2017 15:26):ArrayList < ArrayList<JTextField> > listFelderUnsichtbar = new ArrayList<>();
 
 
-    boolean bAktualisieren=true;
+    // --Commented out by Inspection (11.08.2017 15:26):boolean bAktualisieren=true;
 
 
 
@@ -246,7 +243,7 @@ public class c_Pupils_Frame_Input extends JFrame {
 
     }
 
-    public  static void Suche (String arrStrings []){
+    private static void Suche(String arrStrings[]){
 
         ArrayList< JTextField []> listArrYX_Anordnung= new ArrayList<>();
         class classarrBoolean{
@@ -315,146 +312,94 @@ public class c_Pupils_Frame_Input extends JFrame {
         }
     }
 
-    public ArrayList<Integer> WertePruefung() {
-        ArrayList<Integer> lRueckgabeWerte = new ArrayList<>();
-
-        int i = 0;
-        boolean bLegitimerWert = true;
-
-        while (i < arrTextfields_Input[0].length) {
-            String sInput = arrTextfields_Input[0][i].getText().trim();
-
-            if (!sInput.equals("")) {
-                for (int k = 0; k < sInput.length(); k++) {
-                    if (Character.isWhitespace(sInput.charAt(k))) {
-                        bLegitimerWert = false;
-                        break;
-                    }
-                }
-            } else {
-                bLegitimerWert = false;
-            }
-
-            if (bLegitimerWert) {
-                lRueckgabeWerte.add(i);
-            }
-            i++;
-        }
-
-        i = 0;
-
-        while (i < lRueckgabeWerte.size()) {
-            String sInput = arrTextfields_Input[1][i].getText().trim();
-            if (!sInput.equals("")) {
-                for (int k = 0; k < sInput.length(); k++) {
-                    if (Character.isWhitespace(sInput.charAt(k))) {
-                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-                        break;
-                    }
-                }
-            } else {
-                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-                break;
-            }
-            i++;
-        }
-
-        i=0;
-
-        while (i < lRueckgabeWerte.size()) {
-            String sInput = arrTextfields_Input[2][i].getText().trim();
-            if (!sInput.equals("")) {
-                for (int k = 0; k < sInput.length(); k++) {
-                    if (Character.isWhitespace(sInput.charAt(k))) {
-                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-                        break;
-                    }
-                }
-            } else {
-                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-                break;
-            }
-            i++;
-        }
 
 
 
 
-        /*
-        Pruefung auf Integer, und, ob der pupils in das Projekt rein darf!!!
+// --Commented out by Inspection START (11.08.2017 15:26):
+//    public ArrayList<Integer> WertePruefung() {
+//        ArrayList<Integer> lRueckgabeWerte = new ArrayList<>();
+//
+//        int i = 0;
+//        boolean bLegitimerWert = true;
+//
+//        while (i < arrTextfields_Input[0].length) {
+//            String sInput = arrTextfields_Input[0][i].getText().trim();
+//
+//            if (!sInput.equals("")) {
+//                for (int k = 0; k < sInput.length(); k++) {
+//                    if (Character.isWhitespace(sInput.charAt(k))) {
+//                        bLegitimerWert = false;
+//                        break;
+//                    }
+//                }
+//            } else {
+//                bLegitimerWert = false;
+//            }
+//
+//            if (bLegitimerWert) {
+//                lRueckgabeWerte.add(i);
+//            }
+//            i++;
+//        }
+//
+//        i = 0;
+//
+//        while (i < lRueckgabeWerte.size()) {
+//            String sInput = arrTextfields_Input[1][i].getText().trim();
+//            if (!sInput.equals("")) {
+//                for (int k = 0; k < sInput.length(); k++) {
+//                    if (Character.isWhitespace(sInput.charAt(k))) {
+//                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                        break;
+//                    }
+//                }
+//            } else {
+//                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                break;
+//            }
+//            i++;
+//        }
+//
+//        i=0;
+//
+//        while (i < lRueckgabeWerte.size()) {
+//            String sInput = arrTextfields_Input[2][i].getText().trim();
+//            if (!sInput.equals("")) {
+//                for (int k = 0; k < sInput.length(); k++) {
+//                    if (Character.isWhitespace(sInput.charAt(k))) {
+//                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                        break;
+//                    }
+//                }
+//            } else {
+//                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                break;
+//            }
+//            i++;
+//        }
+//
+//
+//
+//
+//        /*
+//        Pruefung auf Integer, und, ob der pupils in das Projekt rein darf!!!
+//
+//         */
+//
+//
+//        return  lRueckgabeWerte;
+//    }
+// --Commented out by Inspection STOP (11.08.2017 15:26)
 
-         */
 
-
-        return  lRueckgabeWerte;
-    }
-
-    public void update_der_Daten(  cArrayListErweitertpupils list_pupils_Main) {
-
-
-        list_pupils_Main.clear();
-
-
-
-
-
-
-        ArrayList <Integer> ZwischenspeicherWertePruefung= this.WertePruefung();
-
-        int [] [] arrpupilspraeferenzen= new int [ZwischenspeicherWertePruefung.size()][cpupils.iMaximalanzahl_Projekte];
-
-        CopyOnWriteArrayList<ArrayList<Integer> > listpupilswerte= new CopyOnWriteArrayList<>();
-
-
-        for (int i = 0; i < ZwischenspeicherWertePruefung.size(); i++) {
-            listpupilswerte.add(new ArrayList<>());
-            for (int k = 3; k < arrTextfields_Input.length; k++) {
-                try {
-                    listpupilswerte.get(i).add(Integer.valueOf(arrTextfields_Input[k][ZwischenspeicherWertePruefung.get(i)].getText()));
-                } catch (NumberFormatException e) {
-
-                    /*
-                    Fehlerbehandlung ?
-                     */
-                }
-            }
-
-        }
-
-
-        /*
-        for(int i=0;i<listpupilswerte.size();i++){
-            for(int k=0;k<cpupils.iMaximalanzahl_Projekte;k++){
-                arrpupilspraeferenzen[i][k]= listpupilswerte.get(i).get(k);
-            }
-        }
-        */
-
-
-        for(int i=0;i<listpupilswerte.size();i++) {
-
-            cpupils obj_zu_Erzeugend = new cpupils(arrTextfields_Input[0][ZwischenspeicherWertePruefung.get(i)].getText(),arrTextfields_Input[1][ZwischenspeicherWertePruefung.get(i)].getText(), -1, arrpupilspraeferenzen[i], arrTextfields_Input[2][ZwischenspeicherWertePruefung.get(i)].getText());
-
-
-            for ( cpupils loop_objekt:list_pupils_Main
-                 ) {
-                if(loop_objekt.sIdentifikation.equals(obj_zu_Erzeugend.sIdentifikation)){
-                   list_pupils_Main.remove(loop_objekt);
-                    break;
-                }
-            }
-
-            list_pupils_Main.add(obj_zu_Erzeugend);
-        }
-
-    }
 
 
 
 
     public void update_des_Interface( cDatabaseManager objDatabase) throws SQLException {
 
-        ResultSet set_entrys= objDatabase.read_entrys("pupils");
+        ResultSet set_entrys= objDatabase.read_entrys_all_attributes("pupils");
         int iRowCounter=0;
         while (set_entrys.next()){
             arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(3));
@@ -472,7 +417,6 @@ public class c_Pupils_Frame_Input extends JFrame {
             iRowCounter++;
         }
     }
-
 
 
 }

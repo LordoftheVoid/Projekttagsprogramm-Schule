@@ -2,8 +2,6 @@ package Version_1_Java.Interfaces;
 
 
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertProjekte;
-import Version_1_Java.Objekte.cProjekt;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -20,11 +18,11 @@ import java.util.Objects;
 public class c_Projekt_Frame_Input extends JFrame {
 
 
-    static  cmodTextField[] []arrFelderInput;
-    static JTextField [] arrFelderMenue= new JTextField[3];
+    private static  cmodTextField[] []arrFelderInput;
+    private static JTextField [] arrFelderMenue= new JTextField[3];
 
 
-    cDatabaseManager objDatabaseManager_Input;
+    private cDatabaseManager objDatabaseManager_Input;
 
 
     public c_Projekt_Frame_Input(cDatabaseManager objDatabaseManager_main ) {
@@ -161,7 +159,7 @@ public class c_Projekt_Frame_Input extends JFrame {
 
 
 
-    public  static void Suche (String arrStrings []){
+    private static void Suche(String arrStrings[]){
 
         ArrayList< JTextField []> listArrYX_Anordnung= new ArrayList<>();
         class classarrBoolean{
@@ -230,67 +228,27 @@ public class c_Projekt_Frame_Input extends JFrame {
         }
     }
 
+    public void update_des_Interface( cDatabaseManager objDatabase) throws SQLException {
+
+        ResultSet set_entrys= objDatabase.read_entrys_all_attributes("pupils");
+        int iRowCounter=0;
+        while (set_entrys.next()){
+            arrFelderInput[0][iRowCounter].setText(set_entrys.getString(1));
+            arrFelderInput[1][iRowCounter].setText(set_entrys.getString(2));
+            arrFelderInput[2][iRowCounter].setText(set_entrys.getString(3));
 
 
-
-
-
-
-
-
-
-    public void update_der_Daten(cArrayListErweitertProjekte  list_main) {
-
-
-            list_main.clear();
-
-
-
-                /*
-
-                Wertepruefung
-
-
-                 */
-
-
-
-
-
-                for (int k_y = 0; k_y < arrFelderMenue.length; k_y++) {
-                       try{
-                           list_main.add(new cProjekt(arrFelderInput[1][k_y].getText(),Integer.valueOf(arrFelderInput[0][k_y].getText()),Integer.valueOf(arrFelderInput[2][k_y].getText())));
-                       }catch(NullPointerException | NumberFormatException e_1){
-
-                       }
-                }
-
-
-
-
-        }
-
-
-
-
-
-        public void update_des_Interfaces(cDatabaseManager objDatabase){
-
-            try {
-                ResultSet entrys = objDatabase.read_entrys("projekte");
-
-                int iRowcount=0;
-                while (entrys.next()){
-
-                    arrFelderInput[0][iRowcount].setText(entrys.getString(1));
-                    arrFelderInput[1][iRowcount].setText(entrys.getString(2));
-                    arrFelderInput[2][iRowcount].setText(entrys.getString(3));
-                    iRowcount++;
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            for (int i_x = 0; i_x <  arrFelderInput.length; i_x++) {
+                arrFelderInput[i_x][iRowCounter].sunique_ID_Textfieldrow= set_entrys.getString(1);
+                arrFelderInput[i_x][iRowCounter].bcorrect_unique_ID=true;
             }
-
+            iRowCounter++;
         }
+    }
+
+
+
+
+
 
 }

@@ -7,14 +7,14 @@ import java.sql.*;
  */
 public class cDatabaseManager {
 
-    public Connection Datenbankverbindung;
+    private Connection Datenbankverbindung;
 
 
-    PreparedStatement insertInto;
+    private PreparedStatement insertInto;
 
-    PreparedStatement update_Entry;
+    private PreparedStatement update_Entry;
 
-    PreparedStatement delete_Entry;
+    private PreparedStatement delete_Entry;
 
     public void initialisierung() throws SQLException {
         try {
@@ -28,11 +28,27 @@ public class cDatabaseManager {
 
 
 
-    public ResultSet read_entrys( String table) throws  SQLException{
+    public ResultSet read_entrys_one_attribute( String table, String colum) throws  SQLException{
+        PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT "+colum+" FROM "+table);
+        return  extract_entrys.executeQuery();
+
+    }
+
+
+
+    public ResultSet read_entrys_all_attributes( String table) throws  SQLException{
         PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT * FROM "+table);
         return  extract_entrys.executeQuery();
 
     }
+
+    public ResultSet read_one_entry_one_attribute( String table, String colum, String unique_id) throws  SQLException{
+        PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT "+colum+" FROM "+table +" WHERE unique_id = ?");
+        extract_entrys.setString(1,unique_id);
+        return  extract_entrys.executeQuery();
+
+    }
+
 
 
 
@@ -76,7 +92,7 @@ public class cDatabaseManager {
         PreparedStatement id_check = Datenbankverbindung.prepareStatement("SELECT * FROM "+table+" WHERE unique_id= ? ");
         id_check.setString(1, unique_id);
         ResultSet entrys_with_specific_id =id_check.executeQuery();
-        return  entrys_with_specific_id.next();
+        return !entrys_with_specific_id.next();
     }
 
 }

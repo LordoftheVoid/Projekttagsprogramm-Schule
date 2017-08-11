@@ -1,19 +1,18 @@
 package Version_1_Java;
 
 import Version_1_Java.DateiSchnittstellen.cExcel_Reader;
-import Version_1_Java.DateiSchnittstellen.cOutPutDateiErzeuger;
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
 import Version_1_Java.Interfaces.cOutput_Frame;
 import Version_1_Java.Interfaces.c_Projekt_Frame_Input;
 import Version_1_Java.Interfaces.c_Pupils_Frame_Input;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertProjekte;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertpupils;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
+import Version_1_Java.Objekte.cpupils;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 /**
@@ -26,6 +25,14 @@ public class cMain {
 
     public static  int i_amount_of_pupils_in_database =0;
     public static  int i_amount_of_projekts_in_database =0;
+
+
+    public static final int iMaximalanzahl_Projekte=4;
+
+
+
+
+
 
     public static void main(String args[]) {
 
@@ -61,8 +68,23 @@ public class cMain {
         }
 
 
-        cArrayListErweitertpupils listpupils_in_Programm = new cArrayListErweitertpupils();
-        cArrayListErweitertProjekte listProjekte_in_Programm = new cArrayListErweitertProjekte();
+
+
+
+
+
+
+        /*
+
+            Methode Kalkulation
+         */
+
+
+
+
+
+
+
 
 
         c_Pupils_Frame_Input obj_pupils_Input = new c_Pupils_Frame_Input(objDatabaseManager_main);
@@ -131,8 +153,13 @@ public class cMain {
             public void mouseClicked(MouseEvent e) {
 
                 obj_Projekt_Input.setVisible(true);
-                obj_Projekt_Input.update_der_Daten(listProjekte_in_Programm);
-                obj_Projekt_Input.update_des_Interfaces(objDatabaseManager_main);
+
+
+                try {
+                    obj_Projekt_Input.update_des_Interface(objDatabaseManager_main);
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
 
 
             }
@@ -170,6 +197,92 @@ public class cMain {
                 obj_Output.setEnabled(true);
 
 
+
+                /*
+
+
+
+                Einfach an dieser Stelle die ganzen Daten ziehen
+                 */
+
+
+
+                CopyOnWriteArrayList<cpupils> list_cpupils= new CopyOnWriteArrayList<>();
+
+                ResultSet set_pupils=null;
+                try {
+                    set_pupils= objDatabaseManager_main.read_entrys_one_attribute("pupils","unique_id");
+
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+
+
+                try {
+                    while (set_pupils.next()){
+                        list_cpupils.add(new cpupils(set_pupils.getString(1)));
+                    }
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+
+
+
+        /*
+
+        Kritischer Eintrag bezüglich 4
+         */
+
+
+                String [] arrcolums = new String [4];
+                arrcolums[0]= "pref0";
+                arrcolums[1]= "pref1";
+                arrcolums[2]= "pref2";
+                arrcolums[3]= "pref3";
+
+                for (cpupils loop_object:list_cpupils
+                        ) {
+                    for (int i_x = 0; i_x < loop_object.arrPraeferenzen.length; i_x++) {
+                        ResultSet selected_attribute;
+                        try {
+                            selected_attribute=   objDatabaseManager_main.read_one_entry_one_attribute("pupils", arrcolums[i_x],loop_object.unique_ID);
+                            loop_object.arrPraeferenzen[i_x]= Integer.parseInt(selected_attribute.getString(1));
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                /*
+
                 cErweiterteHashMapProjektepupilsListe[] arrMapspupils = new cErweiterteHashMapProjektepupilsListe[10];
                 cErweiterteHashMapProjektepupilsListe SpeicherBesteLoesung = arrMapspupils[0];
 
@@ -195,6 +308,8 @@ public class cMain {
                 objDateiSchreiber.ExcelDateienschreiben();
 
 
+
+                    */
             }
 
             @Override

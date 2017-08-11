@@ -60,7 +60,7 @@ public class cmodKeyListener_ID implements KeyListener {
                 }
 
                 try {
-                    if (!objDatabaseManager_keyListener.entry_check(this.table, unique_id)) {
+                    if (objDatabaseManager_keyListener.entry_check(this.table, unique_id)) {
                         objDatabaseManager_keyListener.create_entry(this.table, unique_id);
                         for (int i_x = 0; i_x < arrInout_Keylistener.length; i_x++) {
                             arrInout_Keylistener[i_x][objsource.iRow_position].bcorrect_unique_ID = true;
@@ -107,7 +107,7 @@ public class cmodKeyListener_ID implements KeyListener {
 
             }else {
                 try {
-                    if (!objDatabaseManager_keyListener.entry_check(this.table, objsource.getText())) {
+                    if (objDatabaseManager_keyListener.entry_check(this.table, objsource.getText())) {
                         objDatabaseManager_keyListener.create_entry(this.table, objsource.getText());
                         for (int i_x = 0; i_x < arrInout_Keylistener.length; i_x++) {
                             arrInout_Keylistener[i_x][objsource.iRow_position].bcorrect_unique_ID = true;

@@ -1,12 +1,7 @@
 package Version_1_Java.Interfaces;
 
 
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
-import Version_1_Java.Objekte.cProjekt;
-import Version_1_Java.Objekte.cpupils;
-
 import javax.swing.*;
-import java.util.ArrayList;
 
 /**
  * Created by Aaron on 30.03.2017.
@@ -14,7 +9,7 @@ import java.util.ArrayList;
 public class cOutput_Frame extends JFrame {
 
 
-
+/*
 
     JTextField[] []arrFelderOutput;
     JTextField [][] arrFelderMenue= new JTextField[4][1];
@@ -23,7 +18,7 @@ public class cOutput_Frame extends JFrame {
 
     public void Darstellung_der_pupils(cErweiterteHashMapProjektepupilsListe objSpeicherLoesung){
 
-        arrFelderOutput = new JTextField[4][objSpeicherLoesung.iLaengeallerListen()];
+      //  arrFelderOutput = new JTextField[4][objSpeicherLoesung.iLaengeallerListen()];
         for(int i_x=0; i_x< arrFelderOutput.length;i_x++){
             for (int k_y=0;k_y<arrFelderOutput[i_x].length;k_y++){
                 arrFelderOutput[i_x][k_y]= new JTextField();
@@ -105,4 +100,5 @@ public class cOutput_Frame extends JFrame {
             }
         }
     }
+    */
 }

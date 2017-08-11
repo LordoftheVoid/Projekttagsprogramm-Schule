@@ -1,24 +1,11 @@
 package Version_1_Java.DateiSchnittstellen;
 
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
-import Version_1_Java.Objekte.cProjekt;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Formatter;
-
 /**
  * Created by Aaron on 13.04.2017.
  */
 public class cOutPutDateiErzeuger  {
 
-
+/*
     cErweiterteHashMapProjektepupilsListe objSpeicher;
 
 
@@ -28,7 +15,6 @@ public class cOutPutDateiErzeuger  {
         this.objSpeicher=argMap;
 
     }
-
 
 
     public void DateiSchreiben(String sOutput, String sDateiName){
@@ -113,5 +99,5 @@ public class cOutPutDateiErzeuger  {
                     }
             }
     }
-
+*/
 }
