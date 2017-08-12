@@ -7,7 +7,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Created by Aaron on 09.04.2017.
  */
-public class cArrayListErweitertpupils extends CopyOnWriteArrayList<cpupils> {
+public class c_Array_List_extended_pupils extends CopyOnWriteArrayList<cpupils> {
 
 
 

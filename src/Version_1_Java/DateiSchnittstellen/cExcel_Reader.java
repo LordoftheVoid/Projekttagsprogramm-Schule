@@ -19,8 +19,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class cExcel_Reader {
 
 
-   public cExcel_Reader(cDatabaseManager objDatabaseManager_Main){
-        this.objDatabaseManager_Reader=objDatabaseManager_Main;
+   public cExcel_Reader(cDatabaseManager obj_tm_DatabaseManager_Main){
+        this.objDatabaseManager_Reader=obj_tm_DatabaseManager_Main;
     }
 
 
@@ -34,9 +34,9 @@ public class cExcel_Reader {
    public  CopyOnWriteArrayList<cpupils> list_of_pupils_from_files= new CopyOnWriteArrayList<>();
 
 
-    public  CopyOnWriteArrayList<String> filename_search_xls(String starting_directory)  {
+    public  CopyOnWriteArrayList<String> list_search_for_xls_Files(String s_tm_starting_directory)  {
 
-        File file_initial_file = new File(String.valueOf(starting_directory));
+        File file_initial_file = new File(String.valueOf(s_tm_starting_directory));
 
         File [] arr_files_in_subdirectory = file_initial_file.listFiles();
 
@@ -45,7 +45,7 @@ public class cExcel_Reader {
         if (arr_files_in_subdirectory != null) {
             for (File fil : arr_files_in_subdirectory) {
                 if (fil.isDirectory()) {
-                    files_found_subdirectory.addAll(filename_search_xls(fil.getAbsolutePath()));
+                    files_found_subdirectory.addAll(list_search_for_xls_Files(fil.getAbsolutePath()));
                 } else {
                     files_found_subdirectory.add(fil.getAbsolutePath());
                 }
@@ -97,7 +97,7 @@ public class cExcel_Reader {
 
     }
 
-    public void update_Database_from_list (){
+    public void v_update_Database_from_list(){
 
         for (cpupils loop_opject:list_of_pupils_from_files
              ) {

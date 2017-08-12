@@ -1,7 +1,7 @@
 package Version_1_Java.Interfaces;
 
 
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
 import Version_1_Java.Objekte.cProjekt;
 import Version_1_Java.Objekte.cpupils;
 
@@ -21,7 +21,7 @@ public class cOutput_Frame extends JFrame {
 
 
 
-    public void Darstellung_der_pupils(cErweiterteHashMapProjektepupilsListe objSpeicherLoesung){
+    public void Darstellung_der_pupils(c_Hashmap_pupils_to_List_extended objSpeicherLoesung){
 
         arrFelderOutput = new JTextField[4][objSpeicherLoesung.iLaengeallerListen()];
         for(int i_x=0; i_x< arrFelderOutput.length;i_x++){

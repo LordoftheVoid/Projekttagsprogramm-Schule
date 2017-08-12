@@ -1,6 +1,6 @@
 package Version_1_Java.DateiSchnittstellen;
 
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
 import Version_1_Java.Objekte.cProjekt;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -19,11 +19,11 @@ import java.util.Formatter;
 public class cOutPutDateiErzeuger  {
 
 
-    cErweiterteHashMapProjektepupilsListe objSpeicher;
+    c_Hashmap_pupils_to_List_extended objSpeicher;
 
 
 
-    public cOutPutDateiErzeuger(cErweiterteHashMapProjektepupilsListe argMap) {
+    public cOutPutDateiErzeuger(c_Hashmap_pupils_to_List_extended argMap) {
 
         this.objSpeicher=argMap;
 

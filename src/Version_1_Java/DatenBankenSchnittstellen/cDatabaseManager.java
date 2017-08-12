@@ -16,7 +16,7 @@ public class cDatabaseManager {
 
     PreparedStatement delete_Entry;
 
-    public void initialisierung() throws SQLException {
+    public void v_initialization() throws SQLException {
         try {
             Datenbankverbindung= DriverManager.getConnection("jdbc:sqlite:C:/Informatik/Projekte/Projekttagprogramm Schule/Schueler_Datenbank_V1.db");
         } catch (SQLException e) {

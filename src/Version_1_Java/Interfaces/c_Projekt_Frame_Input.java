@@ -2,8 +2,6 @@ package Version_1_Java.Interfaces;
 
 
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertProjekte;
-import Version_1_Java.Objekte.cProjekt;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -27,9 +25,9 @@ public class c_Projekt_Frame_Input extends JFrame {
     cDatabaseManager objDatabaseManager_Input;
 
 
-    public c_Projekt_Frame_Input(cDatabaseManager objDatabaseManager_main ) {
+    public c_Projekt_Frame_Input(cDatabaseManager obj_tm_DatabaseManager_Main ) {
 
-        objDatabaseManager_Input = objDatabaseManager_main;
+        objDatabaseManager_Input = obj_tm_DatabaseManager_Main;
 
 
         JTextField[] arrSuchmaskenMenue = new JTextField[3];
@@ -238,46 +236,10 @@ public class c_Projekt_Frame_Input extends JFrame {
 
 
 
-
-    public void update_der_Daten(cArrayListErweitertProjekte  list_main) {
-
-
-            list_main.clear();
-
-
-
-                /*
-
-                Wertepruefung
-
-
-                 */
-
-
-
-
-
-                for (int k_y = 0; k_y < arrFelderMenue.length; k_y++) {
-                       try{
-                           list_main.add(new cProjekt(arrFelderInput[1][k_y].getText(),Integer.valueOf(arrFelderInput[0][k_y].getText()),Integer.valueOf(arrFelderInput[2][k_y].getText())));
-                       }catch(NullPointerException | NumberFormatException e_1){
-
-                       }
-                }
-
-
-
-
-        }
-
-
-
-
-
-        public void update_des_Interfaces(cDatabaseManager objDatabase){
+        public void v_update_Frame_from_Database(){
 
             try {
-                ResultSet entrys = objDatabase.read_entrys("projekte");
+                ResultSet entrys = objDatabaseManager_Input.read_entrys("projekte");
 
                 int iRowcount=0;
                 while (entrys.next()){

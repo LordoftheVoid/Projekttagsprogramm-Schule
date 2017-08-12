@@ -9,24 +9,24 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Created by Aaron on 14.04.2017.
  */
-public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cArrayListErweitertpupils>  {
+public class c_Hashmap_pupils_to_List_extended extends HashMap<cProjekt, c_Array_List_extended_pupils>  {
 
 
 
 
-    cArrayListErweitertpupils listpupilsohneProjekte= new cArrayListErweitertpupils();
+    c_Array_List_extended_pupils listpupilsohneProjekte= new c_Array_List_extended_pupils();
 
 
 
-    public cErweiterteHashMapProjektepupilsListe(cArrayListErweitertProjekte listProjekte) {
+    public c_Hashmap_pupils_to_List_extended(c_Array_List_extended_projekts listProjekte) {
 
         for (cProjekt loop_objekt:listProjekte
              ) {
-            this.put(loop_objekt, new cArrayListErweitertpupils());
+            this.put(loop_objekt, new c_Array_List_extended_pupils());
         }
     }
 
-    public cArrayListErweitertpupils getListpupilsohneProjekte() {
+    public c_Array_List_extended_pupils getListpupilsohneProjekte() {
         return listpupilsohneProjekte;
     }
 
@@ -53,7 +53,7 @@ public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cAr
 
 
 
-    public void Erstellung ( cArrayListErweitertpupils objListpupils_Main){
+    public void Erstellung ( c_Array_List_extended_pupils objListpupils_Main){
 
 
 

@@ -6,9 +6,9 @@ import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
 import Version_1_Java.Interfaces.cOutput_Frame;
 import Version_1_Java.Interfaces.c_Projekt_Frame_Input;
 import Version_1_Java.Interfaces.c_Pupils_Frame_Input;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertProjekte;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cArrayListErweitertpupils;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.cErweiterteHashMapProjektepupilsListe;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Array_List_extended_projekts;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Array_List_extended_pupils;
+import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -29,66 +29,66 @@ public class cMain {
 
     public static void main(String args[]) {
 
-        cDatabaseManager objDatabaseManager_main = new cDatabaseManager();
+        cDatabaseManager obj_Database_manager_Main = new cDatabaseManager();
 
         try {
-            objDatabaseManager_main.initialisierung();
+            obj_Database_manager_Main.v_initialization();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-        cExcel_Reader objExcelReader = new cExcel_Reader(objDatabaseManager_main);
+        cExcel_Reader obj_File_Reader_Excel = new cExcel_Reader(obj_Database_manager_Main);
 
-        objExcelReader.list_of_filenames_with_xls =  objExcelReader.filename_search_xls("C:/Informatik/Html");
+        obj_File_Reader_Excel.list_of_filenames_with_xls =  obj_File_Reader_Excel.list_search_for_xls_Files("C:/Informatik/Html");
 
 
-        for ( String loop_objekt:objExcelReader.list_of_filenames_with_xls
+        for ( String loop_objekt_s:obj_File_Reader_Excel.list_of_filenames_with_xls
              ) {
-            objExcelReader.read_file_extracting_pupils(loop_objekt);
+            obj_File_Reader_Excel.read_file_extracting_pupils(loop_objekt_s);
         }
 
-        objExcelReader.update_Database_from_list();
+        obj_File_Reader_Excel.v_update_Database_from_list();
 
 
 
 
         try {
-            i_amount_of_pupils_in_database = objDatabaseManager_main.i_Reihenmenge_in_Datenbank("pupils");
-            i_amount_of_projekts_in_database = objDatabaseManager_main.i_Reihenmenge_in_Datenbank("projekte");
+            i_amount_of_pupils_in_database = obj_Database_manager_Main.i_Reihenmenge_in_Datenbank("pupils");
+            i_amount_of_projekts_in_database = obj_Database_manager_Main.i_Reihenmenge_in_Datenbank("projekte");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-        cArrayListErweitertpupils listpupils_in_Programm = new cArrayListErweitertpupils();
-        cArrayListErweitertProjekte listProjekte_in_Programm = new cArrayListErweitertProjekte();
+        c_Array_List_extended_pupils listpupils_in_Programm = new c_Array_List_extended_pupils();
+        c_Array_List_extended_projekts listProjekte_in_Programm = new c_Array_List_extended_projekts();
 
 
-        c_Pupils_Frame_Input obj_pupils_Input = new c_Pupils_Frame_Input(objDatabaseManager_main);
-        c_Projekt_Frame_Input obj_Projekt_Input = new c_Projekt_Frame_Input(objDatabaseManager_main);
+        c_Pupils_Frame_Input obj_pupils_Input = new c_Pupils_Frame_Input(obj_Database_manager_Main);
+        c_Projekt_Frame_Input obj_Projekt_Input = new c_Projekt_Frame_Input(obj_Database_manager_Main);
         cOutput_Frame obj_Output = new cOutput_Frame();
 
 
-        JFrame obj_Main_Frame = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
-        obj_Main_Frame.setVisible(true);
-        obj_Main_Frame.setBounds(0, 0, 1000, 1000);
-        obj_Main_Frame.getContentPane().setLayout(null);
+        JFrame obj_Frame_Main = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
+        obj_Frame_Main.setVisible(true);
+        obj_Frame_Main.setBounds(0, 0, 1000, 1000);
+        obj_Frame_Main.getContentPane().setLayout(null);
 
 
-        JButton Button_pupils_Frame_Aktivierung = new JButton("pupils-Eingabe-Feld aufrufen");
-        Button_pupils_Frame_Aktivierung.setVisible(true);
-        Button_pupils_Frame_Aktivierung.setBounds(0, 0, 300, 300);
-        obj_Main_Frame.getContentPane().add(Button_pupils_Frame_Aktivierung);
+        JButton btn_pupils_Frame = new JButton("Schüler-Eingabe-Feld aufrufen");
+        btn_pupils_Frame.setVisible(true);
+        btn_pupils_Frame.setBounds(0, 0, 300, 300);
+        obj_Frame_Main.getContentPane().add(btn_pupils_Frame);
 
-        Button_pupils_Frame_Aktivierung.addMouseListener(new MouseListener() {
+        btn_pupils_Frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 obj_pupils_Input.setVisible(true);
                 obj_pupils_Input.setEnabled(true);
 
                 try {
-                    obj_pupils_Input.update_des_Interface(objDatabaseManager_main);
+                    obj_pupils_Input.v_update_Frame_from_Database();
                 } catch (SQLException e1) {
                     e1.printStackTrace();
 
@@ -121,18 +121,17 @@ public class cMain {
         });
 
 
-        JButton Button_Projekt_Frame_Aktivierung = new JButton("Projekt-Eingabe-Feld aufrufen");
-        Button_Projekt_Frame_Aktivierung.setVisible(true);
-        Button_Projekt_Frame_Aktivierung.setBounds(300, 0, 300, 300);
-        obj_Main_Frame.getContentPane().add(Button_Projekt_Frame_Aktivierung);
+        JButton btn_projekt_Frame = new JButton("Projekt-Eingabe-Feld aufrufen");
+        btn_projekt_Frame.setVisible(true);
+        btn_projekt_Frame.setBounds(300, 0, 300, 300);
+        obj_Frame_Main.getContentPane().add(btn_projekt_Frame);
 
-        Button_Projekt_Frame_Aktivierung.addMouseListener(new MouseListener() {
+        btn_projekt_Frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
                 obj_Projekt_Input.setVisible(true);
-                obj_Projekt_Input.update_der_Daten(listProjekte_in_Programm);
-                obj_Projekt_Input.update_des_Interfaces(objDatabaseManager_main);
+                obj_Projekt_Input.v_update_Frame_from_Database();
 
 
             }
@@ -159,29 +158,29 @@ public class cMain {
         });
 
 
-        JButton Kalkulation = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
-        Kalkulation.setVisible(true);
-        Kalkulation.setBounds(300, 300, 300, 20);
-        obj_Main_Frame.getContentPane().add(Kalkulation);
-        Kalkulation.addMouseListener(new MouseListener() {
+        JButton btn_Frame_Output = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
+        btn_Frame_Output.setVisible(true);
+        btn_Frame_Output.setBounds(300, 300, 300, 20);
+        obj_Frame_Main.getContentPane().add(btn_Frame_Output);
+        btn_Frame_Output.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 obj_Output.setVisible(true);
                 obj_Output.setEnabled(true);
 
 
-                cErweiterteHashMapProjektepupilsListe[] arrMapspupils = new cErweiterteHashMapProjektepupilsListe[10];
-                cErweiterteHashMapProjektepupilsListe SpeicherBesteLoesung = arrMapspupils[0];
+                c_Hashmap_pupils_to_List_extended[] arr_Maps_Pupils = new c_Hashmap_pupils_to_List_extended[10];
+                c_Hashmap_pupils_to_List_extended SpeicherBesteLoesung = arr_Maps_Pupils[0];
 
-                for (int i = 0; i < arrMapspupils.length; i++) {
-                    arrMapspupils[i] = new cErweiterteHashMapProjektepupilsListe(listProjekte_in_Programm);
-                    arrMapspupils[i].Erstellung(listpupils_in_Programm);
+                for (int i = 0; i < arr_Maps_Pupils.length; i++) {
+                    arr_Maps_Pupils[i] = new c_Hashmap_pupils_to_List_extended(listProjekte_in_Programm);
+                    arr_Maps_Pupils[i].Erstellung(listpupils_in_Programm);
                     try {
-                        if (arrMapspupils[i].getListpupilsohneProjekte().size() < SpeicherBesteLoesung.getListpupilsohneProjekte().size()) {
-                            SpeicherBesteLoesung = arrMapspupils[i];
+                        if (arr_Maps_Pupils[i].getListpupilsohneProjekte().size() < SpeicherBesteLoesung.getListpupilsohneProjekte().size()) {
+                            SpeicherBesteLoesung = arr_Maps_Pupils[i];
                         }
                     } catch (NullPointerException nPointerexc) {
-                        SpeicherBesteLoesung = arrMapspupils[i];
+                        SpeicherBesteLoesung = arr_Maps_Pupils[i];
                     }
                 }
 
