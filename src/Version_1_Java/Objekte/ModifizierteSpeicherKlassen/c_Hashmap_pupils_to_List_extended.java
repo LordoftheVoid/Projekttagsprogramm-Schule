@@ -1,10 +1,8 @@
 package Version_1_Java.Objekte.ModifizierteSpeicherKlassen;
 
 import Version_1_Java.Objekte.cProjekt;
-import Version_1_Java.Objekte.cpupils;
 
-import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Aaron on 14.04.2017.
@@ -14,11 +12,43 @@ public class c_Hashmap_pupils_to_List_extended extends HashMap<cProjekt, c_Array
 
 
 
+<<<<<<< HEAD:src/Version_1_Java/Objekte/ModifizierteSpeicherKlassen/c_Hashmap_pupils_to_List_extended.java
     c_Array_List_extended_pupils listpupilsohneProjekte= new c_Array_List_extended_pupils();
 
 
 
     public c_Hashmap_pupils_to_List_extended(c_Array_List_extended_projekts listProjekte) {
+=======
+    /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    cArrayListErweitertpupils listpupilsohneProjekte= new cArrayListErweitertpupils();
+
+
+
+
+
+    public cErweiterteHashMapProjektepupilsListe(cArrayListErweitertProjekte listProjekte) {
+>>>>>>> Listenentfernung:src/Version_1_Java/Objekte/ModifizierteSpeicherKlassen/cErweiterteHashMapProjektepupilsListe.java
 
         for (cProjekt loop_objekt:listProjekte
              ) {
@@ -26,7 +56,15 @@ public class c_Hashmap_pupils_to_List_extended extends HashMap<cProjekt, c_Array
         }
     }
 
+<<<<<<< HEAD:src/Version_1_Java/Objekte/ModifizierteSpeicherKlassen/c_Hashmap_pupils_to_List_extended.java
     public c_Array_List_extended_pupils getListpupilsohneProjekte() {
+=======
+
+
+
+
+    public cArrayListErweitertpupils getListpupilsohneProjekte() {
+>>>>>>> Listenentfernung:src/Version_1_Java/Objekte/ModifizierteSpeicherKlassen/cErweiterteHashMapProjektepupilsListe.java
         return listpupilsohneProjekte;
     }
 
@@ -39,6 +77,8 @@ public class c_Hashmap_pupils_to_List_extended extends HashMap<cProjekt, c_Array
         }
         return sum;
     }
+
+
 
     public int iLaengeallerListen(){
         int sum=0;
@@ -53,8 +93,12 @@ public class c_Hashmap_pupils_to_List_extended extends HashMap<cProjekt, c_Array
 
 
 
+<<<<<<< HEAD:src/Version_1_Java/Objekte/ModifizierteSpeicherKlassen/c_Hashmap_pupils_to_List_extended.java
     public void Erstellung ( c_Array_List_extended_pupils objListpupils_Main){
+=======
+>>>>>>> Listenentfernung:src/Version_1_Java/Objekte/ModifizierteSpeicherKlassen/cErweiterteHashMapProjektepupilsListe.java
 
+    public void Erstellung ( cArrayListErweitertpupils objListpupils_Main){
 
 
        CopyOnWriteArrayList <cpupils> objListpupils_Methode= new CopyOnWriteArrayList<>();
@@ -129,6 +173,9 @@ public class c_Hashmap_pupils_to_List_extended extends HashMap<cProjekt, c_Array
             }
         }
     }
+*/
+
+
 
 
 }

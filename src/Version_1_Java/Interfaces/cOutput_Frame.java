@@ -1,12 +1,14 @@
 package Version_1_Java.Interfaces;
 
 
+<<<<<<< HEAD
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
 import Version_1_Java.Objekte.cProjekt;
 import Version_1_Java.Objekte.cpupils;
 
+=======
+>>>>>>> Listenentfernung
 import javax.swing.*;
-import java.util.ArrayList;
 
 /**
  * Created by Aaron on 30.03.2017.
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 public class cOutput_Frame extends JFrame {
 
 
-
+/*
 
     JTextField[] []arrFelderOutput;
     JTextField [][] arrFelderMenue= new JTextField[4][1];
@@ -23,7 +25,7 @@ public class cOutput_Frame extends JFrame {
 
     public void Darstellung_der_pupils(c_Hashmap_pupils_to_List_extended objSpeicherLoesung){
 
-        arrFelderOutput = new JTextField[4][objSpeicherLoesung.iLaengeallerListen()];
+      //  arrFelderOutput = new JTextField[4][objSpeicherLoesung.iLaengeallerListen()];
         for(int i_x=0; i_x< arrFelderOutput.length;i_x++){
             for (int k_y=0;k_y<arrFelderOutput[i_x].length;k_y++){
                 arrFelderOutput[i_x][k_y]= new JTextField();
@@ -69,12 +71,10 @@ public class cOutput_Frame extends JFrame {
 
     public cOutput_Frame(){
 
-
         this.setBounds(1500,500,500,500);
         this.setTitle("Zuordnung der pupils zu Projekten  ");
 
         this.getContentPane().setLayout(null);
-
 
 
         for (int i_x=0;i_x<arrFelderMenue.length;i_x++){
@@ -107,4 +107,5 @@ public class cOutput_Frame extends JFrame {
             }
         }
     }
+    */
 }

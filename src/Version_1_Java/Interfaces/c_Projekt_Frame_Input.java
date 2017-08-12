@@ -18,11 +18,11 @@ import java.util.Objects;
 public class c_Projekt_Frame_Input extends JFrame {
 
 
-    static  cmodTextField[] []arrFelderInput;
-    static JTextField [] arrFelderMenue= new JTextField[3];
+    private static  cmodTextField[] []arrFelderInput;
+    private static JTextField [] arrFelderMenue= new JTextField[3];
 
 
-    cDatabaseManager objDatabaseManager_Input;
+    private cDatabaseManager objDatabaseManager_Input;
 
 
     public c_Projekt_Frame_Input(cDatabaseManager obj_tm_DatabaseManager_Main ) {
@@ -134,11 +134,11 @@ public class c_Projekt_Frame_Input extends JFrame {
                         break;
                     case 1:
                         arrFelderInput[i_x][k_y].colum = "lehrer_name";
-                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
+                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, "projekte"));
                         break;
                     case 2:
                         arrFelderInput[i_x][k_y].colum = "max_pupils";
-                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
+                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, "projekte"));
                         break;
                 }
 
@@ -159,7 +159,7 @@ public class c_Projekt_Frame_Input extends JFrame {
 
 
 
-    public  static void Suche (String arrStrings []){
+    private static void Suche(String arrStrings[]){
 
         ArrayList< JTextField []> listArrYX_Anordnung= new ArrayList<>();
         class classarrBoolean{
@@ -230,12 +230,7 @@ public class c_Projekt_Frame_Input extends JFrame {
 
 
 
-
-
-
-
-
-
+    
         public void v_update_Frame_from_Database(){
 
             try {
@@ -254,5 +249,6 @@ public class c_Projekt_Frame_Input extends JFrame {
             }
 
         }
+
 
 }

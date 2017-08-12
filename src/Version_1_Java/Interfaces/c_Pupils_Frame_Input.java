@@ -1,8 +1,11 @@
 package Version_1_Java.Interfaces;
 
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
+<<<<<<< HEAD
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Array_List_extended_pupils;
 import Version_1_Java.Objekte.cpupils;
+=======
+>>>>>>> Listenentfernung
 import Version_1_Java.cMain;
 
 import javax.swing.*;
@@ -13,7 +16,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Aaron on 30.03.2017.
@@ -23,12 +25,16 @@ public class c_Pupils_Frame_Input extends JFrame {
 
 
 
-   static cmodTextField[][] arrTextfields_Input= new cmodTextField[cpupils.iMaximalanzahl_Projekte + 3][200];
+   private static cmodTextField[][] arrTextfields_Input= new cmodTextField[cMain.iMaximalanzahl_Projekte + 3][200];
 
-   static JTextField [] arrTextFields_Menue= new JTextField[cpupils.iMaximalanzahl_Projekte+3];
+   private static JTextField [] arrTextFields_Menue= new JTextField[cMain.iMaximalanzahl_Projekte+3];
 
+<<<<<<< HEAD
     cDatabaseManager objDatabaseManager_Input;
 
+=======
+    private cDatabaseManager objDatabaseManager_Frame;
+>>>>>>> Listenentfernung
 
     /*
 
@@ -36,18 +42,22 @@ public class c_Pupils_Frame_Input extends JFrame {
 
 
      */
-    ArrayList < ArrayList<JTextField> > listFeldersichtbar = new ArrayList<>();
-    ArrayList < ArrayList<JTextField> > listFelderUnsichtbar = new ArrayList<>();
+    private ArrayList < ArrayList<JTextField> > listFeldersichtbar = new ArrayList<>();
+    // --Commented out by Inspection (11.08.2017 15:26):ArrayList < ArrayList<JTextField> > listFelderUnsichtbar = new ArrayList<>();
 
 
-    boolean bAktualisieren=true;
+    // --Commented out by Inspection (11.08.2017 15:26):boolean bAktualisieren=true;
 
 
 
 
     public c_Pupils_Frame_Input(cDatabaseManager obj_tm_DatabaseManager_Main) {
 
+<<<<<<< HEAD
         this.objDatabaseManager_Input=obj_tm_DatabaseManager_Main;
+=======
+        this.objDatabaseManager_Frame=objDatabaseManager_Input;
+>>>>>>> Listenentfernung
 
 
 
@@ -108,6 +118,7 @@ public class c_Pupils_Frame_Input extends JFrame {
                 switch (i_x) {
                     case 0:
                         arrTextfields_Input[i_x][k_y].colum="surName";
+<<<<<<< HEAD
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(obj_tm_DatabaseManager_Main,arrTextfields_Input, "pupils"));
                         arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,arrTextfields_Input, "pupils"));
                         break;
@@ -127,16 +138,45 @@ public class c_Pupils_Frame_Input extends JFrame {
                     case 4:
                         arrTextfields_Input[i_x][k_y].colum="pref1";
                         arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,arrTextfields_Input, "pupils"));
+=======
+                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
+                        break;
+                    case 1:
+                        arrTextfields_Input[i_x][k_y].colum="preName";
+                        arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
+                        break;
+                    case 2:
+                        arrTextfields_Input[i_x][k_y].colum="grade";
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
+                        break;
+                    case 3:
+                        arrTextfields_Input[i_x][k_y].colum="pref0";
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
+                        break;
+                    case 4:
+                        arrTextfields_Input[i_x][k_y].colum="pref1";
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,"pupils"));
+>>>>>>> Listenentfernung
                         break;
 
                     case 5:
                         arrTextfields_Input[i_x][k_y].colum="pref2";
+<<<<<<< HEAD
                         arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,arrTextfields_Input, "pupils"));
+=======
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
+>>>>>>> Listenentfernung
                         break;
 
                     case 6:
                         arrTextfields_Input[i_x][k_y].colum="pref3";
+<<<<<<< HEAD
                         arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,arrTextfields_Input, "pupils"));
+=======
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
+>>>>>>> Listenentfernung
                         break;
 
 
@@ -247,7 +287,7 @@ public class c_Pupils_Frame_Input extends JFrame {
 
     }
 
-    public  static void Suche (String arrStrings []){
+    private static void Suche(String arrStrings[]){
 
         ArrayList< JTextField []> listArrYX_Anordnung= new ArrayList<>();
         class classarrBoolean{
@@ -316,9 +356,8 @@ public class c_Pupils_Frame_Input extends JFrame {
         }
     }
 
-    public ArrayList<Integer> WertePruefung() {
-        ArrayList<Integer> lRueckgabeWerte = new ArrayList<>();
 
+<<<<<<< HEAD
         int i = 0;
         boolean bLegitimerWert = true;
 
@@ -456,6 +495,95 @@ public class c_Pupils_Frame_Input extends JFrame {
     public void v_update_Frame_from_Database() throws SQLException {
 
         ResultSet set_entrys= objDatabaseManager_Input.read_entrys("pupils");
+=======
+
+
+
+// --Commented out by Inspection START (11.08.2017 15:26):
+//    public ArrayList<Integer> WertePruefung() {
+//        ArrayList<Integer> lRueckgabeWerte = new ArrayList<>();
+//
+//        int i = 0;
+//        boolean bLegitimerWert = true;
+//
+//        while (i < arrTextfields_Input[0].length) {
+//            String sInput = arrTextfields_Input[0][i].getText().trim();
+//
+//            if (!sInput.equals("")) {
+//                for (int k = 0; k < sInput.length(); k++) {
+//                    if (Character.isWhitespace(sInput.charAt(k))) {
+//                        bLegitimerWert = false;
+//                        break;
+//                    }
+//                }
+//            } else {
+//                bLegitimerWert = false;
+//            }
+//
+//            if (bLegitimerWert) {
+//                lRueckgabeWerte.add(i);
+//            }
+//            i++;
+//        }
+//
+//        i = 0;
+//
+//        while (i < lRueckgabeWerte.size()) {
+//            String sInput = arrTextfields_Input[1][i].getText().trim();
+//            if (!sInput.equals("")) {
+//                for (int k = 0; k < sInput.length(); k++) {
+//                    if (Character.isWhitespace(sInput.charAt(k))) {
+//                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                        break;
+//                    }
+//                }
+//            } else {
+//                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                break;
+//            }
+//            i++;
+//        }
+//
+//        i=0;
+//
+//        while (i < lRueckgabeWerte.size()) {
+//            String sInput = arrTextfields_Input[2][i].getText().trim();
+//            if (!sInput.equals("")) {
+//                for (int k = 0; k < sInput.length(); k++) {
+//                    if (Character.isWhitespace(sInput.charAt(k))) {
+//                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                        break;
+//                    }
+//                }
+//            } else {
+//                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
+//                break;
+//            }
+//            i++;
+//        }
+//
+//
+//
+//
+//        /*
+//        Pruefung auf Integer, und, ob der pupils in das Projekt rein darf!!!
+//
+//         */
+//
+//
+//        return  lRueckgabeWerte;
+//    }
+// --Commented out by Inspection STOP (11.08.2017 15:26)
+
+
+
+
+
+
+    public void update_des_Interface( ) throws SQLException {
+
+        ResultSet set_entrys= objDatabaseManager_Frame.read_entrys_all_attributes("pupils");
+>>>>>>> Listenentfernung
         int iRowCounter=0;
         while (set_entrys.next()){
             arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(3));
@@ -473,7 +601,6 @@ public class c_Pupils_Frame_Input extends JFrame {
             iRowCounter++;
         }
     }
-
 
 
 }

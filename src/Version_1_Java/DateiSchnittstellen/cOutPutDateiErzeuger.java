@@ -1,5 +1,6 @@
 package Version_1_Java.DateiSchnittstellen;
 
+<<<<<<< HEAD
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
 import Version_1_Java.Objekte.cProjekt;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -13,13 +14,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Formatter;
 
+=======
+>>>>>>> Listenentfernung
 /**
  * Created by Aaron on 13.04.2017.
  */
 public class cOutPutDateiErzeuger  {
 
 
+
     c_Hashmap_pupils_to_List_extended objSpeicher;
+
+/*
+    cErweiterteHashMapProjektepupilsListe objSpeicher;
+>>>>>>> Listenentfernung
 
 
 
@@ -28,7 +36,6 @@ public class cOutPutDateiErzeuger  {
         this.objSpeicher=argMap;
 
     }
-
 
 
     public void DateiSchreiben(String sOutput, String sDateiName){
@@ -113,5 +120,5 @@ public class cOutPutDateiErzeuger  {
                     }
             }
     }
-
+*/
 }

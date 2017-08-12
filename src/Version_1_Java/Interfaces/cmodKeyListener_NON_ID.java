@@ -9,18 +9,17 @@ import java.sql.SQLException;
 /**
  * Created by Aaron on 30.07.2017.
  */
-public class cmodKeyListener_NON_ID implements KeyListener {
+class cmodKeyListener_NON_ID implements KeyListener {
 
-    cDatabaseManager objDatabaseManager_keyListener;
+    private cDatabaseManager objDatabaseManager_keyListener;
 
-    cmodTextField[][] arrInout_Keylistener;
 
-    String table;
 
-    cmodKeyListener_NON_ID(cDatabaseManager objDatabasemanager_main, cmodTextField[][] arrInput_Interface, String table_source ){
+    private String table;
+
+    cmodKeyListener_NON_ID(cDatabaseManager objDatabasemanager_main, String table_source ){
         table=table_source;
         objDatabaseManager_keyListener =objDatabasemanager_main;
-        arrInout_Keylistener =arrInput_Interface;
 
     }
 
