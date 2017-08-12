@@ -134,11 +134,11 @@ public class c_Projekt_Frame_Input extends JFrame {
                         break;
                     case 1:
                         arrFelderInput[i_x][k_y].colum = "lehrer_name";
-                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
+                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, "projekte"));
                         break;
                     case 2:
                         arrFelderInput[i_x][k_y].colum = "max_pupils";
-                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, arrFelderInput, "projekte"));
+                        arrFelderInput[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, "projekte"));
                         break;
                 }
 

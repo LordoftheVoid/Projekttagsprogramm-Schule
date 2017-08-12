@@ -9,10 +9,34 @@ import java.util.HashMap;
  */
 public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cArrayListErweitertpupils>  {
 
-/*
+
+
+
+    /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     cArrayListErweitertpupils listpupilsohneProjekte= new cArrayListErweitertpupils();
+
+
 
 
 
@@ -23,6 +47,10 @@ public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cAr
             this.put(loop_objekt, new cArrayListErweitertpupils());
         }
     }
+
+
+
+
 
     public cArrayListErweitertpupils getListpupilsohneProjekte() {
         return listpupilsohneProjekte;
@@ -38,6 +66,8 @@ public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cAr
         return sum;
     }
 
+
+
     public int iLaengeallerListen(){
         int sum=0;
         for (cProjekt loop_objekt :this.keySet()
@@ -47,6 +77,8 @@ public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cAr
         }
         return sum;
     }
+
+
 
 
 
@@ -125,8 +157,11 @@ public class cErweiterteHashMapProjektepupilsListe extends HashMap<cProjekt, cAr
             }
         }
     }
-
 */
+
+
+
+
 }
 
 

@@ -15,10 +15,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class cExcel_Reader {
+public class cExcel_File_Reader {
 
 
-   public cExcel_Reader(cDatabaseManager objDatabaseManager_Main){
+   public cExcel_File_Reader(cDatabaseManager objDatabaseManager_Main){
         this.objDatabaseManager_Reader=objDatabaseManager_Main;
     }
 

@@ -24,7 +24,7 @@ public class c_Pupils_Frame_Input extends JFrame {
 
    private static JTextField [] arrTextFields_Menue= new JTextField[cMain.iMaximalanzahl_Projekte+3];
 
-    // --Commented out by Inspection (11.08.2017 15:26):private cDatabaseManager Database;
+    private cDatabaseManager objDatabaseManager_Frame;
 
     /*
 
@@ -43,7 +43,7 @@ public class c_Pupils_Frame_Input extends JFrame {
 
     public c_Pupils_Frame_Input(cDatabaseManager objDatabaseManager_Input) {
 
-        this.Database=objDatabaseManager_Input;
+        this.objDatabaseManager_Frame=objDatabaseManager_Input;
 
 
 
@@ -105,34 +105,34 @@ public class c_Pupils_Frame_Input extends JFrame {
                     case 0:
                         arrTextfields_Input[i_x][k_y].colum="surName";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
                         break;
                     case 1:
                         arrTextfields_Input[i_x][k_y].colum="preName";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
                         break;
                     case 2:
                         arrTextfields_Input[i_x][k_y].colum="grade";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
                         break;
                     case 3:
                         arrTextfields_Input[i_x][k_y].colum="pref0";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
                         break;
                     case 4:
                         arrTextfields_Input[i_x][k_y].colum="pref1";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,"pupils"));
                         break;
 
                     case 5:
                         arrTextfields_Input[i_x][k_y].colum="pref2";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
                         break;
 
                     case 6:
                         arrTextfields_Input[i_x][k_y].colum="pref3";
-                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input,arrTextfields_Input, "pupils"));
+                        arrTextfields_Input[i_x][k_y].addKeyListener( new cmodKeyListener_NON_ID(objDatabaseManager_Input, "pupils"));
                         break;
 
 
@@ -397,9 +397,9 @@ public class c_Pupils_Frame_Input extends JFrame {
 
 
 
-    public void update_des_Interface( cDatabaseManager objDatabase) throws SQLException {
+    public void update_des_Interface( ) throws SQLException {
 
-        ResultSet set_entrys= objDatabase.read_entrys_all_attributes("pupils");
+        ResultSet set_entrys= objDatabaseManager_Frame.read_entrys_all_attributes("pupils");
         int iRowCounter=0;
         while (set_entrys.next()){
             arrTextfields_Input[0][iRowCounter].setText(set_entrys.getString(3));

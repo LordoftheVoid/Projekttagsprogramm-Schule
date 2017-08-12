@@ -13,14 +13,13 @@ class cmodKeyListener_NON_ID implements KeyListener {
 
     private cDatabaseManager objDatabaseManager_keyListener;
 
-    // --Commented out by Inspection (11.08.2017 15:26):private cmodTextField[][] arrInout_Keylistener;
+
 
     private String table;
 
-    cmodKeyListener_NON_ID(cDatabaseManager objDatabasemanager_main, cmodTextField[][] arrInput_Interface, String table_source ){
+    cmodKeyListener_NON_ID(cDatabaseManager objDatabasemanager_main, String table_source ){
         table=table_source;
         objDatabaseManager_keyListener =objDatabasemanager_main;
-        arrInout_Keylistener =arrInput_Interface;
 
     }
 
