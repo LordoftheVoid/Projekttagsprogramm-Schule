@@ -1,6 +1,6 @@
 package Version_1_Java.Interfaces;
 
-import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
+import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -11,14 +11,14 @@ import java.sql.SQLException;
  */
 public class cmodKeyListener_ID implements KeyListener {
 
-    cDatabaseManager objDatabaseManager_keyListener;
+    c_Database_Manager objDatabaseManager_keyListener;
 
     cmodTextField[][] arrInout_Keylistener;
 
     String table;
 
 
-    cmodKeyListener_ID(cDatabaseManager objDatabasemanager_main, cmodTextField[][] arrInput_Interface, String table_source){
+    cmodKeyListener_ID(c_Database_Manager objDatabasemanager_main, cmodTextField[][] arrInput_Interface, String table_source){
         objDatabaseManager_keyListener =objDatabasemanager_main;
         arrInout_Keylistener =arrInput_Interface;
         table=table_source;

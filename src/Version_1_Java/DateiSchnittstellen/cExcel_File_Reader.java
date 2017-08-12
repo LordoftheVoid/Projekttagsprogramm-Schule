@@ -5,7 +5,7 @@ package Version_1_Java.DateiSchnittstellen;
  */
 
 
-import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
+import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
@@ -18,13 +18,13 @@ public class cExcel_File_Reader {
 
 
 
-   public cExcel_File_Reader(cDatabaseManager obj_tm_DatabaseManager_Main){
+   public cExcel_File_Reader(c_Database_Manager obj_tm_DatabaseManager_Main){
         this.objDatabaseManager_Reader=obj_tm_DatabaseManager_Main;
 
     }
 
 
-    private cDatabaseManager objDatabaseManager_Reader;
+    private c_Database_Manager objDatabaseManager_Reader;
 
 
    public  CopyOnWriteArrayList<String> list_of_filenames_with_xls;
@@ -105,8 +105,8 @@ public class cExcel_File_Reader {
 
                     if (objDatabaseManager_Reader.entry_check("pupils", unique_id)) {
                         objDatabaseManager_Reader.create_entry("pupils", unique_id);
-                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "preName", arr_data_in_File[0][i_entry_counter]);
-                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "surName", arr_data_in_File[1][i_entry_counter]);
+                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_pre_Name", arr_data_in_File[0][i_entry_counter]);
+                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_sur_Name", arr_data_in_File[1][i_entry_counter]);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();

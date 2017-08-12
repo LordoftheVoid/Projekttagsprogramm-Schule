@@ -1,6 +1,6 @@
 package Version_1_Java.Interfaces;
 
-import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
+import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -11,13 +11,13 @@ import java.sql.SQLException;
  */
 class cmodKeyListener_NON_ID implements KeyListener {
 
-    private cDatabaseManager objDatabaseManager_keyListener;
+    private c_Database_Manager objDatabaseManager_keyListener;
 
 
 
     private String table;
 
-    cmodKeyListener_NON_ID(cDatabaseManager objDatabasemanager_main, String table_source ){
+    cmodKeyListener_NON_ID(c_Database_Manager objDatabasemanager_main, String table_source ){
         table=table_source;
         objDatabaseManager_keyListener =objDatabasemanager_main;
 

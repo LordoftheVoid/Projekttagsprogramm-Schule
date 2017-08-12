@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * Created by Aaron on 09.07.2017.
  */
-public class cDatabaseManager {
+public class c_Database_Manager {
 
     private Connection Datenbankverbindung;
 
@@ -43,7 +43,7 @@ public class cDatabaseManager {
     }
 
     public ResultSet read_one_entry_one_attribute( String table, String colum, String unique_id) throws  SQLException{
-        PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT "+colum+" FROM "+table +" WHERE unique_id = ?");
+        PreparedStatement extract_entrys= Datenbankverbindung.prepareStatement("SELECT "+colum+" FROM "+table +" WHERE s_unique_ID = ?");
         extract_entrys.setString(1,unique_id);
         return  extract_entrys.executeQuery();
 

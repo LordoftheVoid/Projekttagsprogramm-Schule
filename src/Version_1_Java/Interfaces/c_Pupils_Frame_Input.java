@@ -1,6 +1,6 @@
 package Version_1_Java.Interfaces;
 
-import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
+import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
 
 
 import Version_1_Java.cMain;
@@ -25,7 +25,7 @@ public class c_Pupils_Frame_Input extends JFrame {
     private static JTextField[] arrTextFields_Menue = new JTextField[cMain.iMaximalanzahl_Projekte + 3];
 
 
-    private cDatabaseManager objDatabaseManager_Frame;
+    private c_Database_Manager objDatabaseManager_Frame;
 
 
     /*
@@ -41,7 +41,7 @@ public class c_Pupils_Frame_Input extends JFrame {
     // --Commented out by Inspection (11.08.2017 15:26):boolean bAktualisieren=true;
 
 
-    public c_Pupils_Frame_Input(cDatabaseManager obj_tm_DatabaseManager_Main) {
+    public c_Pupils_Frame_Input(c_Database_Manager obj_tm_DatabaseManager_Main) {
 
 
         this.objDatabaseManager_Frame = obj_tm_DatabaseManager_Main;

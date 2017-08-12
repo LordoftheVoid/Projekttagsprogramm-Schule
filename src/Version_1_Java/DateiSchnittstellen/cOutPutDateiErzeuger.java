@@ -1,7 +1,5 @@
 package Version_1_Java.DateiSchnittstellen;
 
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
-
 
 /**
  * Created by Aaron on 13.04.2017.
@@ -10,7 +8,6 @@ public class cOutPutDateiErzeuger  {
 
 
 
-    c_Hashmap_pupils_to_List_extended objSpeicher;
 
 /*
     cErweiterteHashMapProjektepupilsListe objSpeicher;

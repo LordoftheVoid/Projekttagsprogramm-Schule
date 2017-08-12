@@ -1,7 +1,7 @@
 package Version_1_Java.Interfaces;
 
 
-import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
+import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -22,10 +22,10 @@ public class c_Projekt_Frame_Input extends JFrame {
     private static JTextField [] arrFelderMenue= new JTextField[3];
 
 
-    private cDatabaseManager objDatabaseManager_Input;
+    private c_Database_Manager objDatabaseManager_Input;
 
 
-    public c_Projekt_Frame_Input(cDatabaseManager obj_tm_DatabaseManager_Main ) {
+    public c_Projekt_Frame_Input(c_Database_Manager obj_tm_DatabaseManager_Main ) {
 
         objDatabaseManager_Input = obj_tm_DatabaseManager_Main;
 
