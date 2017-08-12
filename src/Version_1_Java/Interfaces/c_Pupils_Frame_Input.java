@@ -102,41 +102,35 @@ public class c_Pupils_Frame_Input extends JFrame {
                 arrTextfields_Input[i_x][k_y].iRow_position = k_y;
                 switch (i_x) {
                     case 0:
-                        arrTextfields_Input[i_x][k_y].colum = "surName";
+                        arrTextfields_Input[i_x][k_y].colum = "s_sur_Name";
 
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(obj_tm_DatabaseManager_Main, arrTextfields_Input, "pupils"));
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main, "pupils"));
                         break;
                     case 1:
-                        arrTextfields_Input[i_x][k_y].colum = "preName";
+                        arrTextfields_Input[i_x][k_y].colum = "s_pre_Name";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_ID(obj_tm_DatabaseManager_Main, arrTextfields_Input, "pupils"));
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main, "pupils"));
                         break;
                     case 2:
-                        arrTextfields_Input[i_x][k_y].colum = "grade";
+                        arrTextfields_Input[i_x][k_y].colum = "s_grade";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main, "pupils"));
                         break;
                     case 3:
-                        arrTextfields_Input[i_x][k_y].colum = "pref0";
+                        arrTextfields_Input[i_x][k_y].colum = "i_pref0";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main, "pupils"));
                         break;
                     case 4:
-                        arrTextfields_Input[i_x][k_y].colum = "pref1";
+                        arrTextfields_Input[i_x][k_y].colum = "i_pref1";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,  "pupils"));
                         break;
-
                     case 5:
-                        arrTextfields_Input[i_x][k_y].colum = "pref2";
-
+                        arrTextfields_Input[i_x][k_y].colum = "i_pref2";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,  "pupils"));
-
                         break;
-
                     case 6:
-                        arrTextfields_Input[i_x][k_y].colum = "pref3";
-
+                        arrTextfields_Input[i_x][k_y].colum = "i_pref3";
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,  "pupils"));
-
                         break;
 
 

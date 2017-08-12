@@ -76,7 +76,7 @@ public class cMain {
 
         try {
             i_amount_of_pupils_in_database = obj_Database_manager_Main.v_i_amout_of_entrys_in_Database("pupils");
-            i_amount_of_projekts_in_database = obj_Database_manager_Main.v_i_amout_of_entrys_in_Database("projekte");
+            i_amount_of_projekts_in_database = obj_Database_manager_Main.v_i_amout_of_entrys_in_Database("projects");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -211,7 +211,7 @@ public class cMain {
 
                 ResultSet set_pupils = null;
                 try {
-                    set_pupils = obj_Database_manager_Main.read_entrys_one_attribute("pupils", "unique_id");
+                    set_pupils = obj_Database_manager_Main.read_entrys_one_attribute("pupils", "s_unique_ID");
 
 
                     while (set_pupils.next()) {
@@ -232,10 +232,10 @@ public class cMain {
          */
 
                 String[] arrcolums = new String[4];
-                arrcolums[0] = "pref0";
-                arrcolums[1] = "pref1";
-                arrcolums[2] = "pref2";
-                arrcolums[3] = "pref3";
+                arrcolums[0] = "i_pref0";
+                arrcolums[1] = "i_pref1";
+                arrcolums[2] = "i_pref2";
+                arrcolums[3] = "i_pref3";
 
                 for (cpupils loop_object : list_cpupils
                         ) {
@@ -260,7 +260,7 @@ public class cMain {
 
                 ResultSet set_projects = null;
                 try {
-                    set_pupils = obj_Database_manager_Main.read_entrys_one_attribute("projekte", "unique_id");
+                    set_pupils = obj_Database_manager_Main.read_entrys_one_attribute("projekte", "s_unique_ID");
 
                 } catch (SQLException e1) {
                     e1.printStackTrace();
@@ -304,7 +304,7 @@ public class cMain {
 
 
 
-                    */
+                */
             }
 
             @Override

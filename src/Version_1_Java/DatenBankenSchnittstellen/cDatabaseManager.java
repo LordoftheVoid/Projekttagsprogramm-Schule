@@ -55,14 +55,14 @@ public class cDatabaseManager {
 
     public void create_entry (String table, String unique_id ) throws SQLException {
 
-       insertInto = Datenbankverbindung.prepareStatement("INSERT INTO "+table+"  (unique_id) VALUES (?)");
+       insertInto = Datenbankverbindung.prepareStatement("INSERT INTO "+table+"  (s_unique_ID) VALUES (?)");
        insertInto.setString(1,unique_id);
        insertInto.executeUpdate();
 
     }
 
     public void update_entry (String table, String unique_ID, String colum, String value) throws SQLException {
-        update_Entry= Datenbankverbindung.prepareStatement("UPDATE "+table+" SET "+ colum +" = '"+value+"' WHERE unique_id= ?");
+        update_Entry= Datenbankverbindung.prepareStatement("UPDATE "+table+" SET "+ colum +" = '"+value+"' WHERE s_unique_ID= ?");
         update_Entry.setString(1,unique_ID);
         update_Entry.executeUpdate();
 
@@ -72,7 +72,7 @@ public class cDatabaseManager {
 
 
     public void delete_entry (String table, String unique_ID) throws SQLException {
-        delete_Entry= Datenbankverbindung.prepareStatement("DELETE FROM "+table+" WHERE unique_id= ?");
+        delete_Entry= Datenbankverbindung.prepareStatement("DELETE FROM "+table+" WHERE s_unique_ID= ?");
         delete_Entry.setString(1,unique_ID);
         delete_Entry.executeUpdate();
     }
@@ -89,7 +89,7 @@ public class cDatabaseManager {
 
     public boolean entry_check(String table, String unique_id) throws SQLException {
 
-        PreparedStatement id_check = Datenbankverbindung.prepareStatement("SELECT * FROM "+table+" WHERE unique_id= ? ");
+        PreparedStatement id_check= Datenbankverbindung.prepareStatement("SELECT * FROM "+table+" WHERE s_unique_ID= ? ");
         id_check.setString(1, unique_id);
         ResultSet entrys_with_specific_id =id_check.executeQuery();
         return !entrys_with_specific_id.next();

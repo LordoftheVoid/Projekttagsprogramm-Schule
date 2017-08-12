@@ -6,7 +6,6 @@ package Version_1_Java.DateiSchnittstellen;
 
 
 import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
-import Version_1_Java.Objekte.cpupils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
@@ -30,13 +29,11 @@ public class cExcel_File_Reader {
 
    public  CopyOnWriteArrayList<String> list_of_filenames_with_xls;
 
-   private String [][] arrcontext_file;
+   private String [][] arr_data_in_File;
 
    private boolean b_data_found=true;
 
 
-
-   public  CopyOnWriteArrayList<cpupils> list_of_pupils_from_files= new CopyOnWriteArrayList<>();
 
 
     public  CopyOnWriteArrayList<String> list_search_for_xls_Files(String s_tm_starting_directory)  {
@@ -85,11 +82,11 @@ public class cExcel_File_Reader {
             e.printStackTrace();
         }
 
-         arrcontext_file = new String[2][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
+         arr_data_in_File = new String[2][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
 
-        for (int i_x = 0; i_x < arrcontext_file.length; i_x++) {
-            for (int k_y = 0; k_y < arrcontext_file[i_x].length; k_y++) {
-                arrcontext_file[i_x][k_y]=obj_data_file_xls.getSheetAt(0).getRow(k_y).getCell(i_x).getStringCellValue();
+        for (int i_x = 0; i_x < arr_data_in_File.length; i_x++) {
+            for (int k_y = 0; k_y < arr_data_in_File[i_x].length; k_y++) {
+                arr_data_in_File[i_x][k_y]=obj_data_file_xls.getSheetAt(0).getRow(k_y).getCell(i_x).getStringCellValue();
             }
         }
     }
@@ -97,19 +94,19 @@ public class cExcel_File_Reader {
     public void v_update_Database_from_list(){
 
         if(b_data_found) {
-            for (int i_entry_counter = 0; i_entry_counter < arrcontext_file[0].length; i_entry_counter++) {
+            for (int i_entry_counter = 0; i_entry_counter < arr_data_in_File[0].length; i_entry_counter++) {
                 String unique_id = "";
                 for (int i = 0; i < 2; i++) {
                     for (int k = 0; k < 2; k++) {
-                        unique_id = unique_id + arrcontext_file[i][i_entry_counter].charAt(k);
+                        unique_id = unique_id + arr_data_in_File[i][i_entry_counter].charAt(k);
                     }
                 }
                 try {
 
                     if (objDatabaseManager_Reader.entry_check("pupils", unique_id)) {
                         objDatabaseManager_Reader.create_entry("pupils", unique_id);
-                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "preName", arrcontext_file[0][i_entry_counter]);
-                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "surName", arrcontext_file[1][i_entry_counter]);
+                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "preName", arr_data_in_File[0][i_entry_counter]);
+                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "surName", arr_data_in_File[1][i_entry_counter]);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
