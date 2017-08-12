@@ -1,21 +1,8 @@
 package Version_1_Java.DateiSchnittstellen;
 
-<<<<<<< HEAD
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
-import Version_1_Java.Objekte.cProjekt;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Formatter;
 
-=======
->>>>>>> Listenentfernung
 /**
  * Created by Aaron on 13.04.2017.
  */
@@ -27,7 +14,6 @@ public class cOutPutDateiErzeuger  {
 
 /*
     cErweiterteHashMapProjektepupilsListe objSpeicher;
->>>>>>> Listenentfernung
 
 
 

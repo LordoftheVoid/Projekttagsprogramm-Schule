@@ -230,11 +230,11 @@ public class c_Projekt_Frame_Input extends JFrame {
 
 
 
-    
+
         public void v_update_Frame_from_Database(){
 
             try {
-                ResultSet entrys = objDatabaseManager_Input.read_entrys("projekte");
+                ResultSet entrys = objDatabaseManager_Input.read_entrys_all_attributes("projekte");
 
                 int iRowcount=0;
                 while (entrys.next()){

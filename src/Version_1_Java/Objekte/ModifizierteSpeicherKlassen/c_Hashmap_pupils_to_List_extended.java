@@ -12,26 +12,8 @@ public class c_Hashmap_pupils_to_List_extended extends HashMap<cProjekt, c_Array
 
 
 
-<<<<<<< HEAD:src/Version_1_Java/Objekte/ModifizierteSpeicherKlassen/c_Hashmap_pupils_to_List_extended.java
-    c_Array_List_extended_pupils listpupilsohneProjekte= new c_Array_List_extended_pupils();
 
-
-
-    public c_Hashmap_pupils_to_List_extended(c_Array_List_extended_projekts listProjekte) {
-=======
     /*
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

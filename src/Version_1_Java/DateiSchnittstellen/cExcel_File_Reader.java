@@ -19,7 +19,7 @@ public class cExcel_File_Reader {
 
 
 
-   public cExcel_Reader(cDatabaseManager obj_tm_DatabaseManager_Main){
+   public cExcel_File_Reader(cDatabaseManager obj_tm_DatabaseManager_Main){
         this.objDatabaseManager_Reader=obj_tm_DatabaseManager_Main;
 
     }

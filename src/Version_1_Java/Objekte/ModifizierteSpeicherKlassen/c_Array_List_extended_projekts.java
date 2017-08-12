@@ -10,7 +10,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class c_Array_List_extended_projekts extends CopyOnWriteArrayList<cProjekt> {
 
 
-
+/*
 
     public String toString(){
 
@@ -29,29 +29,10 @@ public class c_Array_List_extended_projekts extends CopyOnWriteArrayList<cProjek
             Output inklusive Stufenbegrenzung
             sReturnwert=sReturnwert+" "+String.valueOf(loop_objekt.arrAufStufenVonBisBegrenzt[0]);
             sReturnwert=sReturnwert+" "+String.valueOf(+loop_objekt.arrAufStufenVonBisBegrenzt[loop_objekt.arrAufStufenVonBisBegrenzt.length-1])+" ";
-                */
+
         }
         return sReturnwert;
-    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        */
 }

@@ -1,13 +1,6 @@
 package Version_1_Java.Interfaces;
 
 
-<<<<<<< HEAD
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
-import Version_1_Java.Objekte.cProjekt;
-import Version_1_Java.Objekte.cpupils;
-
-=======
->>>>>>> Listenentfernung
 import javax.swing.*;
 
 /**

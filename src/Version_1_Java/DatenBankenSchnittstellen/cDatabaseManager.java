@@ -80,7 +80,7 @@ public class cDatabaseManager {
 
 
 
-    public int i_Reihenmenge_in_Datenbank(String table) throws SQLException {
+    public int v_i_amout_of_entrys_in_Database(String table) throws SQLException {
             PreparedStatement row_count = Datenbankverbindung.prepareStatement("SELECT COUNT(*) FROM "+table);
             ResultSet number_of_rows =row_count.executeQuery();
             number_of_rows.next();

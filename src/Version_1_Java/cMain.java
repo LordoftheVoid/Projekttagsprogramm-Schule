@@ -5,14 +5,13 @@ import Version_1_Java.DatenBankenSchnittstellen.cDatabaseManager;
 import Version_1_Java.Interfaces.cOutput_Frame;
 import Version_1_Java.Interfaces.c_Projekt_Frame_Input;
 import Version_1_Java.Interfaces.c_Pupils_Frame_Input;
-<<<<<<< HEAD
+
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Array_List_extended_projekts;
 import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Array_List_extended_pupils;
-import Version_1_Java.Objekte.ModifizierteSpeicherKlassen.c_Hashmap_pupils_to_List_extended;
-=======
+
 import Version_1_Java.Objekte.cProjekt;
 import Version_1_Java.Objekte.cpupils;
->>>>>>> Listenentfernung
+
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -57,9 +56,9 @@ public class cMain {
 
 
 
-        cExcel_Reader obj_File_Reader_Excel = new cExcel_Reader(obj_Database_manager_Main);
+        cExcel_File_Reader obj_File_Reader_Excel = new cExcel_File_Reader(obj_Database_manager_Main);
 
-        cExcel_File_Reader objExcelReader = new cExcel_File_Reader(objDatabaseManager_main);
+        cExcel_File_Reader objExcelReader = new cExcel_File_Reader(obj_Database_manager_Main);
 
 
         obj_File_Reader_Excel.list_of_filenames_with_xls =  obj_File_Reader_Excel.list_search_for_xls_Files("C:/Informatik/Html");
@@ -76,8 +75,8 @@ public class cMain {
 
 
         try {
-            i_amount_of_pupils_in_database = obj_Database_manager_Main.i_Reihenmenge_in_Datenbank("pupils");
-            i_amount_of_projekts_in_database = obj_Database_manager_Main.i_Reihenmenge_in_Datenbank("projekte");
+            i_amount_of_pupils_in_database = obj_Database_manager_Main.v_i_amout_of_entrys_in_Database("pupils");
+            i_amount_of_projekts_in_database = obj_Database_manager_Main.v_i_amout_of_entrys_in_Database("projekte");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -208,12 +207,11 @@ public class cMain {
                 obj_Output.setEnabled(true);
 
 
-
                 CopyOnWriteArrayList<cpupils> list_cpupils = new CopyOnWriteArrayList<>();
 
                 ResultSet set_pupils = null;
                 try {
-                    set_pupils = objDatabaseManager_main.read_entrys_one_attribute("pupils", "unique_id");
+                    set_pupils = obj_Database_manager_Main.read_entrys_one_attribute("pupils", "unique_id");
 
 
                     while (set_pupils.next()) {
@@ -244,7 +242,7 @@ public class cMain {
                     for (int i_x = 0; i_x < loop_object.arrPraeferenzen.length; i_x++) {
                         ResultSet selected_attribute;
                         try {
-                            selected_attribute = objDatabaseManager_main.read_one_entry_one_attribute("pupils", arrcolums[i_x], loop_object.unique_ID);
+                            selected_attribute = obj_Database_manager_Main.read_one_entry_one_attribute("pupils", arrcolums[i_x], loop_object.unique_ID);
                             loop_object.arrPraeferenzen[i_x] = Integer.parseInt(selected_attribute.getString(1));
                         } catch (SQLException e1) {
                             e1.printStackTrace();
@@ -262,7 +260,7 @@ public class cMain {
 
                 ResultSet set_projects = null;
                 try {
-                    set_pupils = objDatabaseManager_main.read_entrys_one_attribute("projekte", "unique_id");
+                    set_pupils = obj_Database_manager_Main.read_entrys_one_attribute("projekte", "unique_id");
 
                 } catch (SQLException e1) {
                     e1.printStackTrace();
@@ -270,7 +268,7 @@ public class cMain {
 
                 try {
                     while (set_pupils.next()) {
-                        list_projects.add(new cProjekt(set_projects.getString(1)));
+                        list_projects.add(new cProjekt(Integer.valueOf(set_projects.getString(1))));
                     }
                 } catch (SQLException e1) {
                     e1.printStackTrace();
@@ -281,7 +279,7 @@ public class cMain {
                         ) {
                     ResultSet selected_attribute;
                     try {
-                        selected_attribute = objDatabaseManager_main.read_one_entry_one_attribute("projekte", "max_pupils", loop_object.unique_id);
+                        selected_attribute = obj_Database_manager_Main.read_one_entry_one_attribute("projekte", "max_pupils", String.valueOf(loop_object.unique_id));
                         loop_object.iMaximalepupilsanzahl = Integer.parseInt(selected_attribute.getString(1));
                     } catch (SQLException e1) {
                         e1.printStackTrace();
