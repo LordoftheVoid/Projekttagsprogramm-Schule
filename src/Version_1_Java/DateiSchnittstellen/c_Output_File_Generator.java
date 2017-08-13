@@ -1,0 +1,99 @@
+package Version_1_Java.DateiSchnittstellen;
+
+
+import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
+import Version_1_Java.Objekte.Hashmaps_modified.cHash_Map_ID_projects_to_List_ID_pupils;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ * Created by Aaron on 13.04.2017.
+ */
+public class c_Output_File_Generator {
+
+
+    cHash_Map_ID_projects_to_List_ID_pupils obj_output_Map;
+    c_Database_Manager obj_Database_Manager_Output;
+
+
+    public c_Output_File_Generator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm, c_Database_Manager obj_Database_Manager_Main ) {
+        obj_output_Map=argMap_tm;
+        obj_Database_Manager_Output=obj_Database_Manager_Main;
+
+    }
+
+
+    public void v_write_xls_Files() {
+
+        for (String s_loop_objekt : obj_output_Map.keySet()
+                ) {
+
+            ResultSet set_Ouput_Data=null;
+            String outputFilename=null;
+
+
+            try {
+                set_Ouput_Data= obj_Database_Manager_Output.read_one_entry_one_attribute("projects","s_teacher_ID", s_loop_objekt);
+                outputFilename = "Projekt von " + set_Ouput_Data.getString(1);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            File file = new File("C:/Informatik/" + outputFilename + ".xls");
+
+            HSSFWorkbook wb = new HSSFWorkbook();
+            HSSFSheet s = wb.createSheet();
+            HSSFRow arrRow[] = new HSSFRow[obj_output_Map.get(s_loop_objekt).size()];
+            HSSFCell arrCell[] = new HSSFCell[3];
+            for (int i = 0; i < arrRow.length; i++) {
+                arrRow[i] = s.createRow(i);
+                for (int k = 0; k < arrCell.length; k++) {
+                    arrCell[k] = arrRow[i].createCell(k);
+                    try {
+                    switch (k) {
+                                case 0:
+                                    set_Ouput_Data =obj_Database_Manager_Output.read_one_entry_one_attribute("pupils","s_sur_Name",obj_output_Map.get(s_loop_objekt).get(i));
+                                    break;
+                                case 1:
+                                    set_Ouput_Data =obj_Database_Manager_Output.read_one_entry_one_attribute("pupils","s_pre_Name",obj_output_Map.get(s_loop_objekt).get(i));
+                                    break;
+                                case 2:
+                                    set_Ouput_Data =obj_Database_Manager_Output.read_one_entry_one_attribute("pupils","s_grade",obj_output_Map.get(s_loop_objekt).get(i));
+                                    break;
+
+                    }
+                    arrCell[k].setCellValue(set_Ouput_Data.getString(1));
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+                    }
+
+                    // end deleted sheet
+            FileOutputStream out = null;
+            try {
+                out = new FileOutputStream(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                wb.write(out);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}

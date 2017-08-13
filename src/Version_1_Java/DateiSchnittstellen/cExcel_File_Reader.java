@@ -82,11 +82,15 @@ public class cExcel_File_Reader {
             e.printStackTrace();
         }
 
-         arr_data_in_File = new String[2][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
+         arr_data_in_File = new String[3][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
 
         for (int i_x = 0; i_x < arr_data_in_File.length; i_x++) {
             for (int k_y = 0; k_y < arr_data_in_File[i_x].length; k_y++) {
-                arr_data_in_File[i_x][k_y]=obj_data_file_xls.getSheetAt(0).getRow(k_y).getCell(i_x).getStringCellValue();
+                try {
+                    arr_data_in_File[i_x][k_y] = obj_data_file_xls.getSheetAt(0).getRow(k_y).getCell(i_x).getStringCellValue();
+                }catch (NullPointerException e1){
+                    arr_data_in_File[i_x][k_y] ="";
+                }
             }
         }
     }
@@ -107,6 +111,7 @@ public class cExcel_File_Reader {
                         objDatabaseManager_Reader.create_entry("pupils", unique_id);
                         objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_pre_Name", arr_data_in_File[0][i_entry_counter]);
                         objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_sur_Name", arr_data_in_File[1][i_entry_counter]);
+                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_grade", arr_data_in_File[2][i_entry_counter]);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();

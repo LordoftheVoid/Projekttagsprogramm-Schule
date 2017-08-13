@@ -142,7 +142,6 @@ public class c_Projekt_Frame_Input extends JFrame {
                         break;
                 }
 
-
                     arrFelderInput[i_x][k_y].setVisible(true);
                     if (i_x == 0) {
                         arrFelderInput[i_x][k_y].setBounds(0, 20 * k_y + arrFelderMenue[0].getHeight(), arrFelderMenue[i_x].getWidth(), 20);
@@ -229,16 +228,11 @@ public class c_Projekt_Frame_Input extends JFrame {
     }
 
 
-
-
         public void v_update_Frame_from_Database(){
-
             try {
                 ResultSet entrys = objDatabaseManager_Input.read_entrys_all_attributes("projects");
-
                 int iRowcount=0;
                 while (entrys.next()){
-
                     arrFelderInput[0][iRowcount].setText(entrys.getString(1));
                     arrFelderInput[1][iRowcount].setText(entrys.getString(2));
                     arrFelderInput[2][iRowcount].setText(entrys.getString(3));
@@ -247,8 +241,5 @@ public class c_Projekt_Frame_Input extends JFrame {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
-
-
 }

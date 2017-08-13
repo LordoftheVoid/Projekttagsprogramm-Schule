@@ -1,21 +1,17 @@
 package Version_1_Java;
 
 import Version_1_Java.DateiSchnittstellen.cExcel_File_Reader;
+import Version_1_Java.DateiSchnittstellen.c_Output_File_Generator;
 import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
 import Version_1_Java.Interfaces.cOutput_Frame;
 import Version_1_Java.Interfaces.c_Projekt_Frame_Input;
 import Version_1_Java.Interfaces.c_Pupils_Frame_Input;
-import Version_1_Java.Objekte.Hashmaps_modified.cHash_Map_ID_max_pupils;
 import Version_1_Java.Objekte.Hashmaps_modified.cHash_Map_ID_projects_to_List_ID_pupils;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 /**
@@ -91,7 +87,7 @@ public class cMain {
 
         JFrame obj_Frame_Main = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
         obj_Frame_Main.setVisible(true);
-        obj_Frame_Main.setBounds(0, 0, 1000, 1000);
+        obj_Frame_Main.setBounds(500, 0, 1000, 1000);
         obj_Frame_Main.getContentPane().setLayout(null);
 
 
@@ -194,105 +190,51 @@ public class cMain {
 
 
                 cHash_Map_ID_projects_to_List_ID_pupils objHashmap_projects_pupils = new cHash_Map_ID_projects_to_List_ID_pupils(obj_Database_manager_Main);
-
-                cHash_Map_ID_max_pupils objHashmap_max_pupils= new cHash_Map_ID_max_pupils(obj_Database_manager_Main);
-
-                objHashmap_max_pupils.v_update_from_Database();
                 objHashmap_projects_pupils.v_setup_from_Database();
+                objHashmap_projects_pupils.v_arrangement();
+                boolean b_constant_people=false;
 
+                int i_counter=0;
 
-                String[] arrcolums = new String[4];
-                arrcolums[0] = "i_pref0";
-                arrcolums[1] = "i_pref1";
-                arrcolums[2] = "i_pref2";
-                arrcolums[3] = "i_pref3";
+                cHash_Map_ID_projects_to_List_ID_pupils obj_best_solution= new cHash_Map_ID_projects_to_List_ID_pupils(obj_Database_manager_Main);
 
+                obj_best_solution.putAll(objHashmap_projects_pupils);
+                obj_best_solution.i_sum_of_preferences=objHashmap_projects_pupils.i_sum_of_preferences;
 
-                CopyOnWriteArrayList<String> list_ID_pupils = new CopyOnWriteArrayList<>();
+                while (!b_constant_people) {
 
-                try {
-                    ResultSet   set_pupils_ID = obj_Database_manager_Main.read_entrys_one_attribute("pupils", "s_unique_ID");
-                    while (set_pupils_ID.next()) {
-                        list_ID_pupils.add(set_pupils_ID.getString(1));
-                    }
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
+                    objHashmap_projects_pupils.v_arrangement();
 
+                    if (objHashmap_projects_pupils.get("-1").size() <= obj_best_solution.get("-1").size()) {
 
-                /*
-                Achtung, Frage nach Datenbankspeicherung
-                 */
+                        if (objHashmap_projects_pupils.i_sum_of_preferences < obj_best_solution.i_sum_of_preferences) {
+                            
+                            obj_best_solution.clear();
+                            obj_best_solution.putAll(objHashmap_projects_pupils);
+                            obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;
 
-
-                HashMap <String, Integer> objHash_Map_ID_amount_people = new HashMap<>();
-
-                for (String s_loop_object:objHashmap_max_pupils.keySet()
-                        ) {
-                    objHash_Map_ID_amount_people.put(s_loop_object,0);
-                }
-
-                ArrayList <String> arrlist_ID_without_projects= new ArrayList<>();
-
-
-                for (int i_preference_counter = 0; i_preference_counter < cMain.iMaximalanzahl_Projekte; i_preference_counter++) {
-
-                    String s_random_pupil_ID= "";
-
-                    int i_random_counter;
-
-                    while(list_ID_pupils.size()>0) {
-                        if (list_ID_pupils.size() > 1) {
-                            i_random_counter = (int) (Math.random() * list_ID_pupils.size());
-                            s_random_pupil_ID = list_ID_pupils.get(i_random_counter);
+                            i_counter = 0;
                         } else {
-                            s_random_pupil_ID=list_ID_pupils.get(0);
+                            i_counter++;
                         }
-
-                        String s_prefence_specific_pupil="";
-                        try {
-                            ResultSet set_prefence_specific_id  =  obj_Database_manager_Main.read_one_entry_one_attribute("pupils",arrcolums[i_preference_counter],s_random_pupil_ID);
-                            s_prefence_specific_pupil=set_prefence_specific_id.getString(1);
-                        } catch (SQLException e2) {
-                            e2.printStackTrace();
-                        }
-
-                        if (objHash_Map_ID_amount_people.get(s_prefence_specific_pupil) < objHashmap_max_pupils.get( s_prefence_specific_pupil)) {
-                            objHash_Map_ID_amount_people.replace(s_prefence_specific_pupil, objHash_Map_ID_amount_people.get( s_prefence_specific_pupil), objHash_Map_ID_amount_people.get(s_prefence_specific_pupil) + 1);
-                            objHashmap_projects_pupils.get(s_prefence_specific_pupil).add(s_random_pupil_ID);
-                            objHashmap_projects_pupils.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences + i_preference_counter;
-
-                            objHashmap_projects_pupils.i_amount_of_pupils++;
-
-                        } else {
-                            arrlist_ID_without_projects.add(s_random_pupil_ID);
-                        }
-                        list_ID_pupils.remove(s_random_pupil_ID);
+                    } else {
+                        i_counter++;
+                    }
+                    if (i_counter == 15) {
+                        b_constant_people = true;
                     }
 
-                    list_ID_pupils.addAll(arrlist_ID_without_projects);
-
-
-                    if(i_preference_counter<cMain.iMaximalanzahl_Projekte-1) {
-                        arrlist_ID_without_projects.clear();
-                    }else{
-                        objHashmap_projects_pupils.put("-1",new ArrayList<>());
-                        objHashmap_projects_pupils.get("-1").addAll(arrlist_ID_without_projects);
-                        objHashmap_projects_pupils.i_amount_of_pupils=objHashmap_projects_pupils.i_amount_of_pupils+arrlist_ID_without_projects.size();
-                    }
                 }
+                System.out.println(obj_best_solution + " beste  Lösungen "+ obj_best_solution.get("-1").size()+" Summe der Präferenzen war"+ obj_best_solution.i_sum_of_preferences);
 
 
 
-                System.out.println(objHashmap_projects_pupils.toString());
 
-                obj_Output.v_update_from_List_and_Database(objHashmap_projects_pupils);
+                obj_Output.v_update_from_List_and_Database(obj_best_solution);
 
+                c_Output_File_Generator obj_File_Generator = new c_Output_File_Generator(obj_best_solution,obj_Database_manager_Main);
+                obj_File_Generator.v_write_xls_Files();
 
-                /*
-                cOutPutDateiErzeuger objDateiSchreiber = new cOutPutDateiErzeuger(SpeicherBesteLoesung);
-                objDateiSchreiber.ExcelDateienschreiben();
-                */
             }
 
             @Override

@@ -25,7 +25,15 @@ public class cOutput_Frame extends JFrame {
 
     public void v_update_from_List_and_Database(cHash_Map_ID_projects_to_List_ID_pupils objlist_main){
 
-        arrFelderOutput= new JTextField[4][objlist_main.i_amount_of_pupils];
+
+        int i_amount_of_people=0;
+        for (String s_loop_object:objlist_main.keySet()
+             ) {
+            i_amount_of_people=i_amount_of_people+ objlist_main.get(s_loop_object).size();
+        }
+
+        arrFelderOutput= new JTextField[4][i_amount_of_people];
+
 
         for (int i_x = 0; i_x < arrFelderOutput.length; i_x++) {
             for (int k_y = 0; k_y < arrFelderOutput[i_x].length; k_y++) {
@@ -87,6 +95,16 @@ public class cOutput_Frame extends JFrame {
         this.setTitle("Zuordnung der Schüler zu Projekten  ");
 
         this.getContentPane().setLayout(null);
+
+
+
+
+
+
+
+
+
+
 
 
         for (int i_x=0;i_x<arrFelderMenue.length;i_x++){
