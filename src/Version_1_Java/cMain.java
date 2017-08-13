@@ -261,8 +261,8 @@ public class cMain {
                             objHash_Map_ID_amount_people.replace(s_prefence_specific_pupil, objHash_Map_ID_amount_people.get( s_prefence_specific_pupil), objHash_Map_ID_amount_people.get(s_prefence_specific_pupil) + 1);
                             objHashmap_projects_pupils.get(s_prefence_specific_pupil).add(s_random_pupil_ID);
                             objHashmap_projects_pupils.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences + i_preference_counter;
-                            objHashmap_projects_pupils.i_amount_of_pupils=objHashmap_projects_pupils.i_amount_of_pupils+1;
 
+                            objHashmap_projects_pupils.i_amount_of_pupils++;
 
                         } else {
                             arrlist_ID_without_projects.add(s_random_pupil_ID);
@@ -271,7 +271,6 @@ public class cMain {
                     }
 
                     list_ID_pupils.addAll(arrlist_ID_without_projects);
-
 
 
                     if(i_preference_counter<cMain.iMaximalanzahl_Projekte-1) {
@@ -284,6 +283,8 @@ public class cMain {
                 }
 
 
+
+                System.out.println(objHashmap_projects_pupils.toString());
 
                 obj_Output.v_update_from_List_and_Database(objHashmap_projects_pupils);
 
