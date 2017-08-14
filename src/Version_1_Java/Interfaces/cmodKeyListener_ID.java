@@ -28,8 +28,6 @@ public class cmodKeyListener_ID implements KeyListener {
 
 
 
-
-
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -45,8 +43,6 @@ public class cmodKeyListener_ID implements KeyListener {
     public void keyReleased(KeyEvent e) {
 
         cmodTextField objsource = ((cmodTextField) e.getSource());
-
-
 
 
         if(this.table.equals("pupils")) {

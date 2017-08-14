@@ -15,9 +15,9 @@ public class cOutput_Frame extends JFrame {
 
 
 
-
     JTextField [][]arrFelderOutput;
     JTextField [] arrFelderMenue= new JTextField[4];
+
 
 
     c_Database_Manager obj_Database_Manager_Output;
@@ -80,12 +80,7 @@ public class cOutput_Frame extends JFrame {
         e.printStackTrace();
     }
 
-
-
-
-
 }
-
 
     public cOutput_Frame( c_Database_Manager obj_tm_DatabaseManager_Main){
 
@@ -95,15 +90,6 @@ public class cOutput_Frame extends JFrame {
         this.setTitle("Zuordnung der Schüler zu Projekten  ");
 
         this.getContentPane().setLayout(null);
-
-
-
-
-
-
-
-
-
 
 
 

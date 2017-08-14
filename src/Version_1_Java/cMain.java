@@ -22,9 +22,6 @@ public class cMain {
 
 
 
-    public static  int i_amount_of_pupils_in_database =0;
-    public static  int i_amount_of_projekts_in_database =0;
-
 
     public static final int iMaximalanzahl_Projekte=4;
 
@@ -63,16 +60,6 @@ public class cMain {
         }
 
         obj_File_Reader_Excel.v_update_Database_from_list();
-
-
-
-
-        try {
-            i_amount_of_pupils_in_database = obj_Database_manager_Main.v_i_amout_of_entrys_in_Database("pupils");
-            i_amount_of_projekts_in_database = obj_Database_manager_Main.v_i_amout_of_entrys_in_Database("projects");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
 
 
@@ -208,7 +195,7 @@ public class cMain {
                     if (objHashmap_projects_pupils.get("-1").size() <= obj_best_solution.get("-1").size()) {
 
                         if (objHashmap_projects_pupils.i_sum_of_preferences < obj_best_solution.i_sum_of_preferences) {
-                            
+
                             obj_best_solution.clear();
                             obj_best_solution.putAll(objHashmap_projects_pupils);
                             obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;

@@ -28,20 +28,18 @@ public class c_Pupils_Frame_Input extends JFrame {
     private c_Database_Manager objDatabaseManager_Frame;
 
 
-    /*
-
-    Die X-Koordinate kann gleich bleiben, die Y-Koordinate muss durch iterieren geaendert werden
 
 
-     */
-    private ArrayList<ArrayList<JTextField>> listFeldersichtbar = new ArrayList<>();
-    // --Commented out by Inspection (11.08.2017 15:26):ArrayList < ArrayList<JTextField> > listFelderUnsichtbar = new ArrayList<>();
 
 
-    // --Commented out by Inspection (11.08.2017 15:26):boolean bAktualisieren=true;
+
 
 
     public c_Pupils_Frame_Input(c_Database_Manager obj_tm_DatabaseManager_Main) {
+
+
+        ArrayList<String> listTest= new ArrayList<>();
+
 
 
         this.objDatabaseManager_Frame = obj_tm_DatabaseManager_Main;
@@ -58,7 +56,6 @@ public class c_Pupils_Frame_Input extends JFrame {
         {
             int iPraeferenzenzaehler = 1;
             for (int i_x = 0; i_x < arrTextFields_Menue.length; i_x++) {
-
                 arrTextFields_Menue[i_x] = new JTextField();
                 arrTextFields_Menue[i_x].setVisible(true);
                 this.getContentPane().add(arrTextFields_Menue[i_x]);
@@ -83,20 +80,10 @@ public class c_Pupils_Frame_Input extends JFrame {
         }
 
 
+
         for (int i_x = 0; i_x < arrTextfields_Input.length; i_x++) {
             for (int k_y = 0; k_y < arrTextfields_Input[i_x].length; k_y++) {
-                if (i_x == 0) {
-                    listFeldersichtbar.add(new ArrayList<>());
-                    listFeldersichtbar.get(k_y).add(arrTextfields_Input[i_x][k_y]);
-                } else {
-                    listFeldersichtbar.get(k_y).add(arrTextfields_Input[i_x][k_y]);
-                }
                 arrTextfields_Input[i_x][k_y] = new cmodTextField();
-
-                if (k_y < cMain.i_amount_of_pupils_in_database) {
-                    arrTextfields_Input[i_x][k_y].bcorrect_unique_ID = true;
-                }
-
                 this.getContentPane().add(arrTextfields_Input[i_x][k_y]);
                 arrTextfields_Input[i_x][k_y].setBounds(120 * i_x, 20 * k_y + i_x + arrTextFields_Menue[0].getHeight() + 10, 120, 20);
                 arrTextfields_Input[i_x][k_y].iRow_position = k_y;
@@ -133,11 +120,6 @@ public class c_Pupils_Frame_Input extends JFrame {
                         arrTextfields_Input[i_x][k_y].addKeyListener(new cmodKeyListener_NON_ID(obj_tm_DatabaseManager_Main,  "pupils"));
                         break;
 
-
-                        /*
-
-                        Einfuegen der Listener
-                         */
                 }
             }
         }
@@ -181,7 +163,6 @@ public class c_Pupils_Frame_Input extends JFrame {
 
         }
 
-
         for (int i = 0; i < arrSuchmaskenmenue.length; i++) {
             arrSuchmaskenmenue[i] = new JTextField();
             arrSuchmaskenmenue[i].setVisible(true);
@@ -189,7 +170,6 @@ public class c_Pupils_Frame_Input extends JFrame {
             arrSuchmaskenmenue[i].setBounds(arrTextfields_Input[arrTextfields_Input.length - 1][0].getX() + arrTextfields_Input[arrTextfields_Input.length - 1][0].getWidth() + (110 * i) + 100, 0, 110, 20);
             switch (i) {
                 case 0:
-
                     arrSuchmaskenmenue[i].setText("Nachnamensuche");
                     break;
 
@@ -208,14 +188,8 @@ public class c_Pupils_Frame_Input extends JFrame {
                     break;
             }
         }
-
-        /*
-
-        Datenbankenerzeugung
-         */
-
-
     }
+
 
     private static void Suche(String arrStrings[]) {
 
@@ -287,104 +261,6 @@ public class c_Pupils_Frame_Input extends JFrame {
             }
         }
     }
-
-
-
-
-
-
-
-
-
-        /*
-        Pruefung auf Integer, und, ob der pupils in das Projekt rein darf!!!
-
-         */
-
-
-
-
-
-
-
-
-
-
-// --Commented out by Inspection START (11.08.2017 15:26):
-//    public ArrayList<Integer> WertePruefung() {
-//        ArrayList<Integer> lRueckgabeWerte = new ArrayList<>();
-//
-//        int i = 0;
-//        boolean bLegitimerWert = true;
-//
-//        while (i < arrTextfields_Input[0].length) {
-//            String sInput = arrTextfields_Input[0][i].getText().trim();
-//
-//            if (!sInput.equals("")) {
-//                for (int k = 0; k < sInput.length(); k++) {
-//                    if (Character.isWhitespace(sInput.charAt(k))) {
-//                        bLegitimerWert = false;
-//                        break;
-//                    }
-//                }
-//            } else {
-//                bLegitimerWert = false;
-//            }
-//
-//            if (bLegitimerWert) {
-//                lRueckgabeWerte.add(i);
-//            }
-//            i++;
-//        }
-//
-//        i = 0;
-//
-//        while (i < lRueckgabeWerte.size()) {
-//            String sInput = arrTextfields_Input[1][i].getText().trim();
-//            if (!sInput.equals("")) {
-//                for (int k = 0; k < sInput.length(); k++) {
-//                    if (Character.isWhitespace(sInput.charAt(k))) {
-//                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-//                        break;
-//                    }
-//                }
-//            } else {
-//                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-//                break;
-//            }
-//            i++;
-//        }
-//
-//        i=0;
-//
-//        while (i < lRueckgabeWerte.size()) {
-//            String sInput = arrTextfields_Input[2][i].getText().trim();
-//            if (!sInput.equals("")) {
-//                for (int k = 0; k < sInput.length(); k++) {
-//                    if (Character.isWhitespace(sInput.charAt(k))) {
-//                        lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-//                        break;
-//                    }
-//                }
-//            } else {
-//                lRueckgabeWerte.remove(lRueckgabeWerte.get(i));
-//                break;
-//            }
-//            i++;
-//        }
-//
-//
-//
-//
-//        /*
-//        Pruefung auf Integer, und, ob der pupils in das Projekt rein darf!!!
-//
-//         */
-//
-//
-//        return  lRueckgabeWerte;
-//    }
-
 
 
 
