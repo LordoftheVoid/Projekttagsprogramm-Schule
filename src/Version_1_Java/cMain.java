@@ -1,17 +1,11 @@
 package Version_1_Java;
 
 import Version_1_Java.DateiSchnittstellen.cExcel_File_Reader;
-import Version_1_Java.DateiSchnittstellen.c_Output_File_Generator;
 import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
-import Version_1_Java.Interfaces.cOutput_Frame;
-import Version_1_Java.Interfaces.c_Projekt_Frame_Input;
-import Version_1_Java.Interfaces.c_Pupils_Frame_Input;
-import Version_1_Java.Objekte.Hashmaps_modified.cHash_Map_ID_projects_to_List_ID_pupils;
+import Version_1_Java.Interfaces.c_Frame;
 
-import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 /**
@@ -35,6 +29,76 @@ public class cMain {
 
 
     public static void main(String args[]) {
+
+
+        CopyOnWriteArrayList <String> [] arr_list_value_Strings= new CopyOnWriteArrayList[3];
+
+
+        CopyOnWriteArrayList <String> [] arr_list_Colum_Names= new CopyOnWriteArrayList[2];
+
+
+        arr_list_value_Strings[0]= new CopyOnWriteArrayList<>();
+        arr_list_value_Strings[1]= new CopyOnWriteArrayList<>();
+        arr_list_value_Strings[2]= new CopyOnWriteArrayList<>();
+
+
+        arr_list_value_Strings[0].add("Nachname");
+        arr_list_value_Strings[0].add("Vorname");
+        arr_list_value_Strings[0].add("Klasse");
+        arr_list_value_Strings[0].add("Erstwahl");
+        arr_list_value_Strings[0].add("Zweitwahl");
+        arr_list_value_Strings[0].add("Drittwahl");
+        arr_list_value_Strings[0].add("Viertwahl");
+
+
+        arr_list_value_Strings[1].add("Projektnummer");
+        arr_list_value_Strings[1].add("Lehrkraftskürzel");
+        arr_list_value_Strings[1].add("Maximale Schüleranzahl");
+
+
+        arr_list_value_Strings[2].add("Nachname");
+        arr_list_value_Strings[2].add("Vorname");
+        arr_list_value_Strings[2].add("Klasse");
+        arr_list_value_Strings[2].add("Lehrkraftskürzel");
+        arr_list_value_Strings[2].add("Wahlnummer");
+
+
+
+        arr_list_Colum_Names[0]= new CopyOnWriteArrayList<>();
+        arr_list_Colum_Names[1]= new CopyOnWriteArrayList<>();
+
+
+        arr_list_Colum_Names[0].add("s_unique_ID");
+        arr_list_Colum_Names[0].add("s_teacher_ID");
+        arr_list_Colum_Names[0].add("i_max_pupils");
+
+
+        arr_list_Colum_Names[1].add("s_unique_ID");
+        arr_list_Colum_Names[1].add("s_sur_Name");
+        arr_list_Colum_Names[1].add("s_pre_Name");
+        arr_list_Colum_Names[1].add("s_grade");
+        arr_list_Colum_Names[1].add("i_pref0");
+        arr_list_Colum_Names[1].add("i_pref1");
+        arr_list_Colum_Names[1].add("i_pref2");
+        arr_list_Colum_Names[1].add("i_pref3");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         c_Database_Manager obj_Database_manager_Main = new c_Database_Manager();
 
@@ -64,6 +128,24 @@ public class cMain {
 
 
 
+
+        c_Frame obj_Test= new c_Frame(arr_list_value_Strings[0],arr_list_Colum_Names[0],100,100, "pupils",obj_Database_manager_Main);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
 
 
 
@@ -245,5 +327,7 @@ public class cMain {
             }
         });
 
+
+    */
     }
 }

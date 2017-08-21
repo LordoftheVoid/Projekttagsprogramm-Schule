@@ -17,4 +17,13 @@ public class cmodTextField extends JTextField {
     String sunique_ID_Textfieldrow;
 
 
+    public void v_initiation (int i_X, int k_Y, int width, int height){
+
+
+
+
+
+    }
+
+
 }
