@@ -1,6 +1,5 @@
 package Version_1_Java;
 
-import Version_1_Java.DateiSchnittstellen.cExcel_File_Reader;
 import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
 import Version_1_Java.Interfaces.c_Frame;
 
@@ -73,7 +72,7 @@ public class cMain {
         arr_list_Colum_Names[0].add("i_max_pupils");
 
 
-        arr_list_Colum_Names[1].add("s_unique_ID");
+      //  arr_list_Colum_Names[1].add("s_unique_ID"); Was ist damit ?
         arr_list_Colum_Names[1].add("s_sur_Name");
         arr_list_Colum_Names[1].add("s_pre_Name");
         arr_list_Colum_Names[1].add("s_grade");
@@ -81,16 +80,6 @@ public class cMain {
         arr_list_Colum_Names[1].add("i_pref1");
         arr_list_Colum_Names[1].add("i_pref2");
         arr_list_Colum_Names[1].add("i_pref3");
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -110,6 +99,21 @@ public class cMain {
 
 
 
+
+
+        c_Frame obj_Test= new c_Frame(100,100, "pupils",obj_Database_manager_Main);
+
+        obj_Test.v_generate_rows(arr_list_Colum_Names[1].size(),arr_list_Colum_Names[1]);
+
+        obj_Test.v_set_custom_Head(arr_list_value_Strings[0]);
+
+        obj_Test.v_set_custom_Search(arr_list_value_Strings[0]);
+
+
+
+
+/*
+
         cExcel_File_Reader obj_File_Reader_Excel = new cExcel_File_Reader(obj_Database_manager_Main);
 
 
@@ -119,7 +123,7 @@ public class cMain {
 
 
         for ( String loop_objekt_s:obj_File_Reader_Excel.list_of_filenames_with_xls
-             ) {
+                ) {
             obj_File_Reader_Excel.read_file_extracting_pupils(loop_objekt_s);
         }
 
@@ -129,7 +133,6 @@ public class cMain {
 
 
 
-        c_Frame obj_Test= new c_Frame(arr_list_value_Strings[0],arr_list_Colum_Names[0],100,100, "pupils",obj_Database_manager_Main);
 
 
 
@@ -137,15 +140,6 @@ public class cMain {
 
 
 
-
-
-
-
-
-
-
-
-        /*
 
 
 
