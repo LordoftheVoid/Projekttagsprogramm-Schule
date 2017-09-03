@@ -1,11 +1,11 @@
-package Version_1_Java.DateiSchnittstellen;
+package Version_1_Java.File_Interactions.Files;
 
 /**
  * Created by Aaron on 10.08.2017.
  */
 
 
-import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.c_Database_Manager;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;

@@ -1,6 +1,6 @@
-package Version_1_Java.Objekte.Hashmaps_modified;
+package Version_1_Java.Lists;
 
-import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.c_Database_Manager;
 import Version_1_Java.cMain;
 
 import java.sql.ResultSet;

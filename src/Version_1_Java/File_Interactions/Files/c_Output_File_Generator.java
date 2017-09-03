@@ -1,8 +1,8 @@
-package Version_1_Java.DateiSchnittstellen;
+package Version_1_Java.File_Interactions.Files;
 
 
-import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
-import Version_1_Java.Objekte.Hashmaps_modified.cHash_Map_ID_projects_to_List_ID_pupils;
+import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;

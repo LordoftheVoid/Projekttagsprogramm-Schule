@@ -1,4 +1,4 @@
-package Version_1_Java.DatenBankenSchnittstellen;
+package Version_1_Java.File_Interactions.Database;
 
 import java.sql.*;
 
@@ -51,8 +51,6 @@ public class c_Database_Manager {
 
 
 
-
-
     public void create_entry (String table, String unique_id ) throws SQLException {
 
        insertInto = Datenbankverbindung.prepareStatement("INSERT INTO "+table+"  (s_unique_ID) VALUES (?)");
@@ -61,9 +59,11 @@ public class c_Database_Manager {
 
     }
 
-    public void update_entry (String table, String unique_ID, String colum, String value) throws SQLException {
-        update_Entry= Datenbankverbindung.prepareStatement("UPDATE "+table+" SET "+ colum +" = '"+value+"' WHERE s_unique_ID= ?");
-        update_Entry.setString(1,unique_ID);
+    public void update_entry (String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) throws SQLException {
+        System.out.println( s_table_tm+"    "+s_unique_ID_tm+"    "+s_value_tm+"    "+s_colum_tm);
+
+        update_Entry= Datenbankverbindung.prepareStatement("UPDATE "+s_table_tm+" SET "+ s_colum_tm +" = '"+s_value_tm+"' WHERE s_unique_ID= ?");
+        update_Entry.setString(1,s_unique_ID_tm);
         update_Entry.executeUpdate();
 
     }

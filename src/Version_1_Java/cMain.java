@@ -1,7 +1,7 @@
 package Version_1_Java;
 
-import Version_1_Java.DatenBankenSchnittstellen.c_Database_Manager;
-import Version_1_Java.Interfaces.c_Frame;
+import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.Frame_Related.c_Frame;
 
 import java.sql.SQLException;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -85,10 +85,6 @@ public class cMain {
 
 
 
-
-
-
-
         c_Database_Manager obj_Database_manager_Main = new c_Database_Manager();
 
         try {
@@ -109,10 +105,16 @@ public class cMain {
 
         obj_Test.v_set_custom_Search(arr_list_value_Strings[0]);
 
+        obj_Test.v_Setup_Listener(2);
+
+        obj_Test.v_sort_setup();
 
 
 
-/*
+        
+
+
+
 
         cExcel_File_Reader obj_File_Reader_Excel = new cExcel_File_Reader(obj_Database_manager_Main);
 
@@ -322,6 +324,6 @@ public class cMain {
         });
 
 
-    */
+
     }
 }
