@@ -44,15 +44,18 @@ public class c_Frame  extends JFrame{
 
 
 
-    public c_Frame(int i_X, int k_Y, String s_Table_tm, c_Database_Manager obj_Database_Manager_tm) {
+    public c_Frame(String s_Table_tm, c_Database_Manager obj_Database_Manager_tm) {
 
         this.objDatabaseManager_Input=obj_Database_Manager_tm;
         this.s_Main_Table = s_Table_tm;
-        this.setVisible(true);
-        this.setBounds(i_X, k_Y, 500, 500);
         this.getContentPane().setLayout(null);
 
+    }
 
+    public void v_show_Frame(int i_X, int k_Y){
+
+        this.setVisible(true);
+        this.setBounds(i_X, k_Y, 500, 500);
     }
 
 

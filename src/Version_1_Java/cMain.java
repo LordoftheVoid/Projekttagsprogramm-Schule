@@ -1,8 +1,14 @@
 package Version_1_Java;
 
 import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.File_Interactions.Files.cExcel_File_Reader;
+import Version_1_Java.File_Interactions.Files.c_Output_File_Generator;
 import Version_1_Java.Frame_Related.c_Frame;
+import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
 
+import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -67,19 +73,21 @@ public class cMain {
         arr_list_Colum_Names[1]= new CopyOnWriteArrayList<>();
 
 
-        arr_list_Colum_Names[0].add("s_unique_ID");
-        arr_list_Colum_Names[0].add("s_teacher_ID");
-        arr_list_Colum_Names[0].add("i_max_pupils");
 
 
       //  arr_list_Colum_Names[1].add("s_unique_ID"); Was ist damit ?
-        arr_list_Colum_Names[1].add("s_sur_Name");
-        arr_list_Colum_Names[1].add("s_pre_Name");
-        arr_list_Colum_Names[1].add("s_grade");
-        arr_list_Colum_Names[1].add("i_pref0");
-        arr_list_Colum_Names[1].add("i_pref1");
-        arr_list_Colum_Names[1].add("i_pref2");
-        arr_list_Colum_Names[1].add("i_pref3");
+        arr_list_Colum_Names[0].add("s_sur_Name");
+        arr_list_Colum_Names[0].add("s_pre_Name");
+        arr_list_Colum_Names[0].add("s_grade");
+        arr_list_Colum_Names[0].add("i_pref0");
+        arr_list_Colum_Names[0].add("i_pref1");
+        arr_list_Colum_Names[0].add("i_pref2");
+        arr_list_Colum_Names[0].add("i_pref3");
+
+
+        arr_list_Colum_Names[1].add("s_unique_ID");
+        arr_list_Colum_Names[1].add("s_teacher_ID");
+        arr_list_Colum_Names[1].add("i_max_pupils");
 
 
 
@@ -96,30 +104,60 @@ public class cMain {
 
 
 
-
-        c_Frame obj_Test= new c_Frame(100,100, "pupils",obj_Database_manager_Main);
-
-        obj_Test.v_generate_rows(arr_list_Colum_Names[1].size(),arr_list_Colum_Names[1]);
-
-        obj_Test.v_set_custom_Head(arr_list_value_Strings[0]);
-
-        obj_Test.v_set_custom_Search(arr_list_value_Strings[0]);
-
-        obj_Test.v_Setup_Listener(2);
-
-        obj_Test.v_sort_setup();
+        //Frame Schüler
 
 
+        c_Frame obj_Frame_pupils= new c_Frame( "pupils",obj_Database_manager_Main);
 
-        
+        obj_Frame_pupils.v_generate_rows(arr_list_Colum_Names[0].size(),arr_list_Colum_Names[0]);
+
+        obj_Frame_pupils.v_set_custom_Head(arr_list_value_Strings[0]);
+
+        obj_Frame_pupils.v_set_custom_Search(arr_list_value_Strings[0]);
+
+        obj_Frame_pupils.v_Setup_Listener(2);
+
+        obj_Frame_pupils.v_sort_setup();
 
 
 
+
+
+        //Frame Projekte
+
+
+        c_Frame obj_Frame_projects= new c_Frame( "projects",obj_Database_manager_Main);
+
+        obj_Frame_pupils.v_generate_rows(arr_list_Colum_Names[1].size(),arr_list_Colum_Names[1]);
+
+        obj_Frame_pupils.v_set_custom_Head(arr_list_value_Strings[1]);
+
+        obj_Frame_pupils.v_set_custom_Search(arr_list_value_Strings[1]);
+
+        obj_Frame_pupils.v_Setup_Listener(1);
+
+        obj_Frame_pupils.v_sort_setup();
+
+
+
+
+        //Frame Output
+
+
+        c_Frame obj_Frame_Output= new c_Frame( "projects",obj_Database_manager_Main);
+
+        obj_Frame_pupils.v_generate_rows(arr_list_Colum_Names[2].size(),arr_list_Colum_Names[2]);
+
+        obj_Frame_pupils.v_set_custom_Head(arr_list_value_Strings[2]);
+
+        obj_Frame_pupils.v_set_custom_Search(arr_list_value_Strings[2]);
+
+        obj_Frame_pupils.v_sort_setup();
+
+
+        //File-Reader
 
         cExcel_File_Reader obj_File_Reader_Excel = new cExcel_File_Reader(obj_Database_manager_Main);
-
-
-
 
         obj_File_Reader_Excel.list_of_filenames_with_xls =  obj_File_Reader_Excel.list_search_for_xls_Files("C:/Informatik/Html");
 
@@ -128,6 +166,7 @@ public class cMain {
                 ) {
             obj_File_Reader_Excel.read_file_extracting_pupils(loop_objekt_s);
         }
+
 
         obj_File_Reader_Excel.v_update_Database_from_list();
 
@@ -138,16 +177,6 @@ public class cMain {
 
 
 
-
-
-
-
-
-
-
-        c_Pupils_Frame_Input obj_pupils_Input = new c_Pupils_Frame_Input(obj_Database_manager_Main);
-        c_Projekt_Frame_Input obj_Projekt_Input = new c_Projekt_Frame_Input(obj_Database_manager_Main);
-        cOutput_Frame obj_Output = new cOutput_Frame(obj_Database_manager_Main);
 
 
         JFrame obj_Frame_Main = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
@@ -168,16 +197,10 @@ public class cMain {
         btn_pupils_Frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                obj_pupils_Input.setVisible(true);
-                obj_pupils_Input.setEnabled(true);
 
 
-                try {
-                    obj_pupils_Input.v_update_Frame_from_Database();
+             obj_Frame_pupils.v_show_Frame(100,100);
 
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
 
 
             }
@@ -212,12 +235,7 @@ public class cMain {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                obj_Projekt_Input.setVisible(true);
-                obj_Projekt_Input.v_update_Frame_from_Database();
-
-
-
-
+                obj_Frame_projects.v_show_Frame(200,200);
 
             }
 
@@ -250,9 +268,9 @@ public class cMain {
         btn_Frame_Output.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                obj_Output.setVisible(true);
-                obj_Output.setEnabled(true);
 
+
+                obj_Frame_projects.v_show_Frame(500,500);
 
                 cHash_Map_ID_projects_to_List_ID_pupils objHashmap_projects_pupils = new cHash_Map_ID_projects_to_List_ID_pupils(obj_Database_manager_Main);
                 objHashmap_projects_pupils.v_setup_from_Database();
@@ -295,7 +313,7 @@ public class cMain {
 
 
 
-                obj_Output.v_update_from_List_and_Database(obj_best_solution);
+               obj_Frame_Output.v_update_from_List_and_Database(obj_best_solution);
 
                 c_Output_File_Generator obj_File_Generator = new c_Output_File_Generator(obj_best_solution,obj_Database_manager_Main);
                 obj_File_Generator.v_write_xls_Files();
