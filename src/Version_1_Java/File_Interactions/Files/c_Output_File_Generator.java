@@ -22,12 +22,12 @@ public class c_Output_File_Generator {
 
 
     cHash_Map_ID_projects_to_List_ID_pupils obj_output_Map;
-    c_Database_Manager obj_Database_Manager_Output;
+    c_Database_Manager objDatabaseManager_Input;
 
 
     public c_Output_File_Generator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm, c_Database_Manager obj_Database_Manager_Main ) {
         obj_output_Map=argMap_tm;
-        obj_Database_Manager_Output=obj_Database_Manager_Main;
+        objDatabaseManager_Input=obj_Database_Manager_Main;
 
     }
 
@@ -42,7 +42,7 @@ public class c_Output_File_Generator {
 
 
             try {
-                set_Ouput_Data= obj_Database_Manager_Output.read_one_entry_one_attribute("projects","s_teacher_ID", s_loop_objekt);
+                set_Ouput_Data= objDatabaseManager_Input.read_one_entry_one_attribute("projects","s_teacher_ID", s_loop_objekt);
                 outputFilename = "Projekt von " + set_Ouput_Data.getString(1);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -61,13 +61,13 @@ public class c_Output_File_Generator {
                     try {
                     switch (k) {
                                 case 0:
-                                    set_Ouput_Data =obj_Database_Manager_Output.read_one_entry_one_attribute("pupils","s_sur_Name",obj_output_Map.get(s_loop_objekt).get(i));
+                                    set_Ouput_Data =objDatabaseManager_Input.read_one_entry_one_attribute("persons","s_sur_Name",obj_output_Map.get(s_loop_objekt).get(i));
                                     break;
                                 case 1:
-                                    set_Ouput_Data =obj_Database_Manager_Output.read_one_entry_one_attribute("pupils","s_pre_Name",obj_output_Map.get(s_loop_objekt).get(i));
+                                    set_Ouput_Data =objDatabaseManager_Input.read_one_entry_one_attribute("persons","s_pre_Name",obj_output_Map.get(s_loop_objekt).get(i));
                                     break;
                                 case 2:
-                                    set_Ouput_Data =obj_Database_Manager_Output.read_one_entry_one_attribute("pupils","s_grade",obj_output_Map.get(s_loop_objekt).get(i));
+                                    set_Ouput_Data =objDatabaseManager_Input.read_one_entry_one_attribute("persons","s_grade",obj_output_Map.get(s_loop_objekt).get(i));
                                     break;
 
                     }

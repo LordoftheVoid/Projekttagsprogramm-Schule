@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Projekttagprogramm Schule:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Schueler_Datenbank_V1.db" afterPath="$PROJECT_DIR$/Schueler_Datenbank_V1.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/cMain.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/cMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -14,7 +27,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Projekttagprogramm Schule$cMain.coverage" NAME="cMain Coverage Results" MODIFIED="1501406386860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Projekttagprogramm Schule$cMain.coverage" NAME="cMain Coverage Results" MODIFIED="1504520166507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Version_1_Java.Objekte.*</FILTER>
     </SUITE>
   </component>
@@ -30,18 +43,18 @@
       <file leaf-file-name="cMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/cMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="315" column="48" lean-forward="false" selection-start-line="315" selection-start-column="48" selection-end-line="315" selection-end-column="48" />
+            <state relative-caret-position="310">
+              <caret line="403" column="95" lean-forward="false" selection-start-line="403" selection-start-column="95" selection-end-line="403" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="c_Database_Manager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java">
+      <file leaf-file-name="cExcel_File_Reader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="480">
+              <caret line="114" column="75" lean-forward="false" selection-start-line="114" selection-start-column="75" selection-end-line="114" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -50,35 +63,43 @@
       <file leaf-file-name="c_mod_Text_Field.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="c_Frame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cmodKeyListener_ID.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="84" column="71" lean-forward="false" selection-start-line="84" selection-start-column="71" selection-end-line="84" selection-end-column="71" />
+            <state relative-caret-position="255">
+              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="c_Database_Manager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cHash_Map_ID_projects_to_List_ID_pupils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4">
+              <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="c_Output_File_Generator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="66" column="114" lean-forward="false" selection-start-line="66" selection-start-column="114" selection-end-line="66" selection-end-column="114" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,11 +107,9 @@
       <file leaf-file-name="cmodKeyListener_NON_ID.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="40" column="124" lean-forward="false" selection-start-line="40" selection-start-column="124" selection-end-line="40" selection-end-column="124" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="578">
+              <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,6 +124,15 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>obj_Database_Manager_Output</find>
+      <find>.add</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>objDatabaseManager_Input</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -116,7 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Objekte/cSchüler.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Interfaces/cOutputProjektorientiert.java" />
         <option value="$PROJECT_DIR$/Input_Projekte.txt" />
         <option value="$PROJECT_DIR$/Input_Schueler.txt" />
@@ -157,14 +184,15 @@
         <option value="$PROJECT_DIR$/src/Version_1_Java/Interfaces/cHash_Map_ID_projects_to_List_ID_pupils.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Database/c_Output_File_Generator.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Database/cExcel_File_Reader.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Platzhalter.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodTextField.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/cMain.java" />
       </list>
@@ -192,8 +220,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,17 +356,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projekttagprogramm Schule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projekttagprogramm Schule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projekte Intellij/Datenbankexperimente/.idea/libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -792,15 +834,15 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39756593" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31237322" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31237322" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31237322" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27916667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -813,7 +855,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933193" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -860,18 +902,6 @@
           <line>183</line>
           <properties class="java.util.Comparator" method="reversed" />
           <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="125" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="127" />
@@ -943,7 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="163" column="13" lean-forward="false" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1021,7 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,73 +1057,10 @@
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Interfaces/c_Pupils_Frame_Input.java" />
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/awd.java" />
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Platzhalter.java" />
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="65" column="37" lean-forward="false" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="40" column="124" lean-forward="false" selection-start-line="40" selection-start-column="124" selection-end-line="40" selection-end-column="124" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="84" column="71" lean-forward="false" selection-start-line="84" selection-start-column="71" selection-end-line="84" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/util/TreeSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
           <caret line="253" column="19" lean-forward="false" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
-          <folding>
-            <element signature="e#9664#9665#0" expanded="false" />
-            <element signature="e#9710#9711#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1103,7 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="740" column="14" lean-forward="false" selection-start-line="740" selection-start-column="14" selection-end-line="740" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1111,27 +1075,164 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="78" column="13" lean-forward="false" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+        <state relative-caret-position="255">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="120" column="50" lean-forward="false" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="114" column="75" lean-forward="false" selection-start-line="114" selection-start-column="75" selection-end-line="114" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/c_Database_Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/cMain.java">
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="315" column="48" lean-forward="false" selection-start-line="315" selection-start-column="48" selection-end-line="315" selection-end-column="48" />
+        <state relative-caret-position="862">
+          <caret line="447" column="109" lean-forward="false" selection-start-line="447" selection-start-column="109" selection-end-line="447" selection-end-column="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="66" column="114" lean-forward="false" selection-start-line="66" selection-start-column="114" selection-end-line="66" selection-end-column="114" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/cMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="403" column="95" lean-forward="false" selection-start-line="403" selection-start-column="95" selection-end-line="403" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Projekttagprogramm Schule:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Projekttagprogramm Schule</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>apidocs</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

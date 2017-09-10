@@ -1,5 +1,7 @@
 package Version_1_Java.File_Interactions.Database;
 
+import org.sqlite.SQLiteConfig;
+
 import java.sql.*;
 
 /**
@@ -10,16 +12,49 @@ public class c_Database_Manager {
     private Connection Datenbankverbindung;
 
 
-    private PreparedStatement insertInto;
 
-    private PreparedStatement update_Entry;
+    /*
 
-    private PreparedStatement delete_Entry;
+
+    Test!!!!!!!!
+     */
+
+
+    public  Connection getConnection() throws ClassNotFoundException {
+
+
+     //   final String DB_URL = "C:/Informatik/Programme/SQLite/File_Projects_Test_Keys.db";
+       // final String DB_URL = "C:/Informatik/Projekte/Projekttagprogramm Schule/Schueler_Datenbank_V1.db";
+        final String DRIVER = "org.sqlite.JDBC";
+
+
+        final String DB_URL =  "jdbc:sqlite:C:/Informatik/Projekte/Projekttagprogramm Schule/Schueler_Datenbank_V1.db";
+        Class.forName(DRIVER);
+        Connection connection = null;
+        try {
+            SQLiteConfig config = new SQLiteConfig();
+            config.enforceForeignKeys(true);
+            connection = DriverManager.getConnection(DB_URL,config.toProperties());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return connection;
+    }
+
+
+
+
 
     public void v_initialization() throws SQLException {
         try {
+            /*
             Datenbankverbindung= DriverManager.getConnection("jdbc:sqlite:C:/Informatik/Projekte/Projekttagprogramm Schule/Schueler_Datenbank_V1.db");
-        } catch (SQLException e) {
+
+            */
+
+            Datenbankverbindung=this.getConnection();
+
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -51,36 +86,55 @@ public class c_Database_Manager {
 
 
 
-    public void create_entry (String table, String unique_id ) throws SQLException {
+    public boolean create_entry (String table, String unique_id ) throws SQLException {
 
-       insertInto = Datenbankverbindung.prepareStatement("INSERT INTO "+table+"  (s_unique_ID) VALUES (?)");
+        try {
+        PreparedStatement insertInto = Datenbankverbindung.prepareStatement("INSERT INTO " + table + "  (s_unique_ID) VALUES (?)");
        insertInto.setString(1,unique_id);
        insertInto.executeUpdate();
-
-    }
-
-    public void update_entry (String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) throws SQLException {
-        System.out.println( s_table_tm+"    "+s_unique_ID_tm+"    "+s_value_tm+"    "+s_colum_tm);
-
-        update_Entry= Datenbankverbindung.prepareStatement("UPDATE "+s_table_tm+" SET "+ s_colum_tm +" = '"+s_value_tm+"' WHERE s_unique_ID= ?");
-        update_Entry.setString(1,s_unique_ID_tm);
-        update_Entry.executeUpdate();
-
+        }catch (SQLException e_1) {
+            return false;
+        }
+        return true;
     }
 
 
 
 
-    public void delete_entry (String table, String unique_ID) throws SQLException {
-        delete_Entry= Datenbankverbindung.prepareStatement("DELETE FROM "+table+" WHERE s_unique_ID= ?");
-        delete_Entry.setString(1,unique_ID);
-        delete_Entry.executeUpdate();
+
+
+    public boolean update_entry (String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) {
+        try{
+            PreparedStatement update_Entry = Datenbankverbindung.prepareStatement("UPDATE " + s_table_tm + " SET " + s_colum_tm + " = '" + s_value_tm + "' WHERE s_unique_ID= ?");
+            update_Entry.setString(1, s_unique_ID_tm);
+            update_Entry.executeUpdate();
+        }catch (SQLException e_1){
+            return e_1.getErrorCode() != 19;
+        }
+        return true;
     }
 
 
 
 
-    public int v_i_amout_of_entrys_in_Database(String table) throws SQLException {
+    public boolean delete_entry (String table, String unique_ID) {
+        boolean b_entry_existed;
+        try {
+            b_entry_existed=this.entry_check(table,unique_ID);
+            PreparedStatement delete_Entry = Datenbankverbindung.prepareStatement("DELETE FROM " + table + " WHERE s_unique_ID= ?");
+            delete_Entry.setString(1, unique_ID);
+            delete_Entry.executeUpdate();
+        }catch (SQLException e_1){
+            return false;
+        }
+        return b_entry_existed;
+    }
+
+
+
+
+    public int i_amout_of_entrys_in_Database(String table) throws SQLException {
+
             PreparedStatement row_count = Datenbankverbindung.prepareStatement("SELECT COUNT(*) FROM "+table);
             ResultSet number_of_rows =row_count.executeQuery();
             number_of_rows.next();

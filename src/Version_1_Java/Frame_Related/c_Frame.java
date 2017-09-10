@@ -1,6 +1,8 @@
 package Version_1_Java.Frame_Related;
 
 import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
+import Version_1_Java.cMain;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -113,7 +115,19 @@ public class c_Frame  extends JFrame{
 
 
 
-
+    public void v_add_new_empty_row (CopyOnWriteArrayList<String> list_colum_Names){
+        for (int i_X = 0; i_X < list_Fields_X_Direction.size(); i_X++) {
+            c_mod_Text_Field obj_loop= new c_mod_Text_Field();
+            obj_loop.v_initiation( i_width_gobal*i_X,list_Fields_X_Direction.get(i_X).size()*20+50,90,20,this.getContentPane());
+            obj_loop.setText("Test");
+            obj_loop.setText("");
+            obj_loop.i_inside_Field_X =i_X;
+            obj_loop.i_inside_Field_Y =list_Fields_X_Direction.get(i_X).size();
+            obj_loop.bcorrect_unique_ID=false;
+            obj_loop.s_colum_identifier=list_colum_Names.get(i_X);
+            list_Fields_X_Direction.get(i_X).add(obj_loop);
+        }
+    }
 
 
     public void v_Setup_Listener(int i_amount_ID_Listeners_tm){
@@ -133,9 +147,9 @@ public class c_Frame  extends JFrame{
     }
 
 
-    public void v_generate_rows(int i_amount_of_colums, CopyOnWriteArrayList<String> list_Column_Names) {
+    public void v_generate_rows_from_Database(int i_amount_of_colums, CopyOnWriteArrayList<String> list_Column_Names) {
 
-        ResultSet set_entrys = null;
+        ResultSet set_entrys;
         CopyOnWriteArrayList<String> list_IDs = new CopyOnWriteArrayList<>();
 
         try {
@@ -164,6 +178,8 @@ public class c_Frame  extends JFrame{
             for (CopyOnWriteArrayList<c_mod_Text_Field> list_loop : list_Fields_X_Direction
                     ) {
                 for (int k_Y = 0; k_Y < list_loop.size(); k_Y++) {
+
+
                     set_entrys = objDatabaseManager_Input.read_one_entry_one_attribute(this.s_Main_Table, list_Column_Names.get(i_X), list_IDs.get(k_Y));
 
                     list_loop.get(k_Y).setText("Test");
@@ -176,21 +192,13 @@ public class c_Frame  extends JFrame{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        for (int i_X = 0; i_X < list_Fields_X_Direction.size(); i_X++) {
-            c_mod_Text_Field obj_loop= new c_mod_Text_Field();
-            obj_loop.v_initiation( i_width_gobal*i_X,list_Fields_X_Direction.get(i_X).size()*20+50,90,20,this.getContentPane());
-            obj_loop.setText("Test");
-            obj_loop.setText("");
-            obj_loop.i_inside_Field_X =i_X;
-            obj_loop.i_inside_Field_Y =list_Fields_X_Direction.size()+1;
-            obj_loop.bcorrect_unique_ID=false;
-            obj_loop.s_colum_identifier=list_Fields_X_Direction.get(i_X).get(0).s_colum_identifier;
-            list_Fields_X_Direction.get(i_X).add(obj_loop);
-        }
-
+        this.v_add_new_empty_row(list_Column_Names);
     }
-    
+
+
+
+
+
 
 
     public void v_search(){
@@ -220,7 +228,18 @@ public class c_Frame  extends JFrame{
         }
         for (c_mod_Text_Field loop_obj_Field:list_Fields_X_Direction.get(i_X_first_Entry)
                 ) {
-            if (loop_obj_Field.getText().contains(arr_Search_Input[i_X_first_Entry].getText())) {
+            boolean b_equal_for_all=true;
+            if(loop_obj_Field.getText().length()>0){
+                for (int i = 0; i < arr_Search_Input[i_X_first_Entry].getText().length(); i++) {
+                    if(Character.toLowerCase(loop_obj_Field.getText().charAt(i))!= Character .toLowerCase(arr_Search_Input[i_X_first_Entry].getText().charAt(i))){
+                        b_equal_for_all=false;
+                        break;
+                    }
+                }
+            }else{
+                b_equal_for_all=false;
+            }
+            if(b_equal_for_all){
                 list_solutions.add(loop_obj_Field.i_inside_Field_Y);
             }
         }
@@ -233,6 +252,10 @@ public class c_Frame  extends JFrame{
                 }
             }
         }
+        if(list_solutions.isEmpty()){
+            cMain.v_update_Textaread_Status("Zu dieser Suche gibt es keinerlei Ergebnisse, bitte andere Parameter wählen oder Einträge modifizieren.");
+        }
+
         {
             list_y_coordinates_visible_rows.addAll(list_solutions);
             int k_Y = 0;
@@ -373,4 +396,65 @@ public class c_Frame  extends JFrame{
             arr_sort_Buttons[i_X_colum].setText("Z ... A");
         }
     }
+
+
+
+
+
+
+
+
+    public void v_update_from_List_and_Database(cHash_Map_ID_projects_to_List_ID_pupils objlist_main) {
+        int i_amount_of_people = 0;
+        for (String s_loop_object : objlist_main.keySet()
+                ) {
+            i_amount_of_people = i_amount_of_people + objlist_main.get(s_loop_object).size();
+        }
+
+
+        /*
+
+        Achtung Hardcode! 5 ist wo anders definiert!
+         */
+
+        for (int i_X = 0; i_X < 5; i_X++) {
+            list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
+            for (int k_Y = 0; k_Y < i_amount_of_people; k_Y++) {
+                list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
+                list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, 50 + 20 * k_Y, 90, 20, this.getContentPane());
+                list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_X =i_X;
+                list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_Y =k_Y;
+                list_Fields_X_Direction.get(i_X).get(k_Y).bcorrect_unique_ID=true;
+            }
+
+        }
+        for (int i = 0; i < i_amount_of_people; i++) {
+            list_y_coordinates_visible_rows.add(i);
+        }
+
+
+
+        int i_y_counter = 0;
+        try {
+            ResultSet set_personal_information;
+            for (String s_loop_object : objlist_main.keySet()
+                    ) {
+                for (String s_loop_object_inner : objlist_main.get(s_loop_object)
+                        ) {
+                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", "s_sur_Name", s_loop_object_inner);
+                    list_Fields_X_Direction.get(0).get(i_y_counter).setText(set_personal_information.getString(1));
+                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", "s_pre_Name", s_loop_object_inner);
+                    list_Fields_X_Direction.get(1).get(i_y_counter).setText(set_personal_information.getString(1));
+                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", "s_grade", s_loop_object_inner);
+                    list_Fields_X_Direction.get(2).get(i_y_counter).setText(set_personal_information.getString(1));
+                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("projects", "s_unique_ID", s_loop_object);
+                    list_Fields_X_Direction.get(3).get(i_y_counter).setText(set_personal_information.getString(1));
+                    i_y_counter++;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

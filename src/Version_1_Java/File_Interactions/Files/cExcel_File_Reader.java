@@ -29,7 +29,7 @@ public class cExcel_File_Reader {
 
    public  CopyOnWriteArrayList<String> list_of_filenames_with_xls;
 
-   private String [][] arr_data_in_File;
+   private CopyOnWriteArrayList< String [][]> list_arr_data_in_File= new CopyOnWriteArrayList<>();
 
    private boolean b_data_found=true;
 
@@ -82,7 +82,7 @@ public class cExcel_File_Reader {
             e.printStackTrace();
         }
 
-         arr_data_in_File = new String[3][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
+        String [][] arr_data_in_File= new String[3][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
 
         for (int i_x = 0; i_x < arr_data_in_File.length; i_x++) {
             for (int k_y = 0; k_y < arr_data_in_File[i_x].length; k_y++) {
@@ -93,33 +93,51 @@ public class cExcel_File_Reader {
                 }
             }
         }
+        list_arr_data_in_File.add(arr_data_in_File);
     }
 
     public void v_update_Database_from_list(){
-
         if(b_data_found) {
-            for (int i_entry_counter = 0; i_entry_counter < arr_data_in_File[0].length; i_entry_counter++) {
-                String unique_id = "";
-                for (int i = 0; i < 2; i++) {
-                    for (int k = 0; k < 2; k++) {
-                        unique_id = unique_id + arr_data_in_File[i][i_entry_counter].charAt(k);
+            for (String [][] loop_obj_arr:list_arr_data_in_File
+                 ) {
+                for (int i_entry_counter = 0; i_entry_counter < loop_obj_arr[0].length; i_entry_counter++) {
+                    String unique_id = "";
+                    for (int i = 0; i < 2; i++) {
+                        for (int k = 0; k < 2; k++) {
+                            unique_id = unique_id + loop_obj_arr[i][i_entry_counter].charAt(k);
+                        }
                     }
-                }
-                try {
-
-                    if (objDatabaseManager_Reader.entry_check("pupils", unique_id)) {
-                        objDatabaseManager_Reader.create_entry("pupils", unique_id);
-                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_pre_Name", arr_data_in_File[0][i_entry_counter]);
-                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_sur_Name", arr_data_in_File[1][i_entry_counter]);
-                        objDatabaseManager_Reader.update_entry("pupils", unique_id, "s_grade", arr_data_in_File[2][i_entry_counter]);
+                    try {
+                        if (objDatabaseManager_Reader.entry_check("persons", unique_id)) {
+                            objDatabaseManager_Reader.create_entry("persons", unique_id);
+                            objDatabaseManager_Reader.update_entry("persons", unique_id, "s_pre_Name", loop_obj_arr[0][i_entry_counter]);
+                            objDatabaseManager_Reader.update_entry("persons", unique_id, "s_sur_Name", loop_obj_arr[1][i_entry_counter]);
+                            objDatabaseManager_Reader.update_entry("persons", unique_id, "s_grade", loop_obj_arr[2][i_entry_counter]);
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
 
+                }
+            }
+
+        }
+
+    }
+
+    public int i_amount_of_pupils(){
+        int i_sum=0;
+        if(b_data_found){
+            for (String [][] list_obj_arr:list_arr_data_in_File
+                    ) {
+                i_sum=i_sum+ list_obj_arr.length;
             }
         }
+        return i_sum;
     }
+
+
+
 
 }
 

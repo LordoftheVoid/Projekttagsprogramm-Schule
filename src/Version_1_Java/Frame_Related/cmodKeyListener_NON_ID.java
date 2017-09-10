@@ -1,10 +1,10 @@
 package Version_1_Java.Frame_Related;
 
 import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.cMain;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.sql.SQLException;
 
 /**
  * Created by Aaron on 30.07.2017.
@@ -37,11 +37,13 @@ class cmodKeyListener_NON_ID implements KeyListener {
     public void keyReleased(KeyEvent e) {
         c_mod_Text_Field objsource = ((c_mod_Text_Field) e.getSource());
         if(objsource.bcorrect_unique_ID) {
-            try {
-                objDatabaseManager_keyListener.update_entry(s_table_Listener,objsource.s_unique_ID_Textfieldrow, objsource.s_colum_identifier, objsource.getText());
-            } catch (SQLException e1) {
-                e1.printStackTrace();
+            if(objDatabaseManager_keyListener.update_entry(s_table_Listener,objsource.s_unique_ID_Textfieldrow, objsource.s_colum_identifier, objsource.getText())){
+                cMain.v_update_Textaread_Status("Ein Wert in der Datenbank wurde erfolgreich geändert");
+            }else{
+                    objsource.setText("");
+                    cMain.v_update_Textaread_Status("Dies war kein erlaubter Wert, bitte erst ein Projekt mit dieser Nummer initieren");
             }
+
         }
 
     }
