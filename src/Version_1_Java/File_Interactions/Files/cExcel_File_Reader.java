@@ -6,6 +6,7 @@ package Version_1_Java.File_Interactions.Files;
 
 
 import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.cMain;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
@@ -115,7 +116,7 @@ public class cExcel_File_Reader {
                             objDatabaseManager_Reader.update_entry("persons", unique_id, "s_grade", loop_obj_arr[2][i_entry_counter]);
                         }
                     } catch (SQLException e) {
-                        e.printStackTrace();
+                        cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
                     }
 
                 }

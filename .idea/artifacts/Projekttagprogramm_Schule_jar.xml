@@ -7,6 +7,8 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/poi/poi/3.10-FINAL/poi-3.10-FINAL.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.5/commons-codec-1.5.jar" path-in-jar="/" />
       <element id="library" level="project" name="apidocs" />
+      <element id="library" level="project" name="org.apache.poi:poi:3.10-FINAL" />
+      <element id="library" level="project" name="org.xerial:sqlite-jdbc:3.8.5-pre1" />
     </root>
   </artifact>
 </component>

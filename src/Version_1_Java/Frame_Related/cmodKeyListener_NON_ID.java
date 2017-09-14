@@ -14,12 +14,11 @@ class cmodKeyListener_NON_ID implements KeyListener {
     private c_Database_Manager objDatabaseManager_keyListener;
 
 
-
     private String s_table_Listener;
 
-    cmodKeyListener_NON_ID(c_Database_Manager objDatabasemanager_main, String table_source_tm ){
-        s_table_Listener =table_source_tm;
-        objDatabaseManager_keyListener =objDatabasemanager_main;
+    cmodKeyListener_NON_ID(c_Database_Manager objDatabasemanager_main, String table_source_tm) {
+        s_table_Listener = table_source_tm;
+        objDatabaseManager_keyListener = objDatabasemanager_main;
 
     }
 
@@ -36,12 +35,12 @@ class cmodKeyListener_NON_ID implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         c_mod_Text_Field objsource = ((c_mod_Text_Field) e.getSource());
-        if(objsource.bcorrect_unique_ID) {
-            if(objDatabaseManager_keyListener.update_entry(s_table_Listener,objsource.s_unique_ID_Textfieldrow, objsource.s_colum_identifier, objsource.getText())){
-                cMain.v_update_Textaread_Status("Ein Wert in der Datenbank wurde erfolgreich geändert");
-            }else{
-                    objsource.setText("");
-                    cMain.v_update_Textaread_Status("Dies war kein erlaubter Wert, bitte erst ein Projekt mit dieser Nummer initieren");
+        if (objsource.bcorrect_unique_ID) {
+            if (objDatabaseManager_keyListener.update_entry(s_table_Listener, objsource.s_unique_ID_Textfieldrow, objsource.s_colum_identifier, objsource.getText())) {
+                cMain.v_update_Textarea_Status("Ein Wert in der Datenbank wurde erfolgreich geändert");
+            } else {
+                objsource.setText("");
+                cMain.v_update_Textarea_Status("Dies war kein erlaubter Wert, bitte erst ein Projekt mit dieser Nummer initieren");
             }
 
         }

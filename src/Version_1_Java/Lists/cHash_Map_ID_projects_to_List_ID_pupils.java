@@ -14,15 +14,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 
-
-public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap <String, ArrayList<String>> {
+public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, ArrayList<String>> {
 
     c_Database_Manager obj_Databasemanager_list;
 
 
-    public int i_sum_of_preferences=0;
+    public int i_sum_of_preferences = 0;
 
-    public int i_amount_of_pupils=0;
+    public int i_amount_of_pupils = 0;
 
 
     public cHash_Map_ID_projects_to_List_ID_pupils(c_Database_Manager obj_tm_Databasemanager_Main) {
@@ -30,28 +29,27 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap <String, Ar
     }
 
 
-    public void v_setup_from_Database(){
+    public void v_setup_from_Database() {
         try {
             ResultSet set_IDs_from_Database = obj_Databasemanager_list.read_entrys_one_attribute("projects", "s_unique_ID");
-            while (set_IDs_from_Database.next()){
+            while (set_IDs_from_Database.next()) {
                 this.put(set_IDs_from_Database.getString(1), new ArrayList<>());
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
         }
     }
 
 
+    public void v_arrangement() {
 
-    public void v_arrangement(){
 
+        this.i_sum_of_preferences = 0;
 
-        this.i_sum_of_preferences=0;
+        this.i_amount_of_pupils = 0;
 
-        this.i_amount_of_pupils=0;
-
-        for (String s_loop_object:this.keySet()
-             ) {
+        for (String s_loop_object : this.keySet()
+                ) {
             this.get(s_loop_object).clear();
         }
 
@@ -66,63 +64,59 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap <String, Ar
         CopyOnWriteArrayList<String> list_ID_pupils = new CopyOnWriteArrayList<>();
 
         try {
-            ResultSet   set_pupils_ID = obj_Databasemanager_list.read_entrys_one_attribute("persons", "s_unique_ID");
+            ResultSet set_pupils_ID = obj_Databasemanager_list.read_entrys_one_attribute("persons", "s_unique_ID");
             while (set_pupils_ID.next()) {
                 list_ID_pupils.add(set_pupils_ID.getString(1));
             }
         } catch (SQLException e1) {
-            e1.printStackTrace();
+            cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
         }
 
 
+        HashMap<String, Integer> objHash_Map_ID_amount_people = new HashMap<>();
 
-
-        HashMap <String, Integer> objHash_Map_ID_amount_people = new HashMap<>();
-
-        for (String s_loop_object:this.keySet()
+        for (String s_loop_object : this.keySet()
                 ) {
-            objHash_Map_ID_amount_people.put(s_loop_object,0);
+            objHash_Map_ID_amount_people.put(s_loop_object, 0);
         }
-
-
 
 
         for (int i_preference_counter = 0; i_preference_counter < cMain.iMaximalanzahl_Projekte; i_preference_counter++) {
 
-            ArrayList <String> arrlist_ID_without_projects= new ArrayList<>();
+            ArrayList<String> arrlist_ID_without_projects = new ArrayList<>();
 
-            String s_random_pupil_ID= "";
+            String s_random_pupil_ID = "";
 
             int i_random_counter;
 
-            while(list_ID_pupils.size()>0) {
+            while (list_ID_pupils.size() > 0) {
                 if (list_ID_pupils.size() > 1) {
                     i_random_counter = (int) (Math.random() * list_ID_pupils.size());
                     s_random_pupil_ID = list_ID_pupils.get(i_random_counter);
                 } else {
-                    s_random_pupil_ID=list_ID_pupils.get(0);
+                    s_random_pupil_ID = list_ID_pupils.get(0);
                 }
 
 
-                String s_prefence_specific_pupil="";
+                String s_prefence_specific_pupil = "";
                 try {
-                    ResultSet set_prefence_specific_id  =  obj_Databasemanager_list.read_one_entry_one_attribute("persons",arrcolums[i_preference_counter],s_random_pupil_ID);
-                    s_prefence_specific_pupil=set_prefence_specific_id.getString(1);
+                    ResultSet set_prefence_specific_id = obj_Databasemanager_list.read_one_entry_one_attribute("persons", arrcolums[i_preference_counter], s_random_pupil_ID);
+                    s_prefence_specific_pupil = set_prefence_specific_id.getString(1);
                 } catch (SQLException e2) {
                     e2.printStackTrace();
                 }
 
-                int i_max_amount_project=0;
+                int i_max_amount_project = 0;
                 try {
-                    ResultSet set_amount_specific_id  =  obj_Databasemanager_list.read_one_entry_one_attribute("projects","i_max_pupils",s_prefence_specific_pupil);
-                   i_max_amount_project= Integer.parseInt(set_amount_specific_id.getString(1));
+                    ResultSet set_amount_specific_id = obj_Databasemanager_list.read_one_entry_one_attribute("projects", "i_max_pupils", s_prefence_specific_pupil);
+                    i_max_amount_project = Integer.parseInt(set_amount_specific_id.getString(1));
                 } catch (SQLException e2) {
                     e2.printStackTrace();
                 }
 
 
                 if (objHash_Map_ID_amount_people.get(s_prefence_specific_pupil) < i_max_amount_project) {
-                    objHash_Map_ID_amount_people.replace(s_prefence_specific_pupil, objHash_Map_ID_amount_people.get( s_prefence_specific_pupil), objHash_Map_ID_amount_people.get(s_prefence_specific_pupil) + 1);
+                    objHash_Map_ID_amount_people.replace(s_prefence_specific_pupil, objHash_Map_ID_amount_people.get(s_prefence_specific_pupil), objHash_Map_ID_amount_people.get(s_prefence_specific_pupil) + 1);
                     this.get(s_prefence_specific_pupil).add(s_random_pupil_ID);
                     i_sum_of_preferences = i_sum_of_preferences + i_preference_counter;
                     this.i_amount_of_pupils++;
@@ -135,11 +129,11 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap <String, Ar
 
             list_ID_pupils.addAll(arrlist_ID_without_projects);
 
-            if(i_preference_counter<cMain.iMaximalanzahl_Projekte-1) {
+            if (i_preference_counter < cMain.iMaximalanzahl_Projekte - 1) {
                 arrlist_ID_without_projects.clear();
-            }else{
+            } else {
                 this.get("-1").addAll(arrlist_ID_without_projects);
-                this.i_amount_of_pupils=this.i_amount_of_pupils + arrlist_ID_without_projects.size();
+                this.i_amount_of_pupils = this.i_amount_of_pupils + arrlist_ID_without_projects.size();
             }
         }
 
