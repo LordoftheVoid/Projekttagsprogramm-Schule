@@ -19,10 +19,6 @@ public class c_mod_Text_Field extends JTextField {
 
     boolean bcorrect_unique_ID=false;
 
-
-
-
-
     String s_unique_ID_Textfieldrow;
 
 

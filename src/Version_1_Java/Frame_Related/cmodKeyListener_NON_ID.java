@@ -1,6 +1,6 @@
 package Version_1_Java.Frame_Related;
 
-import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.cMain;
 
 import java.awt.event.KeyEvent;
@@ -9,14 +9,21 @@ import java.awt.event.KeyListener;
 /**
  * Created by Aaron on 30.07.2017.
  */
+
+
+
+/*
+Implementiert das Ändern trivaler Werte, beispielsweise Klassenstufe
+
+ */
 class cmodKeyListener_NON_ID implements KeyListener {
 
-    private c_Database_Manager objDatabaseManager_keyListener;
+    private cDatabaseConnectionManager objDatabaseManager_keyListener;
 
 
     private String s_table_Listener;
 
-    cmodKeyListener_NON_ID(c_Database_Manager objDatabasemanager_main, String table_source_tm) {
+    cmodKeyListener_NON_ID(cDatabaseConnectionManager objDatabasemanager_main, String table_source_tm) {
         s_table_Listener = table_source_tm;
         objDatabaseManager_keyListener = objDatabasemanager_main;
 

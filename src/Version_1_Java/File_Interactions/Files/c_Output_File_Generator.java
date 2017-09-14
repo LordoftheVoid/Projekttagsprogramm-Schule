@@ -1,7 +1,7 @@
 package Version_1_Java.File_Interactions.Files;
 
 
-import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -22,10 +22,10 @@ public class c_Output_File_Generator {
 
 
     cHash_Map_ID_projects_to_List_ID_pupils obj_output_Map;
-    c_Database_Manager objDatabaseManager_Input;
+    cDatabaseConnectionManager objDatabaseManager_Input;
 
 
-    public c_Output_File_Generator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm, c_Database_Manager obj_Database_Manager_Main ) {
+    public c_Output_File_Generator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm, cDatabaseConnectionManager obj_Database_Manager_Main ) {
         obj_output_Map=argMap_tm;
         objDatabaseManager_Input=obj_Database_Manager_Main;
 

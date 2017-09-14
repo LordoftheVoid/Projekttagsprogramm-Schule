@@ -1,7 +1,6 @@
 package Version_1_Java;
 
-import Version_1_Java.File_Interactions.Database.c_Database_Manager;
-import Version_1_Java.File_Interactions.Directories.c_Directory_Creator;
+import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.File_Interactions.Files.cExcel_File_Reader;
 import Version_1_Java.File_Interactions.Files.c_Output_File_Generator;
 import Version_1_Java.Frame_Related.c_Frame;
@@ -32,6 +31,11 @@ public class cMain {
     public static JTextArea obj_Textarea_Status;
 
 
+
+    /*
+        Ausgabe Fenster, um dem Nutzer Rückmeldung zu geben
+
+     */
     public static void v_update_Textarea_Status(String s_new_Line) {
         if (obj_Textarea_Status.getText().length() > 2500) {
             obj_Textarea_Status.setText("");
@@ -43,6 +47,21 @@ public class cMain {
     public static void main(String args[]) {
 
 
+
+
+        /*
+
+        Url der Datenbank
+        Müsste im Moment noch manuell angepasst werden , ergo bitte ändern falls erforderlich
+         */
+
+        String sDatenbankUrl= "C:/Informatik/Selbstgeschriebenes/Java/Projekttagprogramm Schule/Schueler_Datenbank_V1.db";
+
+
+        /*
+
+        Hauptfenster
+         */
         JFrame obj_Frame_Main = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
         obj_Frame_Main.setVisible(true);
         obj_Frame_Main.setBounds(500, 0, 1000, 1000);
@@ -50,6 +69,11 @@ public class cMain {
         obj_Frame_Main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
+
+        /*
+
+        Ausgabe-TextArea
+         */
         obj_Textarea_Status = new JTextArea();
         obj_Frame_Main.getContentPane().add(obj_Textarea_Status);
         obj_Textarea_Status.setText("");
@@ -57,36 +81,40 @@ public class cMain {
         obj_Textarea_Status.setBorder(new LineBorder(Color.black));
 
 
-        c_Directory_Creator obj_Directiony = new c_Directory_Creator();
-        obj_Directiony.v_creation("C:/Informatik/", "Test_2");
+        /*
+            Erzeugung der Sub-Ordner
+            In dieser Version noch nicht vollständig supportet
+
+            ? Wie erfrage ich den Ordner, in dem .jar liegt ?
 
 
-        c_Database_Manager obj_Database_manager_Main = new c_Database_Manager();
+         */
+      //  c_Directory_Creator obj_Directiony = new c_Directory_Creator();
+      //  obj_Directiony.v_creation("C:/Informatik/", "Test_2");
 
 
-        obj_Database_manager_Main.v_initialization();
+
+        /*
+        Erzeugung und Initialisierung der Datenbankverbindung
+
+         */
+        cDatabaseConnectionManager obj_Database_manager_Main = new cDatabaseConnectionManager();
+        obj_Database_manager_Main.v_initialization(sDatenbankUrl);
 
 
 
-        //File-Reader
-
+        //Erzeugung der Datei-Leser und Lesen
         cExcel_File_Reader obj_File_Reader_Excel = new cExcel_File_Reader(obj_Database_manager_Main);
 
         obj_File_Reader_Excel.list_of_filenames_with_xls = obj_File_Reader_Excel.list_search_for_xls_Files("C:/Informatik/Html");
-
-
         cMain.v_update_Textarea_Status("Es wurden " + obj_File_Reader_Excel.list_of_filenames_with_xls.size() + " Excel-Dateien gefunden.");
-
 
         for (String loop_objekt_s : obj_File_Reader_Excel.list_of_filenames_with_xls
                 ) {
             obj_File_Reader_Excel.read_file_extracting_pupils(loop_objekt_s);
         }
 
-
         obj_File_Reader_Excel.v_update_Database_from_list();
-
-
         cMain.v_update_Textarea_Status("Es wurden " + obj_File_Reader_Excel.i_amount_of_pupils() + " neue Schüler mittels Excel eingelesen.");
 
 
@@ -98,13 +126,21 @@ public class cMain {
         } catch (SQLException e_1) {
 
         }
-
         obj_Textarea_Status.setText(obj_Textarea_Status.getText() + "\n Die momentane Datenbank erfasst " + i_amount_pupils_Database + " Schüler und " + i_amount_projects_Database + "  Projekte ");
 
 
         CopyOnWriteArrayList<String>[] arr_list_value_Strings = new CopyOnWriteArrayList[3];
         CopyOnWriteArrayList<String>[] arr_list_Database_References = new CopyOnWriteArrayList[2];
 
+
+        /*
+
+
+        Hardcode der Eigenschaften der Datenbank
+        ? Würden sie sich die Mühe machen und die  von dem Programm bei Programmstart aus der Datenbank auslesen lassen
+        oder ist das so legitim ?
+
+         */
 
         arr_list_value_Strings[0] = new CopyOnWriteArrayList<>();
         arr_list_value_Strings[1] = new CopyOnWriteArrayList<>();
@@ -150,8 +186,11 @@ public class cMain {
         arr_list_Database_References[1].add("i_max_pupils");
 
 
-        //Frame Schüler
+        /*
 
+
+        Erzeugung etc des Schüler-Fensters
+         */
 
         c_Frame obj_Frame_pupils = new c_Frame("persons", obj_Database_manager_Main);
 
@@ -186,6 +225,14 @@ public class cMain {
         c_Frame obj_Frame_Output = new c_Frame("projects", obj_Database_manager_Main);
 
 
+        /*
+
+        Ab hier im wesentlichen nur noch Erzeugung weiterer grafischer Elemente
+        sowie deren Funktionen bei Mausklick.
+         */
+
+
+
         JButton btn_pupils_Frame = new JButton("Schüler-Eingabe-Feld aufrufen");
         btn_pupils_Frame.setVisible(true);
         btn_pupils_Frame.setBounds(0, 0, 300, 300);
@@ -202,7 +249,6 @@ public class cMain {
             public void mouseClicked(MouseEvent e) {
                 obj_File_Reader_Excel.list_of_filenames_with_xls.clear();
                 obj_File_Reader_Excel.list_of_filenames_with_xls = obj_File_Reader_Excel.list_search_for_xls_Files("C:/Informatik/Html");
-
 
                 cMain.v_update_Textarea_Status("\n Es wurden " + obj_File_Reader_Excel.list_of_filenames_with_xls.size() + " Excel-Dateien gefunden.");
 
@@ -242,10 +288,7 @@ public class cMain {
         btn_pupils_Frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-
                 obj_Frame_pupils.v_show_Frame(100, 100);
-
 
             }
 
@@ -274,35 +317,29 @@ public class cMain {
         btn_projekt_Frame.setVisible(true);
         btn_projekt_Frame.setBounds(300, 0, 300, 300);
         obj_Frame_Main.getContentPane().add(btn_projekt_Frame);
-
         btn_projekt_Frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
                 obj_Frame_projects.v_show_Frame(200, 200);
 
             }
-
             @Override
             public void mousePressed(MouseEvent e) {
 
             }
-
             @Override
             public void mouseReleased(MouseEvent e) {
 
             }
-
             @Override
             public void mouseEntered(MouseEvent e) {
 
-
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
             }
         });
+
 
 
         JButton btn_Frame_Output = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
@@ -314,7 +351,15 @@ public class cMain {
             public void mouseClicked(MouseEvent e) {
 
 
+
                 obj_Frame_Output.v_show_Frame(500, 500);
+
+                /*
+
+                Test ob Werte null sind, wenn ja, Abbruch der Methode
+                 */
+
+
                 boolean b_all_values_valid = true;
                 try {
                     ResultSet entrys_persons = obj_Database_manager_Main.read_entrys_all_attributes("persons");
@@ -332,6 +377,8 @@ public class cMain {
                 } catch (SQLException e1) {
                     cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
                 }
+
+
 
                 if (b_all_values_valid) {
                     cMain.v_update_Textarea_Status("Die Berechnung hat begonnen, das könnte seine Zeit dauern");
@@ -386,7 +433,6 @@ public class cMain {
                     c_Output_File_Generator obj_File_Generator = new c_Output_File_Generator(obj_best_solution, obj_Database_manager_Main);
                     obj_File_Generator.v_write_xls_Files();
 
-
                 } else {
                     cMain.v_update_Textarea_Status("Es waren unerlaubte bzw nicht festgesetzte Werte in der Schüler-Datenbank, bitte ergänzen");
                 }
@@ -422,7 +468,7 @@ public class cMain {
         btn_Retry_Database_Connection.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                obj_Database_manager_Main.v_initialization();
+                obj_Database_manager_Main.v_initialization(sDatenbankUrl);
             }
 
             @Override

@@ -1,6 +1,6 @@
 package Version_1_Java.Lists;
 
-import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.cMain;
 
 import java.sql.ResultSet;
@@ -14,9 +14,19 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 
+
+/*
+Implementation einer Hash-Map, um die Verlinkung von Schülern zu Projekten zu
+realisieren.
+
+Aufbau erfolg nach Klick auf den Button, Ausgabe über Out-Put-Generator
+
+
+ */
+
 public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, ArrayList<String>> {
 
-    c_Database_Manager obj_Databasemanager_list;
+    cDatabaseConnectionManager obj_Databasemanager_list;
 
 
     public int i_sum_of_preferences = 0;
@@ -24,7 +34,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
     public int i_amount_of_pupils = 0;
 
 
-    public cHash_Map_ID_projects_to_List_ID_pupils(c_Database_Manager obj_tm_Databasemanager_Main) {
+    public cHash_Map_ID_projects_to_List_ID_pupils(cDatabaseConnectionManager obj_tm_Databasemanager_Main) {
         this.obj_Databasemanager_list = obj_tm_Databasemanager_Main;
     }
 

@@ -1,6 +1,6 @@
 package Version_1_Java.Frame_Related;
 
-import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.cMain;
 
 import java.awt.*;
@@ -12,9 +12,18 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Created by Aaron on 30.07.2017.
  */
+
+
+/*
+
+Implementiert das Löschen bzw Erzeugen neuer Einträge über die Möglichkeit, den Primärschlüssel vorhandener
+Einträge zu manipulieren
+
+
+ */
 public class cmodKeyListener_ID implements KeyListener {
 
-    c_Database_Manager objDatabaseManager_keyListener;
+    cDatabaseConnectionManager objDatabaseManager_keyListener;
 
 
     CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_entrys_rows_Listener;
@@ -24,7 +33,7 @@ public class cmodKeyListener_ID implements KeyListener {
 
     Container con_target;
 
-    cmodKeyListener_ID(c_Database_Manager objDatabasemanager_main, CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Inputs_tm, String table_source, Container con_source) {
+    cmodKeyListener_ID(cDatabaseConnectionManager objDatabasemanager_main, CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Inputs_tm, String table_source, Container con_source) {
         this.con_target = con_source;
         this.list_entrys_rows_Listener = list_Inputs_tm;
         objDatabaseManager_keyListener = objDatabasemanager_main;

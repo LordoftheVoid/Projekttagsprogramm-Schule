@@ -1,6 +1,6 @@
 package Version_1_Java.Frame_Related;
 
-import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
 import Version_1_Java.cMain;
 
@@ -19,7 +19,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Created by Aaron on 14.08.2017.
  */
+
+
+
+/*
+
+Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zur Datenbank etc
+
+ */
 public class c_Frame extends JFrame {
+
+
 
 
     private c_mod_Text_Field[] arr_Search_Input;
@@ -30,7 +40,7 @@ public class c_Frame extends JFrame {
     CopyOnWriteArrayList<Integer> list_y_coordinates_visible_rows = new CopyOnWriteArrayList<>();
 
 
-    private c_Database_Manager objDatabaseManager_Input;
+    private cDatabaseConnectionManager objDatabaseManager_Input;
 
     final int i_width_gobal = 90;
 
@@ -41,7 +51,7 @@ public class c_Frame extends JFrame {
     String s_Main_Table;
 
 
-    public c_Frame(String s_Table_tm, c_Database_Manager obj_Database_Manager_tm) {
+    public c_Frame(String s_Table_tm, cDatabaseConnectionManager obj_Database_Manager_tm) {
 
         this.objDatabaseManager_Input = obj_Database_Manager_tm;
         this.s_Main_Table = s_Table_tm;

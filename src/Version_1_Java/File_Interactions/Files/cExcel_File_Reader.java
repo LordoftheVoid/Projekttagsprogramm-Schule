@@ -5,7 +5,7 @@ package Version_1_Java.File_Interactions.Files;
  */
 
 
-import Version_1_Java.File_Interactions.Database.c_Database_Manager;
+import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.cMain;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
@@ -19,13 +19,13 @@ public class cExcel_File_Reader {
 
 
 
-   public cExcel_File_Reader(c_Database_Manager obj_tm_DatabaseManager_Main){
+   public cExcel_File_Reader(cDatabaseConnectionManager obj_tm_DatabaseManager_Main){
         this.objDatabaseManager_Reader=obj_tm_DatabaseManager_Main;
 
     }
 
 
-    private c_Database_Manager objDatabaseManager_Reader;
+    private cDatabaseConnectionManager objDatabaseManager_Reader;
 
 
    public  CopyOnWriteArrayList<String> list_of_filenames_with_xls;
