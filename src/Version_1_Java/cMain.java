@@ -1,6 +1,7 @@
 package Version_1_Java;
 
 import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
+import Version_1_Java.File_Interactions.Directories.c_Directory_Creator;
 import Version_1_Java.File_Interactions.Files.cExcel_File_Reader;
 import Version_1_Java.File_Interactions.Files.c_Output_File_Generator;
 import Version_1_Java.Frame_Related.c_Frame;
@@ -11,6 +12,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -26,11 +28,8 @@ public class cMain {
 
     /*
     Achtung, nur teilweise abhängig realisiert!!!!
-
         */
-    public static JTextArea obj_Textarea_Status;
-
-
+    static JTextArea obj_Textarea_Status;
 
     /*
         Ausgabe Fenster, um dem Nutzer Rückmeldung zu geben
@@ -43,30 +42,25 @@ public class cMain {
         obj_Textarea_Status.setText(obj_Textarea_Status.getText() + "\n" + s_new_Line);
     }
 
-
-    public static void main(String args[]) {
-
+     public static void main(String args[]) {
 
 
 
         /*
-
         Url der Datenbank
         Müsste im Moment noch manuell angepasst werden , ergo bitte ändern falls erforderlich
          */
 
-        String sDatenbankUrl= "C:/Informatik/Selbstgeschriebenes/Java/Projekttagprogramm Schule/Schueler_Datenbank_V1.db";
-
-
+         String sDatenbankUrl= "C:/Informatik/Selbstgeschriebenes(Neu)/Java/Projekttagprogramm Schule/Schueler_Datenbank_V1.db";
         /*
 
         Hauptfenster
          */
-        JFrame obj_Frame_Main = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
-        obj_Frame_Main.setVisible(true);
-        obj_Frame_Main.setBounds(500, 0, 1000, 1000);
-        obj_Frame_Main.getContentPane().setLayout(null);
-        obj_Frame_Main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+         JFrame obj_Frame_Main = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
+         obj_Frame_Main.setVisible(true);
+         obj_Frame_Main.setBounds(500, 0, 1000, 1000);
+         obj_Frame_Main.getContentPane().setLayout(null);
+         obj_Frame_Main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
 
@@ -74,32 +68,43 @@ public class cMain {
 
         Ausgabe-TextArea
          */
-        obj_Textarea_Status = new JTextArea();
-        obj_Frame_Main.getContentPane().add(obj_Textarea_Status);
-        obj_Textarea_Status.setText("");
-        obj_Textarea_Status.setBounds(0, 400, 700, 1000);
-        obj_Textarea_Status.setBorder(new LineBorder(Color.black));
+         obj_Textarea_Status = new JTextArea();
+         obj_Frame_Main.getContentPane().add(obj_Textarea_Status);
+         obj_Textarea_Status.setText("");
+         obj_Textarea_Status.setBounds(0, 400, 700, 1000);
+         obj_Textarea_Status.setBorder(new LineBorder(Color.black));
 
 
-        /*
-            Erzeugung der Sub-Ordner
-            In dieser Version noch nicht vollständig supportet
+         final File f = new File(cMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 
-            ? Wie erfrage ich den Ordner, in dem .jar liegt ?
+         System.out.println(f.getParent());
 
 
-         */
-      //  c_Directory_Creator obj_Directiony = new c_Directory_Creator();
-      //  obj_Directiony.v_creation("C:/Informatik/", "Test_2");
+         c_Directory_Creator objDirectoryManager = new c_Directory_Creator();
 
 
+         objDirectoryManager.v_creation(f.getParent(),"Datenbank-Ordner");
+         objDirectoryManager.v_creation(f.getParent(), "Excel-Datei-Ordner");
 
+
+         String sDynamikDatabaseURL = f.getParent() + "/"+ "Datenbank-Ordner/";
+
+
+         File fileDatabaseDirectory = new File("f.getParent() + "+ "/"+ "Datenbank-Ordner");
+
+         for(File loop_obj_File:fileDatabaseDirectory.listFiles()){
+             if (loop_obj_File.getName().contains(".db")){
+                 sDynamikDatabaseURL = sDynamikDatabaseURL + loop_obj_File.getName();
+                 break;
+             }
+
+         }
         /*
         Erzeugung und Initialisierung der Datenbankverbindung
 
          */
         cDatabaseConnectionManager obj_Database_manager_Main = new cDatabaseConnectionManager();
-        obj_Database_manager_Main.v_initialization(sDatenbankUrl);
+        obj_Database_manager_Main.v_initialization(sDynamikDatabaseURL);
 
 
 

@@ -2,14 +2,14 @@
   <library name="apidocs">
     <CLASSES />
     <JAVADOC>
-      <root url="file://$PROJECT_DIR$/../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/doc/apidocs" />
+      <root url="file://$PROJECT_DIR$/../../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/doc/apidocs" />
     </JAVADOC>
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/doc/verbatim/src" />
-      <root url="file://$PROJECT_DIR$/../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/integration/extAuthWithSpring/src" />
-      <root url="file://$PROJECT_DIR$/../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/integration/hibernate/src" />
-      <root url="file://$PROJECT_DIR$/../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/integration/hibernate_3_3_1/src" />
-      <root url="file://$PROJECT_DIR$/../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/src" />
+      <root url="file://$PROJECT_DIR$/../../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/doc/verbatim/src" />
+      <root url="file://$PROJECT_DIR$/../../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/integration/extAuthWithSpring/src" />
+      <root url="file://$PROJECT_DIR$/../../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/integration/hibernate/src" />
+      <root url="file://$PROJECT_DIR$/../../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/integration/hibernate_3_3_1/src" />
+      <root url="file://$PROJECT_DIR$/../../../Sonstige Dateien/hsqldb-2.4.0/hsqldb-2.4.0/hsqldb/src" />
     </SOURCES>
   </library>
 </component>

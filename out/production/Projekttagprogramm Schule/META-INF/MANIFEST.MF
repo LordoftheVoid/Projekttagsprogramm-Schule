@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: c_Main
+Class-Path: /src/Version_1_Java
+Main-Class: Version_1_Java.cMain
 
