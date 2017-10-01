@@ -12,11 +12,6 @@ import java.io.File;
 
 public class c_Directory_Creator {
 
-        public boolean b_test (){
-
-            return true;
-        }
-
         public void v_creation (String s_url_tm, String s_name_tm){
             File dir = new File(s_url_tm +"/" + s_name_tm);
             if(!dir.exists()) {

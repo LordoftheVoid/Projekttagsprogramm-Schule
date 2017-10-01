@@ -24,36 +24,48 @@ public class cDatabaseConnectionManager {
 
     boolean b_connection_running = false;
 
-    public void v_initialization(String surlSource_tm)  {
-        if (!b_connection_running) {
-            try {
-                final String DRIVER = "org.sqlite.JDBC";
-                final String DB_URL = "jdbc:sqlite:"+surlSource_tm;
-                Class.forName(DRIVER);
-                conDatabase = null;
-                try {
-                    SQLiteConfig config = new SQLiteConfig();
-                    config.enforceForeignKeys(true);
-                    conDatabase = DriverManager.getConnection(DB_URL, config.toProperties());
-                } catch (SQLException ex) {
-                    cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt initialisiert werden, bitte Name & " +
-                            "Position kontrollieren und ggf. korrigieren \n Näheres siehe Benutzerhandbuch ");
-                }
-                cMain.v_update_Textarea_Status(" \n Die Verbindung zur Datenbank steht korrekt \n ");
-                b_connection_running = true;
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+    public boolean v_initialization(String surlSource_tm) {
+
+        if (surlSource_tm.equals("NO_FILE_FOUND")) {
+            cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt initialisiert werden, bitte Name & " +
+                    "Position kontrollieren und ggf. korrigieren \n Näheres siehe Benutzerhandbuch ");
+            return false;
         } else {
-            cMain.v_update_Textarea_Status(" Die Datenbankanbindung läuft ordnungsgemäß");
+            if (!b_connection_running) {
+                try {
+                    final String DRIVER = "org.sqlite.JDBC";
+                    final String DB_URL = "jdbc:sqlite:" + surlSource_tm;
+                    Class.forName(DRIVER);
+                    conDatabase = null;
+                    try {
+                        SQLiteConfig config = new SQLiteConfig();
+                        config.enforceForeignKeys(true);
+                        conDatabase = DriverManager.getConnection(DB_URL, config.toProperties());
+                    } catch (SQLException ex) {
+                        cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt initialisiert werden, bitte Name & " +
+                                "Position kontrollieren und ggf. korrigieren \n Näheres siehe Benutzerhandbuch ");
+                        return false;
+                    }
+                    cMain.v_update_Textarea_Status(" \n Die Verbindung zur Datenbank steht korrekt \n ");
+                    b_connection_running = true;
+                    return true;
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            } else {
+                cMain.v_update_Textarea_Status(" Die Datenbankanbindung läuft ordnungsgemäß");
+                return true;
+            }
         }
     }
 
 
 
     public ResultSet read_entrys_one_attribute(String sTable_tm, String sColum_tm) throws SQLException {
-        PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm);
-        return extract_entrys.executeQuery();
+            PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm);
+            return extract_entrys.executeQuery();
+
     }
 
 
@@ -111,11 +123,16 @@ public class cDatabaseConnectionManager {
 
 
     public int i_amout_of_entrys_in_Database(String sTable_tm) throws SQLException {
+        if (this.b_connection_running){
+            PreparedStatement row_count = conDatabase.prepareStatement("SELECT COUNT(*) FROM " + sTable_tm);
+            ResultSet number_of_rows = row_count.executeQuery();
+            number_of_rows.next();
+            return number_of_rows.getInt(1);
+        }else{
+            cMain.v_update_Textarea_Status("Es konnten keine Werte ausgelesen werden");
+            return  0;
+        }
 
-        PreparedStatement row_count = conDatabase.prepareStatement("SELECT COUNT(*) FROM " + sTable_tm);
-        ResultSet number_of_rows = row_count.executeQuery();
-        number_of_rows.next();
-        return number_of_rows.getInt(1);
     }
 
     public boolean entry_check(String sTable_tm, String unique_id) throws SQLException {

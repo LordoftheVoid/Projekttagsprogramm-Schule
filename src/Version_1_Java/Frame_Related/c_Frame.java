@@ -158,7 +158,9 @@ public class c_Frame extends JFrame {
         try {
             set_entrys = objDatabaseManager_Input.read_entrys_one_attribute(this.s_Main_Table, "s_unique_ID");
             while (set_entrys.next()) {
-                list_IDs.add(set_entrys.getString(1));
+                if(!set_entrys.getString(1).equals("-1")) {
+                    list_IDs.add(set_entrys.getString(1));
+                }
             }
             for (int i_X = 0; i_X < i_amount_of_colums; i_X++) {
                 list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
@@ -436,8 +438,31 @@ public class c_Frame extends JFrame {
                     list_Fields_X_Direction.get(1).get(i_y_counter).setText(set_personal_information.getString(1));
                     set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", "s_grade", s_loop_object_inner);
                     list_Fields_X_Direction.get(2).get(i_y_counter).setText(set_personal_information.getString(1));
-                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("projects", "s_unique_ID", s_loop_object);
+                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("projects", "s_teacher_ID", s_loop_object);
                     list_Fields_X_Direction.get(3).get(i_y_counter).setText(set_personal_information.getString(1));
+
+                    boolean projektFound = false;
+
+
+                    /*
+                    Achtung Hardcode!
+
+                     */
+                    for (int i = 0; i < 4; i++) {
+                        String Colum = "i_pref"+String.valueOf(i);
+                       set_personal_information= objDatabaseManager_Input.read_one_entry_one_attribute("persons",Colum, s_loop_object_inner);
+                        if ( s_loop_object.equals(set_personal_information.getString(1))){
+                            list_Fields_X_Direction.get(4).get(i_y_counter).setText(s_loop_object);
+                            projektFound = true;
+                            break;
+                        }
+                    }
+                    if (!projektFound){
+                        list_Fields_X_Direction.get(4).get(i_y_counter).setText("Kein Projekt!");
+                    }
+
+
+
                     i_y_counter++;
                 }
             }
