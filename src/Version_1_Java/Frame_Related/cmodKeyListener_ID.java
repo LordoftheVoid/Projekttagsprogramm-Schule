@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.SQLException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Aaron on 30.07.2017.
@@ -26,7 +25,7 @@ public class cmodKeyListener_ID implements KeyListener {
     cDatabaseConnectionManager objDatabaseManager_keyListener;
 
 
-    CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_entrys_rows_Listener;
+
 
 
     String s_table_reference;

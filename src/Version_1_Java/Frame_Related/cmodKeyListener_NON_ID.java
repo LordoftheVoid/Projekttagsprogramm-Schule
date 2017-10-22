@@ -38,10 +38,14 @@ class cmodKeyListener_NON_ID implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        c_mod_Text_Field objsource = ((c_mod_Text_Field) e.getSource());
+
+        /*
+        Über Referenz zu Reihe lösbar
+
+        JTextField objsource = ((JTextField) e.getSource());
         if (objsource.bcorrect_unique_ID) {
             objDatabaseManager_keyListener.update_entry(s_table_Listener, objsource.s_unique_ID_Textfieldrow, objsource.s_colum_identifier, objsource.getText());
         }
-
+        */
     }
 }

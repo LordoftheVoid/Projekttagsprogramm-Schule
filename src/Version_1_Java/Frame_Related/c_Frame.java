@@ -32,12 +32,13 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 public class c_Frame extends JFrame {
 
 
-    private c_mod_Text_Field[] arr_Search_Input;
+    private JTextField [] arr_Search_Input;
     private JTextField[] arrSearchMenue;
     private JTextField[] arrColumHeadRow;
     private JButton[] arr_sort_Buttons;
     private boolean[] arr_b_Sort_direction;
-    CopyOnWriteArrayList<Integer> list_y_coordinates_visible_rows = new CopyOnWriteArrayList<>();
+
+
 
     public JTextField[] arrCreateEntryFields;
 
@@ -49,8 +50,6 @@ public class c_Frame extends JFrame {
     final int i_width_gobal = 120;
     final int yCoordinateListEntrys = 260;
 
-
-    private CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Fields_X_Direction = new CopyOnWriteArrayList<>();
 
 
 
@@ -123,7 +122,7 @@ public class c_Frame extends JFrame {
     public void v_set_custom_Search(CopyOnWriteArrayList<String> list_s_values) {
 
         arrSearchMenue = new JTextField[list_s_values.size()];
-        arr_Search_Input = new c_mod_Text_Field[list_s_values.size()];
+        arr_Search_Input = new JTextField[list_s_values.size()];
 
         for (int i = 0; i < arrSearchMenue.length; i++) {
 
@@ -133,8 +132,7 @@ public class c_Frame extends JFrame {
 
             this.getContentPane().add(arrSearchMenue[i]);
             arrSearchMenue[i].setBounds(120 * i, 40, i_width_gobal, 20);
-            arr_Search_Input[i] = new c_mod_Text_Field();
-            arr_Search_Input[i].i_inside_Field_X = i;
+            arr_Search_Input[i] = new JTextField();
             arr_Search_Input[i].setText("");
 
             this.getContentPane().add(arr_Search_Input[i]);
@@ -178,6 +176,11 @@ public class c_Frame extends JFrame {
 
 
     public void v_Setup_Listener() {
+
+        /*
+
+        Noch nicht umgebaut!!
+
         for (CopyOnWriteArrayList<c_mod_Text_Field> loop_object_list : list_Fields_X_Direction
                 ) {
             for (c_mod_Text_Field loop_object_Field : loop_object_list
@@ -185,6 +188,7 @@ public class c_Frame extends JFrame {
                 loop_object_Field.addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, this.s_Main_Table));
             }
         }
+        */
     }
 
 

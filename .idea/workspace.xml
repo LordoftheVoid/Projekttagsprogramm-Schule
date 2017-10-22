@@ -7,8 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cRowEntrys.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cRowEntrys.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,24 +60,24 @@
       <file leaf-file-name="cmodKeyListener_ID.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="73" column="98" lean-forward="false" selection-start-line="73" selection-start-column="98" selection-end-line="73" selection-end-column="98" />
+            <state relative-caret-position="209">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="c_Frame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="c_Frame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="429" column="5" lean-forward="true" selection-start-line="429" selection-start-column="5" selection-end-line="429" selection-end-column="5" />
+            <state relative-caret-position="209">
+              <caret line="134" column="49" lean-forward="false" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cRowEntrys.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cRowEntrys.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cRowEntrys.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -86,12 +89,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="c_mod_Text_Field.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
+      <file leaf-file-name="cmodKeyListener_NON_ID.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="23" column="62" lean-forward="false" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="440">
+              <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -187,14 +192,14 @@
         <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Directories/c_Directory_Creator.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/cDatabaseConnectionManager.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/cMain.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cRowEntrys.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
       </list>
     </option>
   </component>
@@ -1141,34 +1146,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="40" column="71" lean-forward="false" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/cDatabaseConnectionManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2261">
           <caret line="136" column="19" lean-forward="false" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="73" column="98" lean-forward="false" selection-start-line="73" selection-start-column="98" selection-end-line="73" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="62" lean-forward="false" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -1191,10 +1172,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cRowEntrys.java">
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+        <state relative-caret-position="440">
+          <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1203,9 +1184,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="429" column="5" lean-forward="true" selection-start-line="429" selection-start-column="5" selection-end-line="429" selection-end-column="5" />
+        <state relative-caret-position="209">
+          <caret line="134" column="49" lean-forward="false" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cRowEntrys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
