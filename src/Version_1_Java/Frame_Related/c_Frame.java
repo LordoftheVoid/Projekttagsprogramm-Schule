@@ -30,8 +30,6 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 public class c_Frame extends JFrame {
 
 
-
-
     private c_mod_Text_Field[] arr_Search_Input;
     private JTextField[] arr_Search_Menue;
     private JTextField[] arr_Colum_Heads;
@@ -43,6 +41,7 @@ public class c_Frame extends JFrame {
     private cDatabaseConnectionManager objDatabaseManager_Input;
 
     final int i_width_gobal = 90;
+    final int istartPointListEntrys = 200;
 
 
     CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Fields_X_Direction = new CopyOnWriteArrayList<>();
@@ -90,13 +89,13 @@ public class c_Frame extends JFrame {
             arr_Search_Menue[i].setText(list_s_values.get(i) + "-Suche");
 
             this.getContentPane().add(arr_Search_Menue[i]);
-            arr_Search_Menue[i].setBounds(arr_Colum_Heads.length * 90 + 100 + 120 * i, 0, 120, 20);
+            arr_Search_Menue[i].setBounds(120 * i, 40, 120, 20);
             arr_Search_Input[i] = new c_mod_Text_Field();
             arr_Search_Input[i].i_inside_Field_X = i;
             arr_Search_Input[i].setText("");
 
             this.getContentPane().add(arr_Search_Input[i]);
-            arr_Search_Input[i].setBounds(arr_Colum_Heads.length * 90 + 100 + 120 * i, 50, 120, 20);
+            arr_Search_Input[i].setBounds(120 * i, 70, 120, 20);
             arr_Search_Input[i].addKeyListener(new KeyListener() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -121,7 +120,7 @@ public class c_Frame extends JFrame {
     public void v_add_new_empty_row(CopyOnWriteArrayList<String> list_colum_Names) {
         for (int i_X = 0; i_X < list_Fields_X_Direction.size(); i_X++) {
             c_mod_Text_Field obj_loop = new c_mod_Text_Field();
-            obj_loop.v_initiation(i_width_gobal * i_X, list_Fields_X_Direction.get(i_X).size() * 20 + 50, 90, 20, this.getContentPane());
+            obj_loop.v_initiation(i_width_gobal * i_X, list_Fields_X_Direction.get(i_X).size() * 20 + istartPointListEntrys, 90, 20, this.getContentPane());
             obj_loop.setText("Test");
             obj_loop.setText("");
             obj_loop.i_inside_Field_X = i_X;
@@ -158,7 +157,7 @@ public class c_Frame extends JFrame {
         try {
             set_entrys = objDatabaseManager_Input.read_entrys_one_attribute(this.s_Main_Table, "s_unique_ID");
             while (set_entrys.next()) {
-                if(!set_entrys.getString(1).equals("-1")) {
+                if (!set_entrys.getString(1).equals("-1")) {
                     list_IDs.add(set_entrys.getString(1));
                 }
             }
@@ -166,7 +165,7 @@ public class c_Frame extends JFrame {
                 list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
                 for (int k_Y = 0; k_Y < list_IDs.size(); k_Y++) {
                     list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
-                    list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, 50 + 20 * k_Y, 90, 20, this.getContentPane());
+                    list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, istartPointListEntrys + 20 * k_Y, 90, 20, this.getContentPane());
                     list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_X = i_X;
                     list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_Y = k_Y;
                     list_Fields_X_Direction.get(i_X).get(k_Y).bcorrect_unique_ID = true;
@@ -252,11 +251,8 @@ public class c_Frame extends JFrame {
                 }
             }
         }
-        if (list_solutions.isEmpty()) {
-            cMain.v_update_Textarea_Status("Zu dieser Suche gibt es keinerlei Ergebnisse, bitte andere Parameter wählen oder Einträge modifizieren.");
-        }
 
-        {
+
             list_y_coordinates_visible_rows.addAll(list_solutions);
             int k_Y = 0;
             for (Integer loop_obj_int : list_solutions
@@ -270,13 +266,13 @@ public class c_Frame extends JFrame {
                 }
                 k_Y++;
             }
-        }
+
         if (i_amount_empty_fields == arr_Search_Input.length) {
 
             int i_X = 0;
             for (CopyOnWriteArrayList<c_mod_Text_Field> loop_list : list_Fields_X_Direction
                     ) {
-                int k_Y = 0;
+                k_Y = 0;
                 for (c_mod_Text_Field loop_Field : loop_list
                         ) {
                     loop_Field.setLocation(i_X * i_width_gobal, 50 + 20 * k_Y);
@@ -413,7 +409,7 @@ public class c_Frame extends JFrame {
             list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
             for (int k_Y = 0; k_Y < i_amount_of_people; k_Y++) {
                 list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
-                list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, 50 + 20 * k_Y, 90, 20, this.getContentPane());
+                list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, istartPointListEntrys + 20 * k_Y, 90, 20, this.getContentPane());
                 list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_X = i_X;
                 list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_Y = k_Y;
                 list_Fields_X_Direction.get(i_X).get(k_Y).bcorrect_unique_ID = true;
@@ -449,18 +445,17 @@ public class c_Frame extends JFrame {
 
                      */
                     for (int i = 0; i < 4; i++) {
-                        String Colum = "i_pref"+String.valueOf(i);
-                       set_personal_information= objDatabaseManager_Input.read_one_entry_one_attribute("persons",Colum, s_loop_object_inner);
-                        if ( s_loop_object.equals(set_personal_information.getString(1))){
+                        String Colum = "i_pref" + String.valueOf(i);
+                        set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", Colum, s_loop_object_inner);
+                        if (s_loop_object.equals(set_personal_information.getString(1))) {
                             list_Fields_X_Direction.get(4).get(i_y_counter).setText(s_loop_object);
                             projektFound = true;
                             break;
                         }
                     }
-                    if (!projektFound){
+                    if (!projektFound) {
                         list_Fields_X_Direction.get(4).get(i_y_counter).setText("Kein Projekt!");
                     }
-
 
 
                     i_y_counter++;

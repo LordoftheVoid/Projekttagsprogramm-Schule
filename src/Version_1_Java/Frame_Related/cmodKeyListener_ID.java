@@ -110,9 +110,8 @@ public class cmodKeyListener_ID implements KeyListener {
             }
             if (list_entrys_rows_Listener.get(0).get(objsource.i_inside_Field_Y).getText().equals("")) {
 
-                if (objDatabaseManager_keyListener.delete_entry(s_table_reference, objsource.s_unique_ID_Textfieldrow)) {
-                    cMain.v_update_Textarea_Status("Ein Datenbankeintrag wurde gelöscht");
-                }
+                objDatabaseManager_keyListener.delete_entry(s_table_reference, objsource.s_unique_ID_Textfieldrow);
+
 
                 for (int i_x = 0; i_x < list_entrys_rows_Listener.size(); i_x++) {
                     list_entrys_rows_Listener.get(objsource.i_inside_Field_X).get(0).bcorrect_unique_ID = false;
@@ -125,9 +124,8 @@ public class cmodKeyListener_ID implements KeyListener {
 
         if (this.s_table_reference.equals("projects")) {
             if (objsource.getText().equals("")) {
-                if (objDatabaseManager_keyListener.delete_entry(s_table_reference, objsource.s_unique_ID_Textfieldrow)) {
-                    cMain.v_update_Textarea_Status("Ein Datenbankeintrag wurde gelöscht");
-                }
+                objDatabaseManager_keyListener.delete_entry(s_table_reference, objsource.s_unique_ID_Textfieldrow);
+
 
                 for (int i_x = 0; i_x < list_entrys_rows_Listener.size(); i_x++) {
                     list_entrys_rows_Listener.get(0).get(objsource.i_inside_Field_X).bcorrect_unique_ID = false;

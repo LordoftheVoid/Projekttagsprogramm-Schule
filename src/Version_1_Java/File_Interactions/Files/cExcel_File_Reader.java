@@ -18,9 +18,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class cExcel_File_Reader {
 
 
-
-   public cExcel_File_Reader(cDatabaseConnectionManager obj_tm_DatabaseManager_Main){
-        this.objDatabaseManager_Reader=obj_tm_DatabaseManager_Main;
+    public cExcel_File_Reader(cDatabaseConnectionManager obj_tm_DatabaseManager_Main) {
+        this.objDatabaseManager_Reader = obj_tm_DatabaseManager_Main;
 
     }
 
@@ -28,20 +27,18 @@ public class cExcel_File_Reader {
     private cDatabaseConnectionManager objDatabaseManager_Reader;
 
 
-   public  CopyOnWriteArrayList<String> list_of_filenames_with_xls;
+    public CopyOnWriteArrayList<String> list_of_filenames_with_xls;
 
-   private CopyOnWriteArrayList< String [][]> list_arr_data_in_File= new CopyOnWriteArrayList<>();
+    private CopyOnWriteArrayList<String[][]> list_arr_data_in_File = new CopyOnWriteArrayList<>();
 
-   private boolean b_data_found=true;
-
-
+    private boolean b_data_found = true;
 
 
-    public  CopyOnWriteArrayList<String> list_search_for_xls_Files(String s_tm_starting_directory)  {
+    public CopyOnWriteArrayList<String> list_search_for_xls_Files(String s_tm_starting_directory) {
 
         File file_initial_file = new File(String.valueOf(s_tm_starting_directory));
 
-        File [] arr_files_in_subdirectory = file_initial_file.listFiles();
+        File[] arr_files_in_subdirectory = file_initial_file.listFiles();
 
         CopyOnWriteArrayList<String> files_found_subdirectory = new CopyOnWriteArrayList<>();
 
@@ -55,15 +52,15 @@ public class cExcel_File_Reader {
             }
         }
 
-        for (String loop_object:files_found_subdirectory
-             ) {
-            if(!loop_object.contains(".xls")){
+        for (String loop_object : files_found_subdirectory
+                ) {
+            if (!loop_object.contains(".xls")) {
                 files_found_subdirectory.remove(loop_object);
             }
         }
 
-        if(files_found_subdirectory.size()==0){
-            b_data_found=false;
+        if (files_found_subdirectory.size() == 0) {
+            b_data_found = false;
         }
 
 
@@ -71,36 +68,34 @@ public class cExcel_File_Reader {
     }
 
 
+    public void read_file_extracting_pupils(String url) {
 
-
-    public void read_file_extracting_pupils (String url){
-
-        HSSFWorkbook obj_data_file_xls=null;
+        HSSFWorkbook obj_data_file_xls = null;
 
         try {
-             obj_data_file_xls = new HSSFWorkbook(new FileInputStream(url));
+            obj_data_file_xls = new HSSFWorkbook(new FileInputStream(url));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        String [][] arr_data_in_File= new String[3][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
+        String[][] arr_data_in_File = new String[3][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
 
         for (int i_x = 0; i_x < arr_data_in_File.length; i_x++) {
             for (int k_y = 0; k_y < arr_data_in_File[i_x].length; k_y++) {
                 try {
                     arr_data_in_File[i_x][k_y] = obj_data_file_xls.getSheetAt(0).getRow(k_y).getCell(i_x).getStringCellValue();
-                }catch (NullPointerException e1){
-                    arr_data_in_File[i_x][k_y] ="";
+                } catch (NullPointerException e1) {
+                    arr_data_in_File[i_x][k_y] = "";
                 }
             }
         }
         list_arr_data_in_File.add(arr_data_in_File);
     }
 
-    public void v_update_Database_from_list(){
-        if(b_data_found) {
-            for (String [][] loop_obj_arr:list_arr_data_in_File
-                 ) {
+    public void v_update_Database_from_list() {
+        if (b_data_found) {
+            for (String[][] loop_obj_arr : list_arr_data_in_File
+                    ) {
                 for (int i_entry_counter = 0; i_entry_counter < loop_obj_arr[0].length; i_entry_counter++) {
                     String unique_id = "";
                     for (int i = 0; i < 2; i++) {
@@ -126,18 +121,16 @@ public class cExcel_File_Reader {
 
     }
 
-    public int i_amount_of_pupils(){
-        int i_sum=0;
-        if(b_data_found){
-            for (String [][] list_obj_arr:list_arr_data_in_File
+    public int i_amount_of_pupils() {
+        int i_sum = 0;
+        if (b_data_found) {
+            for (String[][] list_obj_arr : list_arr_data_in_File
                     ) {
-                i_sum=i_sum+ list_obj_arr.length;
+                i_sum = i_sum + list_obj_arr.length;
             }
         }
         return i_sum;
     }
-
-
 
 
 }

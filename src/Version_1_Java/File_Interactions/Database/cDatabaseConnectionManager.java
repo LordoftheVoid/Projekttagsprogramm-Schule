@@ -61,10 +61,9 @@ public class cDatabaseConnectionManager {
     }
 
 
-
     public ResultSet read_entrys_one_attribute(String sTable_tm, String sColum_tm) throws SQLException {
-            PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm);
-            return extract_entrys.executeQuery();
+        PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm);
+        return extract_entrys.executeQuery();
 
     }
 
@@ -123,14 +122,14 @@ public class cDatabaseConnectionManager {
 
 
     public int i_amout_of_entrys_in_Database(String sTable_tm) throws SQLException {
-        if (this.b_connection_running){
+        if (this.b_connection_running) {
             PreparedStatement row_count = conDatabase.prepareStatement("SELECT COUNT(*) FROM " + sTable_tm);
             ResultSet number_of_rows = row_count.executeQuery();
             number_of_rows.next();
             return number_of_rows.getInt(1);
-        }else{
+        } else {
             cMain.v_update_Textarea_Status("Es konnten keine Werte ausgelesen werden");
-            return  0;
+            return 0;
         }
 
     }

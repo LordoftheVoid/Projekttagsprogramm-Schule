@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.net.URISyntaxException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -28,18 +29,14 @@ public class cMain {
     static JTextArea obj_Textarea_Status;
     static cDatabaseConnectionManager obj_Database_manager_Main;
     static JFrame obj_Frame_Main;
-    static  final File fileJAR = new File(cMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-
-
-
-
+    static  File fileJAR;
 
     /*
         Ausgabe Fenster, um dem Nutzer Rückmeldung zu geben
 
      */
     public static void v_update_Textarea_Status(String s_new_Line) {
-        if (obj_Textarea_Status.getText().length() > 2500) {
+        if (obj_Textarea_Status.getText().length() > 2000) {
             obj_Textarea_Status.setText("");
         }
         obj_Textarea_Status.setText(obj_Textarea_Status.getText() + "\n" + s_new_Line);
@@ -50,6 +47,15 @@ public class cMain {
 
 
     public static void main(String args[]) {
+
+
+        try {
+            fileJAR =  new File(cMain.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+
         /*
         Hauptfenster
          */
@@ -72,14 +78,12 @@ public class cMain {
         obj_Textarea_Status.setBorder(new LineBorder(Color.black));
 
 
-
-
-
         c_Directory_Creator objDirectoryManager = new c_Directory_Creator();
 
 
-        objDirectoryManager.v_creation(fileJAR.getParent(),"Datenbank-Ordner");
+        objDirectoryManager.v_creation(fileJAR.getParent(), "Datenbank-Ordner");
         objDirectoryManager.v_creation(fileJAR.getParent(), "Excel-Datei-Ordner");
+        objDirectoryManager.v_creation(fileJAR.getParent(), "Output-Ordner ( Excel-Dateien)");
 
 
 
@@ -88,7 +92,7 @@ public class cMain {
 
          */
         obj_Database_manager_Main = new cDatabaseConnectionManager();
-        bDatabaseFound =obj_Database_manager_Main.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
+        bDatabaseFound = obj_Database_manager_Main.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
 
 
         v_generate_Interface(bDatabaseFound);
@@ -101,7 +105,7 @@ public class cMain {
         btn_Retry_Database_Connection.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                bDatabaseFound=  obj_Database_manager_Main.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
+                bDatabaseFound = obj_Database_manager_Main.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
                 v_generate_Interface(bDatabaseFound);
 
             }
@@ -136,7 +140,7 @@ public class cMain {
         boolean bFileFound = false;
         for (File loop_obj_File : fileDatabaseDirectory.listFiles()) {
             if (loop_obj_File.getName().contains(".db")) {
-                sDynamikDatabaseURL = sDynamikDatabaseURL +"/"+ loop_obj_File.getName();
+                sDynamikDatabaseURL = sDynamikDatabaseURL + "/" + loop_obj_File.getName();
                 bFileFound = true;
                 break;
             }
@@ -149,7 +153,6 @@ public class cMain {
         }
 
     }
-
 
 
     public static void v_generate_Interface(boolean bInput) {
@@ -433,16 +436,18 @@ public class cMain {
 
 
                     if (b_all_values_valid) {
-                        obj_Frame_Output.v_show_Frame(500, 500);
+                        obj_Frame_Output.v_show_Frame(700, 500);
 
                         cMain.v_update_Textarea_Status("Die Berechnung hat begonnen, das könnte seine Zeit dauern");
 
                         cHash_Map_ID_projects_to_List_ID_pupils objHashmap_projects_pupils = new cHash_Map_ID_projects_to_List_ID_pupils(obj_Database_manager_Main);
                         objHashmap_projects_pupils.v_setup_from_Database();
-                        objHashmap_projects_pupils.v_arrangement();
                         boolean b_constant_people = false;
 
+                        objHashmap_projects_pupils.v_arrangement();
+
                         int i_counter = 0;
+
 
                         cHash_Map_ID_projects_to_List_ID_pupils obj_best_solution = new cHash_Map_ID_projects_to_List_ID_pupils(obj_Database_manager_Main);
 
@@ -453,13 +458,13 @@ public class cMain {
 
                             objHashmap_projects_pupils.v_arrangement();
 
-                            cMain.v_update_Textarea_Status("Es wurde ein Zuteilung vorgenomen, Überprüfung erfolgt.");
+                            cMain.v_update_Textarea_Status("Es wurde ein Zuteilung vorgenomen, Überprüfung erfolgt. " + i_counter);
                             if (objHashmap_projects_pupils.get("-1").size() <= obj_best_solution.get("-1").size()) {
                                 if (objHashmap_projects_pupils.i_sum_of_preferences < obj_best_solution.i_sum_of_preferences) {
                                     obj_best_solution.clear();
                                     obj_best_solution.putAll(objHashmap_projects_pupils);
                                     obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;
-
+                                    cMain.v_update_Textarea_Status("Es wurde eine neue beste Lösung gefunden. ");
 
                                     i_counter = 0;
                                 } else {
@@ -474,7 +479,7 @@ public class cMain {
 
                         }
 
-                       cMain.v_update_Textarea_Status("Es wurde die beste Lösung gefunden, Output erfolgt.");
+                        cMain.v_update_Textarea_Status("Es wurde die beste Lösung gefunden, Output erfolgt.");
 
 
                         obj_Frame_Output.v_set_custom_Head(arr_list_value_Strings[2]);
@@ -484,8 +489,9 @@ public class cMain {
 
                         obj_Frame_Output.v_update_from_List_and_Database(obj_best_solution);
 
+
                         c_Output_File_Generator obj_File_Generator = new c_Output_File_Generator(obj_best_solution, obj_Database_manager_Main);
-                        obj_File_Generator.v_write_xls_Files();
+                        obj_File_Generator.v_write_xls_Files(fileJAR.getParent() + "/Output-Ordner ( Excel-Dateien)");
 
                     } else {
                         cMain.v_update_Textarea_Status("Es waren unerlaubte bzw nicht festgesetzte Werte in der Schüler-Datenbank, bitte ergänzen");

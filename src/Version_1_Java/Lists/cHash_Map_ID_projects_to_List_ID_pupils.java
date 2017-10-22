@@ -64,13 +64,6 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
         }
 
 
-        String[] arrcolums = new String[4];
-        arrcolums[0] = "i_pref0";
-        arrcolums[1] = "i_pref1";
-        arrcolums[2] = "i_pref2";
-        arrcolums[3] = "i_pref3";
-
-
         CopyOnWriteArrayList<String> list_ID_pupils = new CopyOnWriteArrayList<>();
 
         try {
@@ -110,7 +103,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
                 String s_prefence_specific_pupil = "";
                 try {
-                    ResultSet set_prefence_specific_id = obj_Databasemanager_list.read_one_entry_one_attribute("persons", arrcolums[i_preference_counter], s_random_pupil_ID);
+                    ResultSet set_prefence_specific_id = obj_Databasemanager_list.read_one_entry_one_attribute("persons", "i_pref" + String.valueOf(i_preference_counter), s_random_pupil_ID);
                     s_prefence_specific_pupil = set_prefence_specific_id.getString(1);
                 } catch (SQLException e2) {
                     e2.printStackTrace();
