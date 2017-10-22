@@ -7,16 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/cDatabaseConnectionManager.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/cDatabaseConnectionManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Directories/c_Directory_Creator.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Directories/c_Directory_Creator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Version_1_Java/cMain.java" afterPath="$PROJECT_DIR$/src/Version_1_Java/cMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -44,8 +35,8 @@
       <file leaf-file-name="cMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/cMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="52" column="114" lean-forward="false" selection-start-line="52" selection-start-column="114" selection-end-line="52" selection-end-column="114" />
+            <state relative-caret-position="306">
+              <caret line="228" column="10" lean-forward="false" selection-start-line="228" selection-start-column="10" selection-end-line="228" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,18 +47,28 @@
       <file leaf-file-name="cDatabaseConnectionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/cDatabaseConnectionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="44" column="49" lean-forward="true" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
+            <state relative-caret-position="209">
+              <caret line="84" column="29" lean-forward="false" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="c_Frame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cmodKeyListener_ID.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="593">
+              <caret line="115" column="81" lean-forward="true" selection-start-line="115" selection-start-column="81" selection-end-line="115" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="c_Frame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="97" column="42" lean-forward="false" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+            <state relative-caret-position="192">
+              <caret line="182" column="23" lean-forward="false" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -83,21 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cExcel_File_Reader.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cExcel_File_Reader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cmodKeyListener_NON_ID.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="40" column="71" lean-forward="false" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
+            <state relative-caret-position="425">
+              <caret line="87" column="34" lean-forward="true" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -108,16 +99,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="c_Output_File_Generator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -142,6 +123,7 @@
       <find>o</find>
       <find>Obj</find>
       <find>.setBounds</find>
+      <find>setBorders</find>
     </findStrings>
     <replaceStrings>
       <replace>objDatabaseManager_Input</replace>
@@ -209,8 +191,8 @@
         <option value="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/cMain.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" />
+        <option value="$PROJECT_DIR$/src/Version_1_Java/cMain.java" />
       </list>
     </option>
   </component>
@@ -948,8 +930,20 @@
           <properties class="java.util.Comparator" method="reversed" />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java</url>
+          <line>185</line>
+          <properties />
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java</url>
+          <line>189</line>
+          <properties />
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="131" />
+      <option name="time" value="133" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1119,18 +1113,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="40" column="71" lean-forward="false" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Directories/c_Directory_Creator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1143,62 +1155,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java">
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="192">
+          <caret line="182" column="23" lean-forward="false" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Directories/c_Directory_Creator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/cMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="52" column="114" lean-forward="false" selection-start-line="52" selection-start-column="114" selection-end-line="52" selection-end-column="114" />
+        <state relative-caret-position="306">
+          <caret line="228" column="10" lean-forward="false" selection-start-line="228" selection-start-column="10" selection-end-line="228" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Database/cDatabaseConnectionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="44" column="49" lean-forward="true" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
+        <state relative-caret-position="209">
+          <caret line="84" column="29" lean-forward="false" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_mod_Text_Field.java">
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_ID.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="593">
+          <caret line="115" column="81" lean-forward="true" selection-start-line="115" selection-start-column="81" selection-end-line="115" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java">
+    <entry file="file://$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/cExcel_File_Reader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="97" column="42" lean-forward="false" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+        <state relative-caret-position="425">
+          <caret line="87" column="34" lean-forward="true" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
           <folding />
         </state>
       </provider>

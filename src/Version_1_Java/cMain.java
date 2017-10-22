@@ -226,7 +226,7 @@ public class cMain {
             arr_list_Database_References[1] = new CopyOnWriteArrayList<>();
 
 
-            //  arr_list_Database_References[1].add("s_unique_ID"); Was ist damit ?
+        //    arr_list_Database_References[0].add("s_unique_ID");
             arr_list_Database_References[0].add("s_sur_Name");
             arr_list_Database_References[0].add("s_pre_Name");
             arr_list_Database_References[0].add("s_grade");
