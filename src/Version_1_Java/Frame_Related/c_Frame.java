@@ -368,25 +368,19 @@ public class c_Frame extends JFrame {
         }
 
 
+        int i = 0;
+        while(i<i_amount_of_people){
+            listRows.add(new cRowEntrys(objDatabaseManager_Input,i_width_gobal));
+            listRows.get(i).v_ShortSetup(5,this.getContentPane(),yCoordinateListEntrys + 20*i);
+            i++;
+        }
+
+
         /*
 
         Achtung Hardcode! 5 ist wo anders definiert!
-         */
 
-        for (int i_X = 0; i_X < 5; i_X++) {
-            list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
-            for (int k_Y = 0; k_Y < i_amount_of_people; k_Y++) {
-                list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
-                list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, yCoordinateListEntrys + 20 * k_Y, i_width_gobal, 20, this.getContentPane());
-                list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_X = i_X;
-                list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_Y = k_Y;
-                list_Fields_X_Direction.get(i_X).get(k_Y).bcorrect_unique_ID = true;
-            }
 
-        }
-        for (int i = 0; i < i_amount_of_people; i++) {
-            list_y_coordinates_visible_rows.add(i);
-        }
 
 
         int i_y_counter = 0;
@@ -411,7 +405,7 @@ public class c_Frame extends JFrame {
                     /*
                     Achtung Hardcode!
 
-                     */
+
                     for (int i = 0; i < 4; i++) {
                         String Colum = "i_pref" + String.valueOf(i);
                         set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", Colum, s_loop_object_inner);
@@ -432,6 +426,8 @@ public class c_Frame extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    */
     }
+
 
 }

@@ -37,8 +37,23 @@ public class cRowEntrys {
 
     }
 
+    public cRowEntrys(cDatabaseConnectionManager objDataBaseManagerRow, int iglobalWidth) {
+        this.objDataBaseManagerRow = objDataBaseManagerRow;
+        this.iglobalWidth = iglobalWidth;
+    }
 
-    public void v_setup(int iamountElements,Container conDisplayTarget, int iYCoordinate){
+    public void v_ShortSetup(int iamountElements, Container conDisplayTarget, int iYCoordinate){
+        this.fields = new JTextField[iamountElements];
+        for (int i = 0; i < this.fields.length; i++) {
+            this.fields[i]= new JTextField();
+            conDisplayTarget.add(this.fields[i]);
+            this.fields[i].setVisible(true);
+            this.fields[i].setBounds(i*iglobalWidth,iYCoordinate,iglobalWidth,20);
+        }
+    }
+
+
+    public void v_setup(int iamountElements, Container conDisplayTarget, int iYCoordinate){
         this.fields = new JTextField[iamountElements];
 
         btnDelete = new JButton("Schüler löschen");
