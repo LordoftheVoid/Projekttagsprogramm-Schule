@@ -246,40 +246,40 @@ public class cMain {
         Erzeugung etc des Schüler-Fensters
          */
 
-            c_Frame obj_Frame_pupils = new c_Frame("persons", obj_Database_manager_Main);
+            c_Frame obj_Frame_pupils = new c_Frame("persons", obj_Database_manager_Main,arr_list_Database_References[0]);
 
-            obj_Frame_pupils.v_generate_rows_from_Database(arr_list_Database_References[0].size(), arr_list_Database_References[0]);
+            obj_Frame_pupils.v_generate_rows_from_Database();
 
             obj_Frame_pupils.v_set_custom_Head(arr_list_value_Strings[0]);
 
             obj_Frame_pupils.v_set_custom_Search(arr_list_value_Strings[0]);
 
-            obj_Frame_pupils.v_Setup_Listener(2);
+            obj_Frame_pupils.v_Setup_Listener();
 
             obj_Frame_pupils.v_sort_setup();
 
-            obj_Frame_pupils.setupEntryfields("Hier Nach und Vorname eintragen für neuen Eintrag",2);
+            obj_Frame_pupils.v_setupEntryfields("Hier Nach und Vorname eintragen für neuen Eintrag",2);
 
 
             //Frame Projekte
 
-            c_Frame obj_Frame_projects = new c_Frame("projects", obj_Database_manager_Main);
+            c_Frame obj_Frame_projects = new c_Frame("projects", obj_Database_manager_Main,arr_list_Database_References[1]);
 
-            obj_Frame_projects.v_generate_rows_from_Database(arr_list_Database_References[1].size(), arr_list_Database_References[1]);
+            obj_Frame_projects.v_generate_rows_from_Database();
 
             obj_Frame_projects.v_set_custom_Head(arr_list_value_Strings[1]);
 
             obj_Frame_projects.v_set_custom_Search(arr_list_value_Strings[1]);
 
-            obj_Frame_projects.v_Setup_Listener(1);
+            obj_Frame_projects.v_Setup_Listener();
 
             obj_Frame_projects.v_sort_setup();
 
 
-            obj_Frame_projects.setupEntryfields("Hier neue Projektnummer eintragen",1);
+            obj_Frame_projects.v_setupEntryfields("Hier neue Projektnummer eintragen",1);
             //Frame Output
 
-            c_Frame obj_Frame_Output = new c_Frame("projects", obj_Database_manager_Main);
+            c_Frame obj_Frame_Output = new c_Frame("projects", obj_Database_manager_Main,null);
 
 
         /*

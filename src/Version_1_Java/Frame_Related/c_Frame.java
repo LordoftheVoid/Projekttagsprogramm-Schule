@@ -37,22 +37,26 @@ public class c_Frame extends JFrame {
     private boolean[] arr_b_Sort_direction;
     CopyOnWriteArrayList<Integer> list_y_coordinates_visible_rows = new CopyOnWriteArrayList<>();
 
-    private JTextField[] arrCreateEntryFields;
+    public JTextField[] arrCreateEntryFields;
 
 
-    private cDatabaseConnectionManager objDatabaseManager_Input;
+    public cDatabaseConnectionManager objDatabaseManager_Input;
+
+    private CopyOnWriteArrayList<String> list_Column_Names;
 
     final int i_width_gobal = 120;
     final int yCoordinateListEntrys = 260;
 
 
-    CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Fields_X_Direction = new CopyOnWriteArrayList<>();
+    private CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Fields_X_Direction = new CopyOnWriteArrayList<>();
 
 
-    String s_Main_Table;
+    public String s_Main_Table;
 
 
-    public c_Frame(String s_Table_tm, cDatabaseConnectionManager obj_Database_Manager_tm) {
+    public c_Frame(String s_Table_tm, cDatabaseConnectionManager obj_Database_Manager_tm, CopyOnWriteArrayList<String> list_Columns) {
+
+        this.list_Column_Names =list_Columns;
 
         this.objDatabaseManager_Input = obj_Database_Manager_tm;
         this.s_Main_Table = s_Table_tm;
@@ -68,7 +72,7 @@ public class c_Frame extends JFrame {
     }
 
 
-    public void setupEntryfields(String Text, int amount){
+    public void v_setupEntryfields(String text, int amount){
 
         arrCreateEntryFields = new JTextField[amount];
 
@@ -77,12 +81,14 @@ public class c_Frame extends JFrame {
             this.getContentPane().add(arrCreateEntryFields[i]);
             arrCreateEntryFields[i].setBounds(i*i_width_gobal,yCoordinateListEntrys -40,i_width_gobal,20);
             arrCreateEntryFields[i].setVisible(true);
-       
+
+
+            arrCreateEntryFields[i].addKeyListener(new cmodKeyListener_ID(this));
 
         }
         JTextField createEntryField;
 
-        createEntryField= new JTextField(Text);
+        createEntryField= new JTextField(text);
         this.getContentPane().add(createEntryField);
         createEntryField.setBounds(0,yCoordinateListEntrys -60,i_width_gobal*3,20);
         createEntryField.setVisible(true);
@@ -159,24 +165,18 @@ public class c_Frame extends JFrame {
     }
 
 
-    public void v_Setup_Listener(int i_amount_ID_Listeners_tm) {
-        int i_Counter = 0;
-
+    public void v_Setup_Listener() {
         for (CopyOnWriteArrayList<c_mod_Text_Field> loop_object_list : list_Fields_X_Direction
                 ) {
-            i_Counter++;
             for (c_mod_Text_Field loop_object_Field : loop_object_list
                     ) {
-                if (i_Counter <= i_amount_ID_Listeners_tm) {
-                    loop_object_Field.addKeyListener(new cmodKeyListener_ID(objDatabaseManager_Input, list_Fields_X_Direction, this.s_Main_Table, this.getContentPane()));
-                }
                 loop_object_Field.addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, this.s_Main_Table));
             }
         }
     }
 
 
-    public void v_generate_rows_from_Database(int i_amount_of_colums, CopyOnWriteArrayList<String> list_Column_Names) {
+    public void v_generate_rows_from_Database() {
 
         ResultSet set_entrys;
         CopyOnWriteArrayList<String> list_IDs = new CopyOnWriteArrayList<>();
@@ -188,7 +188,7 @@ public class c_Frame extends JFrame {
                     list_IDs.add(set_entrys.getString(1));
                 }
             }
-            for (int i_X = 0; i_X < i_amount_of_colums; i_X++) {
+            for (int i_X = 0; i_X < list_Column_Names.size(); i_X++) {
                 list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
                 for (int k_Y = 0; k_Y < list_IDs.size(); k_Y++) {
                     list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
@@ -221,6 +221,7 @@ public class c_Frame extends JFrame {
         }
         this.v_add_new_empty_row(list_Column_Names);
     }
+
 
 
     public void v_search() {
