@@ -6,13 +6,14 @@ package Version_1_Java.File_Interactions.Files;
 
 
 import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
-import Version_1_Java.cMain;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class cExcel_File_Reader {
@@ -21,17 +22,23 @@ public class cExcel_File_Reader {
     public cExcel_File_Reader(cDatabaseConnectionManager obj_tm_DatabaseManager_Main) {
         this.objDatabaseManager_Reader = obj_tm_DatabaseManager_Main;
 
+        try {
+            ResultSet   setGivenEntrys = objDatabaseManager_Reader.read_entrys_one_attribute("persons","s_unique_ID");
+            while(setGivenEntrys.next()){
+              this.listEntryIDs.add(setGivenEntrys.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
+    private ArrayList<String> listEntryIDs = new ArrayList();
 
     private cDatabaseConnectionManager objDatabaseManager_Reader;
 
-
     public CopyOnWriteArrayList<String> list_of_filenames_with_xls;
 
-    private CopyOnWriteArrayList<String[][]> list_arr_data_in_File = new CopyOnWriteArrayList<>();
-
-    private boolean b_data_found = true;
+    public int personsFound = 0;
 
 
     public CopyOnWriteArrayList<String> list_search_for_xls_Files(String s_tm_starting_directory) {
@@ -59,16 +66,17 @@ public class cExcel_File_Reader {
             }
         }
 
-        if (files_found_subdirectory.size() == 0) {
-            b_data_found = false;
-        }
+
 
 
         return files_found_subdirectory;
     }
 
 
-    public void read_file_extracting_pupils(String url) {
+
+
+    public void readFile (String url){
+
 
         HSSFWorkbook obj_data_file_xls = null;
 
@@ -78,59 +86,46 @@ public class cExcel_File_Reader {
             e.printStackTrace();
         }
 
-        String[][] arr_data_in_File = new String[3][obj_data_file_xls.getSheetAt(0).getLastRowNum()];
 
-        for (int i_x = 0; i_x < arr_data_in_File.length; i_x++) {
-            for (int k_y = 0; k_y < arr_data_in_File[i_x].length; k_y++) {
-                try {
-                    arr_data_in_File[i_x][k_y] = obj_data_file_xls.getSheetAt(0).getRow(k_y).getCell(i_x).getStringCellValue();
-                } catch (NullPointerException e1) {
-                    arr_data_in_File[i_x][k_y] = "";
+        ArrayList<Integer> listnewPersonYCoordinate = new ArrayList<>();
+
+        for (int i_x = 0; i_x < obj_data_file_xls.getSheetAt(0).getLastRowNum(); i_x++) {
+            String rowID = "";
+            for (int k_y = 0; k_y < 2; k_y++) {
+                for (int charAT = 0; charAT < 2; charAT++) {
+                    rowID = rowID +  obj_data_file_xls.getSheetAt(0).getRow(i_x).getCell(k_y).getStringCellValue().charAt(charAT);
                 }
             }
+            if(!listEntryIDs.contains(rowID)){
+                listnewPersonYCoordinate.add(i_x);
+                this.personsFound++;
+            }
+
         }
-        list_arr_data_in_File.add(arr_data_in_File);
-    }
 
-    public void v_update_Database_from_list() {
-        if (b_data_found) {
-            for (String[][] loop_obj_arr : list_arr_data_in_File
-                    ) {
-                for (int i_entry_counter = 0; i_entry_counter < loop_obj_arr[0].length; i_entry_counter++) {
-                    String unique_id = "";
-                    for (int i = 0; i < 2; i++) {
-                        for (int k = 0; k < 2; k++) {
-                            unique_id = unique_id + loop_obj_arr[i][i_entry_counter].charAt(k);
-                        }
-                    }
-                    try {
-                        if (objDatabaseManager_Reader.entry_check("persons", unique_id)) {
-                            objDatabaseManager_Reader.create_entry("persons", unique_id);
-                            objDatabaseManager_Reader.update_entry("persons", unique_id, "s_pre_Name", loop_obj_arr[0][i_entry_counter]);
-                            objDatabaseManager_Reader.update_entry("persons", unique_id, "s_sur_Name", loop_obj_arr[1][i_entry_counter]);
-                            objDatabaseManager_Reader.update_entry("persons", unique_id, "s_grade", loop_obj_arr[2][i_entry_counter]);
-                        }
-                    } catch (SQLException e) {
-                        cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
-                    }
-
+        for (Integer objList:listnewPersonYCoordinate
+             ) {
+            String rowID = "";
+            for (int k_y = 0; k_y < 2; k_y++) {
+                for (int charAT = 0; charAT < 2; charAT++) {
+                    rowID = rowID + obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(k_y).getStringCellValue().charAt(charAT);
                 }
             }
-
-        }
-
-    }
-
-    public int i_amount_of_pupils() {
-        int i_sum = 0;
-        if (b_data_found) {
-            for (String[][] list_obj_arr : list_arr_data_in_File
-                    ) {
-                i_sum = i_sum + list_obj_arr.length;
+            try {
+                objDatabaseManager_Reader.create_entry("persons",rowID);
+                objDatabaseManager_Reader.update_entry("persons", rowID, "s_pre_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(1).getStringCellValue());
+                objDatabaseManager_Reader.update_entry("persons", rowID, "s_sur_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(0).getStringCellValue());
+                listEntryIDs.add(rowID);
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
-        return i_sum;
+
     }
+
+
+
+
 
 
 }

@@ -60,8 +60,7 @@ public class cmodKeyListener_ID implements KeyListener {
 
         if (this.s_table_reference.equals("persons")) {
 
-            System.out.println(list_entrys_rows_Listener.size());
-            System.out.println(list_entrys_rows_Listener.get(0).size());
+
 
 
             if (list_entrys_rows_Listener.get(0).get(objsource.i_inside_Field_Y).getText().length() >= 3 & list_entrys_rows_Listener.get(1).get(objsource.i_inside_Field_Y).getText().length() >= 3) {

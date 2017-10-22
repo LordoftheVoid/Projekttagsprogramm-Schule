@@ -166,11 +166,10 @@ public class cMain {
 
             for (String loop_objekt_s : obj_File_Reader_Excel.list_of_filenames_with_xls
                     ) {
-                obj_File_Reader_Excel.read_file_extracting_pupils(loop_objekt_s);
+                obj_File_Reader_Excel.readFile(loop_objekt_s);
             }
 
-            obj_File_Reader_Excel.v_update_Database_from_list();
-            cMain.v_update_Textarea_Status("Es wurden " + obj_File_Reader_Excel.i_amount_of_pupils() + " neue Schüler mittels Excel eingelesen.");
+            cMain.v_update_Textarea_Status("Es wurden " + obj_File_Reader_Excel.personsFound + " neue Schüler mittels Excel eingelesen.");
 
 
             int i_amount_pupils_Database = 0;
@@ -308,12 +307,12 @@ public class cMain {
 
                     for (String loop_objekt_s : obj_File_Reader_Excel.list_of_filenames_with_xls
                             ) {
-                        obj_File_Reader_Excel.read_file_extracting_pupils(loop_objekt_s);
+                        obj_File_Reader_Excel.readFile(loop_objekt_s);
                     }
 
-                    obj_File_Reader_Excel.v_update_Database_from_list();
 
-                    obj_Textarea_Status.setText(obj_Textarea_Status.getText() + "\n Es wurden " + obj_File_Reader_Excel.i_amount_of_pupils() + " neue Schüler mittels Excel eingelesen.");
+
+                    obj_Textarea_Status.setText(obj_Textarea_Status.getText() + "\n Es wurden " + obj_File_Reader_Excel.personsFound+ " neue Schüler mittels Excel eingelesen.");
 
                 }
 
@@ -417,11 +416,16 @@ public class cMain {
 
 
                     boolean b_all_values_valid = true;
+                    String NameInvalidPerson = "";
+                    String gradeInvalidPerson= "";
                     try {
                         ResultSet entrys_persons = obj_Database_manager_Main.read_entrys_all_attributes("persons");
                         while (entrys_persons.next()) {
                             for (int i = 1; i < 8; i++) {
                                 if (entrys_persons.getString(i) == null) {
+                                    NameInvalidPerson = entrys_persons.getString(2);
+                                    gradeInvalidPerson = entrys_persons.getString(4);
+
                                     b_all_values_valid = false;
                                     break;
                                 }
@@ -494,7 +498,7 @@ public class cMain {
                         obj_File_Generator.v_write_xls_Files(fileJAR.getParent() + "/Output-Ordner ( Excel-Dateien)");
 
                     } else {
-                        cMain.v_update_Textarea_Status("Es waren unerlaubte bzw nicht festgesetzte Werte in der Schüler-Datenbank, bitte ergänzen");
+                        cMain.v_update_Textarea_Status("Ein Schüler namens "+NameInvalidPerson + " aus Klasse  "+ gradeInvalidPerson +"   hatte einen Wert auf Null, bitte ergänzen");
                     }
                 }
 

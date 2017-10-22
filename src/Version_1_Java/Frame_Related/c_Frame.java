@@ -184,7 +184,6 @@ public class c_Frame extends JFrame {
             for (CopyOnWriteArrayList<c_mod_Text_Field> list_loop : list_Fields_X_Direction
                     ) {
                 for (int k_Y = 0; k_Y < list_loop.size(); k_Y++) {
-                    System.out.println(list_Column_Names.get(i_X));
                     set_entrys = objDatabaseManager_Input.read_one_entry_one_attribute(this.s_Main_Table, list_Column_Names.get(i_X), list_IDs.get(k_Y));
                     list_loop.get(k_Y).setText("Test");
                     list_loop.get(k_Y).setText("");
