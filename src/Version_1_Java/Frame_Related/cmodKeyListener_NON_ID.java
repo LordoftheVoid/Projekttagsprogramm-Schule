@@ -2,6 +2,7 @@ package Version_1_Java.Frame_Related;
 
 import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -19,10 +20,14 @@ class cmodKeyListener_NON_ID implements KeyListener {
 
     private cDatabaseConnectionManager objDatabaseManager_keyListener;
     private String s_table_Listener;
+    cRowEntrys objRow;
+    String sTableColumRef;
 
-    cmodKeyListener_NON_ID(cDatabaseConnectionManager objDatabasemanager_main, String table_source_tm) {
+    cmodKeyListener_NON_ID(cDatabaseConnectionManager objDatabasemanager_main, String table_source_tm, cRowEntrys objSourceRow, String ColumRef) {
         s_table_Listener = table_source_tm;
         objDatabaseManager_keyListener = objDatabasemanager_main;
+        objRow = objSourceRow;
+       sTableColumRef = ColumRef;
 
     }
 
@@ -39,13 +44,9 @@ class cmodKeyListener_NON_ID implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
-        /*
-        Über Referenz zu Reihe lösbar
+        JTextField objSource = (JTextField) e.getSource();
+            objDatabaseManager_keyListener.update_entry(s_table_Listener, objRow.suniqueRowID, sTableColumRef, objSource.getText());
 
-        JTextField objsource = ((JTextField) e.getSource());
-        if (objsource.bcorrect_unique_ID) {
-            objDatabaseManager_keyListener.update_entry(s_table_Listener, objsource.s_unique_ID_Textfieldrow, objsource.s_colum_identifier, objsource.getText());
-        }
-        */
+
     }
 }

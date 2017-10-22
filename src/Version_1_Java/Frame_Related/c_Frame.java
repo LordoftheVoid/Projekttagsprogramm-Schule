@@ -158,37 +158,18 @@ public class c_Frame extends JFrame {
     }
 
 
-    public void v_add_new_empty_row(CopyOnWriteArrayList<String> list_colum_Names) {
-        /*
-        for (int i_X = 0; i_X < list_Fields_X_Direction.size(); i_X++) {
-            c_mod_Text_Field obj_loop = new c_mod_Text_Field();
-            obj_loop.v_initiation(i_width_gobal * i_X,  yCoordinateListEntrys -40, i_width_gobal, 20, this.getContentPane());
-            obj_loop.setText("Test");
-            obj_loop.setText("");
-            obj_loop.i_inside_Field_X = i_X;
-            obj_loop.i_inside_Field_Y = list_Fields_X_Direction.get(i_X).size();
-            obj_loop.bcorrect_unique_ID = false;
-            obj_loop.s_colum_identifier = list_colum_Names.get(i_X);
-            list_Fields_X_Direction.get(i_X).add(obj_loop);
-        }
-        */
-    }
 
 
     public void v_Setup_Listener() {
 
-        /*
 
-        Noch nicht umgebaut!!
-
-        for (CopyOnWriteArrayList<c_mod_Text_Field> loop_object_list : list_Fields_X_Direction
-                ) {
-            for (c_mod_Text_Field loop_object_Field : loop_object_list
-                    ) {
-                loop_object_Field.addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, this.s_Main_Table));
+        for (cRowEntrys objList:listRows
+             ) {
+            for (int i = 0; i < objList.fields.length; i++) {
+                objList.fields[i].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input,s_Main_Table,objList,list_Column_Names.get(i)));
             }
         }
-        */
+
     }
 
 
