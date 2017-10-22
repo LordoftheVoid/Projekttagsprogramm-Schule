@@ -31,17 +31,19 @@ public class c_Frame extends JFrame {
 
 
     private c_mod_Text_Field[] arr_Search_Input;
-    private JTextField[] arr_Search_Menue;
-    private JTextField[] arr_Colum_Heads;
+    private JTextField[] arrSearchMenue;
+    private JTextField[] arrColumHeadRow;
     private JButton[] arr_sort_Buttons;
     private boolean[] arr_b_Sort_direction;
     CopyOnWriteArrayList<Integer> list_y_coordinates_visible_rows = new CopyOnWriteArrayList<>();
+
+    private JTextField[] arrCreateEntryFields;
 
 
     private cDatabaseConnectionManager objDatabaseManager_Input;
 
     final int i_width_gobal = 120;
-    final int istartPointListEntrys = 260;
+    final int yCoordinateListEntrys = 260;
 
 
     CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Fields_X_Direction = new CopyOnWriteArrayList<>();
@@ -56,6 +58,7 @@ public class c_Frame extends JFrame {
         this.s_Main_Table = s_Table_tm;
         this.getContentPane().setLayout(null);
 
+
     }
 
     public void v_show_Frame(int i_X, int k_Y) {
@@ -65,33 +68,53 @@ public class c_Frame extends JFrame {
     }
 
 
+    public void setupEntryfields(String Text, int amount){
+
+        arrCreateEntryFields = new JTextField[amount];
+
+        for (int i = 0; i < arrCreateEntryFields.length; i++) {
+            arrCreateEntryFields[i]= new JTextField();
+            this.getContentPane().add(arrCreateEntryFields[i]);
+            arrCreateEntryFields[i].setBounds(i*i_width_gobal,yCoordinateListEntrys -40,i_width_gobal,20);
+            arrCreateEntryFields[i].setVisible(true);
+       
+
+        }
+        JTextField createEntryField;
+
+        createEntryField= new JTextField(Text);
+        this.getContentPane().add(createEntryField);
+        createEntryField.setBounds(0,yCoordinateListEntrys -60,i_width_gobal*3,20);
+        createEntryField.setVisible(true);
+    }
+
     public void v_set_custom_Head(CopyOnWriteArrayList<String> list_s_values) {
 
-        arr_Colum_Heads = new JTextField[list_s_values.size()];
+        arrColumHeadRow = new JTextField[list_s_values.size()];
 
-        for (int i_x = 0; i_x < arr_Colum_Heads.length; i_x++) {
-            arr_Colum_Heads[i_x] = new JTextField();
-            arr_Colum_Heads[i_x].setText(list_s_values.get(i_x));
-            arr_Colum_Heads[i_x].setVisible(true);
-            this.getContentPane().add(arr_Colum_Heads[i_x]);
-            arr_Colum_Heads[i_x].setBounds(120 * i_x, 0, i_width_gobal, 20);
+        for (int i_x = 0; i_x < arrColumHeadRow.length; i_x++) {
+            arrColumHeadRow[i_x] = new JTextField();
+            arrColumHeadRow[i_x].setText(list_s_values.get(i_x));
+            arrColumHeadRow[i_x].setVisible(true);
+            this.getContentPane().add(arrColumHeadRow[i_x]);
+            arrColumHeadRow[i_x].setBounds(120 * i_x, 0, i_width_gobal, 20);
 
         }
     }
 
     public void v_set_custom_Search(CopyOnWriteArrayList<String> list_s_values) {
 
-        arr_Search_Menue = new JTextField[list_s_values.size()];
+        arrSearchMenue = new JTextField[list_s_values.size()];
         arr_Search_Input = new c_mod_Text_Field[list_s_values.size()];
 
-        for (int i = 0; i < arr_Search_Menue.length; i++) {
+        for (int i = 0; i < arrSearchMenue.length; i++) {
 
-            arr_Search_Menue[i] = new JTextField();
-            arr_Search_Menue[i].setText("Suche nach:");
-            arr_Search_Menue[i].setBorder(new LineBorder(Color.RED,1));
+            arrSearchMenue[i] = new JTextField();
+            arrSearchMenue[i].setText("Suche nach:");
+            arrSearchMenue[i].setBorder(new LineBorder(Color.RED,1));
 
-            this.getContentPane().add(arr_Search_Menue[i]);
-            arr_Search_Menue[i].setBounds(120 * i, 40, i_width_gobal, 20);
+            this.getContentPane().add(arrSearchMenue[i]);
+            arrSearchMenue[i].setBounds(120 * i, 40, i_width_gobal, 20);
             arr_Search_Input[i] = new c_mod_Text_Field();
             arr_Search_Input[i].i_inside_Field_X = i;
             arr_Search_Input[i].setText("");
@@ -120,9 +143,10 @@ public class c_Frame extends JFrame {
 
 
     public void v_add_new_empty_row(CopyOnWriteArrayList<String> list_colum_Names) {
+        /*
         for (int i_X = 0; i_X < list_Fields_X_Direction.size(); i_X++) {
             c_mod_Text_Field obj_loop = new c_mod_Text_Field();
-            obj_loop.v_initiation(i_width_gobal * i_X,  istartPointListEntrys-40, i_width_gobal, 20, this.getContentPane());
+            obj_loop.v_initiation(i_width_gobal * i_X,  yCoordinateListEntrys -40, i_width_gobal, 20, this.getContentPane());
             obj_loop.setText("Test");
             obj_loop.setText("");
             obj_loop.i_inside_Field_X = i_X;
@@ -131,6 +155,7 @@ public class c_Frame extends JFrame {
             obj_loop.s_colum_identifier = list_colum_Names.get(i_X);
             list_Fields_X_Direction.get(i_X).add(obj_loop);
         }
+        */
     }
 
 
@@ -167,7 +192,7 @@ public class c_Frame extends JFrame {
                 list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
                 for (int k_Y = 0; k_Y < list_IDs.size(); k_Y++) {
                     list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
-                    list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(i_width_gobal* i_X, istartPointListEntrys + 20 * k_Y, i_width_gobal, 20, this.getContentPane());
+                    list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(i_width_gobal* i_X, yCoordinateListEntrys + 20 * k_Y, i_width_gobal, 20, this.getContentPane());
                     list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_X = i_X;
                     list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_Y = k_Y;
                     list_Fields_X_Direction.get(i_X).get(k_Y).bcorrect_unique_ID = true;
@@ -259,7 +284,7 @@ public class c_Frame extends JFrame {
                 for (CopyOnWriteArrayList<c_mod_Text_Field> loop_obj_list : list_Fields_X_Direction
                         ) {
                     loop_obj_list.get(loop_obj_int).setVisible(true);
-                    loop_obj_list.get(loop_obj_int).setLocation(i_X * i_width_gobal, 50 + k_Y * 20);
+                    loop_obj_list.get(loop_obj_int).setLocation(i_X * i_width_gobal, yCoordinateListEntrys + k_Y * 20);
                     i_X++;
                 }
                 k_Y++;
@@ -273,7 +298,7 @@ public class c_Frame extends JFrame {
                 k_Y = 0;
                 for (c_mod_Text_Field loop_Field : loop_list
                         ) {
-                    loop_Field.setLocation(i_X * i_width_gobal, 50 + 20 * k_Y);
+                    loop_Field.setLocation(i_X * i_width_gobal, yCoordinateListEntrys + 20 * k_Y);
                     loop_Field.setVisible(true);
                     list_y_coordinates_visible_rows.add(k_Y);
                     k_Y++;
@@ -358,7 +383,7 @@ public class c_Frame extends JFrame {
                     int i_X = 0;
                     for (CopyOnWriteArrayList<c_mod_Text_Field> loop_obj_list : list_Fields_X_Direction
                             ) {
-                        loop_obj_list.get(loop_obj_i).setLocation(i_X * i_width_gobal, istartPointListEntrys + k_Y * 20);
+                        loop_obj_list.get(loop_obj_i).setLocation(i_X * i_width_gobal, yCoordinateListEntrys + k_Y * 20);
                         i_X++;
                     }
                     k_Y++;
@@ -374,7 +399,7 @@ public class c_Frame extends JFrame {
                     int i_X = 0;
                     for (CopyOnWriteArrayList<c_mod_Text_Field> loop_obj_list : list_Fields_X_Direction
                             ) {
-                        loop_obj_list.get(loop_obj_i).setLocation(i_X * i_width_gobal, istartPointListEntrys + k_Y * 20);
+                        loop_obj_list.get(loop_obj_i).setLocation(i_X * i_width_gobal, yCoordinateListEntrys + k_Y * 20);
                         i_X++;
                     }
                     k_Y--;
@@ -407,7 +432,7 @@ public class c_Frame extends JFrame {
             list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
             for (int k_Y = 0; k_Y < i_amount_of_people; k_Y++) {
                 list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
-                list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, istartPointListEntrys + 20 * k_Y, i_width_gobal, 20, this.getContentPane());
+                list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(90 * i_X, yCoordinateListEntrys + 20 * k_Y, i_width_gobal, 20, this.getContentPane());
                 list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_X = i_X;
                 list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_Y = k_Y;
                 list_Fields_X_Direction.get(i_X).get(k_Y).bcorrect_unique_ID = true;

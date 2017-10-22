@@ -258,6 +258,8 @@ public class cMain {
 
             obj_Frame_pupils.v_sort_setup();
 
+            obj_Frame_pupils.setupEntryfields("Hier Nach und Vorname eintragen für neuen Eintrag",2);
+
 
             //Frame Projekte
 
@@ -274,6 +276,7 @@ public class cMain {
             obj_Frame_projects.v_sort_setup();
 
 
+            obj_Frame_projects.setupEntryfields("Hier neue Projektnummer eintragen",1);
             //Frame Output
 
             c_Frame obj_Frame_Output = new c_Frame("projects", obj_Database_manager_Main);
