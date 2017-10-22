@@ -72,7 +72,6 @@ public class cmodKeyListener_ID implements KeyListener {
                     if (objDatabaseManager_keyListener.entry_check(this.s_table_reference, s_unique_id)) {
                         if (objDatabaseManager_keyListener.create_entry(this.s_table_reference, s_unique_id)) {
                             cMain.v_update_Textarea_Status("Ein Datenbankeintrag wurde angelegt");
-                            objDatabaseManager_keyListener.update_entry(this.s_table_reference,s_unique_id,"s_pre_Name",)
                             objFrameTarget.v_generate_rows_from_Database();
                         }
                     }

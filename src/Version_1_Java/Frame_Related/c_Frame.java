@@ -13,6 +13,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -49,6 +51,16 @@ public class c_Frame extends JFrame {
 
 
     private CopyOnWriteArrayList<CopyOnWriteArrayList<c_mod_Text_Field>> list_Fields_X_Direction = new CopyOnWriteArrayList<>();
+
+
+
+    /*
+
+    Schon neu
+     */
+
+    CopyOnWriteArrayList<cRowEntrys> listRows = new CopyOnWriteArrayList<>();
+
 
 
     public String s_Main_Table;
@@ -188,125 +200,71 @@ public class c_Frame extends JFrame {
                     list_IDs.add(set_entrys.getString(1));
                 }
             }
-            for (int i_X = 0; i_X < list_Column_Names.size(); i_X++) {
-                list_Fields_X_Direction.add(new CopyOnWriteArrayList<>());
-                for (int k_Y = 0; k_Y < list_IDs.size(); k_Y++) {
-                    list_Fields_X_Direction.get(i_X).add(new c_mod_Text_Field());
-                    list_Fields_X_Direction.get(i_X).get(k_Y).v_initiation(i_width_gobal* i_X, yCoordinateListEntrys + 20 * k_Y, i_width_gobal, 20, this.getContentPane());
-                    list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_X = i_X;
-                    list_Fields_X_Direction.get(i_X).get(k_Y).i_inside_Field_Y = k_Y;
-                    list_Fields_X_Direction.get(i_X).get(k_Y).bcorrect_unique_ID = true;
-                    list_Fields_X_Direction.get(i_X).get(k_Y).s_unique_ID_Textfieldrow = list_IDs.get(k_Y);
-                    list_Fields_X_Direction.get(i_X).get(k_Y).s_colum_identifier = list_Column_Names.get(i_X);
-                }
 
-            }
-            for (int i = 0; i < list_IDs.size(); i++) {
-                list_y_coordinates_visible_rows.add(i);
+            for (String objList:list_IDs
+                 ) {
+                listRows.add(new cRowEntrys(objDatabaseManager_Input,objList,i_width_gobal,s_Main_Table));
             }
 
-            int i_X = 0;
-            for (CopyOnWriteArrayList<c_mod_Text_Field> list_loop : list_Fields_X_Direction
-                    ) {
-                for (int k_Y = 0; k_Y < list_loop.size(); k_Y++) {
-                    set_entrys = objDatabaseManager_Input.read_one_entry_one_attribute(this.s_Main_Table, list_Column_Names.get(i_X), list_IDs.get(k_Y));
-                    list_loop.get(k_Y).setText("Test");
-                    list_loop.get(k_Y).setText("");
-                    list_loop.get(k_Y).setText(set_entrys.getString(1));
+            for (int j = 0; j < listRows.size(); j++) {
+                listRows.get(j).v_setup(list_Column_Names.size(),this.getContentPane(),yCoordinateListEntrys+j*20);
+                for (int k = 0; k < listRows.get(j).fields.length; k++) {
+                    set_entrys = objDatabaseManager_Input.read_one_entry_one_attribute(this.s_Main_Table, list_Column_Names.get(k), listRows.get(j).suniqueRowID);
+                    listRows.get(j).v_setCellContent(k,set_entrys.getString(1));
                 }
-                i_X++;
             }
         } catch (SQLException e) {
             cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
         }
-        this.v_add_new_empty_row(list_Column_Names);
     }
 
 
 
     public void v_search() {
-        int i_amount_empty_fields = 0;
 
-        for (CopyOnWriteArrayList<c_mod_Text_Field> loop_list : list_Fields_X_Direction
-                ) {
-            for (c_mod_Text_Field loop_Field : loop_list
-                    ) {
-                loop_Field.setLocation(100000, 100000);
-                loop_Field.setVisible(false);
+
+        /*
+
+
+
+
+
+         */
+
+        HashMap<Integer, String> mapValues = new HashMap<>();
+
+        ArrayList<Integer> listResults = new ArrayList<>();
+
+        for (int i = 0; i < arr_Search_Input.length; i++) {
+            if(arr_Search_Input[i].getText().length()>0){
+                mapValues.put(i,arr_Search_Input[i].getText());
             }
         }
-        list_y_coordinates_visible_rows.clear();
 
-
-        CopyOnWriteArrayList<Integer> list_solutions = new CopyOnWriteArrayList<>();
-        int i_X_first_Entry = 0;
-        for (c_mod_Text_Field loop_Field_Inp : arr_Search_Input
-                ) {
-            if (loop_Field_Inp.getText().equals("")) {
-                i_amount_empty_fields++;
-            } else {
-                i_X_first_Entry = loop_Field_Inp.i_inside_Field_X;
-                break;
-            }
-        }
-        for (c_mod_Text_Field loop_obj_Field : list_Fields_X_Direction.get(i_X_first_Entry)
-                ) {
-            boolean b_equal_for_all = true;
-            if (loop_obj_Field.getText().length() > 0) {
-                for (int i = 0; i < arr_Search_Input[i_X_first_Entry].getText().length(); i++) {
-                    if (Character.toLowerCase(loop_obj_Field.getText().charAt(i)) != Character.toLowerCase(arr_Search_Input[i_X_first_Entry].getText().charAt(i))) {
-                        b_equal_for_all = false;
-                        break;
-                    }
+        if(mapValues.size()>0){
+            for (int i = 0; i < listRows.size(); i++) {
+                if(listRows.get(i).b_searchRow(mapValues)){
+                    listResults.add(i);
                 }
-            } else {
-                b_equal_for_all = false;
-            }
-            if (b_equal_for_all) {
-                list_solutions.add(loop_obj_Field.i_inside_Field_Y);
-            }
-        }
-
-        for (int i = i_X_first_Entry; i < arr_Search_Input.length; i++) {
-            for (Integer loop_obj_int : list_solutions
-                    ) {
-                if (!list_Fields_X_Direction.get(i).get(loop_obj_int).getText().contains(arr_Search_Input[i].getText())) {
-                    list_solutions.remove(loop_obj_int);
-                }
-            }
-        }
-
-
-            list_y_coordinates_visible_rows.addAll(list_solutions);
-            int k_Y = 0;
-            for (Integer loop_obj_int : list_solutions
-                    ) {
-                int i_X = 0;
-                for (CopyOnWriteArrayList<c_mod_Text_Field> loop_obj_list : list_Fields_X_Direction
-                        ) {
-                    loop_obj_list.get(loop_obj_int).setVisible(true);
-                    loop_obj_list.get(loop_obj_int).setLocation(i_X * i_width_gobal, yCoordinateListEntrys + k_Y * 20);
-                    i_X++;
-                }
-                k_Y++;
+                listRows.get(i).v_disable();
             }
 
-        if (i_amount_empty_fields == arr_Search_Input.length) {
+            int i=0;
+            for (Integer objList:listResults
+                 ) {
+                listRows.get(objList).v_enable();
+                listRows.get(objList).v_setYCoordinate(yCoordinateListEntrys+i*20);
+                i++;
+            }
 
-            int i_X = 0;
-            for (CopyOnWriteArrayList<c_mod_Text_Field> loop_list : list_Fields_X_Direction
-                    ) {
-                k_Y = 0;
-                for (c_mod_Text_Field loop_Field : loop_list
-                        ) {
-                    loop_Field.setLocation(i_X * i_width_gobal, yCoordinateListEntrys + 20 * k_Y);
-                    loop_Field.setVisible(true);
-                    list_y_coordinates_visible_rows.add(k_Y);
-                    k_Y++;
-                }
-                i_X++;
+
+        }else{
+            for (int i = 0; i < listRows.size(); i++) {
+                listRows.get(i).v_setYCoordinate(yCoordinateListEntrys+20*i);
+                listRows.get(i).v_enable();
             }
         }
+
     }
 
 
@@ -362,51 +320,37 @@ public class c_Frame extends JFrame {
     public void v_sort(boolean b_direction_tm, int i_X_colum) {
 
 
-        TreeMap<String, CopyOnWriteArrayList<Integer>> map_Tree = new TreeMap<>();
+        TreeMap<String, Integer> mapStringInteger = new TreeMap<>();
 
-        for (Integer loop_obj_i : list_y_coordinates_visible_rows
-                ) {
-            if (map_Tree.containsKey(list_Fields_X_Direction.get(i_X_colum).get(loop_obj_i).getText())) {
-                map_Tree.get(list_Fields_X_Direction.get(i_X_colum).get(loop_obj_i).getText()).add(list_Fields_X_Direction.get(i_X_colum).get(loop_obj_i).i_inside_Field_Y);
-            } else {
-                map_Tree.put(list_Fields_X_Direction.get(i_X_colum).get(loop_obj_i).getText(), new CopyOnWriteArrayList<>());
-                map_Tree.get(list_Fields_X_Direction.get(i_X_colum).get(loop_obj_i).getText()).add(list_Fields_X_Direction.get(i_X_colum).get(loop_obj_i).i_inside_Field_Y);
+
+        for (int i = 0; i < listRows.size(); i++) {
+            if(listRows.get(i).bEnabled){
+                mapStringInteger.put(listRows.get(i).getCellContent(i_X_colum),i);
             }
         }
 
 
-        if (b_direction_tm) {
-            int k_Y = 0;
-            for (String loop_obj_s : map_Tree.keySet()
+
+        if(b_direction_tm){
+            int i=0;
+            for (String objList:mapStringInteger.keySet()
                     ) {
-                for (Integer loop_obj_i : map_Tree.get(loop_obj_s)
-                        ) {
-                    int i_X = 0;
-                    for (CopyOnWriteArrayList<c_mod_Text_Field> loop_obj_list : list_Fields_X_Direction
-                            ) {
-                        loop_obj_list.get(loop_obj_i).setLocation(i_X * i_width_gobal, yCoordinateListEntrys + k_Y * 20);
-                        i_X++;
-                    }
-                    k_Y++;
-                }
+                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys+20*i);
+                listRows.get(mapStringInteger.get(objList)).v_enable();
+                i++;
+            }
+        }else{
+            int i = mapStringInteger.keySet().size();
+            for (String objList:mapStringInteger.keySet()
+                    ) {
+                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys+20*i);
+                listRows.get(mapStringInteger.get(objList)).v_enable();
+                i--;
             }
 
-        } else {
-            int k_Y = list_y_coordinates_visible_rows.size();
-            for (String loop_obj_s : map_Tree.keySet()
-                    ) {
-                for (Integer loop_obj_i : map_Tree.get(loop_obj_s)
-                        ) {
-                    int i_X = 0;
-                    for (CopyOnWriteArrayList<c_mod_Text_Field> loop_obj_list : list_Fields_X_Direction
-                            ) {
-                        loop_obj_list.get(loop_obj_i).setLocation(i_X * i_width_gobal, yCoordinateListEntrys + k_Y * 20);
-                        i_X++;
-                    }
-                    k_Y--;
-                }
-            }
+
         }
+
         arr_b_Sort_direction[i_X_colum] = !arr_b_Sort_direction[i_X_colum];
         if (arr_b_Sort_direction[i_X_colum]) {
             arr_sort_Buttons[i_X_colum].setText(" A ... Z");
