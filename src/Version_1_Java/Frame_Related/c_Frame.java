@@ -188,7 +188,7 @@ public class c_Frame extends JFrame {
 
             for (String objList:list_IDs
                  ) {
-                listRows.add(new cRowEntrys(objDatabaseManager_Input,objList,i_width_gobal,s_Main_Table));
+                listRows.add(new cRowEntrys(this,objList));
             }
 
             for (int j = 0; j < listRows.size(); j++) {

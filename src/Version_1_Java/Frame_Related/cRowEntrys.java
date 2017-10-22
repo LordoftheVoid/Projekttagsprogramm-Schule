@@ -16,10 +16,7 @@ import java.util.HashMap;
 
 
 public class cRowEntrys {
-
-
     cDatabaseConnectionManager objDataBaseManagerRow;
-
 
     JTextField [] fields;
     String  suniqueRowID = "";
@@ -27,14 +24,16 @@ public class cRowEntrys {
     JButton btnDelete;
     String sReferenceTable= "";
     boolean bEnabled = true;
+    c_Frame objTarget;
 
 
-    public cRowEntrys(cDatabaseConnectionManager objDataBaseManagerRow, String suniqueRowID, int iglobalWidth, String sReferenceTable) {
-        this.sReferenceTable= sReferenceTable;
-        this.objDataBaseManagerRow = objDataBaseManagerRow;
+
+    public cRowEntrys(c_Frame objSource,String suniqueRowID ) {
+        this.sReferenceTable= objSource.s_Main_Table;
+        this.objDataBaseManagerRow = objSource.objDatabaseManager_Input;
         this.suniqueRowID =suniqueRowID;
-        this.iglobalWidth=iglobalWidth;
-
+        this.iglobalWidth=objSource.i_width_gobal;
+        objTarget = objSource;
     }
 
     public cRowEntrys(cDatabaseConnectionManager objDataBaseManagerRow, int iglobalWidth) {
@@ -73,6 +72,7 @@ public class cRowEntrys {
             @Override
             public void mouseClicked(MouseEvent e) {
                 objDataBaseManagerRow.delete_entry(sReferenceTable,suniqueRowID);
+                objTarget.v_generate_rows_from_Database();
             }
 
             @Override
