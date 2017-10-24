@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="PJS:jar">
-    <output-path>$PROJECT_DIR$/../../..</output-path>
+    <output-path>$PROJECT_DIR$/Testordner</output-path>
     <root id="archive" name="Projekttagprogramm Schule.jar">
       <element id="module-output" name="Projekttagprogramm Schule" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.8.5-pre1/sqlite-jdbc-3.8.5-pre1.jar" path-in-jar="/" />
