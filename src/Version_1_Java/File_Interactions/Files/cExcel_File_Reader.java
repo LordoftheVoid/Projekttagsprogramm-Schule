@@ -23,7 +23,7 @@ public class cExcel_File_Reader {
         this.objDatabaseManager_Reader = obj_tm_DatabaseManager_Main;
 
         try {
-            ResultSet   setGivenEntrys = objDatabaseManager_Reader.read_entrys_one_attribute("persons","s_unique_ID");
+            ResultSet   setGivenEntrys = objDatabaseManager_Reader.readEoAttr("persons","s_unique_ID");
             while(setGivenEntrys.next()){
               this.listEntryIDs.add(setGivenEntrys.getString(1));
             }
@@ -112,9 +112,9 @@ public class cExcel_File_Reader {
                 }
             }
             try {
-                objDatabaseManager_Reader.create_entry("persons",rowID);
-                objDatabaseManager_Reader.update_entry("persons", rowID, "s_pre_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(1).getStringCellValue());
-                objDatabaseManager_Reader.update_entry("persons", rowID, "s_sur_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(0).getStringCellValue());
+                objDatabaseManager_Reader.createEntry("persons",rowID);
+                objDatabaseManager_Reader.updateEntry("persons", rowID, "s_pre_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(1).getStringCellValue());
+                objDatabaseManager_Reader.updateEntry("persons", rowID, "s_sur_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(0).getStringCellValue());
                 listEntryIDs.add(rowID);
             } catch (SQLException e) {
                 e.printStackTrace();

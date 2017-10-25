@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 
 
-public class cRowEntrys {
+public class cRowEntries {
     cDatabaseConnectionManager objDataBaseManagerRow;
 
     JTextField [] fields;
@@ -24,11 +24,11 @@ public class cRowEntrys {
     JButton btnDelete;
     String sReferenceTable= "";
     boolean bEnabled = true;
-    c_Frame objTarget;
+    private c_Frame objTarget;
 
 
 
-    public cRowEntrys(c_Frame objSource,String suniqueRowID ) {
+    public cRowEntries(c_Frame objSource, String suniqueRowID ) {
         this.sReferenceTable= objSource.s_Main_Table;
         this.objDataBaseManagerRow = objSource.objDatabaseManager_Input;
         this.suniqueRowID =suniqueRowID;
@@ -36,9 +36,10 @@ public class cRowEntrys {
         objTarget = objSource;
     }
 
-    public cRowEntrys(cDatabaseConnectionManager objDataBaseManagerRow, int iglobalWidth) {
+    public cRowEntries( c_Frame objSource, cDatabaseConnectionManager objDataBaseManagerRow, int iglobalWidth) {
         this.objDataBaseManagerRow = objDataBaseManagerRow;
         this.iglobalWidth = iglobalWidth;
+        objTarget = objSource;
     }
 
     public void v_ShortSetup(int iamountElements, Container conDisplayTarget, int iYCoordinate){
@@ -57,12 +58,7 @@ public class cRowEntrys {
 
         btnDelete = new JButton("Schüler löschen");
 
-        for (int i = 0; i < this.fields.length; i++) {
-            this.fields[i]= new JTextField();
-            conDisplayTarget.add(this.fields[i]);
-            this.fields[i].setVisible(true);
-            this.fields[i].setBounds(i*iglobalWidth,iYCoordinate,iglobalWidth,20);
-        }
+       this.v_ShortSetup(iamountElements,conDisplayTarget,iYCoordinate);
 
         conDisplayTarget.add(btnDelete);
         btnDelete.setVisible(true);
@@ -71,7 +67,7 @@ public class cRowEntrys {
         btnDelete.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                objDataBaseManagerRow.delete_entry(sReferenceTable,suniqueRowID);
+                objDataBaseManagerRow.deleteEntry(sReferenceTable,suniqueRowID);
                 objTarget.v_generate_rows_from_Database();
             }
 
@@ -133,17 +129,22 @@ public class cRowEntrys {
             objField.setVisible(true);
             objField.setEnabled(true);
         }
+        this.btnDelete.setVisible(true);
+        this.btnDelete.setEnabled(true);
+
         this.bEnabled = true;
     }
 
 
     public void v_disable(){
+        this.bEnabled=false;
         for (JTextField objField:this.fields
                 ) {
             objField.setVisible(false);
             objField.setEnabled(false);
         }
-        this.bEnabled=false;
+        this.btnDelete.setVisible(false);
+        this.btnDelete.setEnabled(false);
     }
 
 

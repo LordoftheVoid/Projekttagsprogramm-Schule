@@ -61,20 +61,27 @@ public class cDatabaseConnectionManager {
     }
 
 
-    public ResultSet read_entrys_one_attribute(String sTable_tm, String sColum_tm) throws SQLException {
+    public ResultSet readEoAttr(String sTable_tm, String sColum_tm) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm);
         return extract_entrys.executeQuery();
 
     }
 
 
-    public ResultSet read_entrys_all_attributes(String sTable_tm) throws SQLException {
+    public ResultSet readEsaAttr(String sTable_tm) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT * FROM " + sTable_tm);
         return extract_entrys.executeQuery();
 
     }
 
-    public ResultSet read_one_entry_one_attribute(String sTable_tm, String sColum_tm, String unique_id) throws SQLException {
+
+    public ResultSet readEaAttr(String sTable_tm, String unique_id) throws SQLException {
+        PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT * FROM " + sTable_tm + " WHERE s_unique_ID = ?");
+        extract_entrys.setString(1, unique_id);
+        return extract_entrys.executeQuery();
+    }
+
+    public ResultSet readOeaA(String sTable_tm, String sColum_tm, String unique_id) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm + " WHERE s_unique_ID = ?");
         extract_entrys.setString(1, unique_id);
         return extract_entrys.executeQuery();
@@ -82,7 +89,7 @@ public class cDatabaseConnectionManager {
     }
 
 
-    public boolean create_entry(String sTable_tm, String unique_id) throws SQLException {
+    public boolean createEntry(String sTable_tm, String unique_id) throws SQLException {
 
         try {
             PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + sTable_tm + "  (s_unique_ID) VALUES (?)");
@@ -95,7 +102,7 @@ public class cDatabaseConnectionManager {
     }
 
 
-    public boolean update_entry(String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) {
+    public boolean updateEntry(String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) {
         try {
             PreparedStatement update_Entry = conDatabase.prepareStatement("UPDATE " + s_table_tm + " SET " + s_colum_tm + " = '" + s_value_tm + "' WHERE s_unique_ID= ?");
             update_Entry.setString(1, s_unique_ID_tm);
@@ -107,7 +114,7 @@ public class cDatabaseConnectionManager {
     }
 
 
-    public boolean delete_entry(String sTable_tm, String unique_ID) {
+    public boolean deleteEntry(String sTable_tm, String unique_ID) {
         boolean b_entry_existed;
         try {
             b_entry_existed = this.entry_check(sTable_tm, unique_ID);

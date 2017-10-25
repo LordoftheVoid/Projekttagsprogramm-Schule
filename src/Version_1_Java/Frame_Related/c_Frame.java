@@ -32,12 +32,12 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 public class c_Frame extends JFrame {
 
 
-    private JTextField [] arr_Search_Input;
+    private JTextField[] arr_Search_Input;
     private JTextField[] arrSearchMenue;
     private JTextField[] arrColumHeadRow;
     private JButton[] arr_sort_Buttons;
     private boolean[] arr_b_Sort_direction;
-
+    private JButton btnEntryCreation;
 
 
     public JTextField[] arrCreateEntryFields;
@@ -58,8 +58,7 @@ public class c_Frame extends JFrame {
     Schon neu
      */
 
-    CopyOnWriteArrayList<cRowEntrys> listRows = new CopyOnWriteArrayList<>();
-
+    CopyOnWriteArrayList<cRowEntries> listRows = new CopyOnWriteArrayList<>();
 
 
     public String s_Main_Table;
@@ -67,7 +66,7 @@ public class c_Frame extends JFrame {
 
     public c_Frame(String s_Table_tm, cDatabaseConnectionManager obj_Database_Manager_tm, CopyOnWriteArrayList<String> list_Columns) {
 
-        this.list_Column_Names =list_Columns;
+        this.list_Column_Names = list_Columns;
 
         this.objDatabaseManager_Input = obj_Database_Manager_tm;
         this.s_Main_Table = s_Table_tm;
@@ -83,14 +82,14 @@ public class c_Frame extends JFrame {
     }
 
 
-    public void v_setupEntryfields(String text, int amount){
+    public void v_setupEntryfields(String text, int amount) {
 
         arrCreateEntryFields = new JTextField[amount];
 
         for (int i = 0; i < arrCreateEntryFields.length; i++) {
-            arrCreateEntryFields[i]= new JTextField();
+            arrCreateEntryFields[i] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[i]);
-            arrCreateEntryFields[i].setBounds(i*i_width_gobal,yCoordinateListEntrys -40,i_width_gobal,20);
+            arrCreateEntryFields[i].setBounds(i * i_width_gobal, yCoordinateListEntrys - 40, i_width_gobal, 20);
             arrCreateEntryFields[i].setVisible(true);
 
 
@@ -99,9 +98,9 @@ public class c_Frame extends JFrame {
         }
         JTextField createEntryField;
 
-        createEntryField= new JTextField(text);
+        createEntryField = new JTextField(text);
         this.getContentPane().add(createEntryField);
-        createEntryField.setBounds(0,yCoordinateListEntrys -60,i_width_gobal*3,20);
+        createEntryField.setBounds(0, yCoordinateListEntrys - 60, i_width_gobal * 3, 20);
         createEntryField.setVisible(true);
     }
 
@@ -128,7 +127,7 @@ public class c_Frame extends JFrame {
 
             arrSearchMenue[i] = new JTextField();
             arrSearchMenue[i].setText("Suche nach:");
-            arrSearchMenue[i].setBorder(new LineBorder(Color.RED,1));
+            arrSearchMenue[i].setBorder(new LineBorder(Color.RED, 1));
 
             this.getContentPane().add(arrSearchMenue[i]);
             arrSearchMenue[i].setBounds(120 * i, 40, i_width_gobal, 20);
@@ -158,15 +157,12 @@ public class c_Frame extends JFrame {
     }
 
 
-
-
     public void v_Setup_Listener() {
 
-
-        for (cRowEntrys objList:listRows
-             ) {
+        for (cRowEntries objList : listRows
+                ) {
             for (int i = 0; i < objList.fields.length; i++) {
-                objList.fields[i].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input,s_Main_Table,objList,list_Column_Names.get(i)));
+                objList.fields[i].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, s_Main_Table, objList, list_Column_Names.get(i)));
             }
         }
 
@@ -174,45 +170,78 @@ public class c_Frame extends JFrame {
 
 
     public void v_generate_rows_from_Database() {
+        for (cRowEntries objLoop : listRows) {
+            objLoop.v_disable();
+            this.getContentPane().remove(objLoop.btnDelete);
+            for (int i = 0; i < objLoop.fields.length; i++) {
+                this.getContentPane().remove(objLoop.fields[i]);
+                this.rootPane.remove(objLoop.fields[i]);
+                this.remove(objLoop.fields[i]);
+            }
+        }
 
-        ResultSet set_entrys;
+        listRows.clear();
+        this.getContentPane().repaint();
+        this.getContentPane().revalidate();
+        this.repaint();
+        this.revalidate();
+
+        this.rootPane.repaint();
+        this.rootPane.revalidate();
+
+        ResultSet setEntries;
         CopyOnWriteArrayList<String> list_IDs = new CopyOnWriteArrayList<>();
 
         try {
-            set_entrys = objDatabaseManager_Input.read_entrys_one_attribute(this.s_Main_Table, "s_unique_ID");
-            while (set_entrys.next()) {
-                if (!set_entrys.getString(1).equals("-1")) {
-                    list_IDs.add(set_entrys.getString(1));
+            setEntries = objDatabaseManager_Input.readEoAttr(this.s_Main_Table, "s_unique_ID");
+            while (setEntries.next()) {
+                if (!setEntries.getString(1).equals("-1")) {
+                    list_IDs.add(setEntries.getString(1));
                 }
             }
 
-            for (String objList:list_IDs
-                 ) {
-                listRows.add(new cRowEntrys(this,objList));
+
+            int i=0;
+            for (String objList : list_IDs
+                    ) {
+                cRowEntries objLoop = new cRowEntries(this, objList);
+                objLoop.v_setup(list_Column_Names.size(), this.getContentPane(), yCoordinateListEntrys + i * 20);
+                ResultSet setData = objDatabaseManager_Input.readEaAttr(this.s_Main_Table, objList);
+                setData.next();
+                for (int ini = 0; ini < objLoop.fields.length-1; ini++) {
+                    objLoop.v_setCellContent(ini, setData.getString(ini + 2));
+                }
+                i++;
+                listRows.add(objLoop);
             }
 
+            /*
             for (int j = 0; j < listRows.size(); j++) {
-                listRows.get(j).v_setup(list_Column_Names.size(),this.getContentPane(),yCoordinateListEntrys+j*20);
+                listRows.get(j)
                 for (int k = 0; k < listRows.get(j).fields.length; k++) {
-                    set_entrys = objDatabaseManager_Input.read_one_entry_one_attribute(this.s_Main_Table, list_Column_Names.get(k), listRows.get(j).suniqueRowID);
-                    listRows.get(j).v_setCellContent(k,set_entrys.getString(1));
+                    ResultSet setData = objDatabaseManager_Input.readOeaA(this.s_Main_Table, list_Column_Names.get(k), listRows.get(j).suniqueRowID);
+                    listRows.get(j).v_setCellContent(k, setData.getString(1));
                 }
             }
+        */
+
         } catch (SQLException e) {
+            e.printStackTrace();
             cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
         }
-    }
+        this.getContentPane().repaint();
+        this.getContentPane().revalidate();
 
+        this.repaint();
+        this.revalidate();
+
+
+    }
 
 
     public void v_search() {
 
-
         /*
-
-
-
-
 
          */
 
@@ -221,31 +250,31 @@ public class c_Frame extends JFrame {
         ArrayList<Integer> listResults = new ArrayList<>();
 
         for (int i = 0; i < arr_Search_Input.length; i++) {
-            if(arr_Search_Input[i].getText().length()>0){
-                mapValues.put(i,arr_Search_Input[i].getText());
+            if (arr_Search_Input[i].getText().length() > 0) {
+                mapValues.put(i, arr_Search_Input[i].getText());
             }
         }
 
-        if(mapValues.size()>0){
+        if (mapValues.size() > 0) {
             for (int i = 0; i < listRows.size(); i++) {
-                if(listRows.get(i).b_searchRow(mapValues)){
+                if (listRows.get(i).b_searchRow(mapValues)) {
                     listResults.add(i);
                 }
                 listRows.get(i).v_disable();
             }
 
-            int i=0;
-            for (Integer objList:listResults
-                 ) {
+            int i = 0;
+            for (Integer objList : listResults
+                    ) {
                 listRows.get(objList).v_enable();
-                listRows.get(objList).v_setYCoordinate(yCoordinateListEntrys+i*20);
+                listRows.get(objList).v_setYCoordinate(yCoordinateListEntrys + i * 20);
                 i++;
             }
 
 
-        }else{
+        } else {
             for (int i = 0; i < listRows.size(); i++) {
-                listRows.get(i).v_setYCoordinate(yCoordinateListEntrys+20*i);
+                listRows.get(i).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
                 listRows.get(i).v_enable();
             }
         }
@@ -302,6 +331,63 @@ public class c_Frame extends JFrame {
     }
 
 
+    public void v_initializeBtn (){
+        this.btnEntryCreation = new JButton();
+
+        btnEntryCreation.setVisible(true);
+        this.getContentPane().add(btnEntryCreation);
+        btnEntryCreation.setText("Erzeugen");
+
+        this.btnEntryCreation.setBounds(this.arrCreateEntryFields.length*i_width_gobal+20, arrCreateEntryFields[0].getY(),i_width_gobal,20);
+
+        btnEntryCreation.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                if(arrCreateEntryFields.length==1){
+                    try {
+                        objDatabaseManager_Input.createEntry("projects",arrCreateEntryFields[0].getText());
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    String uniqueID = "";
+                    uniqueID = uniqueID + arrCreateEntryFields[0].getText().charAt(0);
+                    uniqueID = uniqueID + arrCreateEntryFields[0].getText().charAt(1);
+                    uniqueID = uniqueID + arrCreateEntryFields[1].getText().charAt(0);
+                    uniqueID = uniqueID + arrCreateEntryFields[1].getText().charAt(1);
+                    try {
+                        objDatabaseManager_Input.createEntry("persons",uniqueID);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                v_generate_rows_from_Database();
+            }
+
+            
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
+    }
+
+
     public void v_sort(boolean b_direction_tm, int i_X_colum) {
 
 
@@ -309,26 +395,25 @@ public class c_Frame extends JFrame {
 
 
         for (int i = 0; i < listRows.size(); i++) {
-            if(listRows.get(i).bEnabled){
-                mapStringInteger.put(listRows.get(i).getCellContent(i_X_colum),i);
+            if (listRows.get(i).bEnabled) {
+                mapStringInteger.put(listRows.get(i).getCellContent(i_X_colum), i);
             }
         }
 
 
-
-        if(b_direction_tm){
-            int i=0;
-            for (String objList:mapStringInteger.keySet()
+        if (b_direction_tm) {
+            int i = 0;
+            for (String objList : mapStringInteger.keySet()
                     ) {
-                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys+20*i);
+                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
                 listRows.get(mapStringInteger.get(objList)).v_enable();
                 i++;
             }
-        }else{
+        } else {
             int i = mapStringInteger.keySet().size();
-            for (String objList:mapStringInteger.keySet()
+            for (String objList : mapStringInteger.keySet()
                     ) {
-                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys+20*i);
+                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
                 listRows.get(mapStringInteger.get(objList)).v_enable();
                 i--;
             }
@@ -354,9 +439,9 @@ public class c_Frame extends JFrame {
 
 
         int i = 0;
-        while(i<i_amount_of_people){
-            listRows.add(new cRowEntrys(objDatabaseManager_Input,i_width_gobal));
-            listRows.get(i).v_ShortSetup(5,this.getContentPane(),yCoordinateListEntrys + 20*i);
+        while (i < i_amount_of_people) {
+            listRows.add(new cRowEntries(this,objDatabaseManager_Input, i_width_gobal));
+            listRows.get(i).v_ShortSetup(5, this.getContentPane(), yCoordinateListEntrys + 20 * i);
             i++;
         }
 
@@ -375,13 +460,13 @@ public class c_Frame extends JFrame {
                     ) {
                 for (String s_loop_object_inner : objlist_main.get(s_loop_object)
                         ) {
-                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", "s_sur_Name", s_loop_object_inner);
+                    set_personal_information = objDatabaseManager_Input.readOeaA("persons", "s_sur_Name", s_loop_object_inner);
                     list_Fields_X_Direction.get(0).get(i_y_counter).setText(set_personal_information.getString(1));
-                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", "s_pre_Name", s_loop_object_inner);
+                    set_personal_information = objDatabaseManager_Input.readOeaA("persons", "s_pre_Name", s_loop_object_inner);
                     list_Fields_X_Direction.get(1).get(i_y_counter).setText(set_personal_information.getString(1));
-                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", "s_grade", s_loop_object_inner);
+                    set_personal_information = objDatabaseManager_Input.readOeaA("persons", "s_grade", s_loop_object_inner);
                     list_Fields_X_Direction.get(2).get(i_y_counter).setText(set_personal_information.getString(1));
-                    set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("projects", "s_teacher_ID", s_loop_object);
+                    set_personal_information = objDatabaseManager_Input.readOeaA("projects", "s_teacher_ID", s_loop_object);
                     list_Fields_X_Direction.get(3).get(i_y_counter).setText(set_personal_information.getString(1));
 
                     boolean projektFound = false;
@@ -393,7 +478,7 @@ public class c_Frame extends JFrame {
 
                     for (int i = 0; i < 4; i++) {
                         String Colum = "i_pref" + String.valueOf(i);
-                        set_personal_information = objDatabaseManager_Input.read_one_entry_one_attribute("persons", Colum, s_loop_object_inner);
+                        set_personal_information = objDatabaseManager_Input.readOeaA("persons", Colum, s_loop_object_inner);
                         if (s_loop_object.equals(set_personal_information.getString(1))) {
                             list_Fields_X_Direction.get(4).get(i_y_counter).setText(s_loop_object);
                             projektFound = true;

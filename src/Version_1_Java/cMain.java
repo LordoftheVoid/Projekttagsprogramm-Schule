@@ -260,6 +260,7 @@ public class cMain {
 
             obj_Frame_pupils.v_setupEntryfields("Hier Nach und Vorname eintragen für neuen Eintrag",2);
 
+            obj_Frame_pupils.v_initializeBtn();
 
             //Frame Projekte
 
@@ -275,8 +276,10 @@ public class cMain {
 
             obj_Frame_projects.v_sort_setup();
 
-
             obj_Frame_projects.v_setupEntryfields("Hier neue Projektnummer eintragen",1);
+
+            obj_Frame_projects.v_initializeBtn();
+
             //Frame Output
 
             c_Frame obj_Frame_Output = new c_Frame("projects", obj_Database_manager_Main,null);
@@ -422,7 +425,7 @@ public class cMain {
                     String NameInvalidPerson = "";
                     String gradeInvalidPerson= "";
                     try {
-                        ResultSet entrys_persons = obj_Database_manager_Main.read_entrys_all_attributes("persons");
+                        ResultSet entrys_persons = obj_Database_manager_Main.readEsaAttr("persons");
                         while (entrys_persons.next()) {
                             for (int i = 1; i < 8; i++) {
                                 if (entrys_persons.getString(i) == null) {
