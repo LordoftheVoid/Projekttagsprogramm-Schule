@@ -10,7 +10,7 @@ import Version_1_Java.cMain;
 import java.io.File;
 
 
-public class c_Directory_Creator {
+public class cDirectoryCreator {
 
     public void v_creation(String s_url_tm, String s_name_tm) {
         File dir = new File(s_url_tm + "/" + s_name_tm);

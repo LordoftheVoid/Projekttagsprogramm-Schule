@@ -2,7 +2,7 @@ package Version_1_Java.File_Interactions.Files;
 
 
 import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
-import Version_1_Java.File_Interactions.Directories.c_Directory_Creator;
+import Version_1_Java.File_Interactions.Directories.cDirectoryCreator;
 import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -37,7 +37,7 @@ public class c_Output_File_Generator {
     public void v_write_xls_Files(String sTargetDirectory) {
         iAmountofUsages++;
 
-        c_Directory_Creator objDirectory_Creator = new c_Directory_Creator();
+        cDirectoryCreator objDirectory_Creator = new cDirectoryCreator();
 
         objDirectory_Creator.v_creation(sTargetDirectory, "Zuweisung_" + String.valueOf(iAmountofUsages));
 

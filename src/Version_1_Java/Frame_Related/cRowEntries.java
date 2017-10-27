@@ -56,7 +56,7 @@ public class cRowEntries {
     public void v_setup(int iamountElements, Container conDisplayTarget, int iYCoordinate){
         this.fields = new JTextField[iamountElements];
 
-        btnDelete = new JButton("Schüler löschen");
+        btnDelete = new JButton("Eintrag löschen");
 
        this.v_ShortSetup(iamountElements,conDisplayTarget,iYCoordinate);
 
@@ -97,11 +97,20 @@ public class cRowEntries {
         this.fields[icellposition].setText(svalue);
     }
 
-
+    /**
+     *
+     * @param icellPosition
+     * @return
+     */
     public String getCellContent (int icellPosition){
         return this.fields[icellPosition].getText();
     }
 
+
+    /**
+     *
+     * @param ivalue
+     */
     public void v_setYCoordinate ( int ivalue){
         for (int i = 0; i < this.fields.length; i++) {
             fields[i].setLocation(iglobalWidth*i, ivalue);
