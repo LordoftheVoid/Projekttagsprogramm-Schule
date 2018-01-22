@@ -1,5 +1,0 @@
--Entfernen der alten Klassen
--Ergänzung der Listener
--Optimierung der Ausgaben
--Resultset closed, warum ? 
--

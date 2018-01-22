@@ -76,7 +76,7 @@ public class c_Frame extends JFrame {
     public void v_show_Frame(int i_X, int k_Y) {
 
         this.setVisible(true);
-        this.setBounds(i_X, k_Y, 500, 500);
+        this.setBounds(i_X, k_Y, 1000, 1000);
     }
 
 
