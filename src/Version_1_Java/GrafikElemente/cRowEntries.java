@@ -1,6 +1,6 @@
- package Version_1_Java.Frame_Related;
+package Version_1_Java.GrafikElemente;
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
+import Version_1_Java.GrafikElemente.Frame_Implementationen.cAbstraktesFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,62 +13,56 @@ import java.util.HashMap;
  */
 
 
-
-
 public class cRowEntries {
-    cDatabaseConnectionManager objDataBaseManagerRow;
 
-    JTextField [] fields;
-    String  suniqueRowID = "";
+    JTextField[] fields;
+    String suniqueRowID = "";
     int iglobalWidth;
     JButton btnDelete;
-    String sReferenceTable= "";
-    boolean bEnabled = true;
-    private c_Frame objTarget;
+    String sReferenceTable = "";
+   public  boolean bEnabled = true;
+    private cAbstraktesFrame objTarget;
 
 
-
-    public cRowEntries(c_Frame objSource, String suniqueRowID ) {
-        this.sReferenceTable= objSource.s_Main_Table;
-        this.objDataBaseManagerRow = objSource.objDatabaseManager_Input;
-        this.suniqueRowID =suniqueRowID;
-        this.iglobalWidth=objSource.i_width_gobal;
+    public cRowEntries(cAbstraktesFrame objSource, String suniqueRowID) {
+        this.sReferenceTable = objSource.s_Main_Table;
+        this.suniqueRowID = suniqueRowID;
+        this.iglobalWidth = objSource.spaltenBreiteglobal;
         objTarget = objSource;
     }
 
-    public cRowEntries( c_Frame objSource, cDatabaseConnectionManager objDataBaseManagerRow, int iglobalWidth) {
-        this.objDataBaseManagerRow = objDataBaseManagerRow;
+    public cRowEntries(cAbstraktesFrame objSource, int iglobalWidth) {
         this.iglobalWidth = iglobalWidth;
         objTarget = objSource;
     }
 
-    public void v_ShortSetup(int iamountElements, Container conDisplayTarget, int iYCoordinate){
+    public void v_ShortSetup(int iamountElements, Container conDisplayTarget, int iYCoordinate) {
         this.fields = new JTextField[iamountElements];
         for (int i = 0; i < this.fields.length; i++) {
-            this.fields[i]= new JTextField();
+            this.fields[i] = new JTextField();
             conDisplayTarget.add(this.fields[i]);
             this.fields[i].setVisible(true);
-            this.fields[i].setBounds(i*iglobalWidth,iYCoordinate,iglobalWidth,20);
+            this.fields[i].setBounds(i * iglobalWidth, iYCoordinate, iglobalWidth, 20);
         }
     }
 
 
-    public void v_setup(int iamountElements, Container conDisplayTarget, int iYCoordinate){
+    public void v_setup(int iamountElements, Container conDisplayTarget, int iYCoordinate) {
         this.fields = new JTextField[iamountElements];
 
         btnDelete = new JButton("Eintrag löschen");
 
-       this.v_ShortSetup(iamountElements,conDisplayTarget,iYCoordinate);
+        this.v_ShortSetup(iamountElements, conDisplayTarget, iYCoordinate);
 
         conDisplayTarget.add(btnDelete);
         btnDelete.setVisible(true);
         btnDelete.setVisible(true);
-        btnDelete.setBounds(fields.length*iglobalWidth+20,iYCoordinate,iglobalWidth,20);
+        btnDelete.setBounds(fields.length * iglobalWidth + 20, iYCoordinate, iglobalWidth * 2, 20);
         btnDelete.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                objDataBaseManagerRow.deleteEntry(sReferenceTable,suniqueRowID);
-                objTarget.v_generate_rows_from_Database();
+                //         cImports.objDatabaseManagerGlobal.deleteEntry(sReferenceTable,suniqueRowID);
+                //      objTarget.v_generate_rows_from_Database();
             }
 
             @Override
@@ -93,38 +87,36 @@ public class cRowEntries {
         });
     }
 
-    public void v_setCellContent (int icellposition,  String svalue){
+    public void v_setCellContent(int icellposition, String svalue) {
         this.fields[icellposition].setText(svalue);
     }
 
     /**
-     *
      * @param icellPosition
      * @return
      */
-    public String getCellContent (int icellPosition){
+    public String getCellContent(int icellPosition) {
         return this.fields[icellPosition].getText();
     }
 
 
     /**
-     *
      * @param ivalue
      */
-    public void v_setYCoordinate ( int ivalue){
+    public void v_setYCoordinate(int ivalue) {
         for (int i = 0; i < this.fields.length; i++) {
-            fields[i].setLocation(iglobalWidth*i, ivalue);
+            fields[i].setLocation(iglobalWidth * i, ivalue);
         }
-        this.btnDelete.setLocation(btnDelete.getX(),ivalue);
+        this.btnDelete.setLocation(btnDelete.getX(), ivalue);
     }
 
 
-    public boolean b_searchRow(HashMap<Integer,String> mapSearchValues){
+    public boolean b_searchRow(HashMap<Integer, String> mapSearchValues) {
         boolean bcontains = true;
 
-        for (Integer objList:mapSearchValues.keySet()
-             ) {
-            if(!this.fields[objList].getText().contains(mapSearchValues.get(objList))){
+        for (Integer objList : mapSearchValues.keySet()
+                ) {
+            if (!this.fields[objList].getText().contains(mapSearchValues.get(objList))) {
                 bcontains = false;
                 break;
             }
@@ -132,9 +124,9 @@ public class cRowEntries {
         return bcontains;
     }
 
-    public void v_enable(){
-        for (JTextField objField:this.fields
-             ) {
+    public void v_enable() {
+        for (JTextField objField : this.fields
+                ) {
             objField.setVisible(true);
             objField.setEnabled(true);
         }
@@ -145,9 +137,9 @@ public class cRowEntries {
     }
 
 
-    public void v_disable(){
-        this.bEnabled=false;
-        for (JTextField objField:this.fields
+    public void v_disable() {
+        this.bEnabled = false;
+        for (JTextField objField : this.fields
                 ) {
             objField.setVisible(false);
             objField.setEnabled(false);

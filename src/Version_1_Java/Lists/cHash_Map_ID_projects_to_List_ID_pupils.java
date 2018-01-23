@@ -1,6 +1,7 @@
 package Version_1_Java.Lists;
 
 import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
+import Version_1_Java.cImports;
 import Version_1_Java.cMain;
 
 import java.sql.ResultSet;
@@ -34,9 +35,6 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
     public int i_amount_of_pupils = 0;
 
 
-    public cHash_Map_ID_projects_to_List_ID_pupils(cDatabaseConnectionManager obj_tm_Databasemanager_Main) {
-        this.obj_Databasemanager_list = obj_tm_Databasemanager_Main;
-    }
 
 
     public void v_setup_from_Database() {
@@ -84,7 +82,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
         }
 
 
-        for (int i_preference_counter = 0; i_preference_counter < cMain.iMaximalanzahl_Projekte; i_preference_counter++) {
+        for (int i_preference_counter = 0; i_preference_counter < cImports.iMaximalanzahl_Projekte; i_preference_counter++) {
 
             ArrayList<String> arrlist_ID_without_projects = new ArrayList<>();
 
@@ -132,7 +130,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
             list_ID_pupils.addAll(arrlist_ID_without_projects);
 
-            if (i_preference_counter < cMain.iMaximalanzahl_Projekte - 1) {
+            if (i_preference_counter < cImports.iMaximalanzahl_Projekte - 1) {
                 arrlist_ID_without_projects.clear();
             } else {
                 this.get("-1").addAll(arrlist_ID_without_projects);

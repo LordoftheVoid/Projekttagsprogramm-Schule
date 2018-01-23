@@ -9,9 +9,6 @@ import java.sql.*;
  * Created by Aaron on 09.07.2017.
  */
 
-
-
-
 /*
 
 Klasse, um conDatabase zu realisieren
@@ -19,43 +16,28 @@ Klasse, um conDatabase zu realisieren
  */
 public class cDatabaseConnectionManager {
 
+    boolean b_connection_running = false;
     private Connection conDatabase;
 
-
-    boolean b_connection_running = false;
-
-    public boolean v_initialization(String surlSource_tm) {
-
-        if (surlSource_tm.equals("NO_FILE_FOUND")) {
-            cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt initialisiert werden, bitte Name & " +
-                    "Position kontrollieren und ggf. korrigieren \n Näheres siehe Benutzerhandbuch ");
-            return false;
-        } else {
-            if (!b_connection_running) {
+    public void v_initialization(String surlSource_tm) throws NullPointerException {
+        String[] fehlerArr = new String[1];
+        fehlerArr[0] = "FEHLER \n Die Datenbank konnte nicht korrekt initialisiert werden, bitte Name & Position kontrollieren und ggf. korrigieren";
+        if (!b_connection_running) {
+            try {
+                final String DRIVER = "org.sqlite.JDBC";
+                final String DB_URL = "jdbc:sqlite:" + surlSource_tm;
+                Class.forName(DRIVER);
+                conDatabase = null;
                 try {
-                    final String DRIVER = "org.sqlite.JDBC";
-                    final String DB_URL = "jdbc:sqlite:" + surlSource_tm;
-                    Class.forName(DRIVER);
-                    conDatabase = null;
-                    try {
-                        SQLiteConfig config = new SQLiteConfig();
-                        config.enforceForeignKeys(true);
-                        conDatabase = DriverManager.getConnection(DB_URL, config.toProperties());
-                    } catch (SQLException ex) {
-                        cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt initialisiert werden, bitte Name & " +
-                                "Position kontrollieren und ggf. korrigieren \n Näheres siehe Benutzerhandbuch ");
-                        return false;
-                    }
-                    cMain.v_update_Textarea_Status(" \n Die Verbindung zur Datenbank steht korrekt \n ");
-                    b_connection_running = true;
-                    return true;
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                    return false;
+                    SQLiteConfig config = new SQLiteConfig();
+                    config.enforceForeignKeys(true);
+                    conDatabase = DriverManager.getConnection(DB_URL, config.toProperties());
+                } catch (SQLException ex) {
+                    throw new NullPointerException();
                 }
-            } else {
-                cMain.v_update_Textarea_Status(" Die Datenbankanbindung läuft ordnungsgemäß");
-                return true;
+                b_connection_running = true;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -89,42 +71,24 @@ public class cDatabaseConnectionManager {
     }
 
 
-    public boolean createEntry(String sTable_tm, String unique_id) throws SQLException {
-
-        try {
-            PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + sTable_tm + "  (s_unique_ID) VALUES (?)");
-            insertInto.setString(1, unique_id);
-            insertInto.executeUpdate();
-        } catch (SQLException e_1) {
-            return false;
-        }
-        return true;
+    public void createEntry(String sTable_tm, String unique_id) throws SQLException {
+        PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + sTable_tm + "  (s_unique_ID) VALUES (?)");
+        insertInto.setString(1, unique_id);
+        insertInto.executeUpdate();
     }
 
 
-    public boolean updateEntry(String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) {
-        try {
-            PreparedStatement update_Entry = conDatabase.prepareStatement("UPDATE " + s_table_tm + " SET " + s_colum_tm + " = '" + s_value_tm + "' WHERE s_unique_ID= ?");
-            update_Entry.setString(1, s_unique_ID_tm);
-            update_Entry.executeUpdate();
-        } catch (SQLException e_1) {
-            return e_1.getErrorCode() != 19;
-        }
-        return true;
+    public void updateEntry(String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) throws SQLException {
+        PreparedStatement update_Entry = conDatabase.prepareStatement("UPDATE " + s_table_tm + " SET " + s_colum_tm + " = '" + s_value_tm + "' WHERE s_unique_ID= ?");
+        update_Entry.setString(1, s_unique_ID_tm);
+        update_Entry.executeUpdate();
     }
 
 
-    public boolean deleteEntry(String sTable_tm, String unique_ID) {
-        boolean b_entry_existed;
-        try {
-            b_entry_existed = this.entry_check(sTable_tm, unique_ID);
-            PreparedStatement delete_Entry = conDatabase.prepareStatement("DELETE FROM " + sTable_tm + " WHERE s_unique_ID= ?");
-            delete_Entry.setString(1, unique_ID);
-            delete_Entry.executeUpdate();
-        } catch (SQLException e_1) {
-            return false;
-        }
-        return b_entry_existed;
+    public void deleteEntry(String sTable_tm, String unique_ID) throws SQLException {
+        PreparedStatement delete_Entry = conDatabase.prepareStatement("DELETE FROM " + sTable_tm + " WHERE s_unique_ID= ?");
+        delete_Entry.setString(1, unique_ID);
+        delete_Entry.executeUpdate();
     }
 
 

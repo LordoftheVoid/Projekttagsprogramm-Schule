@@ -1,10 +1,10 @@
 package Version_1_Java;
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.File_Interactions.Directories.cDirectoryCreator;
-import Version_1_Java.File_Interactions.Files.cExcel_File_Reader;
 import Version_1_Java.File_Interactions.Files.c_Output_File_Generator;
-import Version_1_Java.Frame_Related.c_Frame;
+import Version_1_Java.GrafikElemente.Frame_Implementationen.cProjektFrame;
+import Version_1_Java.GrafikElemente.Frame_Implementationen.cSchuelerFrame;
+import Version_1_Java.GrafikElemente.Frame_Implementationen.cAbstraktesFrame;
 import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
 
 import javax.swing.*;
@@ -12,11 +12,8 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.net.URISyntaxException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 /**
@@ -36,25 +33,25 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class cMain {
 
+
     /*
 
     Global Variables, including how many options any given person can choose.
 
     This might change in future releases, but at this stage, it is set to 4;
      */
-    public static final int iMaximalanzahl_Projekte = 4;
 
     static JTextArea objTextareaStatus;
-    static cDatabaseConnectionManager objDatabaseManagerMain;
     static JFrame objFrameMain;
+
+
 
     /*
 
     Enables capturing the URL the programm was executed in, enables directory-based input
     system-independent.
      */
-    static File fileJAR;
-    static boolean bDatabaseFound = false;
+
 
     /**
      * Updates the main display for interactions with a user,
@@ -72,16 +69,12 @@ public class cMain {
          * Setup of the display shown to the user, mainly through JFrame.
          */
 
-        try {
-            fileJAR = new File(cMain.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+        //   System.out.println(System.getProperties());
 
 
         objFrameMain = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
         objFrameMain.setVisible(true);
-        objFrameMain.setBounds(500, 0, 1000, 1000);
+        objFrameMain.setBounds(0, 0, 600, 1200);
         objFrameMain.getContentPane().setLayout(null);
         objFrameMain.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,41 +82,111 @@ public class cMain {
         objTextareaStatus = new JTextArea();
         objFrameMain.getContentPane().add(objTextareaStatus);
         objTextareaStatus.setText("");
-        objTextareaStatus.setBounds(0, 400, 700, 1000);
+        objTextareaStatus.setBounds(0, 450, 600, 1000);
         objTextareaStatus.setBorder(new LineBorder(Color.black));
 
 
-        /**
-         *
-         * Creates directories for the database and other file-based interactions
-         */
+        JButton erzeugedenRest = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
+        objFrameMain.getContentPane().add(erzeugedenRest);
+        erzeugedenRest.setVisible(true);
+        erzeugedenRest.setBounds(0, 0, 600, 450);
+
+
+        v_update_Textarea_Status("Hier werden in Zukunft wichtige Nachrichten auftauchen");
+
+        erzeugedenRest.addMouseListener(new MouseListener() {
+                                            @Override
+                                            public void mouseClicked(MouseEvent e) {
+                                                try {
+                                                    cImports.setupImport();
+                                                    erzeugedenRest.setEnabled(false);
+                                                    erzeugedenRest.setVisible(false);
+                                                    objFrameMain.getContentPane().remove(erzeugedenRest);
+                                                    v_generate_Interface();
+
+                                                } catch (NullPointerException e1) {
+                                                    v_update_Textarea_Status("Hallo, Test drei ");
+                                                }
+                                            }
+
+                                            @Override
+                                            public void mousePressed(MouseEvent e) {
+
+                                            }
+
+                                            @Override
+                                            public void mouseReleased(MouseEvent e) {
+
+                                            }
+
+                                            @Override
+                                            public void mouseEntered(MouseEvent e) {
+
+                                            }
+
+                                            @Override
+                                            public void mouseExited(MouseEvent e) {
+
+                                            }
+                                        }
+        );
+
+
+    }
+
+
+    public static void v_generate_Interface() {
 
         cDirectoryCreator objDirectoryManager = new cDirectoryCreator();
 
-        objDirectoryManager.v_creation(fileJAR.getParent(), "Datenbank-Ordner");
-        objDirectoryManager.v_creation(fileJAR.getParent(), "Excel-Datei-Ordner");
-        objDirectoryManager.v_creation(fileJAR.getParent(), "Output-Ordner ( Excel-Dateien)");
+        objDirectoryManager.v_creation(cImports.fileJAR.getParent(), "Datenbank-Ordner");
+        objDirectoryManager.v_creation(cImports.fileJAR.getParent(), "Excel-Datei-Ordner");
+        objDirectoryManager.v_creation(cImports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
-        /**
-        *Initializes Database-Connection.
+
+        /*
+
+        //Erzeugung der Datei-Leser und Lesen
+        cExcel_File_Reader obj_File_Reader_Excel = new cExcel_File_Reader();
+        obj_File_Reader_Excel.updateDatenbank(cImports.fileJAR.getParent() + "/Excel-Datei-Ordner");
         */
 
-        objDatabaseManagerMain = new cDatabaseConnectionManager();
-        bDatabaseFound = objDatabaseManagerMain.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
-        v_generate_Interface(bDatabaseFound);
 
 
-        JButton btn_Retry_Database_Connection = new JButton();
-        objFrameMain.getContentPane().add(btn_Retry_Database_Connection);
-        btn_Retry_Database_Connection.setText("Datenbankverbindug starten bzw testen");
-        btn_Retry_Database_Connection.setVisible(true);
-        btn_Retry_Database_Connection.setBounds(700, 700, 300, 300);
-        btn_Retry_Database_Connection.addMouseListener(new MouseListener() {
+
+        cAbstraktesFrame frameSchueler = new cSchuelerFrame(7, "Schueler-Anzeige-Fenster");
+
+        cAbstraktesFrame frameProjekte = new cProjektFrame(3, "Projekte-Anzeige-Fenster");
+
+
+        JButton btn_pupils_Frame = new JButton("Schüler-Eingabe-Feld");
+        btn_pupils_Frame.setVisible(true);
+        btn_pupils_Frame.setBounds(0, 0, 300, 150);
+        objFrameMain.getContentPane().add(btn_pupils_Frame);
+
+
+        JButton btn_Read_Files = new JButton("Hier klicken um neue Dateien einzulesen");
+        btn_Read_Files.setBounds(300, 0, 300, 150);
+        btn_Read_Files.setVisible(true);
+        objFrameMain.getContentPane().add(btn_Read_Files);
+
+        btn_Read_Files.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                bDatabaseFound = objDatabaseManagerMain.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
-                v_generate_Interface(bDatabaseFound);
+                /*
+                obj_File_Reader_Excel.dateiListe.clear();
+                obj_File_Reader_Excel.dateiListe = obj_File_Reader_Excel.list_search_for_xls_Files(cImports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
+                cMain.v_update_Textarea_Status("\n Es wurden " + obj_File_Reader_Excel.dateiListe.size() + " Excel-Dateien gefunden.");
+
+                for (String loop_objekt_s : obj_File_Reader_Excel.dateiListe
+                        ) {
+                    obj_File_Reader_Excel.readFile(loop_objekt_s);
+                }
+
+
+                objTextareaStatus.setText(objTextareaStatus.getText() + "\n Es wurden " + obj_File_Reader_Excel.personsFound + " neue Schüler mittels Excel eingelesen.");
+                    */
             }
 
             @Override
@@ -146,287 +209,75 @@ public class cMain {
 
             }
         });
-    }
 
 
-    public static String s_generate_Database_URL(String sparentURL) {
-
-        String sDynamikDatabaseURL = sparentURL + "/" + "Datenbank-Ordner";
-        File fileDatabaseDirectory = new File(sDynamikDatabaseURL);
-        boolean bFileFound = false;
-        for (File loop_obj_File : fileDatabaseDirectory.listFiles()) {
-            if (loop_obj_File.getName().contains(".db")) {
-                sDynamikDatabaseURL = sDynamikDatabaseURL + "/" + loop_obj_File.getName();
-                bFileFound = true;
-                break;
-            }
-        }
-
-        if (bFileFound) {
-            return sDynamikDatabaseURL;
-        } else {
-            return "NO_FILE_FOUND";
-        }
-
-    }
-
-
-    public static void v_generate_Interface(boolean bInput) {
-        if (bInput) {
-
-            //Erzeugung der Datei-Leser und Lesen
-            cExcel_File_Reader obj_File_Reader_Excel = new cExcel_File_Reader(objDatabaseManagerMain);
-
-            obj_File_Reader_Excel.list_of_filenames_with_xls = obj_File_Reader_Excel.list_search_for_xls_Files(fileJAR.getParent() + "/Excel-Datei-Ordner");
-            cMain.v_update_Textarea_Status("Es wurden " + obj_File_Reader_Excel.list_of_filenames_with_xls.size() + " Excel-Dateien gefunden.");
-
-            for (String loop_objekt_s : obj_File_Reader_Excel.list_of_filenames_with_xls
-                    ) {
-                obj_File_Reader_Excel.readFile(loop_objekt_s);
-            }
-
-            cMain.v_update_Textarea_Status("Es wurden " + obj_File_Reader_Excel.personsFound + " neue Schüler mittels Excel eingelesen.");
-
-
-            int i_amount_pupils_Database = 0;
-            int i_amount_projects_Database = 0;
-            try {
-                i_amount_pupils_Database = objDatabaseManagerMain.i_amout_of_entrys_in_Database("persons");
-                i_amount_projects_Database = objDatabaseManagerMain.i_amout_of_entrys_in_Database("projects");
-            } catch (SQLException e_1) {
+        btn_pupils_Frame.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                frameSchueler.v_show_Frame(100, 100, 1200, 1000);
 
             }
-            objTextareaStatus.setText(objTextareaStatus.getText() + "\n Die momentane Datenbank erfasst " + i_amount_pupils_Database + " Schüler und " + i_amount_projects_Database + "  Projekte ");
 
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
 
-            CopyOnWriteArrayList<String>[] arr_list_value_Strings = new CopyOnWriteArrayList[3];
-            CopyOnWriteArrayList<String>[] arr_list_Database_References = new CopyOnWriteArrayList[2];
+            @Override
+            public void mouseReleased(MouseEvent e) {
 
+            }
 
-        /*
+            @Override
+            public void mouseEntered(MouseEvent e) {
 
+            }
 
-        Hardcode der Eigenschaften der Datenbank
-        ? Würden sie sich die Mühe machen und die  von dem Programm bei Programmstart aus der Datenbank auslesen lassen
-        oder ist das so legitim ?
+            @Override
+            public void mouseExited(MouseEvent e) {
 
-         */
+            }
+        });
 
-            arr_list_value_Strings[0] = new CopyOnWriteArrayList<>();
-            arr_list_value_Strings[1] = new CopyOnWriteArrayList<>();
-            arr_list_value_Strings[2] = new CopyOnWriteArrayList<>();
 
+        JButton btn_projekt_Frame = new JButton("Projekt-Eingabe-Feld aufrufen");
+        btn_projekt_Frame.setVisible(true);
+        btn_projekt_Frame.setBounds(0, 150, 300, 150);
+        objFrameMain.getContentPane().add(btn_projekt_Frame);
+        btn_projekt_Frame.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                    frameProjekte.v_show_Frame(200, 200, 600, 1000);
 
-            arr_list_value_Strings[0].add("Nachname");
-            arr_list_value_Strings[0].add("Vorname");
-            arr_list_value_Strings[0].add("Klasse");
-            arr_list_value_Strings[0].add("Erstwahl");
-            arr_list_value_Strings[0].add("Zweitwahl");
-            arr_list_value_Strings[0].add("Drittwahl");
-            arr_list_value_Strings[0].add("Viertwahl");
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
 
-            arr_list_value_Strings[1].add("Projektnummer");
-            arr_list_value_Strings[1].add("Lehrkraftskürzel");
-            arr_list_value_Strings[1].add("Maximale Schüleranzahl");
+            }
 
-            arr_list_value_Strings[2].add("Nachname");
-            arr_list_value_Strings[2].add("Vorname");
-            arr_list_value_Strings[2].add("Klasse");
-            arr_list_value_Strings[2].add("Lehrkraftskürzel");
-            arr_list_value_Strings[2].add("Wahlnummer");
+            @Override
+            public void mouseReleased(MouseEvent e) {
 
+            }
 
-            arr_list_Database_References[0] = new CopyOnWriteArrayList<>();
-            arr_list_Database_References[1] = new CopyOnWriteArrayList<>();
+            @Override
+            public void mouseEntered(MouseEvent e) {
 
+            }
 
-            //    arr_list_Database_References[0].add("s_unique_ID");
-            arr_list_Database_References[0].add("s_sur_Name");
-            arr_list_Database_References[0].add("s_pre_Name");
-            arr_list_Database_References[0].add("s_grade");
-            arr_list_Database_References[0].add("i_pref0");
-            arr_list_Database_References[0].add("i_pref1");
-            arr_list_Database_References[0].add("i_pref2");
-            arr_list_Database_References[0].add("i_pref3");
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
 
 
-            arr_list_Database_References[1].add("s_unique_ID");
-            arr_list_Database_References[1].add("s_teacher_ID");
-            arr_list_Database_References[1].add("i_max_pupils");
-
-
-        /*
-
-
-        Erzeugung etc des Schüler-Fensters
-         */
-
-            c_Frame obj_Frame_pupils = new c_Frame("persons", objDatabaseManagerMain, arr_list_Database_References[0]);
-
-            obj_Frame_pupils.v_generate_rows_from_Database();
-
-            obj_Frame_pupils.v_set_custom_Head(arr_list_value_Strings[0]);
-
-            obj_Frame_pupils.v_set_custom_Search(arr_list_value_Strings[0]);
-
-            obj_Frame_pupils.v_Setup_Listener();
-
-            obj_Frame_pupils.v_sort_setup();
-
-            obj_Frame_pupils.v_setupEntryfields("Hier Nach und Vorname eintragen für neuen Eintrag", 2);
-
-            obj_Frame_pupils.v_initializeBtn();
-
-            //Frame Projekte
-
-            c_Frame obj_Frame_projects = new c_Frame("projects", objDatabaseManagerMain, arr_list_Database_References[1]);
-
-            obj_Frame_projects.v_generate_rows_from_Database();
-
-            obj_Frame_projects.v_set_custom_Head(arr_list_value_Strings[1]);
-
-            obj_Frame_projects.v_set_custom_Search(arr_list_value_Strings[1]);
-
-            obj_Frame_projects.v_Setup_Listener();
-
-            obj_Frame_projects.v_sort_setup();
-
-            obj_Frame_projects.v_setupEntryfields("Hier neue Projektnummer eintragen", 1);
-
-            obj_Frame_projects.v_initializeBtn();
-
-            //Frame Output
-
-            c_Frame obj_Frame_Output = new c_Frame("projects", objDatabaseManagerMain, null);
-
-
-        /*
-
-        Ab hier im wesentlichen nur noch Erzeugung weiterer grafischer Elemente
-        sowie deren Funktionen bei Mausklick.
-         */
-
-
-            JButton btn_pupils_Frame = new JButton("Schüler-Eingabe-Feld aufrufen");
-            btn_pupils_Frame.setVisible(true);
-            btn_pupils_Frame.setBounds(0, 0, 300, 300);
-            objFrameMain.getContentPane().add(btn_pupils_Frame);
-
-
-            JButton btn_Read_Files = new JButton("Hier klicken um neue Dateien einzulesen");
-            btn_Read_Files.setBounds(700, 400, 300, 300);
-            btn_Read_Files.setVisible(true);
-            objFrameMain.getContentPane().add(btn_Read_Files);
-
-            btn_Read_Files.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    obj_File_Reader_Excel.list_of_filenames_with_xls.clear();
-                    obj_File_Reader_Excel.list_of_filenames_with_xls = obj_File_Reader_Excel.list_search_for_xls_Files(fileJAR.getParent() + "/Excel-Datei-Ordner");
-
-                    cMain.v_update_Textarea_Status("\n Es wurden " + obj_File_Reader_Excel.list_of_filenames_with_xls.size() + " Excel-Dateien gefunden.");
-
-                    for (String loop_objekt_s : obj_File_Reader_Excel.list_of_filenames_with_xls
-                            ) {
-                        obj_File_Reader_Excel.readFile(loop_objekt_s);
-                    }
-
-
-                    objTextareaStatus.setText(objTextareaStatus.getText() + "\n Es wurden " + obj_File_Reader_Excel.personsFound + " neue Schüler mittels Excel eingelesen.");
-
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
-
-
-            btn_pupils_Frame.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    obj_Frame_pupils.v_show_Frame(100, 100);
-
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
-
-
-            JButton btn_projekt_Frame = new JButton("Projekt-Eingabe-Feld aufrufen");
-            btn_projekt_Frame.setVisible(true);
-            btn_projekt_Frame.setBounds(300, 0, 300, 300);
-            objFrameMain.getContentPane().add(btn_projekt_Frame);
-            btn_projekt_Frame.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    obj_Frame_projects.v_show_Frame(200, 200);
-
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                }
-            });
-
-
-            JButton btn_Frame_Output = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
-            btn_Frame_Output.setVisible(true);
-            btn_Frame_Output.setBounds(600, 0, 300, 300);
-            objFrameMain.getContentPane().add(btn_Frame_Output);
-            btn_Frame_Output.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-
+        JButton btn_Frame_Output = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
+        btn_Frame_Output.setVisible(true);
+        btn_Frame_Output.setBounds(0, 300, 600, 150);
+        objFrameMain.getContentPane().add(btn_Frame_Output);
+        btn_Frame_Output.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
 
 
 
@@ -436,115 +287,114 @@ public class cMain {
                  */
 
 
-                    boolean b_all_values_valid = true;
-                    String NameInvalidPerson = "";
-                    String gradeInvalidPerson = "";
-                    try {
-                        ResultSet entrys_persons = objDatabaseManagerMain.readEsaAttr("persons");
-                        while (entrys_persons.next()) {
-                            for (int i = 1; i < 8; i++) {
-                                if (entrys_persons.getString(i) == null) {
-                                    NameInvalidPerson = entrys_persons.getString(2);
-                                    gradeInvalidPerson = entrys_persons.getString(4);
+                boolean b_all_values_valid = true;
+                String NameInvalidPerson = "";
+                String gradeInvalidPerson = "";
+                try {
+                    ResultSet entrys_persons = cImports.objDatabaseManagerGlobal.readEsaAttr("persons");
+                    while (entrys_persons.next()) {
+                        for (int i = 1; i < 8; i++) {
+                            if (entrys_persons.getString(i) == null) {
+                                NameInvalidPerson = entrys_persons.getString(2);
+                                gradeInvalidPerson = entrys_persons.getString(4);
 
-                                    b_all_values_valid = false;
-                                    break;
-                                }
-                            }
-                            if (!b_all_values_valid) {
+                                b_all_values_valid = false;
                                 break;
                             }
                         }
-                    } catch (SQLException e1) {
-                        cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
+                        if (!b_all_values_valid) {
+                            break;
+                        }
                     }
+                } catch (SQLException e1) {
+                    cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
+                }
+
+                if (b_all_values_valid) {
+                    //          obj_Frame_Output.v_show_Frame(700, 500, 1000, 1000);
+
+                    cMain.v_update_Textarea_Status("Die Berechnung hat begonnen, das könnte seine Zeit dauern");
+
+                    cHash_Map_ID_projects_to_List_ID_pupils objHashmap_projects_pupils = new cHash_Map_ID_projects_to_List_ID_pupils();
+                    objHashmap_projects_pupils.v_setup_from_Database();
+                    boolean b_constant_people = false;
+
+                    objHashmap_projects_pupils.v_arrangement();
+
+                    int i_counter = 0;
 
 
-                    if (b_all_values_valid) {
-                        obj_Frame_Output.v_show_Frame(700, 500);
+                    cHash_Map_ID_projects_to_List_ID_pupils obj_best_solution = new cHash_Map_ID_projects_to_List_ID_pupils();
 
-                        cMain.v_update_Textarea_Status("Die Berechnung hat begonnen, das könnte seine Zeit dauern");
+                    obj_best_solution.putAll(objHashmap_projects_pupils);
+                    obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;
 
-                        cHash_Map_ID_projects_to_List_ID_pupils objHashmap_projects_pupils = new cHash_Map_ID_projects_to_List_ID_pupils(objDatabaseManagerMain);
-                        objHashmap_projects_pupils.v_setup_from_Database();
-                        boolean b_constant_people = false;
+                    while (!b_constant_people) {
 
                         objHashmap_projects_pupils.v_arrangement();
 
-                        int i_counter = 0;
+                        cMain.v_update_Textarea_Status("Es wurde ein Zuteilung vorgenomen, Überprüfung erfolgt. " + i_counter);
+                        if (objHashmap_projects_pupils.get("-1").size() <= obj_best_solution.get("-1").size()) {
+                            if (objHashmap_projects_pupils.i_sum_of_preferences < obj_best_solution.i_sum_of_preferences) {
+                                obj_best_solution.clear();
+                                obj_best_solution.putAll(objHashmap_projects_pupils);
+                                obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;
+                                cMain.v_update_Textarea_Status("Es wurde eine neue beste Lösung gefunden. ");
 
-
-                        cHash_Map_ID_projects_to_List_ID_pupils obj_best_solution = new cHash_Map_ID_projects_to_List_ID_pupils(objDatabaseManagerMain);
-
-                        obj_best_solution.putAll(objHashmap_projects_pupils);
-                        obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;
-
-                        while (!b_constant_people) {
-
-                            objHashmap_projects_pupils.v_arrangement();
-
-                            cMain.v_update_Textarea_Status("Es wurde ein Zuteilung vorgenomen, Überprüfung erfolgt. " + i_counter);
-                            if (objHashmap_projects_pupils.get("-1").size() <= obj_best_solution.get("-1").size()) {
-                                if (objHashmap_projects_pupils.i_sum_of_preferences < obj_best_solution.i_sum_of_preferences) {
-                                    obj_best_solution.clear();
-                                    obj_best_solution.putAll(objHashmap_projects_pupils);
-                                    obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;
-                                    cMain.v_update_Textarea_Status("Es wurde eine neue beste Lösung gefunden. ");
-
-                                    i_counter = 0;
-                                } else {
-                                    i_counter++;
-                                }
+                                i_counter = 0;
                             } else {
                                 i_counter++;
                             }
-                            if (i_counter == 15) {
-                                b_constant_people = true;
-                            }
-
+                        } else {
+                            i_counter++;
+                        }
+                        if (i_counter == 15) {
+                            b_constant_people = true;
                         }
 
-                        cMain.v_update_Textarea_Status("Es wurde die beste Lösung gefunden, Output erfolgt.");
-
-
-                        obj_Frame_Output.v_set_custom_Head(arr_list_value_Strings[2]);
-
-                        obj_Frame_Output.v_set_custom_Search(arr_list_value_Strings[2]);
-                        obj_Frame_Output.v_sort_setup();
-
-                        obj_Frame_Output.v_update_from_List_and_Database(obj_best_solution);
-
-
-                        c_Output_File_Generator obj_File_Generator = new c_Output_File_Generator(obj_best_solution, objDatabaseManagerMain);
-                        obj_File_Generator.v_write_xls_Files(fileJAR.getParent() + "/Output-Ordner ( Excel-Dateien)");
-
-                    } else {
-                        cMain.v_update_Textarea_Status("Ein Schüler namens " + NameInvalidPerson + " aus Klasse  " + gradeInvalidPerson + "   hatte einen Wert auf Null, bitte ergänzen");
                     }
+
+                    cMain.v_update_Textarea_Status("Es wurde die beste Lösung gefunden, Output erfolgt.");
+
+/*
+                    obj_Frame_Output.v_set_custom_Head(arr_list_value_Strings[2]);
+
+                    obj_Frame_Output.v_set_custom_Search(arr_list_value_Strings[2]);
+                    obj_Frame_Output.v_sort_setup();
+
+                    obj_Frame_Output.v_update_from_List_and_Database(obj_best_solution);
+
+        */
+                    c_Output_File_Generator obj_File_Generator = new c_Output_File_Generator(obj_best_solution);
+                    obj_File_Generator.v_write_xls_Files(cImports.fileJAR.getParent() + "/Output-Ordner ( Excel-Dateien)");
+
+                } else {
+                    cMain.v_update_Textarea_Status("Ein Schüler namens " + NameInvalidPerson + " aus Klasse  " + gradeInvalidPerson + "   hatte einen Wert auf Null, bitte ergänzen");
                 }
+            }
 
-                @Override
-                public void mousePressed(MouseEvent e) {
+            @Override
+            public void mousePressed(MouseEvent e) {
 
-                }
+            }
 
-                @Override
-                public void mouseReleased(MouseEvent e) {
+            @Override
+            public void mouseReleased(MouseEvent e) {
 
-                }
+            }
 
-                @Override
-                public void mouseEntered(MouseEvent e) {
+            @Override
+            public void mouseEntered(MouseEvent e) {
 
-                }
+            }
 
-                @Override
-                public void mouseExited(MouseEvent e) {
+            @Override
+            public void mouseExited(MouseEvent e) {
 
-                }
-            });
-
-        }
+            }
+        });
 
     }
+
+
 }

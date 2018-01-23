@@ -1,4 +1,12 @@
-package Version_1_Java.Frame_Related;
+package Version_1_Java.GrafikElemente;
+
+/**
+ * Created by Aaron on 22.01.2018.
+ */
+public class Zwischenablage {
+}
+/*
+package Version_1_Java.GrafikElemente;
 
 import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
@@ -28,8 +36,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zur Datenbank etc
 
- */
-public class c_Frame extends JFrame {
+
+public class cAbstraktesFrame extends JFrame {
 
     private JTextField[] arr_Search_Input;
     private JTextField[] arrSearchMenue;
@@ -45,16 +53,13 @@ public class c_Frame extends JFrame {
 
     private CopyOnWriteArrayList<String> list_Column_Names;
 
-    final int i_width_gobal = 120;
+    final int spaltenBreiteglobal = 120;
     final int yCoordinateListEntrys = 260;
 
 
 
 
-    /*
 
-    Schon neu
-     */
 
     CopyOnWriteArrayList<cRowEntries> listRows = new CopyOnWriteArrayList<>();
 
@@ -62,21 +67,17 @@ public class c_Frame extends JFrame {
     public String s_Main_Table;
 
 
-    public c_Frame(String s_Table_tm, cDatabaseConnectionManager obj_Database_Manager_tm, CopyOnWriteArrayList<String> list_Columns) {
-
+    public cAbstraktesFrame(String s_Table_tm, CopyOnWriteArrayList<String> list_Columns, String strFenstername) {
+        super(strFenstername);
         this.list_Column_Names = list_Columns;
-
-        this.objDatabaseManager_Input = obj_Database_Manager_tm;
         this.s_Main_Table = s_Table_tm;
         this.getContentPane().setLayout(null);
-
-
     }
 
-    public void v_show_Frame(int i_X, int k_Y) {
+    public void v_show_Frame(int i_X, int k_Y, int dx, int dy) {
 
         this.setVisible(true);
-        this.setBounds(i_X, k_Y, 1000, 1000);
+        this.setBounds(i_X, k_Y, dx, dy);
     }
 
 
@@ -87,14 +88,14 @@ public class c_Frame extends JFrame {
         for (int i = 0; i < arrCreateEntryFields.length; i++) {
             arrCreateEntryFields[i] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[i]);
-            arrCreateEntryFields[i].setBounds(i * i_width_gobal, yCoordinateListEntrys - 40, i_width_gobal, 20);
+            arrCreateEntryFields[i].setBounds(i * spaltenBreiteglobal, yCoordinateListEntrys - 40, spaltenBreiteglobal, 20);
             arrCreateEntryFields[i].setVisible(true);
         }
         JTextField createEntryField;
 
         createEntryField = new JTextField(text);
         this.getContentPane().add(createEntryField);
-        createEntryField.setBounds(0, yCoordinateListEntrys - 60, i_width_gobal * 3, 20);
+        createEntryField.setBounds(0, yCoordinateListEntrys - 60, spaltenBreiteglobal * 3, 20);
         createEntryField.setVisible(true);
     }
 
@@ -107,7 +108,7 @@ public class c_Frame extends JFrame {
             arrColumHeadRow[i_x].setText(list_s_values.get(i_x));
             arrColumHeadRow[i_x].setVisible(true);
             this.getContentPane().add(arrColumHeadRow[i_x]);
-            arrColumHeadRow[i_x].setBounds(120 * i_x, 0, i_width_gobal, 20);
+            arrColumHeadRow[i_x].setBounds(120 * i_x, 0, spaltenBreiteglobal, 20);
 
         }
     }
@@ -124,7 +125,7 @@ public class c_Frame extends JFrame {
             arrSearchMenue[i].setBorder(new LineBorder(Color.RED, 1));
 
             this.getContentPane().add(arrSearchMenue[i]);
-            arrSearchMenue[i].setBounds(120 * i, 40, i_width_gobal, 20);
+            arrSearchMenue[i].setBounds(120 * i, 40, spaltenBreiteglobal, 20);
             arr_Search_Input[i] = new JTextField();
             arr_Search_Input[i].setText("");
 
@@ -142,7 +143,7 @@ public class c_Frame extends JFrame {
 
                 @Override
                 public void keyReleased(KeyEvent e) {
-                    v_search();
+                    suche();
                 }
             });
 
@@ -156,7 +157,7 @@ public class c_Frame extends JFrame {
         for (cRowEntries objList : listRows
                 ) {
             for (int i = 0; i < objList.fields.length; i++) {
-                objList.fields[i].addKeyListener(new cmodKeyListener_NON_ID(objDatabaseManager_Input, s_Main_Table, objList, list_Column_Names.get(i)));
+                objList.fields[i].addKeyListener(new cmodKeyListener_NON_ID( s_Main_Table, objList, list_Column_Names.get(i)));
             }
         }
 
@@ -190,10 +191,10 @@ public class c_Frame extends JFrame {
             setEntries = objDatabaseManager_Input.readEoAttr(this.s_Main_Table, "s_unique_ID");
             while (setEntries.next()) {
                 if (!setEntries.getString(1).equals("-1")) {
+
                     list_IDs.add(setEntries.getString(1));
                 }
             }
-
 
             int i = 0;
             for (String objList : list_IDs
@@ -202,7 +203,7 @@ public class c_Frame extends JFrame {
                 objLoop.v_setup(list_Column_Names.size(), this.getContentPane(), yCoordinateListEntrys + i * 20);
                 ResultSet setData = objDatabaseManager_Input.readEaAttr(this.s_Main_Table, objList);
                 setData.next();
-                if(this.s_Main_Table =="persons"){
+                if(this.s_Main_Table.equals("persons")){
                     for (int ini = 0; ini < objLoop.fields.length - 1; ini++) {
                         objLoop.v_setCellContent(ini, setData.getString(ini + 2));
                     }
@@ -230,11 +231,8 @@ public class c_Frame extends JFrame {
     }
 
 
-    public void v_search() {
+    public void suche() {
 
-        /*
-
-         */
 
         HashMap<Integer, String> mapValues = new HashMap<>();
 
@@ -291,7 +289,7 @@ public class c_Frame extends JFrame {
                     for (int j = 0; j < arr_sort_Buttons.length; j++) {
 
                         if (arr_sort_Buttons[j].equals(e.getSource())) {
-                            v_sort(arr_b_Sort_direction[j], j);
+                            ordnen(arr_b_Sort_direction[j], j);
                         }
                     }
 
@@ -329,7 +327,7 @@ public class c_Frame extends JFrame {
         this.getContentPane().add(btnEntryCreation);
         btnEntryCreation.setText("Erzeugen");
 
-        this.btnEntryCreation.setBounds(this.arrCreateEntryFields.length * i_width_gobal + 20, arrCreateEntryFields[0].getY(), i_width_gobal, 20);
+        this.btnEntryCreation.setBounds(this.arrCreateEntryFields.length * spaltenBreiteglobal + 20, arrCreateEntryFields[0].getY(), spaltenBreiteglobal, 20);
 
         btnEntryCreation.addMouseListener(new MouseListener() {
             @Override
@@ -340,7 +338,7 @@ public class c_Frame extends JFrame {
                         objDatabaseManager_Input.createEntry("projects",arrCreateEntryFields[0].getText());
 
                     } catch (SQLException e1) {
-                       e1.printStackTrace();
+                        e1.printStackTrace();
                     }
                     catch (NumberFormatException e1){
                         cMain.v_update_Textarea_Status("Buchstaben sind nicht erlaubt, Zahlen eintragen bitte");
@@ -391,7 +389,7 @@ public class c_Frame extends JFrame {
     }
 
 
-    public void v_sort(boolean b_direction_tm, int i_X_colum) {
+    public void ordnen(boolean b_direction_tm, int i_X_colum) {
 
 
         TreeMap<String, Integer> mapStringInteger = new TreeMap<>();
@@ -438,10 +436,10 @@ public class c_Frame extends JFrame {
         ResultSet set_personal_information= null;
 
         for (String  loopobj:objlist_main.keySet()
-             ) {
+                ) {
             for (String innerLoopObj:objlist_main.get(loopobj)
-                 ) {
-                cRowEntries objRow = new cRowEntries(this, objDatabaseManager_Input, i_width_gobal);
+                    ) {
+                cRowEntries objRow = new cRowEntries(this, spaltenBreiteglobal);
                 objRow.v_ShortSetup(5, this.getContentPane(), yCoordinateListEntrys + 20 * i);
                 try {
                     set_personal_information=objDatabaseManager_Input.readEaAttr("persons",innerLoopObj);
@@ -467,6 +465,8 @@ public class c_Frame extends JFrame {
         }
     }
 }
+
+*/
 
 
 

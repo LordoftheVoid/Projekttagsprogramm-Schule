@@ -1,4 +1,4 @@
-package Version_1_Java.Frame_Related;
+package Version_1_Java.GrafikElemente;
 
 import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 
@@ -18,16 +18,15 @@ Implementiert das Ändern trivaler Werte, beispielsweise Klassenstufe
  */
 class cmodKeyListener_NON_ID implements KeyListener {
 
-    private cDatabaseConnectionManager objDatabaseManager_keyListener;
-    private String s_table_Listener;
     cRowEntries objRow;
     String sTableColumRef;
+    private cDatabaseConnectionManager objDatabaseManager_keyListener;
+    private String s_table_Listener;
 
-    cmodKeyListener_NON_ID(cDatabaseConnectionManager objDatabasemanager_main, String table_source_tm, cRowEntries objSourceRow, String ColumRef) {
+    cmodKeyListener_NON_ID(String table_source_tm, cRowEntries objSourceRow, String ColumRef) {
         s_table_Listener = table_source_tm;
-        objDatabaseManager_keyListener = objDatabasemanager_main;
         objRow = objSourceRow;
-       sTableColumRef = ColumRef;
+        sTableColumRef = ColumRef;
 
     }
 
@@ -43,10 +42,7 @@ class cmodKeyListener_NON_ID implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-
         JTextField objSource = (JTextField) e.getSource();
-            objDatabaseManager_keyListener.updateEntry(s_table_Listener, objRow.suniqueRowID, sTableColumRef, objSource.getText());
-
-
+        //  cImports.objDatabaseManagerGlobal.updateEntry(s_table_Listener, objRow.suniqueRowID, sTableColumRef, objSource.getText());
     }
 }

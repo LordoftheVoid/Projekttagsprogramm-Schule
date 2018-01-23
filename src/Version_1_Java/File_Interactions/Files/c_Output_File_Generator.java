@@ -1,9 +1,9 @@
 package Version_1_Java.File_Interactions.Files;
 
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
 import Version_1_Java.File_Interactions.Directories.cDirectoryCreator;
 import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
+import Version_1_Java.cImports;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -23,12 +23,10 @@ public class c_Output_File_Generator {
 
 
     cHash_Map_ID_projects_to_List_ID_pupils obj_output_Map;
-    cDatabaseConnectionManager objDatabaseManager_Input;
 
 
-    public c_Output_File_Generator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm, cDatabaseConnectionManager obj_Database_Manager_Main) {
+    public c_Output_File_Generator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm) {
         obj_output_Map = argMap_tm;
-        objDatabaseManager_Input = obj_Database_Manager_Main;
 
     }
 
@@ -50,7 +48,7 @@ public class c_Output_File_Generator {
 
 
             try {
-                set_Ouput_Data = objDatabaseManager_Input.readOeaA("projects", "s_teacher_ID", s_loop_objekt);
+                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOeaA("projects", "s_teacher_ID", s_loop_objekt);
                 outputFilename = "Projekt von " + set_Ouput_Data.getString(1);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -70,13 +68,13 @@ public class c_Output_File_Generator {
                     try {
                         switch (k) {
                             case 0:
-                                set_Ouput_Data = objDatabaseManager_Input.readOeaA("persons", "s_sur_Name", obj_output_Map.get(s_loop_objekt).get(i));
+                                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOeaA("persons", "s_sur_Name", obj_output_Map.get(s_loop_objekt).get(i));
                                 break;
                             case 1:
-                                set_Ouput_Data = objDatabaseManager_Input.readOeaA("persons", "s_pre_Name", obj_output_Map.get(s_loop_objekt).get(i));
+                                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOeaA("persons", "s_pre_Name", obj_output_Map.get(s_loop_objekt).get(i));
                                 break;
                             case 2:
-                                set_Ouput_Data = objDatabaseManager_Input.readOeaA("persons", "s_grade", obj_output_Map.get(s_loop_objekt).get(i));
+                                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOeaA("persons", "s_grade", obj_output_Map.get(s_loop_objekt).get(i));
                                 break;
 
                         }

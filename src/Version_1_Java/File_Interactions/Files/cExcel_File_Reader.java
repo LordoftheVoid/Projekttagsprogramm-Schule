@@ -5,43 +5,24 @@ package Version_1_Java.File_Interactions.Files;
  */
 
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
+import Version_1_Java.cImports;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class cExcel_File_Reader {
 
-
-    public cExcel_File_Reader(cDatabaseConnectionManager obj_tm_DatabaseManager_Main) {
-        this.objDatabaseManager_Reader = obj_tm_DatabaseManager_Main;
-
-        try {
-            ResultSet   setGivenEntrys = objDatabaseManager_Reader.readEoAttr("persons","s_unique_ID");
-            while(setGivenEntrys.next()){
-              this.listEntryIDs.add(setGivenEntrys.getString(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     private ArrayList<String> listEntryIDs = new ArrayList();
 
-    private cDatabaseConnectionManager objDatabaseManager_Reader;
-
-    public CopyOnWriteArrayList<String> list_of_filenames_with_xls;
-
-    public int personsFound = 0;
+    public CopyOnWriteArrayList<String> dateiListe;
 
 
-    public CopyOnWriteArrayList<String> list_search_for_xls_Files(String s_tm_starting_directory) {
+     CopyOnWriteArrayList<String> suchDateiURLs(String s_tm_starting_directory) {
 
         File file_initial_file = new File(String.valueOf(s_tm_starting_directory));
 
@@ -52,7 +33,7 @@ public class cExcel_File_Reader {
         if (arr_files_in_subdirectory != null) {
             for (File fil : arr_files_in_subdirectory) {
                 if (fil.isDirectory()) {
-                    files_found_subdirectory.addAll(list_search_for_xls_Files(fil.getAbsolutePath()));
+                    files_found_subdirectory.addAll(suchDateiURLs(fil.getAbsolutePath()));
                 } else {
                     files_found_subdirectory.add(fil.getAbsolutePath());
                 }
@@ -66,17 +47,13 @@ public class cExcel_File_Reader {
             }
         }
 
-
-
-
         return files_found_subdirectory;
     }
 
 
 
 
-    public void readFile (String url){
-
+     void readFile (String url){
 
         HSSFWorkbook obj_data_file_xls = null;
 
@@ -85,7 +62,6 @@ public class cExcel_File_Reader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         ArrayList<Integer> listnewPersonYCoordinate = new ArrayList<>();
 
@@ -98,7 +74,6 @@ public class cExcel_File_Reader {
             }
             if(!listEntryIDs.contains(rowID)){
                 listnewPersonYCoordinate.add(i_x);
-                this.personsFound++;
             }
 
         }
@@ -112,21 +87,24 @@ public class cExcel_File_Reader {
                 }
             }
             try {
-                objDatabaseManager_Reader.createEntry("persons",rowID);
-                objDatabaseManager_Reader.updateEntry("persons", rowID, "s_pre_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(1).getStringCellValue());
-                objDatabaseManager_Reader.updateEntry("persons", rowID, "s_sur_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(0).getStringCellValue());
+                cImports.objDatabaseManagerGlobal.createEntry("persons",rowID);
+                cImports.objDatabaseManagerGlobal.updateEntry("persons", rowID, "s_pre_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(1).getStringCellValue());
+                cImports.objDatabaseManagerGlobal.updateEntry("persons", rowID, "s_sur_Name",obj_data_file_xls.getSheetAt(0).getRow(objList).getCell(0).getStringCellValue());
                 listEntryIDs.add(rowID);
             } catch (SQLException e) {
-                e.printStackTrace();
+
             }
         }
 
     }
 
-
-
-
-
+        public void updateDatenbank (String urlOrdner) throws NullPointerException {
+        this.dateiListe = suchDateiURLs(urlOrdner);
+            for (String eintrag:this.dateiListe
+                 ) {
+                this.readFile(eintrag);
+            }
+        }
 
 }
 
