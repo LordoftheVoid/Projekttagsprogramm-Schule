@@ -8,10 +8,10 @@ import NeuSortierung.Settings.DataBaseObjectTypes;
 
 
 
-public class cAusgabeFrame extends cAbstraktesFrame {
+public class OutputFrame extends AbstraktFrame {
 
 
-    public cAusgabeFrame(int spaltenAnzahl, String strFenstername) {
+    public OutputFrame(int spaltenAnzahl, String strFenstername) {
         super(spaltenAnzahl, strFenstername, DataBaseObjectTypes.LINK);
 
         this.spaltenNamen[0]= "Nachname";

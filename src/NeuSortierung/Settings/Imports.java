@@ -1,6 +1,6 @@
 package NeuSortierung.Settings;
 
-import NeuSortierung.DataBaseInteractions.CDatabaseInterface;
+import NeuSortierung.DataBaseInteractions.DatabaseInterface;
 import NeuSortierung.cMain;
 
 import java.io.File;
@@ -10,11 +10,11 @@ import java.util.ArrayList;
 /**
  * Created by Aaron on 22.01.2018.
  */
-public class cImports {
+public class Imports {
 
     public static final int iMaximalanzahl_Projekte = 4;
     public static ArrayList<Integer> projektNummernGlobal = new ArrayList<>();
-    public static CDatabaseInterface objDatabaseManagerGlobal;
+    public static DatabaseInterface objDatabaseManagerGlobal;
 
 
     public static File fileJAR;
@@ -27,7 +27,7 @@ public class cImports {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        objDatabaseManagerGlobal = new CDatabaseInterface();
+        objDatabaseManagerGlobal = new DatabaseInterface();
         objDatabaseManagerGlobal.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
     }
 

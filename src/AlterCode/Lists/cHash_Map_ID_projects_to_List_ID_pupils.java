@@ -1,7 +1,7 @@
 package AlterCode.Lists;
 
-import NeuSortierung.DataBaseInteractions.CDatabaseInterface;
-import NeuSortierung.Settings.cImports;
+import NeuSortierung.DataBaseInteractions.DatabaseInterface;
+import NeuSortierung.Settings.Imports;
 import NeuSortierung.cMain;
 
 import java.sql.ResultSet;
@@ -27,7 +27,7 @@ Aufbau erfolg nach Klick auf den Button, Ausgabe über Out-Put-Generator
 
 public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, ArrayList<String>> {
 
-    CDatabaseInterface obj_Databasemanager_list;
+    DatabaseInterface obj_Databasemanager_list;
 
 
     public int i_sum_of_preferences = 0;
@@ -82,7 +82,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
         }
 
 
-        for (int i_preference_counter = 0; i_preference_counter < cImports.iMaximalanzahl_Projekte; i_preference_counter++) {
+        for (int i_preference_counter = 0; i_preference_counter < Imports.iMaximalanzahl_Projekte; i_preference_counter++) {
 
             ArrayList<String> arrlist_ID_without_projects = new ArrayList<>();
 
@@ -130,7 +130,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
             list_ID_pupils.addAll(arrlist_ID_without_projects);
 
-            if (i_preference_counter < cImports.iMaximalanzahl_Projekte - 1) {
+            if (i_preference_counter < Imports.iMaximalanzahl_Projekte - 1) {
                 arrlist_ID_without_projects.clear();
             } else {
                 this.get("-1").addAll(arrlist_ID_without_projects);

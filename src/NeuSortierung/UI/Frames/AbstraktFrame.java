@@ -1,9 +1,9 @@
 package NeuSortierung.UI.Frames;
 
 import AlterCode.GrafikElemente.cRowEntries;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cDataBaseElement;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElement;
 import NeuSortierung.Settings.DataBaseObjectTypes;
-import NeuSortierung.UI.FrameRows.cBaseClassRow;
+import NeuSortierung.UI.FrameRows.BaseClassRow;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -30,7 +30,7 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 
 
 
-public abstract class cAbstraktesFrame extends JFrame {
+public abstract class AbstraktFrame extends JFrame {
 
 
     public final int spaltenBreiteglobal = 120;
@@ -39,7 +39,7 @@ public abstract class cAbstraktesFrame extends JFrame {
     JTextField[] arrCreateEntryFields;
     CopyOnWriteArrayList<cRowEntries> listRows = new CopyOnWriteArrayList<>();
     String[] spaltenNamen;
-    cDataBaseElement dataBaseRef;
+    DataBaseElement dataBaseRef;
     private JTextField[] suchFenster;
     private JTextField[] suchLabel;
     private JTextField[] anzeigeReihenname;
@@ -48,7 +48,7 @@ public abstract class cAbstraktesFrame extends JFrame {
     private JButton btnEintragserzeugung;
 
 
-    public cAbstraktesFrame(int spaltenAnzahl, String strFenstername, DataBaseObjectTypes type) {
+    public AbstraktFrame(int spaltenAnzahl, String strFenstername, DataBaseObjectTypes type) {
         super(strFenstername);
         this.getContentPane().setLayout(null);
 
@@ -92,15 +92,15 @@ public abstract class cAbstraktesFrame extends JFrame {
             sortierButtons[i_x].setText(" A ... Z");
             arr_b_Sort_direction[i_x] = true;
 
-            ArrayList<cDataBaseElement> listEntrys = cDataBaseElement.getallElements(type);
+            ArrayList<DataBaseElement> listEntrys = DataBaseElement.getallElements(type);
 
-            ArrayList<cBaseClassRow> listRows = new ArrayList<>();
+            ArrayList<BaseClassRow> listRows = new ArrayList<>();
 
 
             int i = 600;
-            for (cDataBaseElement elList : listEntrys
+            for (DataBaseElement elList : listEntrys
                     ) {
-                listRows.add(new cBaseClassRow(elList, this, i, spaltenBreiteglobal));
+                listRows.add(new BaseClassRow(elList, this, i, spaltenBreiteglobal));
                 i = i + 20;
             }
 
@@ -179,7 +179,7 @@ public abstract class cAbstraktesFrame extends JFrame {
 
     public void erstelleEinträge() {
 
-        ArrayList<cDataBaseElement> dataBaseEntrys = new ArrayList<>();
+        ArrayList<DataBaseElement> dataBaseEntrys = new ArrayList<>();
 
 
     }

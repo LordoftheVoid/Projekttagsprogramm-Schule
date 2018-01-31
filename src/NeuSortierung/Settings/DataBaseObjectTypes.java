@@ -7,9 +7,9 @@ import java.util.ArrayList;
  */
 public enum DataBaseObjectTypes {
 
-    PUPIL(cDataBaseLinks.pupilValues.size(), cDataBaseLinks.pupilTable, cDataBaseLinks.pupilValues),
-    PROJECT(cDataBaseLinks.projectValues.size(), cDataBaseLinks.projectTable, cDataBaseLinks.projectValues),
-    LINK(cDataBaseLinks.linkValues.size(), "", cDataBaseLinks.linkValues);
+    PUPIL(DataBaseLinks.pupilValues.size(), DataBaseLinks.pupilTable, DataBaseLinks.pupilValues),
+    PROJECT(DataBaseLinks.projectValues.size(), DataBaseLinks.projectTable, DataBaseLinks.projectValues),
+    LINK(DataBaseLinks.linkValues.size(), "", DataBaseLinks.linkValues);
 
     public int amountColumns;
     public String tableReference;

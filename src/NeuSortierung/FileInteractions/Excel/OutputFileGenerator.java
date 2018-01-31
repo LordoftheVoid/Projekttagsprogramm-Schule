@@ -1,9 +1,9 @@
 package NeuSortierung.FileInteractions.Excel;
 
 
-import NeuSortierung.FileInteractions.cDirectoryCreator;
+import NeuSortierung.FileInteractions.DirectoryCreator;
 import AlterCode.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
-import NeuSortierung.Settings.cImports;
+import NeuSortierung.Settings.Imports;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -19,13 +19,13 @@ import java.sql.SQLException;
 /**
  * Created by Aaron on 13.04.2017.
  */
-public class c_Output_File_Generator {
+public class OutputFileGenerator {
 
 
     cHash_Map_ID_projects_to_List_ID_pupils obj_output_Map;
 
 
-    public c_Output_File_Generator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm) {
+    public OutputFileGenerator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm) {
         obj_output_Map = argMap_tm;
 
     }
@@ -35,7 +35,7 @@ public class c_Output_File_Generator {
     public void v_write_xls_Files(String sTargetDirectory) {
         iAmountofUsages++;
 
-        cDirectoryCreator objDirectory_Creator = new cDirectoryCreator();
+        DirectoryCreator objDirectory_Creator = new DirectoryCreator();
 
         objDirectory_Creator.v_creation(sTargetDirectory, "Zuweisung_" + String.valueOf(iAmountofUsages));
 
@@ -48,7 +48,7 @@ public class c_Output_File_Generator {
 
 
             try {
-                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("projects", "s_teacher_ID", s_loop_objekt);
+                set_Ouput_Data = Imports.objDatabaseManagerGlobal.readOneEntryOneAtribute("projects", "s_teacher_ID", s_loop_objekt);
                 outputFilename = "Projekt von " + set_Ouput_Data.getString(1);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -68,13 +68,13 @@ public class c_Output_File_Generator {
                     try {
                         switch (k) {
                             case 0:
-                                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons", "s_sur_Name", obj_output_Map.get(s_loop_objekt).get(i));
+                                set_Ouput_Data = Imports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons", "s_sur_Name", obj_output_Map.get(s_loop_objekt).get(i));
                                 break;
                             case 1:
-                                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons", "s_pre_Name", obj_output_Map.get(s_loop_objekt).get(i));
+                                set_Ouput_Data = Imports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons", "s_pre_Name", obj_output_Map.get(s_loop_objekt).get(i));
                                 break;
                             case 2:
-                                set_Ouput_Data = cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons", "s_grade", obj_output_Map.get(s_loop_objekt).get(i));
+                                set_Ouput_Data = Imports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons", "s_grade", obj_output_Map.get(s_loop_objekt).get(i));
                                 break;
 
                         }

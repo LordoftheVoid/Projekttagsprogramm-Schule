@@ -1,17 +1,17 @@
 package NeuSortierung;
 
 import AlterCode.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cDataBaseElement;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cPupil;
-import NeuSortierung.FileInteractions.Excel.cExcel_Interface;
-import NeuSortierung.FileInteractions.Excel.c_Output_File_Generator;
-import NeuSortierung.FileInteractions.cDirectoryCreator;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElement;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.Pupil;
+import NeuSortierung.FileInteractions.Excel.ExcelInterface;
+import NeuSortierung.FileInteractions.Excel.OutputFileGenerator;
+import NeuSortierung.FileInteractions.DirectoryCreator;
 import NeuSortierung.Settings.DataBaseObjectTypes;
-import NeuSortierung.Settings.cDataBaseLinks;
-import NeuSortierung.Settings.cImports;
-import NeuSortierung.UI.Frames.cAbstraktesFrame;
-import NeuSortierung.UI.Frames.cProjektFrame;
-import NeuSortierung.UI.Frames.cSchuelerFrame;
+import NeuSortierung.Settings.Imports;
+import NeuSortierung.Settings.DataBaseLinks;
+import NeuSortierung.UI.Frames.AbstraktFrame;
+import NeuSortierung.UI.Frames.ProjectFrame;
+import NeuSortierung.UI.Frames.PupilFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -87,7 +87,7 @@ public class cMain {
         /*
         Hardcoded Colum-Names of the Database
          */
-        cDataBaseLinks.init();
+        DataBaseLinks.init();
 
 
         v_update_Textarea_Status("Hier werden in Zukunft wichtige Nachrichten auftauchen");
@@ -96,7 +96,7 @@ public class cMain {
                                             @Override
                                             public void mouseClicked(MouseEvent e) {
                                                 try {
-                                                    cImports.setupImport();
+                                                    Imports.setupImport();
                                                     erzeugedenRest.setEnabled(false);
                                                     erzeugedenRest.setVisible(false);
                                                     objFrameMain.getContentPane().remove(erzeugedenRest);
@@ -136,25 +136,25 @@ public class cMain {
 
     public static void v_generate_Interface() {
 
-        cDirectoryCreator objDirectoryManager = new cDirectoryCreator();
+        DirectoryCreator objDirectoryManager = new DirectoryCreator();
 
-        objDirectoryManager.v_creation(cImports.fileJAR.getParent(), "Datenbank-Ordner");
-        objDirectoryManager.v_creation(cImports.fileJAR.getParent(), "Excel-Datei-Ordner");
-        objDirectoryManager.v_creation(cImports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
-
-
-        cExcel_Interface obj_File_Reader_Excel = new cExcel_Interface();
-        obj_File_Reader_Excel.updateDatenbank(cImports.fileJAR.getParent() + "/Excel-Datei-Ordner");
-
-        cDataBaseElement Test1 = new cDataBaseElement(DataBaseObjectTypes.PUPIL, "DilLu");
+        objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Datenbank-Ordner");
+        objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Excel-Datei-Ordner");
+        objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
 
-        cAbstraktesFrame frameSchueler = new cSchuelerFrame(7, "Schueler-Anzeige-Fenster");
+        ExcelInterface obj_File_Reader_Excel = new ExcelInterface();
+        obj_File_Reader_Excel.updateDatenbank(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
-        cAbstraktesFrame frameProjekte = new cProjektFrame(3, "Projekte-Anzeige-Fenster");
+        DataBaseElement Test1 = new DataBaseElement(DataBaseObjectTypes.PUPIL, "DilLu");
 
 
-        ArrayList<cPupil> aktiveSchueler = cPupil.getFullListPupils();
+        AbstraktFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster");
+
+        AbstraktFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster");
+
+
+        ArrayList<Pupil> aktiveSchueler = Pupil.getFullListPupils();
 
 
         JButton btn_pupils_Frame = new JButton("Schüler-Eingabe-Feld");
@@ -173,7 +173,7 @@ public class cMain {
             public void mouseClicked(MouseEvent e) {
                 /*
                 obj_File_Reader_Excel.dateiListe.clear();
-                obj_File_Reader_Excel.dateiListe = obj_File_Reader_Excel.list_search_for_xls_Files(cImports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+                obj_File_Reader_Excel.dateiListe = obj_File_Reader_Excel.list_search_for_xls_Files(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
                 cMain.v_update_Textarea_Status("\n Es wurden " + obj_File_Reader_Excel.dateiListe.size() + " Excel-Dateien gefunden.");
 
@@ -289,7 +289,7 @@ public class cMain {
                 String NameInvalidPerson = "";
                 String gradeInvalidPerson = "";
                 try {
-                    ResultSet entrys_persons = cImports.objDatabaseManagerGlobal.readEntrysAllAttributes("persons");
+                    ResultSet entrys_persons = Imports.objDatabaseManagerGlobal.readEntrysAllAttributes("persons");
                     while (entrys_persons.next()) {
                         for (int i = 1; i < 8; i++) {
                             if (entrys_persons.getString(i) == null) {
@@ -363,8 +363,8 @@ public class cMain {
                     obj_Frame_Output.v_update_from_List_and_Database(obj_best_solution);
 
         */
-                    c_Output_File_Generator obj_File_Generator = new c_Output_File_Generator(obj_best_solution);
-                    obj_File_Generator.v_write_xls_Files(cImports.fileJAR.getParent() + "/Output-Ordner ( Excel-Dateien)");
+                    OutputFileGenerator obj_File_Generator = new OutputFileGenerator(obj_best_solution);
+                    obj_File_Generator.v_write_xls_Files(Imports.fileJAR.getParent() + "/Output-Ordner ( Excel-Dateien)");
 
                 } else {
                     cMain.v_update_Textarea_Status("Ein Schüler namens " + NameInvalidPerson + " aus Klasse  " + gradeInvalidPerson + "   hatte einen Wert auf Null, bitte ergänzen");

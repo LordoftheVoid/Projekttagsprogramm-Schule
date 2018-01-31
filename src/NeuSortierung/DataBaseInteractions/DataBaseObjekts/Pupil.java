@@ -1,6 +1,6 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
-import NeuSortierung.Settings.cImports;
+import NeuSortierung.Settings.Imports;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 
-public class cPupil {
+public class Pupil {
 
 
     int[] projektPräferenzen = new int[4];
@@ -28,12 +28,12 @@ public class cPupil {
 
 
 
-    public cPupil(String nachN, String vorN, String klasse) {
+    public Pupil(String nachN, String vorN, String klasse) {
         this.nachName = nachN;
         this.vorName= vorN;
         this.klassenStufe= klasse;
 
-        //this.setDatabaseColums(cDataBaseLinks.pupilValues);
+        //this.setDatabaseColums(DataBaseLinks.pupilValues);
 
         for (int i = 0; i < this.projektPräferenzen.length; i++) {
             projektPräferenzen[i] = -1;
@@ -41,14 +41,14 @@ public class cPupil {
 
     }
 
-    public static ArrayList<cPupil> getFullListPupils() {
-        ArrayList<cPupil> rueckgabeListe = new ArrayList<>();
+    public static ArrayList<Pupil> getFullListPupils() {
+        ArrayList<Pupil> rueckgabeListe = new ArrayList<>();
 
         ArrayList<String> schuelerHashs = new ArrayList<>();
 
         ResultSet schuelerInDatenbank;
         try {
-            schuelerInDatenbank=  cImports.objDatabaseManagerGlobal.readEntrysOneAttribut("persons","s_unique_ID");
+            schuelerInDatenbank=  Imports.objDatabaseManagerGlobal.readEntrysOneAttribut("persons","s_unique_ID");
             while (schuelerInDatenbank.next()){
                 schuelerHashs.add(schuelerInDatenbank.getString(1));
             }
@@ -61,15 +61,15 @@ public class cPupil {
         for (int i = 0; i < schuelerHashs.size(); i++) {
             ResultSet schuelerWert;
             try {
-                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_sur_Name",schuelerHashs.get(i));
+                schuelerWert=  Imports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_sur_Name",schuelerHashs.get(i));
                 while (schuelerWert.next()){
                     schuelerWerte[0][i]=schuelerWert.getString(1);
                 }
-                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_pre_Name",schuelerHashs.get(i));
+                schuelerWert=  Imports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_pre_Name",schuelerHashs.get(i));
                 while (schuelerWert.next()){
                     schuelerWerte[1][i]=schuelerWert.getString(1);
                 }
-                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_grade",schuelerHashs.get(i));
+                schuelerWert=  Imports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_grade",schuelerHashs.get(i));
                 while (schuelerWert.next()){
                     schuelerWerte[2][i]=schuelerWert.getString(1);
                 }
@@ -79,18 +79,18 @@ public class cPupil {
         }
 
         for (int i = 0; i < schuelerHashs.size(); i++) {
-            rueckgabeListe.add(new cPupil(schuelerWerte[0][i],schuelerWerte[1][i],schuelerWerte[2][i]));
+            rueckgabeListe.add(new Pupil(schuelerWerte[0][i],schuelerWerte[1][i],schuelerWerte[2][i]));
         }
 
         return rueckgabeListe;
     }
 
 
-    public static void updateSchueler(CopyOnWriteArrayList<cPupil> schuelerListe){
+    public static void updateSchueler(CopyOnWriteArrayList<Pupil> schuelerListe){
 
         int i=0;
         try{
-            for (cPupil listenElement:schuelerListe
+            for (Pupil listenElement:schuelerListe
                  ) {
                 listenElement.setHash();
                 i++;
@@ -104,7 +104,7 @@ public class cPupil {
 
         ResultSet schuelerInDatenbank;
         try {
-           schuelerInDatenbank=  cImports.objDatabaseManagerGlobal.readEntrysOneAttribut("persons","s_unique_ID");
+           schuelerInDatenbank=  Imports.objDatabaseManagerGlobal.readEntrysOneAttribut("persons","s_unique_ID");
             while (schuelerInDatenbank.next()){
             schuelerHashListe.add(schuelerInDatenbank.getString(1));
             }
@@ -112,7 +112,7 @@ public class cPupil {
             e.printStackTrace();
         }
 
-        for (cPupil listenEintrag:schuelerListe
+        for (Pupil listenEintrag:schuelerListe
              ) {
             if(schuelerHashListe.contains(listenEintrag.pseudoHash)){
                 schuelerListe.remove(listenEintrag);
@@ -120,13 +120,13 @@ public class cPupil {
         }
 
 
-        for (cPupil listenEintrag:schuelerListe
+        for (Pupil listenEintrag:schuelerListe
              ) {
             try {
-                cImports.objDatabaseManagerGlobal.createEntry("persons",listenEintrag.pseudoHash);
-                cImports.objDatabaseManagerGlobal.updateEntry("persons",listenEintrag.pseudoHash,"s_sur_Name",listenEintrag.nachName);
-                cImports.objDatabaseManagerGlobal.updateEntry("persons",listenEintrag.pseudoHash,"s_pre_Name",listenEintrag.vorName);
-                cImports.objDatabaseManagerGlobal.updateEntry("persons",listenEintrag.pseudoHash,"s_grade",listenEintrag.klassenStufe);
+                Imports.objDatabaseManagerGlobal.createEntry("persons",listenEintrag.pseudoHash);
+                Imports.objDatabaseManagerGlobal.updateEntry("persons",listenEintrag.pseudoHash,"s_sur_Name",listenEintrag.nachName);
+                Imports.objDatabaseManagerGlobal.updateEntry("persons",listenEintrag.pseudoHash,"s_pre_Name",listenEintrag.vorName);
+                Imports.objDatabaseManagerGlobal.updateEntry("persons",listenEintrag.pseudoHash,"s_grade",listenEintrag.klassenStufe);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -152,7 +152,7 @@ public class cPupil {
             throw new NullPointerException("Projekt existiert nicht");
         }
 
-        if (!cImports.projektNummernGlobal.contains(neuerWert)) {
+        if (!Imports.projektNummernGlobal.contains(neuerWert)) {
             throw new NullPointerException("Projekt existiert nicht");
         }
 

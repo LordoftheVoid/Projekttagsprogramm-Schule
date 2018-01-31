@@ -14,7 +14,7 @@ import java.sql.*;
 Klasse, um conDatabase zu realisieren
 
  */
-public class CDatabaseInterface {
+public class DatabaseInterface {
 
     boolean b_connection_running = false;
     private Connection conDatabase;

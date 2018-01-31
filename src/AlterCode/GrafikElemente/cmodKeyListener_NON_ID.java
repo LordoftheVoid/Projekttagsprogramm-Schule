@@ -1,6 +1,6 @@
 package AlterCode.GrafikElemente;
 
-import NeuSortierung.DataBaseInteractions.CDatabaseInterface;
+import NeuSortierung.DataBaseInteractions.DatabaseInterface;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -20,7 +20,7 @@ class cmodKeyListener_NON_ID implements KeyListener {
 
     cRowEntries objRow;
     String sTableColumRef;
-    private CDatabaseInterface objDatabaseManager_keyListener;
+    private DatabaseInterface objDatabaseManager_keyListener;
     private String s_table_Listener;
 
     cmodKeyListener_NON_ID(String table_source_tm, cRowEntries objSourceRow, String ColumRef) {
@@ -43,6 +43,6 @@ class cmodKeyListener_NON_ID implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         JTextField objSource = (JTextField) e.getSource();
-        //  cImports.objDatabaseManagerGlobal.updateEntry(s_table_Listener, objRow.suniqueRowID, sTableColumRef, objSource.getText());
+        //  Imports.objDatabaseManagerGlobal.updateEntry(s_table_Listener, objRow.suniqueRowID, sTableColumRef, objSource.getText());
     }
 }

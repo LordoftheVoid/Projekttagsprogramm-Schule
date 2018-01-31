@@ -1,6 +1,6 @@
 package NeuSortierung.UI.Frames;
 
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cPupil;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.Pupil;
 import NeuSortierung.Settings.DataBaseObjectTypes;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by Aaron on 22.01.2018.
  */
-public class cSchuelerFrame extends cAbstraktesFrame {
+public class PupilFrame extends AbstraktFrame {
 
 
 /*
@@ -34,7 +34,7 @@ public class cSchuelerFrame extends cAbstraktesFrame {
 
 
 
-    public cSchuelerFrame (int spaltenAnzahl, String fensterName){
+    public PupilFrame(int spaltenAnzahl, String fensterName){
         super(spaltenAnzahl,fensterName, DataBaseObjectTypes.PUPIL);
 
         this.spaltenNamen[0]="Nachname";
@@ -54,12 +54,12 @@ public class cSchuelerFrame extends cAbstraktesFrame {
     @Override
     public void erstelleEinträge(){
 
-        ArrayList<cPupil> listEinträge = new ArrayList<>();
+        ArrayList<Pupil> listEinträge = new ArrayList<>();
 
-        listEinträge = cPupil.getFullListPupils();
+        listEinträge = Pupil.getFullListPupils();
 
 
-        for (cPupil listenElement:listEinträge
+        for (Pupil listenElement:listEinträge
              ) {
 
         }

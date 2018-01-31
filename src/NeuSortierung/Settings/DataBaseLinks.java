@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Aaron on 31.01.2018.
  */
-public class cDataBaseLinks {
+public class DataBaseLinks {
 
 
     public static  ArrayList <String> pupilValues= new ArrayList<>();

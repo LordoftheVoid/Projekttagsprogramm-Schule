@@ -5,7 +5,7 @@ package NeuSortierung.FileInteractions.Excel;
  */
 
 
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cPupil;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.Pupil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
@@ -14,10 +14,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class cExcel_Interface extends Thread {
+public class ExcelInterface extends Thread {
 
     public CopyOnWriteArrayList<String> dateiListe;
-    CopyOnWriteArrayList<cPupil> schuelerListe = new CopyOnWriteArrayList();
+    CopyOnWriteArrayList<Pupil> schuelerListe = new CopyOnWriteArrayList();
 
     String urlOrdner = "";
 
@@ -72,7 +72,7 @@ public class cExcel_Interface extends Thread {
                 e.printStackTrace();
             }
         }
-        cPupil.updateSchueler(schuelerListe);
+        Pupil.updateSchueler(schuelerListe);
     }
 
 
@@ -117,7 +117,7 @@ public class cExcel_Interface extends Thread {
                 gelesenerVorname = datei.getSheetAt(0).getRow(i_x).getCell(1).getStringCellValue();
 
                 if(!gelesenerNachname.toLowerCase().equals("nachname")) {
-                    schuelerListe.add(new cPupil(gelesenerNachname, gelesenerVorname, stufe));
+                    schuelerListe.add(new Pupil(gelesenerNachname, gelesenerVorname, stufe));
                 }
             }
         }

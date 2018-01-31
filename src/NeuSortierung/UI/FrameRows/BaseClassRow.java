@@ -1,17 +1,17 @@
 package NeuSortierung.UI.FrameRows;
 
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cDataBaseElement;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElement;
 
 import javax.swing.*;
 
 /**
  * Created by Aaron on 31.01.2018.
  */
-public class cBaseClassRow {
+public class BaseClassRow {
 
     JTextField arrFields[];
-    
-    public cBaseClassRow(cDataBaseElement dataBaseEntry, JFrame frame, int yKoordinate, int spaltenbreite) {
+
+    public BaseClassRow(DataBaseElement dataBaseEntry, JFrame frame, int yKoordinate, int spaltenbreite) {
         this.arrFields = new JTextField[dataBaseEntry.amountofColums];
         System.out.println(dataBaseEntry.amountofColums);
         for (int i = 0; i < dataBaseEntry.amountofColums; i++) {
@@ -26,7 +26,6 @@ public class cBaseClassRow {
 
 
     }
-
 
     public void setYKoordinates(int newYValue) {
         for (int i = 0; i < arrFields.length; i++) {

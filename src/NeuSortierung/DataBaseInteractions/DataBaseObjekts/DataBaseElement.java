@@ -1,19 +1,19 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
 import NeuSortierung.Settings.DataBaseObjectTypes;
-import NeuSortierung.Settings.cImports;
+import NeuSortierung.Settings.Imports;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static NeuSortierung.Settings.cImports.objDatabaseManagerGlobal;
+import static NeuSortierung.Settings.Imports.objDatabaseManagerGlobal;
 
 /**
  * Created by Aaron on 31.01.2018.
  */
-public  class cDataBaseElement {
+public  class DataBaseElement {
 
     public int amountofColums;
 
@@ -21,7 +21,7 @@ public  class cDataBaseElement {
 
     public String[] values;
 
-    public cDataBaseElement(DataBaseObjectTypes type, String id) {
+    public DataBaseElement(DataBaseObjectTypes type, String id) {
         this.amountofColums = type.amountColumns;
         this.values = new String[type.amountColumns];
         for (int i = 0; i < this.values.length; i++) {
@@ -41,13 +41,13 @@ public  class cDataBaseElement {
         }
     }
 
-    public static ArrayList<cDataBaseElement> getallElements(DataBaseObjectTypes type){
-        ArrayList<cDataBaseElement> rueckgabe = new ArrayList<>();
+    public static ArrayList<DataBaseElement> getallElements(DataBaseObjectTypes type){
+        ArrayList<DataBaseElement> rueckgabe = new ArrayList<>();
         ArrayList<String> idList = new ArrayList<>();
 
         ResultSet dataBaseEntryId;
         try {
-            dataBaseEntryId=  cImports.objDatabaseManagerGlobal.readEntrysOneAttribut(type.tableReference,type.columReference.get(0));
+            dataBaseEntryId=  Imports.objDatabaseManagerGlobal.readEntrysOneAttribut(type.tableReference,type.columReference.get(0));
             while (dataBaseEntryId.next()){
                 idList.add(dataBaseEntryId.getString(1));
             }
@@ -57,7 +57,7 @@ public  class cDataBaseElement {
 
 
         for (String listEntry : idList) {
-            rueckgabe.add(new cDataBaseElement(type,listEntry));
+            rueckgabe.add(new DataBaseElement(type,listEntry));
         }
 
         return rueckgabe;
