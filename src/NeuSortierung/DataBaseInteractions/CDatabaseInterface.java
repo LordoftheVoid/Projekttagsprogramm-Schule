@@ -43,7 +43,7 @@ public class CDatabaseInterface {
     }
 
 
-    public ResultSet readEoAttr(String sTable_tm, String sColum_tm) throws SQLException {
+    public ResultSet readEntrysOneAttribut(String sTable_tm, String sColum_tm) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm);
         return extract_entrys.executeQuery();
 
@@ -57,13 +57,13 @@ public class CDatabaseInterface {
     }
 
 
-    public ResultSet readEaAttr(String sTable_tm, String unique_id) throws SQLException {
+    public ResultSet readEntryallAttributes(String sTable_tm, String unique_id) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT * FROM " + sTable_tm + " WHERE s_unique_ID = ?");
         extract_entrys.setString(1, unique_id);
         return extract_entrys.executeQuery();
     }
 
-    public ResultSet readOneEntryAllAtributes(String sTable_tm, String sColum_tm, String unique_id) throws SQLException {
+    public ResultSet readOneEntryOneAtribute(String sTable_tm, String sColum_tm, String unique_id) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm + " WHERE s_unique_ID = ?");
         extract_entrys.setString(1, unique_id);
         return extract_entrys.executeQuery();

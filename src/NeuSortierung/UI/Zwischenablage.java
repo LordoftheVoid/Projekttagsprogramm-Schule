@@ -201,7 +201,7 @@ public class cAbstraktesFrame extends JFrame {
                     ) {
                 cRowEntries objLoop = new cRowEntries(this, objList);
                 objLoop.v_setup(list_Column_Names.size(), this.getContentPane(), yCoordinateListEntrys + i * 20);
-                ResultSet setData = objDatabaseManager_Input.readEaAttr(this.s_Main_Table, objList);
+                ResultSet setData = objDatabaseManager_Input.readEntryallAttributes(this.s_Main_Table, objList);
                 setData.next();
                 if(this.s_Main_Table.equals("persons")){
                     for (int ini = 0; ini < objLoop.fields.length - 1; ini++) {
@@ -442,7 +442,7 @@ public class cAbstraktesFrame extends JFrame {
                 cRowEntries objRow = new cRowEntries(this, spaltenBreiteglobal);
                 objRow.v_ShortSetup(5, this.getContentPane(), yCoordinateListEntrys + 20 * i);
                 try {
-                    set_personal_information=objDatabaseManager_Input.readEaAttr("persons",innerLoopObj);
+                    set_personal_information=objDatabaseManager_Input.readEntryallAttributes("persons",innerLoopObj);
                     set_personal_information.next();
                     objRow.v_setCellContent(0,set_personal_information.getString(2));
                     objRow.v_setCellContent(1,set_personal_information.getString(3));
@@ -452,7 +452,7 @@ public class cAbstraktesFrame extends JFrame {
                             objRow.v_setCellContent(4,String.valueOf(j));
                         }
                     }
-                    set_personal_information=objDatabaseManager_Input.readEaAttr("projects",loopobj);
+                    set_personal_information=objDatabaseManager_Input.readEntryallAttributes("projects",loopobj);
                     set_personal_information.next();
                     objRow.v_setCellContent(3,set_personal_information.getString(2));
                 } catch (SQLException e) {

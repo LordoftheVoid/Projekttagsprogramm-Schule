@@ -2,6 +2,8 @@ package NeuSortierung.UI.Frames;
 
 import AlterCode.GrafikElemente.cRowEntries;
 import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cDataBaseElement;
+import NeuSortierung.Settings.DataBaseObjectTypes;
+import NeuSortierung.UI.FrameRows.cBaseClassRow;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -37,6 +39,7 @@ public abstract class cAbstraktesFrame extends JFrame {
     JTextField[] arrCreateEntryFields;
     CopyOnWriteArrayList<cRowEntries> listRows = new CopyOnWriteArrayList<>();
     String[] spaltenNamen;
+    cDataBaseElement dataBaseRef;
     private JTextField[] suchFenster;
     private JTextField[] suchLabel;
     private JTextField[] anzeigeReihenname;
@@ -44,11 +47,8 @@ public abstract class cAbstraktesFrame extends JFrame {
     private boolean[] arr_b_Sort_direction;
     private JButton btnEintragserzeugung;
 
-    cDataBaseElement dataBaseRef;
 
-
-
-    public cAbstraktesFrame(int spaltenAnzahl, String strFenstername) {
+    public cAbstraktesFrame(int spaltenAnzahl, String strFenstername, DataBaseObjectTypes type) {
         super(strFenstername);
         this.getContentPane().setLayout(null);
 
@@ -84,14 +84,25 @@ public abstract class cAbstraktesFrame extends JFrame {
             suchFenster[i_x].setText("");
 
 
-
             sortierButtons[i_x] = new JButton();
             this.getContentPane().add(sortierButtons[i_x]);
-            sortierButtons[i_x].setBounds(spaltenBreiteglobal* i_x, suchFenster[i_x].getY() + 100, 120, 50);
+            sortierButtons[i_x].setBounds(spaltenBreiteglobal * i_x, suchFenster[i_x].getY() + 100, 120, 50);
             sortierButtons[i_x].setBorder(new LineBorder(Color.RED, 1));
             sortierButtons[i_x].setVisible(true);
             sortierButtons[i_x].setText(" A ... Z");
             arr_b_Sort_direction[i_x] = true;
+
+            ArrayList<cDataBaseElement> listEntrys = cDataBaseElement.getallElements(type);
+
+            ArrayList<cBaseClassRow> listRows = new ArrayList<>();
+
+
+            int i = 600;
+            for (cDataBaseElement elList : listEntrys
+                    ) {
+                listRows.add(new cBaseClassRow(elList, this, i, spaltenBreiteglobal));
+                i = i + 20;
+            }
 
 
             this.getContentPane().add(suchFenster[i_x]);
@@ -166,7 +177,7 @@ public abstract class cAbstraktesFrame extends JFrame {
         }
     }
 
-    public void erstelleEinträge (){
+    public void erstelleEinträge() {
 
         ArrayList<cDataBaseElement> dataBaseEntrys = new ArrayList<>();
 
@@ -319,7 +330,7 @@ public abstract class cAbstraktesFrame extends JFrame {
         CopyOnWriteArrayList<String> list_IDs = new CopyOnWriteArrayList<>();
 
         try {
-            setEntries = objDatabaseManager_Input.readEoAttr(this.s_Main_Table, "s_unique_ID");
+            setEntries = objDatabaseManager_Input.readEntrysOneAttribut(this.s_Main_Table, "s_unique_ID");
             while (setEntries.next()) {
                     if (!setEntries.getString(1).equals("-1")) {
 
@@ -332,7 +343,7 @@ public abstract class cAbstraktesFrame extends JFrame {
                     ) {
                 cRowEntries objLoop = new cRowEntries(this, objList);
                 objLoop.v_setup(list_Column_Names.size(), this.getContentPane(), yCoordinateListEntrys + i * 20);
-                ResultSet setData = objDatabaseManager_Input.readEaAttr(this.s_Main_Table, objList);
+                ResultSet setData = objDatabaseManager_Input.readEntryallAttributes(this.s_Main_Table, objList);
                 setData.next();
                 if(this.s_Main_Table.equals("persons")){
                     for (int ini = 0; ini < objLoop.fields.length - 1; ini++) {
@@ -452,7 +463,7 @@ public abstract class cAbstraktesFrame extends JFrame {
                 cRowEntries objRow = new cRowEntries(this, spaltenBreiteglobal);
                 objRow.v_ShortSetup(5, this.getContentPane(), yCoordinateListEntrys + 20 * i);
                 try {
-                    set_personal_information=objDatabaseManager_Input.readEaAttr("persons",innerLoopObj);
+                    set_personal_information=objDatabaseManager_Input.readEntryallAttributes("persons",innerLoopObj);
                     set_personal_information.next();
                     objRow.v_setCellContent(0,set_personal_information.getString(2));
                     objRow.v_setCellContent(1,set_personal_information.getString(3));
@@ -462,7 +473,7 @@ public abstract class cAbstraktesFrame extends JFrame {
                             objRow.v_setCellContent(4,String.valueOf(j));
                         }
                     }
-                    set_personal_information=objDatabaseManager_Input.readEaAttr("projects",loopobj);
+                    set_personal_information=objDatabaseManager_Input.readEntryallAttributes("projects",loopobj);
                     set_personal_information.next();
                     objRow.v_setCellContent(3,set_personal_information.getString(2));
                 } catch (SQLException e) {

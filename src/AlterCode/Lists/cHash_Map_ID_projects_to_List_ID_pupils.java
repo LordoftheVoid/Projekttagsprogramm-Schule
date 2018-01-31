@@ -39,7 +39,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
     public void v_setup_from_Database() {
         try {
-            ResultSet set_IDs_from_Database = obj_Databasemanager_list.readEoAttr("projects", "s_unique_ID");
+            ResultSet set_IDs_from_Database = obj_Databasemanager_list.readEntrysOneAttribut("projects", "s_unique_ID");
             while (set_IDs_from_Database.next()) {
                 this.put(set_IDs_from_Database.getString(1), new ArrayList<>());
             }
@@ -65,7 +65,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
         CopyOnWriteArrayList<String> list_ID_pupils = new CopyOnWriteArrayList<>();
 
         try {
-            ResultSet set_pupils_ID = obj_Databasemanager_list.readEoAttr("persons", "s_unique_ID");
+            ResultSet set_pupils_ID = obj_Databasemanager_list.readEntrysOneAttribut("persons", "s_unique_ID");
             while (set_pupils_ID.next()) {
                 list_ID_pupils.add(set_pupils_ID.getString(1));
             }
@@ -101,7 +101,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
                 String s_prefence_specific_pupil = "";
                 try {
-                    ResultSet set_prefence_specific_id = obj_Databasemanager_list.readOneEntryAllAtributes("persons", "i_pref" + String.valueOf(i_preference_counter), s_random_pupil_ID);
+                    ResultSet set_prefence_specific_id = obj_Databasemanager_list.readOneEntryOneAtribute("persons", "i_pref" + String.valueOf(i_preference_counter), s_random_pupil_ID);
                     s_prefence_specific_pupil = set_prefence_specific_id.getString(1);
                 } catch (SQLException e2) {
                     e2.printStackTrace();
@@ -109,7 +109,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
                 int i_max_amount_project = 0;
                 try {
-                    ResultSet set_amount_specific_id = obj_Databasemanager_list.readOneEntryAllAtributes("projects", "i_max_pupils", s_prefence_specific_pupil);
+                    ResultSet set_amount_specific_id = obj_Databasemanager_list.readOneEntryOneAtribute("projects", "i_max_pupils", s_prefence_specific_pupil);
                     i_max_amount_project = Integer.parseInt(set_amount_specific_id.getString(1));
                 } catch (SQLException e2) {
                     e2.printStackTrace();

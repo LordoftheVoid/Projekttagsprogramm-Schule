@@ -1,5 +1,7 @@
 package NeuSortierung.UI.Frames;
 
+import NeuSortierung.Settings.DataBaseObjectTypes;
+
 /**
  * Created by Aaron on 22.01.2018.
  */
@@ -10,8 +12,7 @@ public class cAusgabeFrame extends cAbstraktesFrame {
 
 
     public cAusgabeFrame(int spaltenAnzahl, String strFenstername) {
-        super(spaltenAnzahl, strFenstername);
-
+        super(spaltenAnzahl, strFenstername, DataBaseObjectTypes.LINK);
 
         this.spaltenNamen[0]= "Nachname";
         this.spaltenNamen[1]= "Vorname";

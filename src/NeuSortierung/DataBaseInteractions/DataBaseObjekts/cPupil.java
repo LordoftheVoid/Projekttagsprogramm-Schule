@@ -1,6 +1,5 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
-import NeuSortierung.Settings.cDataBaseLinks;
 import NeuSortierung.Settings.cImports;
 
 import java.sql.ResultSet;
@@ -14,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 
-public class cPupil extends cDataBaseElement {
+public class cPupil {
 
 
     int[] projektPräferenzen = new int[4];
@@ -30,12 +29,11 @@ public class cPupil extends cDataBaseElement {
 
 
     public cPupil(String nachN, String vorN, String klasse) {
-        super(8);
         this.nachName = nachN;
         this.vorName= vorN;
         this.klassenStufe= klasse;
 
-        this.setDatabaseColums(cDataBaseLinks.pupilValues);
+        //this.setDatabaseColums(cDataBaseLinks.pupilValues);
 
         for (int i = 0; i < this.projektPräferenzen.length; i++) {
             projektPräferenzen[i] = -1;
@@ -43,14 +41,14 @@ public class cPupil extends cDataBaseElement {
 
     }
 
-    public static ArrayList<cPupil> erfrageSchueler() {
+    public static ArrayList<cPupil> getFullListPupils() {
         ArrayList<cPupil> rueckgabeListe = new ArrayList<>();
 
         ArrayList<String> schuelerHashs = new ArrayList<>();
 
         ResultSet schuelerInDatenbank;
         try {
-            schuelerInDatenbank=  cImports.objDatabaseManagerGlobal.readEoAttr("persons","s_unique_ID");
+            schuelerInDatenbank=  cImports.objDatabaseManagerGlobal.readEntrysOneAttribut("persons","s_unique_ID");
             while (schuelerInDatenbank.next()){
                 schuelerHashs.add(schuelerInDatenbank.getString(1));
             }
@@ -63,15 +61,15 @@ public class cPupil extends cDataBaseElement {
         for (int i = 0; i < schuelerHashs.size(); i++) {
             ResultSet schuelerWert;
             try {
-                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryAllAtributes("persons","s_sur_Name",schuelerHashs.get(i));
+                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_sur_Name",schuelerHashs.get(i));
                 while (schuelerWert.next()){
                     schuelerWerte[0][i]=schuelerWert.getString(1);
                 }
-                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryAllAtributes("persons","s_pre_Name",schuelerHashs.get(i));
+                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_pre_Name",schuelerHashs.get(i));
                 while (schuelerWert.next()){
                     schuelerWerte[1][i]=schuelerWert.getString(1);
                 }
-                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryAllAtributes("persons","s_grade",schuelerHashs.get(i));
+                schuelerWert=  cImports.objDatabaseManagerGlobal.readOneEntryOneAtribute("persons","s_grade",schuelerHashs.get(i));
                 while (schuelerWert.next()){
                     schuelerWerte[2][i]=schuelerWert.getString(1);
                 }
@@ -106,10 +104,9 @@ public class cPupil extends cDataBaseElement {
 
         ResultSet schuelerInDatenbank;
         try {
-           schuelerInDatenbank=  cImports.objDatabaseManagerGlobal.readEoAttr("persons","s_unique_ID");
+           schuelerInDatenbank=  cImports.objDatabaseManagerGlobal.readEntrysOneAttribut("persons","s_unique_ID");
             while (schuelerInDatenbank.next()){
             schuelerHashListe.add(schuelerInDatenbank.getString(1));
-                System.out.println(schuelerInDatenbank.getString(1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -163,8 +160,5 @@ public class cPupil extends cDataBaseElement {
     }
 
 
-    @Override
-    public ArrayList<cDataBaseElement> getElements() {
-        return new ArrayList<>();
-    }
+
 }

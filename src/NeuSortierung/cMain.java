@@ -1,15 +1,17 @@
 package NeuSortierung;
 
-import NeuSortierung.FileInteractions.cDirectoryCreator;
+import AlterCode.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cDataBaseElement;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cPupil;
 import NeuSortierung.FileInteractions.Excel.cExcel_Interface;
 import NeuSortierung.FileInteractions.Excel.c_Output_File_Generator;
+import NeuSortierung.FileInteractions.cDirectoryCreator;
+import NeuSortierung.Settings.DataBaseObjectTypes;
 import NeuSortierung.Settings.cDataBaseLinks;
 import NeuSortierung.Settings.cImports;
 import NeuSortierung.UI.Frames.cAbstraktesFrame;
 import NeuSortierung.UI.Frames.cProjektFrame;
 import NeuSortierung.UI.Frames.cSchuelerFrame;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cPupil;
-import AlterCode.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -39,23 +41,8 @@ import java.util.ArrayList;
 public class cMain {
 
 
-    /*
-
-    Global Variables, including how many options any given person can choose.
-
-    This might change in future releases, but at this stage, it is set to 4;
-     */
-
     static JTextArea objTextareaStatus;
     static JFrame objFrameMain;
-
-
-
-    /*
-
-    Enables capturing the URL the programm was executed in, enables directory-based input
-    system-independent.
-     */
 
 
     /**
@@ -103,8 +90,6 @@ public class cMain {
         cDataBaseLinks.init();
 
 
-
-
         v_update_Textarea_Status("Hier werden in Zukunft wichtige Nachrichten auftauchen");
 
         erzeugedenRest.addMouseListener(new MouseListener() {
@@ -119,6 +104,7 @@ public class cMain {
 
                                                 } catch (NullPointerException e1) {
                                                     v_update_Textarea_Status("Hallo, Test drei ");
+                                                    e1.printStackTrace();
                                                 }
                                             }
 
@@ -157,13 +143,10 @@ public class cMain {
         objDirectoryManager.v_creation(cImports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
 
-
-
-
         cExcel_Interface obj_File_Reader_Excel = new cExcel_Interface();
         obj_File_Reader_Excel.updateDatenbank(cImports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
-
+        cDataBaseElement Test1 = new cDataBaseElement(DataBaseObjectTypes.PUPIL, "DilLu");
 
 
         cAbstraktesFrame frameSchueler = new cSchuelerFrame(7, "Schueler-Anzeige-Fenster");
@@ -171,7 +154,7 @@ public class cMain {
         cAbstraktesFrame frameProjekte = new cProjektFrame(3, "Projekte-Anzeige-Fenster");
 
 
-       ArrayList<cPupil> aktiveSchueler =  cPupil.erfrageSchueler();
+        ArrayList<cPupil> aktiveSchueler = cPupil.getFullListPupils();
 
 
         JButton btn_pupils_Frame = new JButton("Schüler-Eingabe-Feld");
@@ -261,7 +244,7 @@ public class cMain {
         btn_projekt_Frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                    frameProjekte.v_show_Frame(200, 200, 600, 1000);
+                frameProjekte.v_show_Frame(200, 200, 600, 1000);
 
             }
 

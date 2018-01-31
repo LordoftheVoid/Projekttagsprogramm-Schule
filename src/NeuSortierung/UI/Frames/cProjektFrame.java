@@ -1,5 +1,7 @@
 package NeuSortierung.UI.Frames;
 
+import NeuSortierung.Settings.DataBaseObjectTypes;
+
 /**
  * Created by Aaron on 22.01.2018.
  */
@@ -16,7 +18,7 @@ public class cProjektFrame extends cAbstraktesFrame {
 */
 
     public cProjektFrame(int spaltenanzahl, String name) {
-        super(spaltenanzahl, name);
+        super(spaltenanzahl, name, DataBaseObjectTypes.PROJECT);
 
         this.spaltenNamen[0] = "Projektnummer";
         this.spaltenNamen[1] = "Lehrkraftskürzel";

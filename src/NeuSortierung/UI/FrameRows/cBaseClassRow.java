@@ -9,18 +9,28 @@ import javax.swing.*;
  */
 public class cBaseClassRow {
 
-    JTextField arrFields [];
+    JTextField arrFields[];
+    
+    public cBaseClassRow(cDataBaseElement dataBaseEntry, JFrame frame, int yKoordinate, int spaltenbreite) {
+        this.arrFields = new JTextField[dataBaseEntry.amountofColums];
+        System.out.println(dataBaseEntry.amountofColums);
+        for (int i = 0; i < dataBaseEntry.amountofColums; i++) {
+            this.arrFields[i] = new JTextField();
+            this.arrFields[i].setText(dataBaseEntry.values[i]);
+        }
+        for (int i = 0; i < this.arrFields.length; i++) {
+            frame.getContentPane().add(this.arrFields[i]);
+            this.arrFields[i].setVisible(true);
+            this.arrFields[i].setBounds(spaltenbreite * i, yKoordinate, 120, 20);
+        }
 
-
-
-    public cBaseClassRow(cDataBaseElement baseElement){
 
     }
 
 
-    public void setYKoordinates( int newYValue){
+    public void setYKoordinates(int newYValue) {
         for (int i = 0; i < arrFields.length; i++) {
-            arrFields[i].setLocation(arrFields[i].getX(),newYValue);
+            arrFields[i].setLocation(arrFields[i].getX(), newYValue);
         }
 
     }
