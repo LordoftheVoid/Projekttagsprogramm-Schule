@@ -1,6 +1,7 @@
-package Version_1_Java.GrafikElemente.Frame_Implementationen;
+package NeuSortierung.UI.Frames;
 
-import Version_1_Java.GrafikElemente.cRowEntries;
+import AlterCode.GrafikElemente.cRowEntries;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cDataBaseElement;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -43,6 +44,9 @@ public abstract class cAbstraktesFrame extends JFrame {
     private boolean[] arr_b_Sort_direction;
     private JButton btnEintragserzeugung;
 
+    cDataBaseElement dataBaseRef;
+
+
 
     public cAbstraktesFrame(int spaltenAnzahl, String strFenstername) {
         super(strFenstername);
@@ -80,7 +84,6 @@ public abstract class cAbstraktesFrame extends JFrame {
             suchFenster[i_x].setText("");
 
 
-            System.out.println("Buttonerzeugung");
 
             sortierButtons[i_x] = new JButton();
             this.getContentPane().add(sortierButtons[i_x]);
@@ -161,6 +164,13 @@ public abstract class cAbstraktesFrame extends JFrame {
         for (int i = 0; i < this.anzeigeReihenname.length; i++) {
             this.anzeigeReihenname[i].setText(this.spaltenNamen[i]);
         }
+    }
+
+    public void erstelleEinträge (){
+
+        ArrayList<cDataBaseElement> dataBaseEntrys = new ArrayList<>();
+
+
     }
 
 

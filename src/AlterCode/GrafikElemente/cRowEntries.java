@@ -1,6 +1,6 @@
-package Version_1_Java.GrafikElemente;
+package AlterCode.GrafikElemente;
 
-import Version_1_Java.GrafikElemente.Frame_Implementationen.cAbstraktesFrame;
+import NeuSortierung.UI.Frames.cAbstraktesFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -101,7 +101,7 @@ public class cRowEntries {
 
 
     /**
-     * @param ivalue
+     *
      */
     public void v_setYCoordinate(int ivalue) {
         for (int i = 0; i < this.fields.length; i++) {

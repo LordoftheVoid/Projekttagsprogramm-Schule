@@ -1,6 +1,7 @@
-package Version_1_Java;
+package NeuSortierung.Settings;
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
+import NeuSortierung.DataBaseInteractions.CDatabaseInterface;
+import NeuSortierung.cMain;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -13,16 +14,10 @@ public class cImports {
 
     public static final int iMaximalanzahl_Projekte = 4;
     public static ArrayList<Integer> projektNummernGlobal = new ArrayList<>();
-    public static cDatabaseConnectionManager objDatabaseManagerGlobal;
+    public static CDatabaseInterface objDatabaseManagerGlobal;
 
 
-
-
-    static File fileJAR;
-
-
-
-
+    public static File fileJAR;
 
 
     public static void setupImport() throws NullPointerException {
@@ -32,7 +27,7 @@ public class cImports {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        objDatabaseManagerGlobal = new cDatabaseConnectionManager();
+        objDatabaseManagerGlobal = new CDatabaseInterface();
         objDatabaseManagerGlobal.v_initialization(s_generate_Database_URL(fileJAR.getParent()));
     }
 

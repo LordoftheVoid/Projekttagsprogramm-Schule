@@ -1,8 +1,8 @@
-package Version_1_Java.Lists;
+package AlterCode.Lists;
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
-import Version_1_Java.cImports;
-import Version_1_Java.cMain;
+import NeuSortierung.DataBaseInteractions.CDatabaseInterface;
+import NeuSortierung.Settings.cImports;
+import NeuSortierung.cMain;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +27,7 @@ Aufbau erfolg nach Klick auf den Button, Ausgabe über Out-Put-Generator
 
 public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, ArrayList<String>> {
 
-    cDatabaseConnectionManager obj_Databasemanager_list;
+    CDatabaseInterface obj_Databasemanager_list;
 
 
     public int i_sum_of_preferences = 0;
@@ -101,7 +101,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
                 String s_prefence_specific_pupil = "";
                 try {
-                    ResultSet set_prefence_specific_id = obj_Databasemanager_list.readOeaA("persons", "i_pref" + String.valueOf(i_preference_counter), s_random_pupil_ID);
+                    ResultSet set_prefence_specific_id = obj_Databasemanager_list.readOneEntryAllAtributes("persons", "i_pref" + String.valueOf(i_preference_counter), s_random_pupil_ID);
                     s_prefence_specific_pupil = set_prefence_specific_id.getString(1);
                 } catch (SQLException e2) {
                     e2.printStackTrace();
@@ -109,7 +109,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
 
                 int i_max_amount_project = 0;
                 try {
-                    ResultSet set_amount_specific_id = obj_Databasemanager_list.readOeaA("projects", "i_max_pupils", s_prefence_specific_pupil);
+                    ResultSet set_amount_specific_id = obj_Databasemanager_list.readOneEntryAllAtributes("projects", "i_max_pupils", s_prefence_specific_pupil);
                     i_max_amount_project = Integer.parseInt(set_amount_specific_id.getString(1));
                 } catch (SQLException e2) {
                     e2.printStackTrace();

@@ -1,6 +1,6 @@
-package Version_1_Java.File_Interactions.Database;
+package NeuSortierung.DataBaseInteractions;
 
-import Version_1_Java.cMain;
+import NeuSortierung.cMain;
 import org.sqlite.SQLiteConfig;
 
 import java.sql.*;
@@ -14,7 +14,7 @@ import java.sql.*;
 Klasse, um conDatabase zu realisieren
 
  */
-public class cDatabaseConnectionManager {
+public class CDatabaseInterface {
 
     boolean b_connection_running = false;
     private Connection conDatabase;
@@ -50,7 +50,7 @@ public class cDatabaseConnectionManager {
     }
 
 
-    public ResultSet readEsaAttr(String sTable_tm) throws SQLException {
+    public ResultSet readEntrysAllAttributes(String sTable_tm) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT * FROM " + sTable_tm);
         return extract_entrys.executeQuery();
 
@@ -63,7 +63,7 @@ public class cDatabaseConnectionManager {
         return extract_entrys.executeQuery();
     }
 
-    public ResultSet readOeaA(String sTable_tm, String sColum_tm, String unique_id) throws SQLException {
+    public ResultSet readOneEntryAllAtributes(String sTable_tm, String sColum_tm, String unique_id) throws SQLException {
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + sColum_tm + " FROM " + sTable_tm + " WHERE s_unique_ID = ?");
         extract_entrys.setString(1, unique_id);
         return extract_entrys.executeQuery();
@@ -92,7 +92,7 @@ public class cDatabaseConnectionManager {
     }
 
 
-    public int i_amout_of_entrys_in_Database(String sTable_tm) throws SQLException {
+    public int amout_of_entrys_in_Database(String sTable_tm) throws SQLException {
         if (this.b_connection_running) {
             PreparedStatement row_count = conDatabase.prepareStatement("SELECT COUNT(*) FROM " + sTable_tm);
             ResultSet number_of_rows = row_count.executeQuery();

@@ -1,11 +1,11 @@
-package Version_1_Java.File_Interactions.Directories;
+package NeuSortierung.FileInteractions;
 
 /**
  * Created by Aaron on 11.09.2017.
  */
 
 
-import Version_1_Java.cMain;
+import NeuSortierung.cMain;
 
 import java.io.File;
 

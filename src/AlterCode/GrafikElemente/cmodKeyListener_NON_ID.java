@@ -1,6 +1,6 @@
-package Version_1_Java.GrafikElemente;
+package AlterCode.GrafikElemente;
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
+import NeuSortierung.DataBaseInteractions.CDatabaseInterface;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -20,7 +20,7 @@ class cmodKeyListener_NON_ID implements KeyListener {
 
     cRowEntries objRow;
     String sTableColumRef;
-    private cDatabaseConnectionManager objDatabaseManager_keyListener;
+    private CDatabaseInterface objDatabaseManager_keyListener;
     private String s_table_Listener;
 
     cmodKeyListener_NON_ID(String table_source_tm, cRowEntries objSourceRow, String ColumRef) {

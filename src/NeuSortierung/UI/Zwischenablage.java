@@ -1,4 +1,4 @@
-package Version_1_Java.GrafikElemente;
+package NeuSortierung.UI;
 
 /**
  * Created by Aaron on 22.01.2018.
@@ -8,9 +8,9 @@ public class Zwischenablage {
 /*
 package Version_1_Java.GrafikElemente;
 
-import Version_1_Java.File_Interactions.Database.cDatabaseConnectionManager;
+import NeuSortierung.DataBaseInteractions.CDatabaseInterface;
 import Version_1_Java.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
-import Version_1_Java.cMain;
+import NeuSortierung.cMain;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -49,7 +49,7 @@ public class cAbstraktesFrame extends JFrame {
 
     public JTextField[] arrCreateEntryFields;
 
-    public cDatabaseConnectionManager objDatabaseManager_Input;
+    public CDatabaseInterface objDatabaseManager_Input;
 
     private CopyOnWriteArrayList<String> list_Column_Names;
 

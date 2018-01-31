@@ -1,4 +1,8 @@
-package Version_1_Java.GrafikElemente.Frame_Implementationen;
+package NeuSortierung.UI.Frames;
+
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.cPupil;
+
+import java.util.ArrayList;
 
 /**
  * Created by Aaron on 22.01.2018.
@@ -41,7 +45,29 @@ public class cSchuelerFrame extends cAbstraktesFrame {
         this.spaltenNamen[6]="Viertwahl";
 
         this.stelleTextdar();
+
+        this.erstelleEinträge();
+
     }
+
+    @Override
+    public void erstelleEinträge(){
+
+        ArrayList<cPupil> listEinträge = new ArrayList<>();
+
+        listEinträge = cPupil.erfrageSchueler();
+
+
+        for (cPupil listenElement:listEinträge
+             ) {
+
+        }
+
+
+
+    }
+
+
 
 
 
