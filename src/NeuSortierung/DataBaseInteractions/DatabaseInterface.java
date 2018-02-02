@@ -99,7 +99,7 @@ public class DatabaseInterface {
             number_of_rows.next();
             return number_of_rows.getInt(1);
         } else {
-            cMain.v_update_Textarea_Status("Es konnten keine Werte ausgelesen werden");
+            cMain.updateStatus("Es konnten keine Werte ausgelesen werden");
             return 0;
         }
 

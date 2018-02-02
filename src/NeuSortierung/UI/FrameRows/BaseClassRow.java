@@ -1,6 +1,6 @@
 package NeuSortierung.UI.FrameRows;
 
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElement;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElementInterFace;
 
 import javax.swing.*;
 
@@ -11,7 +11,7 @@ public class BaseClassRow {
 
     JTextField arrFields[];
 
-    public BaseClassRow(DataBaseElement dataBaseEntry, JFrame frame, int yKoordinate, int spaltenbreite) {
+    public BaseClassRow(DataBaseElementInterFace dataBaseEntry, JFrame frame, int yKoordinate, int spaltenbreite) {
         this.arrFields = new JTextField[dataBaseEntry.amountofColums];
         System.out.println(dataBaseEntry.amountofColums);
         for (int i = 0; i < dataBaseEntry.amountofColums; i++) {

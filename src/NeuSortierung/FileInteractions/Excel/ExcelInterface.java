@@ -51,7 +51,7 @@ public class ExcelInterface extends Thread {
     }
 
 
-    public void updateDatenbank(String urlOrdner) throws NullPointerException {
+    public void updateDataBase(String urlOrdner) throws NullPointerException {
         this.urlOrdner = urlOrdner;
         this.start();
     }

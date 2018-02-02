@@ -1,7 +1,7 @@
 package NeuSortierung.UI.Frames;
 
 import AlterCode.GrafikElemente.cRowEntries;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElement;
+import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElementInterFace;
 import NeuSortierung.Settings.DataBaseObjectTypes;
 import NeuSortierung.UI.FrameRows.BaseClassRow;
 
@@ -33,18 +33,18 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 public abstract class AbstraktFrame extends JFrame {
 
 
-    public final int spaltenBreiteglobal = 120;
+    public final int widthGlobal = 120;
     final int yCoordinateListEntrys = 260;
     public String s_Main_Table;
     JTextField[] arrCreateEntryFields;
     CopyOnWriteArrayList<cRowEntries> listRows = new CopyOnWriteArrayList<>();
     String[] spaltenNamen;
-    DataBaseElement dataBaseRef;
+    DataBaseElementInterFace dataBaseRef;
     private JTextField[] suchFenster;
     private JTextField[] suchLabel;
     private JTextField[] anzeigeReihenname;
     private JButton[] sortierButtons;
-    private boolean[] arr_b_Sort_direction;
+    private boolean[] sortdirections;
     private JButton btnEintragserzeugung;
 
 
@@ -57,20 +57,22 @@ public abstract class AbstraktFrame extends JFrame {
         suchLabel = new JTextField[spaltenAnzahl];
         suchFenster = new JTextField[spaltenAnzahl];
         sortierButtons = new JButton[spaltenAnzahl];
-        arr_b_Sort_direction = new boolean[spaltenAnzahl];
+        sortdirections = new boolean[spaltenAnzahl];
         spaltenNamen = new String[spaltenAnzahl];
+        JTextField  [] createEntryField = new JTextField[type.amountofCreationFields];
+        JButton createDataBaseEntry = new JButton("Neuen Eintrag erzeugen");
 
 
         for (int i_x = 0; i_x < spaltenAnzahl; i_x++) {
             anzeigeReihenname[i_x] = new JTextField();
             anzeigeReihenname[i_x].setVisible(true);
             this.getContentPane().add(anzeigeReihenname[i_x]);
-            anzeigeReihenname[i_x].setBounds(spaltenBreiteglobal * i_x, 0, spaltenBreiteglobal, 20);
+            anzeigeReihenname[i_x].setBounds(widthGlobal * i_x, 0, widthGlobal, 20);
 
 
             arrCreateEntryFields[i_x] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[i_x]);
-            arrCreateEntryFields[i_x].setBounds(i_x * spaltenBreiteglobal, yCoordinateListEntrys - 40, spaltenBreiteglobal, 20);
+            arrCreateEntryFields[i_x].setBounds(i_x * widthGlobal, yCoordinateListEntrys - 40, widthGlobal, 20);
             arrCreateEntryFields[i_x].setVisible(true);
 
 
@@ -79,34 +81,34 @@ public abstract class AbstraktFrame extends JFrame {
             suchLabel[i_x].setBorder(new LineBorder(Color.RED, 1));
 
             this.getContentPane().add(suchLabel[i_x]);
-            suchLabel[i_x].setBounds(spaltenBreiteglobal * i_x, 40, spaltenBreiteglobal, 20);
+            suchLabel[i_x].setBounds(widthGlobal * i_x, 40, widthGlobal, 20);
             suchFenster[i_x] = new JTextField();
             suchFenster[i_x].setText("");
 
 
             sortierButtons[i_x] = new JButton();
             this.getContentPane().add(sortierButtons[i_x]);
-            sortierButtons[i_x].setBounds(spaltenBreiteglobal * i_x, suchFenster[i_x].getY() + 100, 120, 50);
+            sortierButtons[i_x].setBounds(widthGlobal * i_x, suchFenster[i_x].getY() + 100, 120, 50);
             sortierButtons[i_x].setBorder(new LineBorder(Color.RED, 1));
             sortierButtons[i_x].setVisible(true);
             sortierButtons[i_x].setText(" A ... Z");
-            arr_b_Sort_direction[i_x] = true;
+            sortdirections[i_x] = true;
 
-            ArrayList<DataBaseElement> listEntrys = DataBaseElement.getallElements(type);
+            ArrayList<DataBaseElementInterFace> listEntrys = DataBaseElementInterFace.getallElements(type);
 
             ArrayList<BaseClassRow> listRows = new ArrayList<>();
 
 
             int i = 600;
-            for (DataBaseElement elList : listEntrys
+            for (DataBaseElementInterFace elList : listEntrys
                     ) {
-                listRows.add(new BaseClassRow(elList, this, i, spaltenBreiteglobal));
+                listRows.add(new BaseClassRow(elList, this, i, widthGlobal));
                 i = i + 20;
             }
 
 
             this.getContentPane().add(suchFenster[i_x]);
-            suchFenster[i_x].setBounds(spaltenBreiteglobal * i_x, 70, 120, 20);
+            suchFenster[i_x].setBounds(widthGlobal * i_x, 70, 120, 20);
             suchFenster[i_x].addKeyListener(new KeyListener() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -131,7 +133,7 @@ public abstract class AbstraktFrame extends JFrame {
                     for (int j = 0; j < sortierButtons.length; j++) {
 
                         if (sortierButtons[j].equals(e.getSource())) {
-                            ordnen(arr_b_Sort_direction[j], j);
+                            ordnen(sortdirections[j], j);
                         }
                     }
 
@@ -161,12 +163,45 @@ public abstract class AbstraktFrame extends JFrame {
         }
 
 
-        JTextField createEntryField;
+        for (int i = 0; i < createEntryField.length; i++) {
+            createEntryField [i]= new JTextField();
+            this.getContentPane().add(createEntryField[i]);
+            createEntryField[i].setBounds(this.widthGlobal *i, yCoordinateListEntrys - 60, widthGlobal, 20);
+            createEntryField[i].setVisible(true);
+        }
 
-        createEntryField = new JTextField();
-        this.getContentPane().add(createEntryField);
-        createEntryField.setBounds(0, yCoordinateListEntrys - 60, spaltenBreiteglobal * 3, 20);
-        createEntryField.setVisible(true);
+
+        createDataBaseEntry.setVisible(true);
+        this.getContentPane().add(createDataBaseEntry);
+        createDataBaseEntry.setBounds(createEntryField.length*this.widthGlobal,yCoordinateListEntrys-60, widthGlobal*2,20);
+
+        createDataBaseEntry.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
 
 
     }
@@ -179,7 +214,7 @@ public abstract class AbstraktFrame extends JFrame {
 
     public void erstelleEinträge() {
 
-        ArrayList<DataBaseElement> dataBaseEntrys = new ArrayList<>();
+        ArrayList<DataBaseElementInterFace> dataBaseEntrys = new ArrayList<>();
 
 
     }
@@ -256,8 +291,8 @@ public abstract class AbstraktFrame extends JFrame {
 
         }
 
-        arr_b_Sort_direction[i_X_colum] = !arr_b_Sort_direction[i_X_colum];
-        if (arr_b_Sort_direction[i_X_colum]) {
+        sortdirections[i_X_colum] = !sortdirections[i_X_colum];
+        if (sortdirections[i_X_colum]) {
             sortierButtons[i_X_colum].setText(" A ... Z");
         } else {
             sortierButtons[i_X_colum].setText("Z ... A");
@@ -274,21 +309,6 @@ public abstract class AbstraktFrame extends JFrame {
 
 
 /*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -361,7 +381,7 @@ public abstract class AbstraktFrame extends JFrame {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
+            cMain.updateStatus("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
         }
         this.getContentPane().repaint();
         this.getContentPane().revalidate();
@@ -388,7 +408,7 @@ public abstract class AbstraktFrame extends JFrame {
         this.getContentPane().add(btnEintragserzeugung);
         btnEintragserzeugung.setText("Erzeugen");
 
-        this.btnEintragserzeugung.setBounds(this.arrCreateEntryFields.length * spaltenBreiteglobal + 20, arrCreateEntryFields[0].getY(), spaltenBreiteglobal, 20);
+        this.btnEintragserzeugung.setBounds(this.arrCreateEntryFields.length * widthGlobal + 20, arrCreateEntryFields[0].getY(), widthGlobal, 20);
 
         btnEintragserzeugung.addMouseListener(new MouseListener() {
             @Override
@@ -402,7 +422,7 @@ public abstract class AbstraktFrame extends JFrame {
                        e1.printStackTrace();
                     }
                     catch (NumberFormatException e1){
-                        cMain.v_update_Textarea_Status("Buchstaben sind nicht erlaubt, Zahlen eintragen bitte");
+                        cMain.updateStatus("Buchstaben sind nicht erlaubt, Zahlen eintragen bitte");
                     }
                     arrCreateEntryFields[0].setText("");
                 } else {
@@ -460,7 +480,7 @@ public abstract class AbstraktFrame extends JFrame {
              ) {
             for (String innerLoopObj:objlist_main.get(loopobj)
                  ) {
-                cRowEntries objRow = new cRowEntries(this, spaltenBreiteglobal);
+                cRowEntries objRow = new cRowEntries(this, widthGlobal);
                 objRow.v_ShortSetup(5, this.getContentPane(), yCoordinateListEntrys + 20 * i);
                 try {
                     set_personal_information=objDatabaseManager_Input.readEntryallAttributes("persons",innerLoopObj);

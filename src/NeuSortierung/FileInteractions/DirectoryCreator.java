@@ -16,9 +16,9 @@ public class DirectoryCreator {
         File dir = new File(s_url_tm + "/" + s_name_tm);
         if (!dir.exists()) {
             dir.mkdir();
-            cMain.v_update_Textarea_Status("Die Ordner wurden angelegt, bitte mit Datein füllen");
+            cMain.updateStatus("Die Ordner wurden angelegt, bitte mit Datein füllen");
         } else {
-            cMain.v_update_Textarea_Status("Die Ordner existierten bereits, Daten werden gelesen");
+            cMain.updateStatus("Die Ordner existierten bereits, Daten werden gelesen");
         }
     }
 }

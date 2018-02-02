@@ -27,7 +27,7 @@ public class cRowEntries {
     public cRowEntries(AbstraktFrame objSource, String suniqueRowID) {
         this.sReferenceTable = objSource.s_Main_Table;
         this.suniqueRowID = suniqueRowID;
-        this.iglobalWidth = objSource.spaltenBreiteglobal;
+        this.iglobalWidth = objSource.widthGlobal;
         objTarget = objSource;
     }
 

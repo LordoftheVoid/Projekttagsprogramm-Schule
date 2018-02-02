@@ -1,14 +1,11 @@
 package NeuSortierung;
 
 import AlterCode.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElement;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.Pupil;
+import NeuSortierung.FileInteractions.DirectoryCreator;
 import NeuSortierung.FileInteractions.Excel.ExcelInterface;
 import NeuSortierung.FileInteractions.Excel.OutputFileGenerator;
-import NeuSortierung.FileInteractions.DirectoryCreator;
-import NeuSortierung.Settings.DataBaseObjectTypes;
-import NeuSortierung.Settings.Imports;
 import NeuSortierung.Settings.DataBaseLinks;
+import NeuSortierung.Settings.Imports;
 import NeuSortierung.UI.Frames.AbstraktFrame;
 import NeuSortierung.UI.Frames.ProjectFrame;
 import NeuSortierung.UI.Frames.PupilFrame;
@@ -20,28 +17,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 
 /**
  * Created by Aaron on 29.03.2017.
- * The Goal of this application ist to assign people to projects.
- * <p>
- * Both entities will be stored in a database, but unlinked.
- * <p>
- * Afterwards, a Hashmapfunction creates a unique Connection-Table.
- * This will be repeated until a given Hashmap is the "prefered one",
- * based on a range of parameters.
- * <p>
- * Afterwards, this solution is displayed and stored in Excel-Sheets for easy
- * export.
- * <p>
- * One way to store entities in the database is through a automatic function that reads Excel-files.
  */
 public class cMain {
 
 
-    static JTextArea objTextareaStatus;
+    static JTextArea statusDisplay;
     static JFrame objFrameMain;
 
 
@@ -49,17 +33,18 @@ public class cMain {
      * Updates the main display for interactions with a user,
      * examples might include "This is an invalid input", "Please change the following entry", etc.
      */
-    public static void v_update_Textarea_Status(String s_new_Line) {
-        if (objTextareaStatus.getText().length() > 2000) {
-            objTextareaStatus.setText("");
+    public static void updateStatus(String newLine) {
+        if (statusDisplay.getText().length() > 2000) {
+            statusDisplay.setText("");
         }
-        objTextareaStatus.setText(objTextareaStatus.getText() + "\n" + s_new_Line);
+        statusDisplay.setText(statusDisplay.getText() + "\n" + newLine);
     }
 
     public static void main(String args[]) {
         /**
          * Setup of the display shown to the user, mainly through JFrame.
          */
+
 
         //   System.out.println(System.getProperties());
 
@@ -71,70 +56,67 @@ public class cMain {
         objFrameMain.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
-        objTextareaStatus = new JTextArea();
-        objFrameMain.getContentPane().add(objTextareaStatus);
-        objTextareaStatus.setText("");
-        objTextareaStatus.setBounds(0, 450, 600, 1000);
-        objTextareaStatus.setBorder(new LineBorder(Color.black));
+        statusDisplay = new JTextArea();
+        objFrameMain.getContentPane().add(statusDisplay);
+        statusDisplay.setText("");
+        statusDisplay.setBounds(0, 450, 600, 1000);
+        statusDisplay.setBorder(new LineBorder(Color.black));
 
 
-        JButton erzeugedenRest = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
-        objFrameMain.getContentPane().add(erzeugedenRest);
-        erzeugedenRest.setVisible(true);
-        erzeugedenRest.setBounds(0, 0, 600, 450);
+        JButton btnCreateUI = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
+        objFrameMain.getContentPane().add(btnCreateUI);
+        btnCreateUI.setVisible(true);
+        btnCreateUI.setBounds(0, 0, 600, 450);
 
 
-        /*
-        Hardcoded Colum-Names of the Database
-         */
         DataBaseLinks.init();
 
 
-        v_update_Textarea_Status("Hier werden in Zukunft wichtige Nachrichten auftauchen");
+        updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
 
-        erzeugedenRest.addMouseListener(new MouseListener() {
-                                            @Override
-                                            public void mouseClicked(MouseEvent e) {
-                                                try {
-                                                    Imports.setupImport();
-                                                    erzeugedenRest.setEnabled(false);
-                                                    erzeugedenRest.setVisible(false);
-                                                    objFrameMain.getContentPane().remove(erzeugedenRest);
-                                                    v_generate_Interface();
+        btnCreateUI.addMouseListener(new MouseListener() {
+                                         @Override
+                                         public void mouseClicked(MouseEvent e) {
+                                             try {
+                                                 Imports.setupImport();
+                                                 btnCreateUI.setEnabled(false);
+                                                 btnCreateUI.setVisible(false);
+                                                 objFrameMain.getContentPane().remove(btnCreateUI);
+                                                 setupInteraktiveInterface();
 
-                                                } catch (NullPointerException e1) {
-                                                    v_update_Textarea_Status("Hallo, Test drei ");
-                                                    e1.printStackTrace();
-                                                }
-                                            }
+                                             } catch (NullPointerException e1) {
+                                                 updateStatus("Hallo, Test drei ");
+                                                 e1.printStackTrace();
+                                             }
+                                         }
 
-                                            @Override
-                                            public void mousePressed(MouseEvent e) {
+                                         @Override
+                                         public void mousePressed(MouseEvent e) {
 
-                                            }
+                                         }
 
-                                            @Override
-                                            public void mouseReleased(MouseEvent e) {
+                                         @Override
+                                         public void mouseReleased(MouseEvent e) {
 
-                                            }
+                                         }
 
-                                            @Override
-                                            public void mouseEntered(MouseEvent e) {
+                                         @Override
+                                         public void mouseEntered(MouseEvent e) {
 
-                                            }
+                                         }
 
-                                            @Override
-                                            public void mouseExited(MouseEvent e) {
+                                         @Override
+                                         public void mouseExited(MouseEvent e) {
 
-                                            }
-                                        }
+                                         }
+                                     }
         );
 
 
     }
 
 
-    public static void v_generate_Interface() {
+    public static void setupInteraktiveInterface() {
 
         DirectoryCreator objDirectoryManager = new DirectoryCreator();
 
@@ -143,47 +125,41 @@ public class cMain {
         objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
 
-        ExcelInterface obj_File_Reader_Excel = new ExcelInterface();
-        obj_File_Reader_Excel.updateDatenbank(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
-
-        DataBaseElement Test1 = new DataBaseElement(DataBaseObjectTypes.PUPIL, "DilLu");
-
+        ExcelInterface excelInterface = new ExcelInterface();
+        excelInterface.updateDataBase(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
         AbstraktFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster");
 
         AbstraktFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster");
 
 
-        ArrayList<Pupil> aktiveSchueler = Pupil.getFullListPupils();
+        JButton btnEnablePupilUI = new JButton("Schüler-Eingabe-Feld");
+        btnEnablePupilUI.setVisible(true);
+        btnEnablePupilUI.setBounds(0, 0, 300, 150);
+        objFrameMain.getContentPane().add(btnEnablePupilUI);
 
 
-        JButton btn_pupils_Frame = new JButton("Schüler-Eingabe-Feld");
-        btn_pupils_Frame.setVisible(true);
-        btn_pupils_Frame.setBounds(0, 0, 300, 150);
-        objFrameMain.getContentPane().add(btn_pupils_Frame);
+        JButton btnRereadFiles = new JButton("Hier klicken um neue Dateien einzulesen");
+        btnRereadFiles.setBounds(300, 0, 300, 150);
+        btnRereadFiles.setVisible(true);
+        objFrameMain.getContentPane().add(btnRereadFiles);
 
-
-        JButton btn_Read_Files = new JButton("Hier klicken um neue Dateien einzulesen");
-        btn_Read_Files.setBounds(300, 0, 300, 150);
-        btn_Read_Files.setVisible(true);
-        objFrameMain.getContentPane().add(btn_Read_Files);
-
-        btn_Read_Files.addMouseListener(new MouseListener() {
+        btnRereadFiles.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 /*
-                obj_File_Reader_Excel.dateiListe.clear();
-                obj_File_Reader_Excel.dateiListe = obj_File_Reader_Excel.list_search_for_xls_Files(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+                excelInterface.dateiListe.clear();
+                excelInterface.dateiListe = excelInterface.list_search_for_xls_Files(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
-                cMain.v_update_Textarea_Status("\n Es wurden " + obj_File_Reader_Excel.dateiListe.size() + " Excel-Dateien gefunden.");
+                cMain.updateStatus("\n Es wurden " + excelInterface.dateiListe.size() + " Excel-Dateien gefunden.");
 
-                for (String loop_objekt_s : obj_File_Reader_Excel.dateiListe
+                for (String loop_objekt_s : excelInterface.dateiListe
                         ) {
-                    obj_File_Reader_Excel.readFile(loop_objekt_s);
+                    excelInterface.readFile(loop_objekt_s);
                 }
 
 
-                objTextareaStatus.setText(objTextareaStatus.getText() + "\n Es wurden " + obj_File_Reader_Excel.personsFound + " neue Schüler mittels Excel eingelesen.");
+                statusDisplay.setText(statusDisplay.getText() + "\n Es wurden " + excelInterface.personsFound + " neue Schüler mittels Excel eingelesen.");
                     */
             }
 
@@ -209,7 +185,7 @@ public class cMain {
         });
 
 
-        btn_pupils_Frame.addMouseListener(new MouseListener() {
+        btnEnablePupilUI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 frameSchueler.v_show_Frame(100, 100, 1200, 1000);
@@ -237,11 +213,11 @@ public class cMain {
         });
 
 
-        JButton btn_projekt_Frame = new JButton("Projekt-Eingabe-Feld aufrufen");
-        btn_projekt_Frame.setVisible(true);
-        btn_projekt_Frame.setBounds(0, 150, 300, 150);
-        objFrameMain.getContentPane().add(btn_projekt_Frame);
-        btn_projekt_Frame.addMouseListener(new MouseListener() {
+        JButton btnEnableProjectUI = new JButton("Projekt-Eingabe-Feld aufrufen");
+        btnEnableProjectUI.setVisible(true);
+        btnEnableProjectUI.setBounds(0, 150, 300, 150);
+        objFrameMain.getContentPane().add(btnEnableProjectUI);
+        btnEnableProjectUI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 frameProjekte.v_show_Frame(200, 200, 600, 1000);
@@ -269,11 +245,11 @@ public class cMain {
         });
 
 
-        JButton btn_Frame_Output = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
-        btn_Frame_Output.setVisible(true);
-        btn_Frame_Output.setBounds(0, 300, 600, 150);
-        objFrameMain.getContentPane().add(btn_Frame_Output);
-        btn_Frame_Output.addMouseListener(new MouseListener() {
+        JButton btnEnableOutputUI = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
+        btnEnableOutputUI.setVisible(true);
+        btnEnableOutputUI.setBounds(0, 300, 600, 150);
+        objFrameMain.getContentPane().add(btnEnableOutputUI);
+        btnEnableOutputUI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
@@ -305,13 +281,13 @@ public class cMain {
                         }
                     }
                 } catch (SQLException e1) {
-                    cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
+                    cMain.updateStatus("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
                 }
 
                 if (b_all_values_valid) {
                     //          obj_Frame_Output.v_show_Frame(700, 500, 1000, 1000);
 
-                    cMain.v_update_Textarea_Status("Die Berechnung hat begonnen, das könnte seine Zeit dauern");
+                    cMain.updateStatus("Die Berechnung hat begonnen, das könnte seine Zeit dauern");
 
                     cHash_Map_ID_projects_to_List_ID_pupils objHashmap_projects_pupils = new cHash_Map_ID_projects_to_List_ID_pupils();
                     objHashmap_projects_pupils.v_setup_from_Database();
@@ -331,13 +307,13 @@ public class cMain {
 
                         objHashmap_projects_pupils.v_arrangement();
 
-                        cMain.v_update_Textarea_Status("Es wurde ein Zuteilung vorgenomen, Überprüfung erfolgt. " + i_counter);
+                        cMain.updateStatus("Es wurde ein Zuteilung vorgenomen, Überprüfung erfolgt. " + i_counter);
                         if (objHashmap_projects_pupils.get("-1").size() <= obj_best_solution.get("-1").size()) {
                             if (objHashmap_projects_pupils.i_sum_of_preferences < obj_best_solution.i_sum_of_preferences) {
                                 obj_best_solution.clear();
                                 obj_best_solution.putAll(objHashmap_projects_pupils);
                                 obj_best_solution.i_sum_of_preferences = objHashmap_projects_pupils.i_sum_of_preferences;
-                                cMain.v_update_Textarea_Status("Es wurde eine neue beste Lösung gefunden. ");
+                                cMain.updateStatus("Es wurde eine neue beste Lösung gefunden. ");
 
                                 i_counter = 0;
                             } else {
@@ -352,7 +328,7 @@ public class cMain {
 
                     }
 
-                    cMain.v_update_Textarea_Status("Es wurde die beste Lösung gefunden, Output erfolgt.");
+                    cMain.updateStatus("Es wurde die beste Lösung gefunden, Output erfolgt.");
 
 /*
                     obj_Frame_Output.v_set_custom_Head(arr_list_value_Strings[2]);
@@ -367,7 +343,7 @@ public class cMain {
                     obj_File_Generator.v_write_xls_Files(Imports.fileJAR.getParent() + "/Output-Ordner ( Excel-Dateien)");
 
                 } else {
-                    cMain.v_update_Textarea_Status("Ein Schüler namens " + NameInvalidPerson + " aus Klasse  " + gradeInvalidPerson + "   hatte einen Wert auf Null, bitte ergänzen");
+                    cMain.updateStatus("Ein Schüler namens " + NameInvalidPerson + " aus Klasse  " + gradeInvalidPerson + "   hatte einen Wert auf Null, bitte ergänzen");
                 }
             }
 

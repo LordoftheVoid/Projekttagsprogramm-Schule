@@ -1,5 +1,6 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
+import NeuSortierung.Settings.DataBaseObjectTypes;
 import NeuSortierung.Settings.Imports;
 
 import java.sql.ResultSet;
@@ -13,20 +14,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 
-public class Pupil {
-
+public class Pupil extends DataBaseElementObject{
 
     int[] projektPräferenzen = new int[4];
     public String nachName = "";
     String vorName = "";
     String klassenStufe = "";
 
-
     String pseudoHash ="";
-
-
-
-
 
     public Pupil(String nachN, String vorN, String klasse) {
         this.nachName = nachN;
@@ -40,6 +35,28 @@ public class Pupil {
         }
 
     }
+
+    public Pupil(DataBaseObjectTypes type, String id) {
+
+    }
+
+    @Override
+    public void changeValue(String value, int colum) {
+
+    }
+
+    @Override
+    public void savetoDataBase() throws SQLException {
+
+    }
+
+    @Override
+    public void generateValidChild(DataBaseObjectTypes type) {
+
+    }
+
+
+
 
     public static ArrayList<Pupil> getFullListPupils() {
         ArrayList<Pupil> rueckgabeListe = new ArrayList<>();
@@ -98,7 +115,6 @@ public class Pupil {
         }catch (NullPointerException e1){
             schuelerListe.remove(schuelerListe.get(i));
         }
-
 
         ArrayList<String> schuelerHashListe = new ArrayList<>();
 

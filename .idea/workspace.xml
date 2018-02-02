@@ -8,25 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/Zwischenablage.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/CDatabaseInterface.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/cDataBaseElement.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/cDirectoryCreator.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/DirectoryCreator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/Settings/cDataBaseLinks.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseLinks.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/Settings/cImports.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/Settings/Imports.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/cBaseClassRow.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/BaseClassRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/cProjectRow.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/ProjectRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/cPupilRow.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/PupilRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cAbstraktesFrame.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/AbstraktFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cAusgabeFrame.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/OutputFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cProjektFrame.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/ProjectFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cSchuelerFrame.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/PupilFrame.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElement.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AlterCode/GrafikElemente/cRowEntries.java" afterPath="$PROJECT_DIR$/src/AlterCode/GrafikElemente/cRowEntries.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AlterCode/GrafikElemente/cmodKeyListener_NON_ID.java" afterPath="$PROJECT_DIR$/src/AlterCode/GrafikElemente/cmodKeyListener_NON_ID.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AlterCode/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" afterPath="$PROJECT_DIR$/src/AlterCode/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/cPupil.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/cPupil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/Excel/c_Output_File_Generator.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/Excel/c_Output_File_Generator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Link.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Link.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Project.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Project.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Pupil.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/DirectoryCreator.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/DirectoryCreator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/Excel/ExcelInterface.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/Excel/ExcelInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjectTypes.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjectTypes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/BaseClassRow.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/BaseClassRow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/AbstraktFrame.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/AbstraktFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NeuSortierung/cMain.java" afterPath="$PROJECT_DIR$/src/NeuSortierung/cMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,8 +49,8 @@
       <file leaf-file-name="cMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NeuSortierung/cMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-281">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="783">
+              <caret line="373" column="1" lean-forward="false" selection-start-line="373" selection-start-column="1" selection-end-line="373" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,22 +58,106 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectRow.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/ProjectRow.java">
+      <file leaf-file-name="DataBaseElementInterFace.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="391">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBaseElementObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="664">
+              <caret line="75" column="52" lean-forward="false" selection-start-line="75" selection-start-column="52" selection-end-line="75" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="80" column="82" lean-forward="false" selection-start-line="80" selection-start-column="82" selection-end-line="80" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataBaseLinks.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseLinks.java">
+      <file leaf-file-name="Link.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Link.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+            <state relative-caret-position="153">
+              <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Project.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pupil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Pupil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseClassRow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/BaseClassRow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstraktFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/Frames/AbstraktFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2448">
+              <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBaseObjectTypes.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjectTypes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="97" lean-forward="false" selection-start-line="12" selection-start-column="97" selection-end-line="12" selection-end-column="97" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,8 +168,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -124,13 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Version2_0/Frame_Related/c_Frame.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Interfaces/cPerson.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/test.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/File_Interactions/Files/c_Output_File_Generator.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cmodKeyListener_NON_ID.java" />
-        <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/cRowEntries.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/Frame_Related/c_Frame.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/GrafikElemente/c_Frame.java" />
         <option value="$PROJECT_DIR$/src/Version_1_Java/GrafikElemente/Zwischenablage.java" />
@@ -170,10 +242,17 @@
         <option value="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cProjektFrame.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cAusgabeFrame.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cAbstraktesFrame.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/cMain.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/cDataBaseElement.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/Settings/cDataBaseLinks.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/cBaseClassRow.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/cMain.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/AbstraktFrame.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Project.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElement.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Link.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
+        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjectTypes.java" />
       </list>
     </option>
@@ -207,6 +286,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -365,32 +446,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FileInteractions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Excel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NeuSortierung" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="DataBaseInteractions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -437,8 +492,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -447,7 +500,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="C:/Informatik/Selbstgeschriebenes(Neu)/Java/Karastrike Version Aaron" />
+    <property name="last_opened_file_path" value="C:/Informatik/Selbstgeschriebenes(Neu)/Java/PBE" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -936,7 +989,7 @@
     <option name="totallyTimeSpent" value="21787000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -948,14 +1001,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31034482" sideWeight="0.421875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23732251" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23732251" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38177082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2505071" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494929" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1021,7 +1074,7 @@
           <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="139" />
+      <option name="time" value="140" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1030,14 +1083,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/Settings/Imports.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Pupil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1087,7 +1132,7 @@
         <state relative-caret-position="1003">
           <caret line="65" column="85" lean-forward="false" selection-start-line="65" selection-start-column="85" selection-end-line="65" selection-end-column="85" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1096,7 +1141,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2329">
           <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,7 +1168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2448">
           <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,7 +1224,7 @@
         <state relative-caret-position="545">
           <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1190,7 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="132" column="42" lean-forward="false" selection-start-line="132" selection-start-column="42" selection-end-line="132" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,7 +1249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,15 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Link.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,28 +1299,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/Zwischenablage.java">
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/Zwischenablage.java" />
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/PupilRow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/Frames/AbstraktFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="94" column="74" lean-forward="false" selection-start-line="94" selection-start-column="74" selection-end-line="94" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="59" column="42" lean-forward="false" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1301,25 +1316,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/cMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-281">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/PupilRow.java">
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/ProjectRow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -1327,10 +1324,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="80" column="82" lean-forward="false" selection-start-line="80" selection-start-column="82" selection-end-line="80" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/cMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="373" column="1" lean-forward="false" selection-start-line="373" selection-start-column="1" selection-end-line="373" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/BaseClassRow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="435">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1339,35 +1354,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Pupil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+        <state relative-caret-position="170">
+          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjectTypes.java">
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Project.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="23" column="65" lean-forward="false" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/FrameRows/ProjectRow.java">
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Link.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="153">
+          <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/Frames/AbstraktFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="75" column="52" lean-forward="false" selection-start-line="75" selection-start-column="52" selection-end-line="75" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjectTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="97" lean-forward="false" selection-start-line="12" selection-start-column="97" selection-end-line="12" selection-end-column="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

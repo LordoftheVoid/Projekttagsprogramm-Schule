@@ -44,7 +44,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
                 this.put(set_IDs_from_Database.getString(1), new ArrayList<>());
             }
         } catch (SQLException e) {
-            cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
+            cMain.updateStatus("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
         }
     }
 
@@ -70,7 +70,7 @@ public class cHash_Map_ID_projects_to_List_ID_pupils extends HashMap<String, Arr
                 list_ID_pupils.add(set_pupils_ID.getString(1));
             }
         } catch (SQLException e1) {
-            cMain.v_update_Textarea_Status("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
+            cMain.updateStatus("\n FEHLER \n Die Datenbank konnte nicht korrekt arbeiten, sollte dies wiederholt auftreten bitte Benuterhandbuch zu Rate ziehen \n");
         }
 
 
