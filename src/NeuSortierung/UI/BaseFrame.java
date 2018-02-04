@@ -1,9 +1,4 @@
-package NeuSortierung.UI.Frames;
-
-import AlterCode.GrafikElemente.cRowEntries;
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.DataBaseElementInterFace;
-import NeuSortierung.Settings.DataBaseObjectTypes;
-import NeuSortierung.UI.FrameRows.BaseClassRow;
+package NeuSortierung.UI;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -13,8 +8,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -30,25 +23,42 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 
 
 
-public abstract class AbstraktFrame extends JFrame {
+public abstract class BaseFrame extends JFrame implements FrameInterFace {
+
+    public final int WIDTHGLOBAL = 120;
 
 
-    public final int widthGlobal = 120;
     final int yCoordinateListEntrys = 260;
-    public String s_Main_Table;
+
     JTextField[] arrCreateEntryFields;
-    CopyOnWriteArrayList<cRowEntries> listRows = new CopyOnWriteArrayList<>();
-    String[] spaltenNamen;
-    DataBaseElementInterFace dataBaseRef;
+    CopyOnWriteArrayList<JTextField []> listTextFieldRows = new CopyOnWriteArrayList<>();
+
+
+    private JButton btnEintragserzeugung;
+
+    /*
+    GUI-Elements that every Frame shares
+     */
     private JTextField[] suchFenster;
     private JTextField[] suchLabel;
     private JTextField[] anzeigeReihenname;
     private JButton[] sortierButtons;
     private boolean[] sortdirections;
-    private JButton btnEintragserzeugung;
+
+    /*
+    Other Variables every Frame uses
+     */
+
+    static int amountParametersnewEntry;
+    String[] spaltenNamen;
 
 
-    public AbstraktFrame(int spaltenAnzahl, String strFenstername, DataBaseObjectTypes type) {
+    int columns;
+
+
+
+    public BaseFrame(int spaltenAnzahl, String strFenstername) {
+
         super(strFenstername);
         this.getContentPane().setLayout(null);
 
@@ -59,20 +69,19 @@ public abstract class AbstraktFrame extends JFrame {
         sortierButtons = new JButton[spaltenAnzahl];
         sortdirections = new boolean[spaltenAnzahl];
         spaltenNamen = new String[spaltenAnzahl];
-        JTextField  [] createEntryField = new JTextField[type.amountofCreationFields];
-        JButton createDataBaseEntry = new JButton("Neuen Eintrag erzeugen");
+        JTextField[] createEntryField = new JTextField[amountParametersnewEntry];
 
 
         for (int i_x = 0; i_x < spaltenAnzahl; i_x++) {
             anzeigeReihenname[i_x] = new JTextField();
             anzeigeReihenname[i_x].setVisible(true);
             this.getContentPane().add(anzeigeReihenname[i_x]);
-            anzeigeReihenname[i_x].setBounds(widthGlobal * i_x, 0, widthGlobal, 20);
+            anzeigeReihenname[i_x].setBounds(WIDTHGLOBAL * i_x, 0, WIDTHGLOBAL, 20);
 
 
             arrCreateEntryFields[i_x] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[i_x]);
-            arrCreateEntryFields[i_x].setBounds(i_x * widthGlobal, yCoordinateListEntrys - 40, widthGlobal, 20);
+            arrCreateEntryFields[i_x].setBounds(i_x * WIDTHGLOBAL, yCoordinateListEntrys - 40, WIDTHGLOBAL, 20);
             arrCreateEntryFields[i_x].setVisible(true);
 
 
@@ -81,34 +90,22 @@ public abstract class AbstraktFrame extends JFrame {
             suchLabel[i_x].setBorder(new LineBorder(Color.RED, 1));
 
             this.getContentPane().add(suchLabel[i_x]);
-            suchLabel[i_x].setBounds(widthGlobal * i_x, 40, widthGlobal, 20);
+            suchLabel[i_x].setBounds(WIDTHGLOBAL * i_x, 40, WIDTHGLOBAL, 20);
             suchFenster[i_x] = new JTextField();
             suchFenster[i_x].setText("");
 
 
             sortierButtons[i_x] = new JButton();
             this.getContentPane().add(sortierButtons[i_x]);
-            sortierButtons[i_x].setBounds(widthGlobal * i_x, suchFenster[i_x].getY() + 100, 120, 50);
+            sortierButtons[i_x].setBounds(WIDTHGLOBAL * i_x, suchFenster[i_x].getY() + 100, 120, 50);
             sortierButtons[i_x].setBorder(new LineBorder(Color.RED, 1));
             sortierButtons[i_x].setVisible(true);
             sortierButtons[i_x].setText(" A ... Z");
             sortdirections[i_x] = true;
 
-            ArrayList<DataBaseElementInterFace> listEntrys = DataBaseElementInterFace.getallElements(type);
-
-            ArrayList<BaseClassRow> listRows = new ArrayList<>();
-
-
-            int i = 600;
-            for (DataBaseElementInterFace elList : listEntrys
-                    ) {
-                listRows.add(new BaseClassRow(elList, this, i, widthGlobal));
-                i = i + 20;
-            }
-
 
             this.getContentPane().add(suchFenster[i_x]);
-            suchFenster[i_x].setBounds(widthGlobal * i_x, 70, 120, 20);
+            suchFenster[i_x].setBounds(WIDTHGLOBAL * i_x, 70, 120, 20);
             suchFenster[i_x].addKeyListener(new KeyListener() {
                 @Override
                 public void keyTyped(KeyEvent e) {
@@ -164,63 +161,68 @@ public abstract class AbstraktFrame extends JFrame {
 
 
         for (int i = 0; i < createEntryField.length; i++) {
-            createEntryField [i]= new JTextField();
+            createEntryField[i] = new JTextField();
             this.getContentPane().add(createEntryField[i]);
-            createEntryField[i].setBounds(this.widthGlobal *i, yCoordinateListEntrys - 60, widthGlobal, 20);
+            createEntryField[i].setBounds(this.WIDTHGLOBAL * i, yCoordinateListEntrys - 60, WIDTHGLOBAL, 20);
             createEntryField[i].setVisible(true);
         }
 
-
-        createDataBaseEntry.setVisible(true);
-        this.getContentPane().add(createDataBaseEntry);
-        createDataBaseEntry.setBounds(createEntryField.length*this.widthGlobal,yCoordinateListEntrys-60, widthGlobal*2,20);
-
-        createDataBaseEntry.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-
-
-
+        this.resetInterface();
     }
 
-    public void stelleTextdar() {
-        for (int i = 0; i < this.anzeigeReihenname.length; i++) {
-            this.anzeigeReihenname[i].setText(this.spaltenNamen[i]);
+    public abstract ArrayList<String[]> requestDataBaseContent();
+
+
+    void clearRows(){
+        for (int i = 0; i < this.listTextFieldRows.size(); i++) {
+            for (int j = 0; j < listTextFieldRows.get(i).length; j++) {
+              this.getContentPane().remove(listTextFieldRows.get(i)[i]);
+            }
+        }
+        this.listTextFieldRows = new CopyOnWriteArrayList<>();
+    }
+
+    void resetInterface(){
+        this.clearRows();
+        ArrayList<String []> newText = this.requestDataBaseContent();
+        this.generateRows(newText);
+        this.sortRows();
+    }
+
+
+    void generateRows(ArrayList<String []> newText){
+        for (int i = 0; i < newText.size(); i++) {
+            JTextField [] currentRow = new JTextField[this.columns];
+            for (int j = 0; j < this.columns; j++) {
+                currentRow[i] = new JTextField();
+                currentRow[i].setText(newText.get(i)[j]);
+                this.getContentPane().add(currentRow[i]);
+                currentRow[i].setVisible(true);
+            }
+            this.listTextFieldRows.add(currentRow);
         }
     }
 
-    public void erstelleEinträge() {
+    void updateRowPositions(){
 
-        ArrayList<DataBaseElementInterFace> dataBaseEntrys = new ArrayList<>();
+    }
 
+    /*
+    Abstrakte-Methoden
+     */
+
+
+
+
+    abstract void showEntrys(ArrayList<String []>  textArgs);
+
+    void search( String [] args){
 
     }
 
 
-    void suche() {
+    /*
+    public void suche() {
 
         HashMap<Integer, String> mapValues = new HashMap<>();
 
@@ -233,40 +235,54 @@ public abstract class AbstraktFrame extends JFrame {
         }
 
         if (mapValues.size() > 0) {
-            for (int i = 0; i < listRows.size(); i++) {
-                if (listRows.get(i).b_searchRow(mapValues)) {
+            for (int i = 0; i < listTextFieldRows.size(); i++) {
+                if (listTextFieldRows.get(i).b_searchRow(mapValues)) {
                     listResults.add(i);
                 }
-                listRows.get(i).v_disable();
+                listTextFieldRows.get(i).v_disable();
             }
 
             int i = 0;
             for (Integer objList : listResults
                     ) {
-                listRows.get(objList).v_enable();
-                listRows.get(objList).v_setYCoordinate(yCoordinateListEntrys + i * 20);
+                listTextFieldRows.get(objList).v_enable();
+                listTextFieldRows.get(objList).v_setYCoordinate(yCoordinateListEntrys + i * 20);
                 i++;
             }
 
 
         } else {
-            for (int i = 0; i < listRows.size(); i++) {
-                listRows.get(i).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
-                listRows.get(i).v_enable();
+            for (int i = 0; i < listTextFieldRows.size(); i++) {
+                listTextFieldRows.get(i).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
+                listTextFieldRows.get(i).v_enable();
             }
         }
 
     }
 
+*/
+
+
+    @Override
+    public void showText() {
+
+    }
+
+    @Override
+    public void generateNewDataBaseEntry(String[] values){
+
+    }
+
+
     public void ordnen(boolean b_direction_tm, int i_X_colum) {
 
-
+/*
         TreeMap<String, Integer> mapStringInteger = new TreeMap<>();
 
 
-        for (int i = 0; i < listRows.size(); i++) {
-            if (listRows.get(i).bEnabled) {
-                mapStringInteger.put(listRows.get(i).getCellContent(i_X_colum), i);
+        for (int i = 0; i < listTextFieldRows.size(); i++) {
+            if (listTextFieldRows.get(i).bEnabled) {
+                mapStringInteger.put(listTextFieldRows.get(i).getCellContent(i_X_colum), i);
             }
         }
 
@@ -275,22 +291,23 @@ public abstract class AbstraktFrame extends JFrame {
             int i = 0;
             for (String objList : mapStringInteger.keySet()
                     ) {
-                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
-                listRows.get(mapStringInteger.get(objList)).v_enable();
+                listTextFieldRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
+                listTextFieldRows.get(mapStringInteger.get(objList)).v_enable();
                 i++;
             }
         } else {
             int i = mapStringInteger.keySet().size();
             for (String objList : mapStringInteger.keySet()
                     ) {
-                listRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
-                listRows.get(mapStringInteger.get(objList)).v_enable();
+                listTextFieldRows.get(mapStringInteger.get(objList)).v_setYCoordinate(yCoordinateListEntrys + 20 * i);
+                listTextFieldRows.get(mapStringInteger.get(objList)).v_enable();
                 i--;
             }
 
 
         }
 
+        */
         sortdirections[i_X_colum] = !sortdirections[i_X_colum];
         if (sortdirections[i_X_colum]) {
             sortierButtons[i_X_colum].setText(" A ... Z");
@@ -316,7 +333,7 @@ public abstract class AbstraktFrame extends JFrame {
 
     public void v_Setup_Listener() {
 
-        for (cRowEntries objList : listRows
+        for (cRowEntries objList : listTextFieldRows
                 ) {
             for (int i = 0; i < objList.fields.length; i++) {
                 objList.fields[i].addKeyListener(new cmodKeyListener_NON_ID( s_Main_Table, objList, list_Column_Names.get(i)));
@@ -327,7 +344,7 @@ public abstract class AbstraktFrame extends JFrame {
 
 
     public void v_generate_rows_from_Database() {
-        for (cRowEntries objLoop : listRows) {
+        for (cRowEntries objLoop : listTextFieldRows) {
             objLoop.v_disable();
             this.getContentPane().remove(objLoop.btnDelete);
             for (int i = 0; i < objLoop.fields.length; i++) {
@@ -337,7 +354,7 @@ public abstract class AbstraktFrame extends JFrame {
             }
         }
 
-        listRows.clear();
+        listTextFieldRows.clear();
         this.getContentPane().repaint();
         this.getContentPane().revalidate();
         this.repaint();
@@ -375,7 +392,7 @@ public abstract class AbstraktFrame extends JFrame {
                     }
                 }
                 i++;
-                listRows.add(objLoop);
+                listTextFieldRows.add(objLoop);
             }
 
 
@@ -408,7 +425,7 @@ public abstract class AbstraktFrame extends JFrame {
         this.getContentPane().add(btnEintragserzeugung);
         btnEintragserzeugung.setText("Erzeugen");
 
-        this.btnEintragserzeugung.setBounds(this.arrCreateEntryFields.length * widthGlobal + 20, arrCreateEntryFields[0].getY(), widthGlobal, 20);
+        this.btnEintragserzeugung.setBounds(this.arrCreateEntryFields.length * WIDTHGLOBAL + 20, arrCreateEntryFields[0].getY(), WIDTHGLOBAL, 20);
 
         btnEintragserzeugung.addMouseListener(new MouseListener() {
             @Override
@@ -480,7 +497,7 @@ public abstract class AbstraktFrame extends JFrame {
              ) {
             for (String innerLoopObj:objlist_main.get(loopobj)
                  ) {
-                cRowEntries objRow = new cRowEntries(this, widthGlobal);
+                cRowEntries objRow = new cRowEntries(this, WIDTHGLOBAL);
                 objRow.v_ShortSetup(5, this.getContentPane(), yCoordinateListEntrys + 20 * i);
                 try {
                     set_personal_information=objDatabaseManager_Input.readEntryallAttributes("persons",innerLoopObj);
@@ -500,27 +517,11 @@ public abstract class AbstraktFrame extends JFrame {
                     e.printStackTrace();
                 }
 
-                listRows.add(objRow);
+                listTextFieldRows.add(objRow);
                 i++;
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  */
 
 

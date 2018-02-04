@@ -1,0 +1,16 @@
+Ich muss mir das aufschreiben, das merke ich mir sonst nicht.
+
+Ist vll mal eine ganz gute Angewohnheit, sowas zu schreiben, dann entsteht sozusagen eine zweite Dokumentationsschicht.
+
+
+Also, was ich sagen will: Ich verwerfe das Konzept einer Reihe in dem  Sinne, ich sehe das nur noch als Text, auf den dann zugegriffen wird.
+
+Dementsprechend wird die Ausgabe einfach nur eine Liste von J-Text-Fields sein, und die Eingabe-Probleme löse ich
+über einen spezifischen Listener.
+
+Dieser bekommt dann ein DatenbankObjekt mit, an dem er dann testen dann,  ob diese Änderungen erlaubt sind, wenn ja, ändert er den entsprechenden
+Eintrag im Textaray auf den er verweist und befiehlt Neurendern.
+
+Ich hoffe, das auf diese Art und Weise auch sortieren und suchen einfach wird, sicher bin ich mir da noch nicht.
+
+Sehen wir dann, weiter im Text

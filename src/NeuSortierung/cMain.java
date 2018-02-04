@@ -6,9 +6,9 @@ import NeuSortierung.FileInteractions.Excel.ExcelInterface;
 import NeuSortierung.FileInteractions.Excel.OutputFileGenerator;
 import NeuSortierung.Settings.DataBaseLinks;
 import NeuSortierung.Settings.Imports;
-import NeuSortierung.UI.Frames.AbstraktFrame;
-import NeuSortierung.UI.Frames.ProjectFrame;
-import NeuSortierung.UI.Frames.PupilFrame;
+import NeuSortierung.UI.BaseFrame;
+import NeuSortierung.UI.ProjectFrame;
+import NeuSortierung.UI.PupilFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -128,9 +128,9 @@ public class cMain {
         ExcelInterface excelInterface = new ExcelInterface();
         excelInterface.updateDataBase(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
-        AbstraktFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster");
+        BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster",2);
 
-        AbstraktFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster");
+        BaseFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster",1);
 
 
         JButton btnEnablePupilUI = new JButton("Schüler-Eingabe-Feld");

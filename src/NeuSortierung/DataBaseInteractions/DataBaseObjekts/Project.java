@@ -1,6 +1,8 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
-import NeuSortierung.Settings.DataBaseObjectTypes;
+
+
+import com.sun.javaws.exceptions.InvalidArgumentException;
 
 import java.sql.SQLException;
 
@@ -10,12 +12,23 @@ import java.sql.SQLException;
 public class Project implements DataBaseElementInterFace {
 
 
-    public Project(DataBaseObjectTypes type, String id) {
+    public Project( String id) {
 
     }
 
-    @Override
+
+
+
+
     public void changeValue(String value, int colum) {
+
+    }
+
+
+
+
+    @Override
+    public void setValue(int index, String value) throws InvalidArgumentException {
 
     }
 
@@ -25,7 +38,29 @@ public class Project implements DataBaseElementInterFace {
     }
 
     @Override
-    public void generateValidChild(DataBaseObjectTypes type) {
+    public boolean isValid() {
+        return false;
+    }
+
+    @Override
+    public String[] getValues() throws IndexOutOfBoundsException {
+        return new String[0];
+    }
+
+    @Override
+    public String getHash() throws NullPointerException {
+        return null;
+    }
+
+    @Override
+    public String updateHash() throws InvalidArgumentException {
+        return null;
+    }
+
+    @Override
+    public void deleteEntry() {
 
     }
+
+
 }

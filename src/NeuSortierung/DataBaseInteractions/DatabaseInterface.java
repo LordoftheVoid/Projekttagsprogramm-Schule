@@ -4,15 +4,14 @@ import NeuSortierung.cMain;
 import org.sqlite.SQLiteConfig;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by Aaron on 09.07.2017.
  */
 
 /*
-
 Klasse, um conDatabase zu realisieren
-
  */
 public class DatabaseInterface {
 
@@ -110,6 +109,21 @@ public class DatabaseInterface {
         id_check.setString(1, unique_id);
         ResultSet entrys_with_specific_id = id_check.executeQuery();
         return !entrys_with_specific_id.next();
+    }
+
+    public ArrayList<String []> getValues( String tableReference) throws  SQLException{
+        ArrayList<String []> returnValue = new ArrayList<>();
+
+        ResultSet content = this.readEntrysAllAttributes(tableReference);
+
+        while(content.next()){
+            String[] currentArr = new String[4];
+            for (int i = 1; i < currentArr.length+1; i++) {
+                currentArr[i-1]= content.getString(i);
+            }
+        }
+
+        return  returnValue;
     }
 
 }

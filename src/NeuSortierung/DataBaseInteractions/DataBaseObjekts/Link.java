@@ -1,14 +1,13 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
-import NeuSortierung.Settings.DataBaseObjectTypes;
-
 import java.sql.SQLException;
 
 /**
  * Created by Aaron on 31.01.2018.
  */
 public class Link extends DataBaseElementObject {
-    public Link(DataBaseObjectTypes type, String id) {
+    public Link(String id) {
+        super(id);
 
     }
 
@@ -22,8 +21,4 @@ public class Link extends DataBaseElementObject {
 
     }
 
-    @Override
-    public void generateValidChild(DataBaseObjectTypes type) {
-
-    }
 }

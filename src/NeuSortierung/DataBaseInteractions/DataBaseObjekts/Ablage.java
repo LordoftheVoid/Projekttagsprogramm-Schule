@@ -1,17 +1,28 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
-
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 /**
  * Created by Aaron on 02.02.2018.
- */
-public class DataBaseElementObject implements DataBaseElementInterFace {
 
+public class Ablage {
+}
+
+
+package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
+
+        import NeuSortierung.Settings.DataBaseObjectTypes;
+        import NeuSortierung.Settings.Imports;
+
+        import java.sql.ResultSet;
+        import java.sql.SQLException;
+        import java.util.ArrayList;
+        import java.util.HashMap;
+
+        import static NeuSortierung.Settings.Imports.objDatabaseManagerGlobal;
+
+/**
+ * Created by Aaron on 31.01.2018.
+
+public  interface DataBaseElementInterFace {
 
     public int amountofColums;
 
@@ -19,16 +30,20 @@ public class DataBaseElementObject implements DataBaseElementInterFace {
 
     public String[] values;
 
-
+    DataBaseObjectTypes elementType;
 
     String id;
 
 
-    public DataBaseElementObject( String id) {
 
-     /*
+
+
+
+    public DataBaseElementInterFace(DataBaseObjectTypes type, String id) {
+        this.amountofColums = type.amountColumns;
+        this.elementType = type;
         this.id = id;
-        this.values = new String[.amountColumns];
+        this.values = new String[type.amountColumns];
         for (int i = 0; i < this.values.length; i++) {
             this.values[i] = "Nicht definiert";
         }
@@ -44,21 +59,10 @@ public class DataBaseElementObject implements DataBaseElementInterFace {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        */
     }
 
-
-
-
-
-
-
-
-
-    public static ArrayList<DataBaseElementInterFace> getallElements() {
-
+    public static ArrayList<DataBaseElementInterFace> getallElements(DataBaseObjectTypes type) {
         ArrayList<DataBaseElementInterFace> rueckgabe = new ArrayList<>();
-        /*
         ArrayList<String> idList = new ArrayList<>();
 
         ResultSet dataBaseEntryId;
@@ -73,69 +77,36 @@ public class DataBaseElementObject implements DataBaseElementInterFace {
 
 
         for (String listEntry : idList) {
-            rueckgabe.add(new DataBaseElementObject(type, listEntry));
+            rueckgabe.add(new DataBaseElementInterFace(type, listEntry));
         }
-        */
-        return rueckgabe;
 
+        return rueckgabe;
     }
 
-
     public void changeValue(String value,int colum){
-
-        /**TODO
-         * Je nach Index den Hash neu berechnen !!
-         */
-        /*
         this.values[colum]= value;
         try {
             Imports.objDatabaseManagerGlobal.updateEntry(this.elementType.tableReference,this.id,this.elementType.columReference.get(colum+1),value);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        */
     }
 
 
-    @Override
-    public void setValue(int index, String value) throws InvalidArgumentException {
-
-    }
 
     public void savetoDataBase() throws SQLException {
-/*
+
         Imports.objDatabaseManagerGlobal.createEntry(this.elementType.tableReference,this.id);
 
         for (int i = 1; i <this.values.length-1; i++) {
             Imports.objDatabaseManagerGlobal.updateEntry(this.elementType.tableReference,this.id,this.elementType.columReference.get(i),this.values[i]);
         }
-        */
     }
 
-    @Override
-    public boolean isValid() {
-        return false;
-    }
 
-    @Override
-    public String[] getValues() throws IndexOutOfBoundsException {
-        return new String[0];
-    }
-
-    @Override
-    public String getHash() throws NullPointerException {
-        return null;
-    }
-
-    @Override
-    public String updateHash() throws InvalidArgumentException {
-        return null;
-    }
-
-    @Override
-    public void deleteEntry() {
-
-    }
+    public void generateValidChild(DataBaseObjectTypes type);
 
 
 }
+
+*/

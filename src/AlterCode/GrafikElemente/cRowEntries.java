@@ -1,6 +1,6 @@
 package AlterCode.GrafikElemente;
 
-import NeuSortierung.UI.Frames.AbstraktFrame;
+import NeuSortierung.UI.BaseFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,17 +21,17 @@ public class cRowEntries {
     JButton btnDelete;
     String sReferenceTable = "";
    public  boolean bEnabled = true;
-    private AbstraktFrame objTarget;
+    private BaseFrame objTarget;
 
 
-    public cRowEntries(AbstraktFrame objSource, String suniqueRowID) {
+    public cRowEntries(BaseFrame objSource, String suniqueRowID) {
         this.sReferenceTable = objSource.s_Main_Table;
         this.suniqueRowID = suniqueRowID;
-        this.iglobalWidth = objSource.widthGlobal;
+        this.iglobalWidth = objSource.WIDTHGLOBAL;
         objTarget = objSource;
     }
 
-    public cRowEntries(AbstraktFrame objSource, int iglobalWidth) {
+    public cRowEntries(BaseFrame objSource, int iglobalWidth) {
         this.iglobalWidth = iglobalWidth;
         objTarget = objSource;
     }

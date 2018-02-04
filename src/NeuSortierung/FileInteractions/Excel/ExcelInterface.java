@@ -117,7 +117,7 @@ public class ExcelInterface extends Thread {
                 gelesenerVorname = datei.getSheetAt(0).getRow(i_x).getCell(1).getStringCellValue();
 
                 if(!gelesenerNachname.toLowerCase().equals("nachname")) {
-                    schuelerListe.add(new Pupil(gelesenerNachname, gelesenerVorname, stufe));
+                //    schuelerListe.add(new Pupil(gelesenerNachname, gelesenerVorname, stufe));
                 }
             }
         }

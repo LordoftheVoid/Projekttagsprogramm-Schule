@@ -1,6 +1,6 @@
 package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
 
-import NeuSortierung.Settings.DataBaseObjectTypes;
+
 import NeuSortierung.Settings.Imports;
 
 import java.sql.ResultSet;
@@ -23,6 +23,12 @@ public class Pupil extends DataBaseElementObject{
 
     String pseudoHash ="";
 
+    public Pupil(String id) {
+        super(id);
+    }
+
+
+    /*
     public Pupil(String nachN, String vorN, String klasse) {
         this.nachName = nachN;
         this.vorName= vorN;
@@ -36,9 +42,7 @@ public class Pupil extends DataBaseElementObject{
 
     }
 
-    public Pupil(DataBaseObjectTypes type, String id) {
-
-    }
+*/
 
     @Override
     public void changeValue(String value, int colum) {
@@ -50,10 +54,6 @@ public class Pupil extends DataBaseElementObject{
 
     }
 
-    @Override
-    public void generateValidChild(DataBaseObjectTypes type) {
-
-    }
 
 
 
@@ -96,7 +96,7 @@ public class Pupil extends DataBaseElementObject{
         }
 
         for (int i = 0; i < schuelerHashs.size(); i++) {
-            rueckgabeListe.add(new Pupil(schuelerWerte[0][i],schuelerWerte[1][i],schuelerWerte[2][i]));
+         //   rueckgabeListe.add(new Pupil(schuelerWerte[0][i],schuelerWerte[1][i],schuelerWerte[2][i]));
         }
 
         return rueckgabeListe;
