@@ -1,6 +1,6 @@
-package NeuSortierung.DataBaseInteractions;
+package V2.DataBaseInteractions;
 
-import NeuSortierung.cMain;
+import V2.cMain;
 import org.sqlite.SQLiteConfig;
 
 import java.sql.*;
@@ -112,17 +112,27 @@ public class DatabaseInterface {
     }
 
     public ArrayList<String []> getValues( String tableReference) throws  SQLException{
+
         ArrayList<String []> returnValue = new ArrayList<>();
 
         ResultSet content = this.readEntrysAllAttributes(tableReference);
 
-        while(content.next()){
-            String[] currentArr = new String[4];
-            for (int i = 1; i < currentArr.length+1; i++) {
-                currentArr[i-1]= content.getString(i);
-            }
-        }
+        ResultSetMetaData rsmd=content.getMetaData();
 
+
+        /*
+        System.out.println("columns: "+rsmd.getColumnCount());
+        System.out.println("Column Name of 1st column: "+rsmd.getColumnName(2));
+        System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2));
+            */
+
+        while(content.next()){
+            String[] currentArr = new String[rsmd.getColumnCount()];
+            for (int i = 2; i < currentArr.length+1; i++) {
+                currentArr[i-2]= content.getString(i);
+            }
+            returnValue.add(currentArr);
+        }
         return  returnValue;
     }
 

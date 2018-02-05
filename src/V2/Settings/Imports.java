@@ -1,7 +1,7 @@
-package NeuSortierung.Settings;
+package V2.Settings;
 
-import NeuSortierung.DataBaseInteractions.DatabaseInterface;
-import NeuSortierung.cMain;
+import V2.DataBaseInteractions.DatabaseInterface;
+import V2.cMain;
 
 import java.io.File;
 import java.net.URISyntaxException;

@@ -1,7 +1,6 @@
-package NeuSortierung.UI;
+package V2.UI;
 
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.Pupil;
-import NeuSortierung.Settings.Imports;
+import V2.Settings.Imports;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,7 +22,6 @@ public class PupilFrame extends BaseFrame {
     arr_list_value_Strings[0]
     arr_list_value_Strings[0]
 
-
         //    arr_list_Database_References[0].add("s_unique_ID");
         arr_list_Database_References[0].add("s_sur_Name");
         arr_list_Database_References[0].add("s_pre_Name");
@@ -39,59 +37,29 @@ public class PupilFrame extends BaseFrame {
     public PupilFrame(int spaltenAnzahl, String fensterName, int amountParameter) {
         super(spaltenAnzahl, fensterName);
         amountParametersnewEntry = amountParameter;
-        this.spaltenNamen[0] = "Nachname";
-        this.spaltenNamen[1] = "Vorname";
-        this.spaltenNamen[2] = "Klasse";
-        this.spaltenNamen[3] = "Erstwahl";
-        this.spaltenNamen[4] = "Zweitwahl";
-        this.spaltenNamen[5] = "Drittwahl";
-        this.spaltenNamen[6] = "Viertwahl";
-
-
-        this.showEntrys();
 
     }
-
-
-    public void showEntrys() {
-
-        ArrayList<Pupil> listEinträge = new ArrayList<>();
-
-        listEinträge = Pupil.getFullListPupils();
-
-
-        for (Pupil listenElement : listEinträge
-                ) {
-
-        }
-
-
-    }
-
-
 
     @Override
-    public ArrayList<String[]> requestDataBaseContent() {
+    public ArrayList<String[]> requestDataBaseContent()  {
+        ArrayList<String []> returnValue = new ArrayList<>();
         try {
-          return  Imports.objDatabaseManagerGlobal.getValues("persons");
+            returnValue = Imports.objDatabaseManagerGlobal.getValues("persons");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return  returnValue;
     }
 
     @Override
-    void showEntrys(ArrayList<String[]> textArgs) {
-
+    public void showfixedText() {
+        this.columNames[0].setText("Nachname");
+        this.columNames[1].setText("Vorname");
+        this.columNames[2].setText("Klasse");
+        this.columNames[3].setText("Erstwahl");
+        this.columNames[4].setText("Zweitwahl");
+        this.columNames[5].setText("Drittwahl");
+        this.columNames[6].setText("Viertwahl");
     }
 
-    @Override
-    public void suche() {
-
-    }
-
-    @Override
-    public void sortRows() {
-
-    }
 }

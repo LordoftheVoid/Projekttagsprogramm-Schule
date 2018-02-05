@@ -1,5 +1,8 @@
-package NeuSortierung.UI;
+package V2.UI;
 
+import V2.Settings.Imports;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +19,6 @@ public class ProjectFrame extends BaseFrame {
 
 
 */
-
     public ProjectFrame(int spaltenanzahl, String name, int creationParameters) {
         super(spaltenanzahl, name);
 
@@ -29,26 +31,19 @@ public class ProjectFrame extends BaseFrame {
 
     @Override
     public ArrayList<String[]> requestDataBaseContent() {
+        try {
+            return Imports.objDatabaseManagerGlobal.getValues("projects");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
-    void showEntrys(ArrayList<String[]> textArgs) {
-
+    public void showfixedText() {
+        this.columNames[0].setText("Projektnummer");
+        this.columNames[1].setText("Lehrerkürzel");
+        this.columNames[2].setText("Maximale Schülerzahl");
     }
 
-
-    void showEntrys() {
-
-    }
-
-
-    void setupEntryRow() {
-
-    }
-
-    @Override
-    public void suche() {
-
-    }
 }

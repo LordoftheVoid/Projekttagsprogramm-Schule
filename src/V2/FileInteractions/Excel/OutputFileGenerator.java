@@ -1,27 +1,12 @@
-package NeuSortierung.FileInteractions.Excel;
+package V2.FileInteractions.Excel;
 
-
-import NeuSortierung.FileInteractions.DirectoryCreator;
-import AlterCode.Lists.cHash_Map_ID_projects_to_List_ID_pupils;
-import NeuSortierung.Settings.Imports;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  * Created by Aaron on 13.04.2017.
  */
 public class OutputFileGenerator {
 
-
+/*
     cHash_Map_ID_projects_to_List_ID_pupils obj_output_Map;
 
 
@@ -103,4 +88,5 @@ public class OutputFileGenerator {
         }
     }
 
+*/
 }

@@ -1,4 +1,4 @@
-package NeuSortierung.DataBaseInteractions.DataBaseObjekts;
+package V2.DataBaseInteractions.DataBaseObjekts;
 
 import java.sql.SQLException;
 
@@ -6,10 +6,6 @@ import java.sql.SQLException;
  * Created by Aaron on 31.01.2018.
  */
 public class Link extends DataBaseElementObject {
-    public Link(String id) {
-        super(id);
-
-    }
 
     @Override
     public void changeValue(String value, int colum) {

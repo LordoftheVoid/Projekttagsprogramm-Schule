@@ -1,11 +1,11 @@
-package NeuSortierung.FileInteractions.Excel;
+package V2.FileInteractions.Excel;
 
 /**
  * Created by Aaron on 10.08.2017.
  */
 
 
-import NeuSortierung.DataBaseInteractions.DataBaseObjekts.Pupil;
+import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
@@ -72,7 +72,7 @@ public class ExcelInterface extends Thread {
                 e.printStackTrace();
             }
         }
-        Pupil.updateSchueler(schuelerListe);
+     //   Pupil.updateSchueler(schuelerListe);
     }
 
 
