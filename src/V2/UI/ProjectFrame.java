@@ -1,6 +1,6 @@
 package V2.UI;
 
-import V2.Settings.Imports;
+import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,13 +29,9 @@ public class ProjectFrame extends BaseFrame {
 
     }
 
+
     @Override
-    public ArrayList<String[]> requestDataBaseContent() {
-        try {
-            return Imports.objDatabaseManagerGlobal.getValues("projects");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
         return null;
     }
 

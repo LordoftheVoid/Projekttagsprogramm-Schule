@@ -30,6 +30,7 @@ public class Project implements DataBaseElementInterFace {
     @Override
     public void setValue(int index, String value) throws InvalidArgumentException {
 
+
     }
 
     @Override
@@ -42,9 +43,23 @@ public class Project implements DataBaseElementInterFace {
         return false;
     }
 
-    @Override
-    public String[] getValues() throws IndexOutOfBoundsException {
+    public String[] getIdentityValues() throws IndexOutOfBoundsException {
         return new String[0];
+    }
+
+    @Override
+    public String[] getInterAktionValues() throws IndexOutOfBoundsException {
+        return new String[0];
+    }
+
+    @Override
+    public void setInteraktionValue(String arg, int index) throws InvalidArgumentException {
+
+    }
+
+    @Override
+    public void setIdentityValue(String arg, int index) throws InvalidArgumentException {
+
     }
 
     @Override
@@ -53,8 +68,8 @@ public class Project implements DataBaseElementInterFace {
     }
 
     @Override
-    public String updateHash() throws InvalidArgumentException {
-        return null;
+    public void updateHash() throws InvalidArgumentException {
+
     }
 
     @Override

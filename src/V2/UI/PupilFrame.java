@@ -1,6 +1,6 @@
 package V2.UI;
 
-import V2.Settings.Imports;
+import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,15 +40,10 @@ public class PupilFrame extends BaseFrame {
 
     }
 
+
     @Override
-    public ArrayList<String[]> requestDataBaseContent()  {
-        ArrayList<String []> returnValue = new ArrayList<>();
-        try {
-            returnValue = Imports.objDatabaseManagerGlobal.getValues("persons");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return  returnValue;
+    public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
+        return null;
     }
 
     @Override

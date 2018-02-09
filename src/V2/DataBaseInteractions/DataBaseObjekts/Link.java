@@ -7,8 +7,15 @@ import java.sql.SQLException;
  */
 public class Link extends DataBaseElementObject {
 
+
+    Link(String id){
+        super(id);
+    }
+
     @Override
-    public void changeValue(String value, int colum) {
+    public void setValue(String value, int colum) {
+
+
 
     }
 
@@ -16,5 +23,7 @@ public class Link extends DataBaseElementObject {
     public void savetoDataBase() throws SQLException {
 
     }
+
+
 
 }

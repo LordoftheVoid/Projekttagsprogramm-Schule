@@ -8,33 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AlterCode/GrafikElemente/cRowEntries.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AlterCode/GrafikElemente/cmodKeyListener_NON_ID.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AlterCode/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Ablage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseLinks.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/FrameInterFace.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Link.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Project.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Pupil.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/DirectoryCreator.java" afterPath="$PROJECT_DIR$/src/V2/FileInteractions/DirectoryCreator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/Excel/ExcelInterface.java" afterPath="$PROJECT_DIR$/src/V2/FileInteractions/Excel/ExcelInterface.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/FileInteractions/Excel/OutputFileGenerator.java" afterPath="$PROJECT_DIR$/src/V2/FileInteractions/Excel/OutputFileGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/Settings/Imports.java" afterPath="$PROJECT_DIR$/src/V2/Settings/Imports.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/BaseFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/BaseFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/NonFrameElements/KeyInputHandler.java" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/KeyInputHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/OutputFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/OutputFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/ProjectFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/ProjectFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/UI/PupilFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/PupilFrame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/NeuSortierung/cMain.java" afterPath="$PROJECT_DIR$/src/V2/cMain.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/Freitag 09.02 - Gedanken Ausgabe.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/Mittwoch 07.02- Gedanken zur Struktur II.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/Montag 05.02- Grundsätzliche Gedanken zur Struktur.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Gedanken&amp;TODOs/Samstag 02.03-Weiteres Vorgehen Frame.txt" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/Samstag 03.02-Weiteres Vorgehen Frame.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Projekttagprogramm Schule/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/Projekttagprogramm Schule/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/BaseFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/BaseFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/OutputFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/OutputFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/ProjectFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/ProjectFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/PupilFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/PupilFrame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,24 +47,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
+      <file leaf-file-name="BaseFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/UI/BaseFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1649">
-              <caret line="108" column="32" lean-forward="false" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+            <state relative-caret-position="629">
+              <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExcelInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/ExcelInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="74" column="7" lean-forward="false" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -83,30 +60,74 @@
       <file leaf-file-name="Link.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/BaseFrame.java">
+      <file leaf-file-name="DataBaseElementObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="963">
-              <caret line="219" column="16" lean-forward="false" selection-start-line="219" selection-start-column="16" selection-end-line="219" selection-end-column="16" />
+            <state relative-caret-position="524">
+              <caret line="97" column="11" lean-forward="false" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#442#443#0" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
+                <element signature="e#1653#1654#0" expanded="true" />
+                <element signature="e#1698#1699#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Row.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java">
+      <file leaf-file-name="Integer.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/lang/Integer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="241">
+              <caret line="613" column="22" lean-forward="false" selection-start-line="613" selection-start-column="22" selection-end-line="613" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBaseElementInterFace.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Freitag 09.02 - Gedanken Ausgabe.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Freitag 09.02 - Gedanken Ausgabe.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="89" lean-forward="false" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pupil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,9 +138,11 @@
       <file leaf-file-name="PupilFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/UI/PupilFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="558">
+              <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,39 +150,11 @@
       <file leaf-file-name="DatabaseInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="113" column="59" lean-forward="false" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataBaseElementObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OutputFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/OutputFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/ProjectFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="558">
+              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -206,10 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/NeuSortierung/Settings/cImports.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjects.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/cProject.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/CDatabaseInterface.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/cPupil.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cSchuelerFrame.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/UI/Frames/cProjektFrame.java" />
@@ -243,20 +234,24 @@
         <option value="$PROJECT_DIR$/src/NeuSortierung/UI/PupilFrame.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java" />
         <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Ablage.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/FrameInterFace.java" />
         <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/OutputFileGenerator.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
         <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/ExcelInterface.java" />
         <option value="$PROJECT_DIR$/src/V2/cMain.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/PupilFrame.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/BaseFrame.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/OutputFrame.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/ProjectFrame.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/BaseFrame.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" />
+        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/Montag 05.02- Grundsätzliche Gedanken zur Struktur" />
+        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/Mittwoch 07.02- Gedanken zur Struktur II.txt" />
+        <option value="$PROJECT_DIR$/src/V2/UI/PupilFrame.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
+        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/Freitag 09.02 - Gedanken Ausgabe.txt" />
       </list>
     </option>
   </component>
@@ -288,6 +283,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -372,32 +370,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NonFrameElements" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Settings" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -421,32 +393,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FileInteractions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="V2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FileInteractions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Excel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -528,9 +474,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -1043,13 +986,14 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32352942" sideWeight="0.475" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31034482" sideWeight="0.421875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23732251" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23732251" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1059,15 +1003,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39655173" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39655173" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32352942" sideWeight="0.475" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="557" y="334" width="481" height="176" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1131,26 +1074,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AlterCode/GrafikElemente/cRowEntries.java" />
-    <entry file="file://$PROJECT_DIR$/src/AlterCode/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/BaseFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6222">
-          <caret line="366" column="17" lean-forward="true" selection-start-line="366" selection-start-column="17" selection-end-line="366" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AlterCode/Lists/cHash_Map_ID_projects_to_List_ID_pupils.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/awt/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1163,7 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3281">
           <caret line="231" column="11" lean-forward="false" selection-start-line="231" selection-start-column="11" selection-end-line="231" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1204,17 +1126,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AlterCode/GrafikElemente/cmodKeyListener_NON_ID.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/Settings/Imports.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NeuSortierung/UI/Zwischenablage.java" />
     <entry file="file://$PROJECT_DIR$/src/NeuSortierung/Settings/DataBaseObjectTypes.java" />
-    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Samstag 02.03-Weiteres Vorgehen Frame.txt">
+    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Samstag 03.02-Weiteres Vorgehen Frame.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
@@ -1232,30 +1146,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Ablage.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/UI/FrameInterFace.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/OutputFileGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1269,22 +1159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1307,55 +1181,153 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/V2/Settings/Imports.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="113" column="59" lean-forward="false" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
+        <state relative-caret-position="408">
+          <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/ProjectFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="561">
+          <caret line="37" column="38" lean-forward="false" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2103#2104#0" expanded="false" />
+            <element signature="e#2151#2152#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/UI/OutputFrame.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#305#306#0" expanded="false" />
+            <element signature="e#357#358#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/ProjectFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Montag 05.02- Grundsätzliche Gedanken zur Struktur.txt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Mittwoch 07.02- Gedanken zur Struktur II.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/UI/PupilFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="558">
+          <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/UI/BaseFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="963">
-          <caret line="219" column="16" lean-forward="false" selection-start-line="219" selection-start-column="16" selection-end-line="219" selection-end-column="16" />
+        <state relative-caret-position="629">
+          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java">
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="613" column="22" lean-forward="false" selection-start-line="613" selection-start-column="22" selection-end-line="613" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="97" column="11" lean-forward="false" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#1653#1654#0" expanded="true" />
+            <element signature="e#1698#1699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Freitag 09.02 - Gedanken Ausgabe.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="89" lean-forward="false" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
+          <folding />
         </state>
       </provider>
     </entry>

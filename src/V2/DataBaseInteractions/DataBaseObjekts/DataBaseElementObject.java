@@ -8,19 +8,27 @@ import java.sql.SQLException;
 /**
  * Created by Aaron on 02.02.2018.
  */
-public class DataBaseElementObject implements DataBaseElementInterFace {
+public abstract class DataBaseElementObject implements DataBaseElementInterFace {
 
     public int amountofColums;
 
+    private String[] identityValues;
 
-
-    public String[] values;
+    private String[] interAktionValues;
 
     String id;
 
 
 
-    public void changeValue(String value,int colum){
+
+
+    public DataBaseElementObject(String id){
+        this.id = id;
+    }
+
+
+
+    public void setValue(String value, int colum){
 
         /**TODO
          * Je nach Index den Hash neu berechnen !!
@@ -30,7 +38,6 @@ public class DataBaseElementObject implements DataBaseElementInterFace {
 
     @Override
     public void setValue(int index, String value) throws InvalidArgumentException {
-
 
         /** TODO
          */
@@ -50,12 +57,11 @@ public class DataBaseElementObject implements DataBaseElementInterFace {
         return false;
     }
 
-    @Override
-    public String[] getValues() throws IndexOutOfBoundsException {
+    public String[] getIdentityValues() throws IndexOutOfBoundsException {
 
         /** TODO Umwandlung in eine anzeigbare Form
          */
-        return new String[0];
+        return this.identityValues;
     }
 
     @Override
@@ -67,11 +73,11 @@ public class DataBaseElementObject implements DataBaseElementInterFace {
     }
 
     @Override
-    public String updateHash() throws InvalidArgumentException {
+    public void updateHash() throws InvalidArgumentException {
 
         /**Todo Sonderfall um Werte zu updaten, da kritisch
          */
-        return null;
+
     }
 
     @Override
@@ -81,5 +87,29 @@ public class DataBaseElementObject implements DataBaseElementInterFace {
          */
 
     }
+
+
+
+    public String [] getInterAktionValues() {
+        return this.interAktionValues;
+    }
+
+
+    public void setInteraktionValue(String arg, int index) throws InvalidArgumentException {
+        try {
+            int i = Integer.parseInt(arg);
+        }catch (NumberFormatException e1){
+            throw new InvalidArgumentException(new String[]{"Not an Integer"});
+        }
+    }
+
+
+    public void setIdentityValue(String arg, int index) throws  InvalidArgumentException {
+        this.identityValues[index]=arg;
+    }
+
+
+
+
 
 }

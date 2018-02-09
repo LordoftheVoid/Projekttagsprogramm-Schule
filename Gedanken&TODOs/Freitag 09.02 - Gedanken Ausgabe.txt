@@ -1,0 +1,6 @@
+Ich mache das dann so, dass das Frame eine Funktion unterstützt ein Element aus der Liste
+der anzeigbaren zu entfernen, und zwar per Index.
+
+Weiterhin liefere ich jedem Listener den entsprechenden Index mit.
+
+Und zu guter letzt mache ich zwei Listen, von denen eine die Sichtbarkeit implementiert. 

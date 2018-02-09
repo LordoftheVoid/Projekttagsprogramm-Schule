@@ -15,11 +15,18 @@ public interface DataBaseElementInterFace {
 
     boolean isValid();
 
-    String[] getValues() throws IndexOutOfBoundsException;
+    String[] getIdentityValues() throws IndexOutOfBoundsException;
+
+    String [] getInterAktionValues() throws IndexOutOfBoundsException;
+
+    void setInteraktionValue(String arg, int index) throws InvalidArgumentException;
+
+    void setIdentityValue(String arg, int index) throws  InvalidArgumentException;
+
 
     String getHash() throws NullPointerException;
 
-    String updateHash() throws InvalidArgumentException;
+    void updateHash() throws InvalidArgumentException;
 
     void deleteEntry();
 }

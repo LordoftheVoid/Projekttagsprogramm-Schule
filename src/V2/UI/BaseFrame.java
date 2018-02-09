@@ -1,5 +1,8 @@
 package V2.UI;
 
+import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.UI.NonFrameElements.Row;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -27,7 +30,7 @@ public abstract class BaseFrame extends JFrame {
     static int amountParametersnewEntry;
     public final int WIDTHGLOBAL = 120;
     final int yCoordinateListEntrys = 260;
-    public CopyOnWriteArrayList<JTextField[]> listTextFieldRows = new CopyOnWriteArrayList<>();
+    public CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
     public JTextField[] suchLabel;
     public JTextField[] columNames;
     JTextField[] arrCreateEntryFields;
@@ -35,7 +38,7 @@ public abstract class BaseFrame extends JFrame {
     int columns;
     private JButton btnEintragserzeugung;
 
-    public CopyOnWriteArrayList< JButton []> listBtnDeleteEntry;
+
 
     /*
     Other Variables every Frame uses
@@ -166,22 +169,17 @@ public abstract class BaseFrame extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        this.showRows();
 
-        this.updateRowPositions();
+
+        this.updateRowYKoordinate(500);
     }
 
 
-    public abstract ArrayList<String[]> requestDataBaseContent() throws SQLException;
+    public abstract ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException;
 
 
     void clearRows() {
-        for (int i = 0; i < this.listTextFieldRows.size(); i++) {
-            for (int j = 0; j < listTextFieldRows.get(i).length; j++) {
-                this.getContentPane().remove(listTextFieldRows.get(i)[i]);
-            }
-        }
-        this.listTextFieldRows = new CopyOnWriteArrayList<>();
+
     }
 
     void resetInterface() {
@@ -194,40 +192,20 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-    void showRows() {
-        System.out.println(this.listTextFieldRows.size());
-        for (int counterList = 0; counterList < this.listTextFieldRows.size(); counterList++) {
-            for (int counterArray = 0; counterArray < this.columns; counterArray++) {
-                System.out.println(counterList);
-                this.listTextFieldRows.get(counterList)[counterArray].setBounds(counterArray*WIDTHGLOBAL, 200 + 20 * counterList, WIDTHGLOBAL, 20);
-                this.listTextFieldRows.get(counterList)[counterArray].setVisible(true);
-            }
+
+
+    void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
+        for (int i = 0; i < dataBaseEntrys.size(); i++) {
+            this.listTextRows.add(new Row(this.columns,dataBaseEntrys.get(i),this.getContentPane()));
         }
     }
 
-    void generateRows(ArrayList<String[]> newText) {
-            for (int counterList = 0; counterList < newText.size(); counterList++) {
-                JTextField[] currentRow = new JTextField[this.columns];
-                for (int counterArray = 0; counterArray < this.columns; counterArray++) {
-                    System.out.println(counterList);
-                    currentRow[counterArray] = new JTextField();
-                    currentRow[counterArray].setText(newText.get(counterList)[counterArray]);
-                    this.getContentPane().add(currentRow[counterArray]);
-                    currentRow[counterArray].setVisible(true);
-                }
-                this.listTextFieldRows.add(currentRow);
 
-                
+    void updateRowYKoordinate(int yFirstElement) {
 
-
-
-            }
-        System.out.println(this.listTextFieldRows.size());
-    }
-
-
-    void updateRowPositions() {
-
+        for (int i = 0; i < this.listTextRows.size(); i++) {
+            this.listTextRows.get(i).setYCoordinates(i*20+yFirstElement);
+        }
     }
 
 

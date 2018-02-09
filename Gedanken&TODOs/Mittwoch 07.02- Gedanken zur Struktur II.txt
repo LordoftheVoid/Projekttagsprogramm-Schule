@@ -1,0 +1,11 @@
+
+
+Aufgaben der Datenbank:
+
+-Ausgabe der Einträge in einer Tabelle
+
+-Ausgabe der Werte eines Eintrags
+
+-Erzeugung eines Elements
+
+

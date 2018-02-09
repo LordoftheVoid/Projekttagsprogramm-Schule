@@ -1,0 +1,13 @@
+Ich dreh mich grade zu sehr im Kreis, deswegen diese Gedanken.
+
+
+Ich formulier grade noch die Ziele, danach gehe ich auf Klo.
+
+
+-Wenig Datenbank lesen, was massenhafte Updates ausschließt
+
+-Lokale Abgeschlossenheit im Sinne von eine Klasse macht eine Sache gut und ignoriert den Rest
+bzw berechnet sich Werte nicht extra
+
+-Flexibilität im Interface
+

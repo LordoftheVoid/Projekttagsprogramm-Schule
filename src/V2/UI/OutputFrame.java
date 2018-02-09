@@ -1,5 +1,8 @@
 package V2.UI;
 
+import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -16,9 +19,10 @@ public class OutputFrame extends BaseFrame {
     }
 
     @Override
-    public ArrayList<String[]> requestDataBaseContent() {
+    public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
         return null;
     }
+
 
     @Override
     public void showfixedText() {
