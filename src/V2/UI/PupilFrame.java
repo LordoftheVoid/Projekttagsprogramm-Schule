@@ -27,8 +27,11 @@ public class PupilFrame extends BaseFrame {
         ArrayList<DataBaseElementObject> entrys = new ArrayList<>();
 
       ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
+
+
         for (String entry:listIDs
              ) {
+            System.out.println("EntryTop"+entry);
             entrys.add(new Pupil(entry));
         }
       return entrys;

@@ -21,7 +21,9 @@ public class Pupil extends DataBaseElementObject {
     private String pseudoHash = "";
 
     public Pupil(String idsString) {
-        super(idsString);
+        super(idsString,amountIdentityValues,amountInteraktionValues);
+
+        System.out.println("Pupilvalue"+idsString);
 
         String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getEntryValuesfromDataBase("Pupil", idsString);
 
@@ -29,8 +31,9 @@ public class Pupil extends DataBaseElementObject {
             this.setIdentityValue(valuesDataBase[i], i);
         }
 
-        for (int i = amountIdentityValues; i < amountIdentityValues + amountInteraktionValues; i++) {
-            this.setInteraktionValue(valuesDataBase[i], i);
+        for (int i = 0; i <  amountInteraktionValues; i++) {
+            System.out.println(i);
+            this.setInteraktionValue(valuesDataBase[i+amountIdentityValues-1], i);
         }
 
 
@@ -41,9 +44,15 @@ public class Pupil extends DataBaseElementObject {
     @Override
     public void updateHash() throws IllegalArgumentException {
 
+        for (int i = 0; i < this.getIdentityValues().length; i++) {
+            System.out.println("Identity Values"+this.getIdentityValues()[i]);
+        }
+
+            /*
         if (this.getIdentityValues()[0].length() < 3 || this.getIdentityValues()[1].length() < 3) {
             throw new IllegalArgumentException();
         }
+            */
         this.pseudoHash = "";
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
@@ -74,4 +83,6 @@ public class Pupil extends DataBaseElementObject {
     public String getHash() throws NullPointerException {
         return this.pseudoHash;
     }
+
+
 }

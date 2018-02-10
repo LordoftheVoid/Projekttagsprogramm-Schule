@@ -8,8 +8,15 @@ import java.sql.SQLException;
 public class Link extends DataBaseElementObject {
 
 
+
+    static int amountIdentityValues = 0;
+
+    static int amountInteraktionValues = 0;
+
+
+
     Link(String id){
-        super(id);
+        super(id,amountIdentityValues,amountInteraktionValues);
     }
 
     @Override

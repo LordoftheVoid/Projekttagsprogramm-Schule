@@ -8,14 +8,22 @@ import java.sql.SQLException;
  */
 public abstract class DataBaseElementObject implements DataBaseElementInterFace {
 
-    public int amountofColums;
+
     String id;
     private String[] identityValues;
     private String[] interAktionValues;
 
 
-    public DataBaseElementObject(String id) {
+    public DataBaseElementObject(String id, int identityLength, int aktionLength) {
         this.id = id;
+        this.identityValues = new String[identityLength];
+        for (int i = 0; i < identityValues.length; i++) {
+            identityValues[i] ="";
+        }
+        this.interAktionValues = new String [aktionLength];
+        for (int i = 0; i < interAktionValues.length; i++) {
+           interAktionValues[i] ="";
+        }
     }
 
 
@@ -52,6 +60,7 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
 
         /** TODO Umwandlung in eine anzeigbare Form
          */
+
         return this.identityValues;
     }
 
@@ -86,11 +95,18 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
 
 
     public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
-        try {
-            int i = Integer.parseInt(arg);
-        } catch (NumberFormatException e1) {
-            throw new IllegalArgumentException();
+        if(arg !=null) {
+            try {
+                int i = Integer.parseInt(arg);
+            } catch (NumberFormatException e1) {
+                System.out.println("Arg is"+arg);
+                throw new IllegalArgumentException();
+            }
+            this.interAktionValues[index]= arg;
+        }else{
+            this.interAktionValues[index]="";
         }
+
     }
 
 
