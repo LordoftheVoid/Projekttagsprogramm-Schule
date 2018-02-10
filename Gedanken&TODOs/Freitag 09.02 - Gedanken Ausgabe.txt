@@ -3,4 +3,4 @@ der anzeigbaren zu entfernen, und zwar per Index.
 
 Weiterhin liefere ich jedem Listener den entsprechenden Index mit.
 
-Und zu guter letzt mache ich zwei Listen, von denen eine die Sichtbarkeit implementiert.
+Und zu guter letzt mache ich zwei Listen, von denen eine die Sichtbarkeit implementiert. 
