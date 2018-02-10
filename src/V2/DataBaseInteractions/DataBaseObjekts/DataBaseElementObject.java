@@ -1,8 +1,6 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 import java.sql.SQLException;
 
 /**
@@ -11,24 +9,17 @@ import java.sql.SQLException;
 public abstract class DataBaseElementObject implements DataBaseElementInterFace {
 
     public int amountofColums;
-
+    String id;
     private String[] identityValues;
-
     private String[] interAktionValues;
 
-    String id;
 
-
-
-
-
-    public DataBaseElementObject(String id){
+    public DataBaseElementObject(String id) {
         this.id = id;
     }
 
 
-
-    public void setValue(String value, int colum){
+    public void setValue(String value, int colum) {
 
         /**TODO
          * Je nach Index den Hash neu berechnen !!
@@ -37,7 +28,7 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
 
 
     @Override
-    public void setValue(int index, String value) throws InvalidArgumentException {
+    public void setValue(int index, String value) throws IllegalArgumentException {
 
         /** TODO
          */
@@ -73,7 +64,7 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
     }
 
     @Override
-    public void updateHash() throws InvalidArgumentException {
+    public void updateHash() throws IllegalArgumentException {
 
         /**Todo Sonderfall um Werte zu updaten, da kritisch
          */
@@ -89,27 +80,23 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
     }
 
 
-
-    public String [] getInterAktionValues() {
+    public String[] getInterAktionValues() {
         return this.interAktionValues;
     }
 
 
-    public void setInteraktionValue(String arg, int index) throws InvalidArgumentException {
+    public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
         try {
             int i = Integer.parseInt(arg);
-        }catch (NumberFormatException e1){
-            throw new InvalidArgumentException(new String[]{"Not an Integer"});
+        } catch (NumberFormatException e1) {
+            throw new IllegalArgumentException();
         }
     }
 
 
-    public void setIdentityValue(String arg, int index) throws  InvalidArgumentException {
-        this.identityValues[index]=arg;
+    public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
+        this.identityValues[index] = arg;
     }
-
-
-
 
 
 }

@@ -1,7 +1,5 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 import java.sql.SQLException;
 
 /**
@@ -9,7 +7,7 @@ import java.sql.SQLException;
  */
 public interface DataBaseElementInterFace {
 
-    void setValue(int index, String value) throws InvalidArgumentException;
+    void setValue(int index, String value) throws IllegalArgumentException;
 
     void savetoDataBase() throws SQLException;
 
@@ -19,14 +17,14 @@ public interface DataBaseElementInterFace {
 
     String [] getInterAktionValues() throws IndexOutOfBoundsException;
 
-    void setInteraktionValue(String arg, int index) throws InvalidArgumentException;
+    void setInteraktionValue(String arg, int index) throws IllegalArgumentException;
 
-    void setIdentityValue(String arg, int index) throws  InvalidArgumentException;
+    void setIdentityValue(String arg, int index) throws IllegalArgumentException;
 
 
     String getHash() throws NullPointerException;
 
-    void updateHash() throws InvalidArgumentException;
+    void updateHash() throws IllegalArgumentException;
 
     void deleteEntry();
 }

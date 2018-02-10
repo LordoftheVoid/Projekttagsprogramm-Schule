@@ -3,6 +3,7 @@ package V2.DataBaseInteractions;
 import org.sqlite.SQLiteConfig;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -16,10 +17,10 @@ public class DatabaseInterface {
 
     boolean b_connection_running = false;
     private Connection conDatabase;
-    private HashMap<Integer, String > pupilColums = new HashMap<>();
-    private HashMap<Integer, String > projectColums = new HashMap<>();
+    private HashMap<Integer, String> pupilColums = new HashMap<>();
+    private HashMap<Integer, String> projectColums = new HashMap<>();
     private HashMap<Integer, String> linkColums = new HashMap<>();
-    private HashMap<String,HashMap<Integer,String>> tableColums = new HashMap<>();
+    private HashMap<String, HashMap<Integer, String>> tableColums = new HashMap<>();
 
 
     public void v_initialization(String surlSource_tm) throws NullPointerException {
@@ -43,20 +44,20 @@ public class DatabaseInterface {
                 /**These  names have to be hardcoded at the moment
                  *
                  */
-                this.tableColums.put("Pupil",pupilColums);
-                this.tableColums.put("Project",projectColums);
+                this.tableColums.put("Pupil", pupilColums);
+                this.tableColums.put("Project", projectColums);
 
 
                 try {
-                    ResultSet readColums = this.readEntrysAllAttributes("persons");
+                    ResultSet readColums = this.readEntrysAllAttributes("Pupil");
                     ResultSetMetaData metaData = readColums.getMetaData();
                     for (int i = 1; i < metaData.getColumnCount(); i++) {
-                        pupilColums.put(i,metaData.getColumnName(i));
+                        pupilColums.put(i, metaData.getColumnName(i));
                     }
                     readColums = this.readEntrysAllAttributes("projects");
                     metaData = readColums.getMetaData();
                     for (int i = 1; i < metaData.getColumnCount(); i++) {
-                        pupilColums.put(i,metaData.getColumnName(i));
+                        pupilColums.put(i, metaData.getColumnName(i));
                     }
 
 
@@ -80,6 +81,7 @@ public class DatabaseInterface {
         insertInto.setString(1, unique_id);
         insertInto.executeUpdate();
     }
+
     public void updateEntry(String s_table_tm, String s_unique_ID_tm, String s_colum_tm, String s_value_tm) throws SQLException {
         PreparedStatement update_Entry = conDatabase.prepareStatement("UPDATE " + s_table_tm + " SET " + s_colum_tm + " = '" + s_value_tm + "' WHERE s_unique_ID= ?");
         update_Entry.setString(1, s_unique_ID_tm);
@@ -102,10 +104,10 @@ public class DatabaseInterface {
         delete_Entry.executeUpdate();
     }
 
-    public String getValuefromDataBase ( String table, String entryID, int index){
+    public String getValuefromDataBase(String table, String entryID, int index) {
         String result = "";
         try {
-            ResultSet data = this.readOneEntryOneAtribute(table,tableColums.get(table).get(index),entryID);
+            ResultSet data = this.readOneEntryOneAtribute(table, tableColums.get(table).get(index), entryID);
             result = data.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -114,13 +116,15 @@ public class DatabaseInterface {
 
     }
 
-    public String [] getEntryValuesfromDataBase(String table, String entryID){
-        String [] results = new String[tableColums.get(table).size()];
+    public String[] getEntryValuesfromDataBase(String table, String entryID) {
+
+        System.out.println(table+"  "  +entryID);
+        String[] results = new String[tableColums.get(table).size()];
 
         try {
-            ResultSet entry = this.readEntryallAttributes(table,entryID);
+            ResultSet entry = this.readEntryallAttributes(table, entryID);
             for (int i = 0; i < tableColums.get(table).size(); i++) {
-                results[i] = entry.getString(1+1);
+                results[i] = entry.getString(1 + 1);
             }
 
         } catch (SQLException e) {
@@ -131,6 +135,19 @@ public class DatabaseInterface {
     }
 
 
+    public ArrayList< String > getEntryIDs(String table) {
+        ArrayList<String> entryList = new ArrayList<>();
+        try {
+            ResultSet entrys =  this.readEntrysOneAttribut(table, this.tableColums.get(table).get(0));
+
+            while(entrys.next()){
+                entryList.add(entrys.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entryList;
+    }
 
 
 

@@ -2,8 +2,6 @@ package V2.DataBaseInteractions.DataBaseObjekts;
 
 
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 import java.sql.SQLException;
 
 /**
@@ -28,7 +26,7 @@ public class Project implements DataBaseElementInterFace {
 
 
     @Override
-    public void setValue(int index, String value) throws InvalidArgumentException {
+    public void setValue(int index, String value) throws IllegalArgumentException {
 
 
     }
@@ -53,12 +51,12 @@ public class Project implements DataBaseElementInterFace {
     }
 
     @Override
-    public void setInteraktionValue(String arg, int index) throws InvalidArgumentException {
+    public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
 
     }
 
     @Override
-    public void setIdentityValue(String arg, int index) throws InvalidArgumentException {
+    public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
 
     }
 
@@ -68,7 +66,7 @@ public class Project implements DataBaseElementInterFace {
     }
 
     @Override
-    public void updateHash() throws InvalidArgumentException {
+    public void updateHash() throws IllegalArgumentException {
 
     }
 

@@ -2,88 +2,76 @@ package V2.DataBaseInteractions.DataBaseObjekts;
 
 
 import V2.Settings.Imports;
-import com.sun.javaws.exceptions.InvalidArgumentException;
+
+import java.sql.SQLException;
 
 /**
  * Created by Aaron on 22.01.2018.
  */
 
 
-public class Pupil extends DataBaseElementObject{
+public class Pupil extends DataBaseElementObject {
 
 
+    static int amountIdentityValues = 3;
 
-        static int  amountIdentityValues = 3;
-
-    static int  amountInteraktionValues = 4;
+    static int amountInteraktionValues = 4;
 
 
-    String pseudoHash ="";
+    private String pseudoHash = "";
 
     public Pupil(String idsString) {
         super(idsString);
 
-        String [] valuesDataBase = Imports.objDatabaseManagerGlobal.getEntryValuesfromDataBase("persons",idsString);
+        String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getEntryValuesfromDataBase("Pupil", idsString);
 
         for (int i = 0; i < amountIdentityValues; i++) {
-            try {
-                this.setIdentityValue(valuesDataBase[i],i);
-            }catch (InvalidArgumentException e1){
-
-            }
+            this.setIdentityValue(valuesDataBase[i], i);
         }
 
-        for (int i = amountIdentityValues; i < amountIdentityValues+amountInteraktionValues; i++) {
-            try {
-                this.setInteraktionValue(valuesDataBase[i],i);
-            }catch (InvalidArgumentException e1){
-
-            }
+        for (int i = amountIdentityValues; i < amountIdentityValues + amountInteraktionValues; i++) {
+            this.setInteraktionValue(valuesDataBase[i], i);
         }
 
 
-        try {
-            this.updateHash();
-        } catch (InvalidArgumentException e) {
-            /**TODO Ausgabe muss sich beschweren
-             *
-             */
-        }
+        this.updateHash();
     }
 
 
-
-
-
     @Override
-    public void updateHash() throws InvalidArgumentException{
+    public void updateHash() throws IllegalArgumentException {
 
-
-        if(this.getIdentityValues()[0].length() <3 || this.getIdentityValues()[1].length()<3){
-            throw new InvalidArgumentException(new String[]{"Missing Information"});
+        if (this.getIdentityValues()[0].length() < 3 || this.getIdentityValues()[1].length() < 3) {
+            throw new IllegalArgumentException();
         }
         this.pseudoHash = "";
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
-                this.pseudoHash =this.pseudoHash+ this.getIdentityValues()[i].charAt(j);
+                this.pseudoHash = this.pseudoHash + this.getIdentityValues()[i].charAt(j);
             }
         }
-
-
     }
 
 
-    public boolean isValid(){
+    public boolean isValid() {
         boolean returnValue = true;
-
         for (int i = 0; i < this.getIdentityValues().length; i++) {
-            if(this.getIdentityValues()[i]!=null&& !this.getIdentityValues()[i].equals("")){
-                returnValue =false;
+            if (this.getIdentityValues()[i] != null && !this.getIdentityValues()[i].equals("")) {
+                returnValue = false;
             }
         }
-
-        return  returnValue;
+        for (int i = 0; i < this.getInterAktionValues().length; i++) {
+            try {
+                returnValue = Imports.objDatabaseManagerGlobal.entryExists("Project", String.valueOf(i));
+            } catch (SQLException e) {
+                returnValue = false;
+            }
+        }
+        return returnValue;
     }
 
-
+    @Override
+    public String getHash() throws NullPointerException {
+        return this.pseudoHash;
+    }
 }

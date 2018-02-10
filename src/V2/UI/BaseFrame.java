@@ -39,7 +39,6 @@ public abstract class BaseFrame extends JFrame {
     private JButton btnEintragserzeugung;
 
 
-
     /*
     Other Variables every Frame uses
      */
@@ -65,7 +64,7 @@ public abstract class BaseFrame extends JFrame {
         spaltenNamen = new String[colums];
         JTextField[] createEntryField = new JTextField[amountParametersnewEntry];
 
-        this.columns =colums;
+        this.columns = colums;
 
 
         for (int i_x = 0; i_x < colums; i_x++) {
@@ -192,19 +191,16 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-
-
     void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
         for (int i = 0; i < dataBaseEntrys.size(); i++) {
-            this.listTextRows.add(new Row(this.columns,dataBaseEntrys.get(i),this.getContentPane()));
+            this.listTextRows.add(new Row(this.columns, dataBaseEntrys.get(i), this.getContentPane()));
         }
     }
 
 
     void updateRowYKoordinate(int yFirstElement) {
-
         for (int i = 0; i < this.listTextRows.size(); i++) {
-            this.listTextRows.get(i).setYCoordinates(i*20+yFirstElement);
+            this.listTextRows.get(i).setYCoordinates(i * 20 + yFirstElement);
         }
     }
 

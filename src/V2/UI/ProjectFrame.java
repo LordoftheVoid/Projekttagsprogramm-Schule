@@ -32,7 +32,7 @@ public class ProjectFrame extends BaseFrame {
 
     @Override
     public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
-        return null;
+        return new ArrayList<DataBaseElementObject>();
     }
 
     @Override

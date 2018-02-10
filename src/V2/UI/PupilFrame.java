@@ -1,6 +1,8 @@
 package V2.UI;
 
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
+import V2.Settings.Imports;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,27 +15,6 @@ import java.util.ArrayList;
 public class PupilFrame extends BaseFrame {
 
 
-/*
-    arr_list_value_Strings[0].
-    arr_list_value_Strings[0].
-    arr_list_value_Strings[0]
-    arr_list_value_Strings[0]
-    arr_list_value_Strings[0]
-    arr_list_value_Strings[0]
-    arr_list_value_Strings[0]
-
-        //    arr_list_Database_References[0].add("s_unique_ID");
-        arr_list_Database_References[0].add("s_sur_Name");
-        arr_list_Database_References[0].add("s_pre_Name");
-        arr_list_Database_References[0].add("s_grade");
-        arr_list_Database_References[0].add("i_pref0");
-        arr_list_Database_References[0].add("i_pref1");
-        arr_list_Database_References[0].add("i_pref2");
-        arr_list_Database_References[0].add("i_pref3");
-
-*/
-
-
     public PupilFrame(int spaltenAnzahl, String fensterName, int amountParameter) {
         super(spaltenAnzahl, fensterName);
         amountParametersnewEntry = amountParameter;
@@ -43,7 +24,14 @@ public class PupilFrame extends BaseFrame {
 
     @Override
     public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
-        return null;
+        ArrayList<DataBaseElementObject> entrys = new ArrayList<>();
+
+      ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
+        for (String entry:listIDs
+             ) {
+            entrys.add(new Pupil(entry));
+        }
+      return entrys;
     }
 
     @Override

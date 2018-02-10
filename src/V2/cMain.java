@@ -118,9 +118,9 @@ public class cMain {
         ExcelInterface excelInterface = new ExcelInterface();
         excelInterface.updateDataBase(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
-        BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster",2);
+        BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster", 2);
 
-        BaseFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster",1);
+        BaseFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster", 1);
 
 
         JButton btnEnablePupilUI = new JButton("Schüler-Eingabe-Feld");
@@ -230,6 +230,7 @@ public class cMain {
             public void mouseClicked(MouseEvent e) {
 
             }
+
             @Override
             public void mousePressed(MouseEvent e) {
 
