@@ -1,6 +1,8 @@
 package V2.UI;
 
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.Project;
+import V2.Settings.Imports;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,7 +34,18 @@ public class ProjectFrame extends BaseFrame {
 
     @Override
     public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
-        return new ArrayList<DataBaseElementObject>();
+
+        ArrayList<DataBaseElementObject> entrys = new ArrayList<>();
+
+        ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Project");
+
+
+        for (String entry : listIDs
+                ) {
+            entrys.add(new Project(entry, 2, 1));
+        }
+
+        return entrys;
     }
 
     @Override
@@ -41,5 +54,6 @@ public class ProjectFrame extends BaseFrame {
         this.columNames[1].setText("Lehrerkürzel");
         this.columNames[2].setText("Maximale Schülerzahl");
     }
+
 
 }

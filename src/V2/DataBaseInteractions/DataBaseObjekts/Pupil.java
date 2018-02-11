@@ -13,6 +13,13 @@ import java.sql.SQLException;
 public class Pupil extends DataBaseElementObject {
 
 
+    /**TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
+     *
+     *
+     */
+
+
+
     static int amountIdentityValues = 3;
 
     static int amountInteraktionValues = 4;
@@ -23,40 +30,36 @@ public class Pupil extends DataBaseElementObject {
     public Pupil(String idsString) {
         super(idsString,amountIdentityValues,amountInteraktionValues);
 
-        System.out.println("Pupilvalue"+idsString);
-
-        String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getEntryValuesfromDataBase("Pupil", idsString);
+        String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getallEntryValuesfromDataBase("Pupil", idsString);
 
         for (int i = 0; i < amountIdentityValues; i++) {
-            this.setIdentityValue(valuesDataBase[i], i);
+            this.setIdentityValue(valuesDataBase[i+1], i);
         }
 
-        for (int i = 0; i <  amountInteraktionValues; i++) {
-            System.out.println(i);
-            this.setInteraktionValue(valuesDataBase[i+amountIdentityValues-1], i);
+        for (int i = 3; i <7  ; i++) {
+            this.setInteraktionValue(valuesDataBase[i], i-3);
         }
 
 
         this.updateHash();
+
     }
 
 
     @Override
     public void updateHash() throws IllegalArgumentException {
 
-        for (int i = 0; i < this.getIdentityValues().length; i++) {
-            System.out.println("Identity Values"+this.getIdentityValues()[i]);
-        }
+
 
             /*
-        if (this.getIdentityValues()[0].length() < 3 || this.getIdentityValues()[1].length() < 3) {
+        if (this.getPublicIdentityValues()[0].length() < 3 || this.getPublicIdentityValues()[1].length() < 3) {
             throw new IllegalArgumentException();
         }
             */
         this.pseudoHash = "";
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
-                this.pseudoHash = this.pseudoHash + this.getIdentityValues()[i].charAt(j);
+                this.pseudoHash = this.pseudoHash + this.getPublicIdentityValues()[i].charAt(j);
             }
         }
     }
@@ -64,8 +67,8 @@ public class Pupil extends DataBaseElementObject {
 
     public boolean isValid() {
         boolean returnValue = true;
-        for (int i = 0; i < this.getIdentityValues().length; i++) {
-            if (this.getIdentityValues()[i] != null && !this.getIdentityValues()[i].equals("")) {
+        for (int i = 0; i < this.getPublicIdentityValues().length; i++) {
+            if (this.getPublicIdentityValues()[i] != null && !this.getPublicIdentityValues()[i].equals("")) {
                 returnValue = false;
             }
         }
@@ -83,6 +86,27 @@ public class Pupil extends DataBaseElementObject {
     public String getHash() throws NullPointerException {
         return this.pseudoHash;
     }
+
+
+    public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
+        if(arg !=null) {
+            try {
+                int i = Integer.parseInt(arg);
+            } catch (NumberFormatException e1) {
+                throw new IllegalArgumentException();
+            }
+            super.setInteraktionValue(arg,index);
+        }else{
+            super.setInteraktionValue("",index);
+        }
+
+    }
+
+
+    public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
+        super.setIdentityValue(arg,index);
+    }
+
 
 
 }

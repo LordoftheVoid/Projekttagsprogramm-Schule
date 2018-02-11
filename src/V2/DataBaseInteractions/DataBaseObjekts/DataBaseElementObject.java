@@ -10,15 +10,15 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
 
 
     String id;
-    private String[] identityValues;
+    private String[] publicIdentityValues;
     private String[] interAktionValues;
 
 
     public DataBaseElementObject(String id, int identityLength, int aktionLength) {
         this.id = id;
-        this.identityValues = new String[identityLength];
-        for (int i = 0; i < identityValues.length; i++) {
-            identityValues[i] ="";
+        this.publicIdentityValues = new String[identityLength];
+        for (int i = 0; i < publicIdentityValues.length; i++) {
+            publicIdentityValues[i] ="";
         }
         this.interAktionValues = new String [aktionLength];
         for (int i = 0; i < interAktionValues.length; i++) {
@@ -56,12 +56,12 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
         return false;
     }
 
-    public String[] getIdentityValues() throws IndexOutOfBoundsException {
+    public String[] getPublicIdentityValues() throws IndexOutOfBoundsException {
 
         /** TODO Umwandlung in eine anzeigbare Form
          */
 
-        return this.identityValues;
+        return this.publicIdentityValues;
     }
 
     @Override
@@ -88,30 +88,16 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
 
     }
 
-
     public String[] getInterAktionValues() {
         return this.interAktionValues;
     }
 
-
     public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
-        if(arg !=null) {
-            try {
-                int i = Integer.parseInt(arg);
-            } catch (NumberFormatException e1) {
-                System.out.println("Arg is"+arg);
-                throw new IllegalArgumentException();
-            }
-            this.interAktionValues[index]= arg;
-        }else{
-            this.interAktionValues[index]="";
-        }
-
+        this.interAktionValues[index]="";
     }
 
-
     public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
-        this.identityValues[index] = arg;
+        this.publicIdentityValues[index] = arg;
     }
 
 

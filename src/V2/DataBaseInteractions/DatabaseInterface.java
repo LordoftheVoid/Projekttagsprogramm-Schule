@@ -69,12 +69,6 @@ public class DatabaseInterface {
                      *
                      */
 
-                    for (Integer key:pupilColums.keySet()
-                         ) {
-                        System.out.println(key+"  "+pupilColums.get(key));
-                    }
-
-
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -126,31 +120,24 @@ public class DatabaseInterface {
 
     }
 
-    public String[] getEntryValuesfromDataBase(String table, String entryID) {
-
-        System.out.println("ID"+entryID);
+    public String[] getallEntryValuesfromDataBase(String table, String entryID) {
 
         String[] results = new String[tableColums.get(table).size()];
         for (int i = 0; i < results.length; i++) {
             results[i] = "";
         }
-
         try {
             ResultSet entry = this.readEntryallAttributes(table, entryID);
 
-            int i = 0;
             while (entry.next()) {
-                System.out.println("EntryData"+entry.getString(i+1));
-                results[i] = entry.getString(1 + 1);
-                System.out.println(i);
+                for (int j = 0; j < tableColums.get(table).size(); j++) {
+                    results[j] = entry.getString(j+1);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        for (int i = 0; i < results.length; i++) {
-            System.out.println("Result"+results[i]);
-        }
         return results;
     }
 
@@ -161,7 +148,6 @@ public class DatabaseInterface {
             ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(1));
 
             while (entrys.next()) {
-                System.out.println("DataBaseENtry"+entrys.getString(1));
                 entryList.add(entrys.getString(1));
             }
         } catch (SQLException e) {
@@ -172,7 +158,6 @@ public class DatabaseInterface {
 
 
     private ResultSet readEntrysOneAttribut(String tableReference, String colum) throws SQLException {
-        System.out.println("Columarg"+colum);
         PreparedStatement extract_entrys = conDatabase.prepareStatement("SELECT " + colum + " FROM " + tableReference);
         return extract_entrys.executeQuery();
 

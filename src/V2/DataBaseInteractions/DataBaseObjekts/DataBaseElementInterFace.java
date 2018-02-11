@@ -13,7 +13,7 @@ public interface DataBaseElementInterFace {
 
     boolean isValid();
 
-    String[] getIdentityValues() throws IndexOutOfBoundsException;
+    String[] getPublicIdentityValues() throws IndexOutOfBoundsException;
 
     String [] getInterAktionValues() throws IndexOutOfBoundsException;
 

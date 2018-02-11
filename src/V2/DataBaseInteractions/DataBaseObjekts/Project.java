@@ -1,28 +1,34 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
 
-
 import java.sql.SQLException;
 
 /**
  * Created by Aaron on 22.01.2018.
  */
-public class Project implements DataBaseElementInterFace {
+public class Project extends DataBaseElementObject {
 
 
-    public Project( String id) {
+    /**TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
+     *
+     *
+     *
+     */
+
+    static int amountIdentityValues = 2;
+
+    static int amountInteraktionValues = 1;
+
+
+    public Project(String id, int amountIdentityValues, int amountInteraktionValues) {
+        super(id, amountIdentityValues, amountInteraktionValues);
 
     }
-
-
-
 
 
     public void changeValue(String value, int colum) {
 
     }
-
-
 
 
     @Override
@@ -41,24 +47,7 @@ public class Project implements DataBaseElementInterFace {
         return false;
     }
 
-    public String[] getIdentityValues() throws IndexOutOfBoundsException {
-        return new String[0];
-    }
 
-    @Override
-    public String[] getInterAktionValues() throws IndexOutOfBoundsException {
-        return new String[0];
-    }
-
-    @Override
-    public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
-
-    }
-
-    @Override
-    public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
-
-    }
 
     @Override
     public String getHash() throws NullPointerException {
@@ -74,6 +63,28 @@ public class Project implements DataBaseElementInterFace {
     public void deleteEntry() {
 
     }
+
+
+
+    public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
+        try{
+            int i = Integer.parseInt(arg);
+            if(i <0){
+                throw new IllegalArgumentException();
+            }
+        }catch (NumberFormatException e1){
+            throw new IllegalArgumentException();
+        }
+        super.setInteraktionValue(arg,index);
+
+    }
+
+
+    public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
+        super.setIdentityValue(arg,index);
+    }
+
+
 
 
 }

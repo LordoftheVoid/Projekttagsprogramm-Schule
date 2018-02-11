@@ -12,68 +12,87 @@ import java.sql.SQLException;
 public class Row {
 
 
-    JTextField [] displayElements;
+    JTextField[] displayElements;
     JButton btnDeleteEntry;
     DataBaseElementObject dataBaseEntry;
 
-    public Row(int columns, DataBaseElementObject dataBaseEntry, Container targetFrame){
+    public Row(int columns, DataBaseElementObject dataBaseEntry, Container targetFrame) {
 
-        this.dataBaseEntry =dataBaseEntry;
+        this.dataBaseEntry = dataBaseEntry;
         this.displayElements = new JTextField[columns];
         for (int i = 0; i < columns; i++) {
             displayElements[i] = new JTextField();
             displayElements[i].setVisible(true);
             targetFrame.add(displayElements[i]);
-            displayElements[i].setBounds(i*120, 600, 120, 20);
+            displayElements[i].setBounds(i * 120, 600, 120, 20);
         }
         btnDeleteEntry = new JButton("Eintrag löschen");
         targetFrame.add(btnDeleteEntry);
         btnDeleteEntry.setVisible(true);
-        btnDeleteEntry.setBounds(this.displayElements.length*120,600,120,20);
+        btnDeleteEntry.setBounds(this.displayElements.length * 120, 600, 120, 20);
+
+        this.showText();
     }
 
-    void showText(){
-        String[] valuesEntry = this.dataBaseEntry.getIdentityValues();
+    void showText() {
+        String[] valuesEntry = new String[this.displayElements.length];
+
+        int amountIdentityValues = this.dataBaseEntry.getPublicIdentityValues().length;
+        int amountInteraktionValues = this.dataBaseEntry.getInterAktionValues().length;
+
+
+        System.out.println(amountIdentityValues+amountInteraktionValues);
+
+        for (int i = 0; i < amountIdentityValues + amountInteraktionValues; i++) {
+            System.out.println("I is "+i);
+            if (i < amountIdentityValues) {
+                valuesEntry[i] = this.dataBaseEntry.getPublicIdentityValues()[i];
+                 valuesEntry[i] = "Identity";
+            } else {
+                valuesEntry[i] = this.dataBaseEntry.getInterAktionValues()[i - amountIdentityValues];
+                   valuesEntry[i] = "Interaktion";
+            }
+        }
+
         for (int i = 0; i < displayElements.length; i++) {
             displayElements[i].setText(valuesEntry[i]);
         }
     }
 
-    void removeFromFrame(Container targetFrame){
+
+    void removeFromFrame(Container targetFrame) {
         for (int i = 0; i < this.displayElements.length; i++) {
             targetFrame.remove(displayElements[i]);
         }
     }
 
 
-
-   public  void setYCoordinates(int yKoordinate){
+    public void setYCoordinates(int yKoordinate) {
         for (int i = 0; i < this.displayElements.length; i++) {
-            displayElements[i].setLocation(displayElements[i].getX(),yKoordinate);
+            displayElements[i].setLocation(displayElements[i].getX(), yKoordinate);
         }
-        btnDeleteEntry.setLocation(btnDeleteEntry.getX(),yKoordinate);
+        btnDeleteEntry.setLocation(btnDeleteEntry.getX(), yKoordinate);
     }
 
 
+    void updateDataBaseEntry() {
+        boolean valid = this.dataBaseEntry.isValid();
 
-    void updateDataBaseEntry(){
-       boolean valid= this.dataBaseEntry.isValid();
-
-       if(valid){
-           try {
-               this.dataBaseEntry.savetoDataBase();
-           } catch (SQLException e) {
-               e.printStackTrace();
-           }
-       }else{
-           /**TODO Nutzerausgabe ?
-            *
-            */
-       }
+        if (valid) {
+            try {
+                this.dataBaseEntry.savetoDataBase();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            /**TODO Nutzerausgabe ?
+             *
+             */
+        }
 
     }
 
-    void deleteDataBaseEntry(){
+    void deleteDataBaseEntry() {
         this.dataBaseEntry.deleteEntry();
     }
 

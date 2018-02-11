@@ -31,7 +31,6 @@ public class PupilFrame extends BaseFrame {
 
         for (String entry:listIDs
              ) {
-            System.out.println("EntryTop"+entry);
             entrys.add(new Pupil(entry));
         }
       return entrys;
