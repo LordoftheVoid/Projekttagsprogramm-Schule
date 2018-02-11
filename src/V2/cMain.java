@@ -1,7 +1,7 @@
 package V2;
 
 import V2.FileInteractions.DirectoryCreator;
-import V2.FileInteractions.Excel.ExcelInterface;
+import V2.FileInteractions.Excel.InterfaceExcel;
 import V2.Settings.Imports;
 import V2.UI.BaseFrame;
 import V2.UI.ProjectFrame;
@@ -115,8 +115,8 @@ public class cMain {
         objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
 
-        ExcelInterface excelInterface = new ExcelInterface();
-        excelInterface.updateDataBase(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+        InterfaceExcel interfaceExcel = new InterfaceExcel();
+        interfaceExcel.updateDataBase(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
         BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster", 2);
 

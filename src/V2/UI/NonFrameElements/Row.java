@@ -41,8 +41,6 @@ public class Row {
         int amountInteraktionValues = this.dataBaseEntry.getInterAktionValues().length;
 
 
-        System.out.println(amountIdentityValues+amountInteraktionValues);
-
         for (int i = 0; i < amountIdentityValues + amountInteraktionValues; i++) {
             System.out.println("I is "+i);
             if (i < amountIdentityValues) {
@@ -59,13 +57,11 @@ public class Row {
         }
     }
 
-
     void removeFromFrame(Container targetFrame) {
         for (int i = 0; i < this.displayElements.length; i++) {
             targetFrame.remove(displayElements[i]);
         }
     }
-
 
     public void setYCoordinates(int yKoordinate) {
         for (int i = 0; i < this.displayElements.length; i++) {

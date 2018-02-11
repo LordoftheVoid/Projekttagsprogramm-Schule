@@ -5,19 +5,14 @@ package V2.FileInteractions.Excel;
  */
 
 
-import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ExcelInterface extends Thread {
+public class InterfaceExcel extends Thread {
 
     public CopyOnWriteArrayList<String> dateiListe;
-    CopyOnWriteArrayList<Pupil> schuelerListe = new CopyOnWriteArrayList();
 
     String urlOrdner = "";
 
@@ -59,12 +54,12 @@ public class ExcelInterface extends Thread {
 
     public void run() {
         this.dateiListe = suchDateiURLs(urlOrdner);
-        ArrayList<cDateiLeser> threadListe = new ArrayList<>();
+        ArrayList<fileReader> threadListe = new ArrayList<>();
         for (String eintrag : this.dateiListe
                 ) {
-            threadListe.add(new cDateiLeser(eintrag));
+            threadListe.add(new fileReader(eintrag));
         }
-        for (cDateiLeser eintrag : threadListe
+        for (fileReader eintrag : threadListe
                 ) {
             try {
                 eintrag.join();
@@ -72,56 +67,12 @@ public class ExcelInterface extends Thread {
                 e.printStackTrace();
             }
         }
-     //   Pupil.updateSchueler(schuelerListe);
+
+        /**TODO Broadcast the succesfull Import
+         *
+         */
     }
 
 
-    class cDateiLeser extends Thread {
-
-        String dateiUrl = "";
-
-        cDateiLeser(String url) {
-            this.dateiUrl = url;
-            this.start();
-        }
-
-
-        public void run() {
-            String gelesenerNachname;
-            String gelesenerVorname;
-            String stufe = "";
-
-            int i = dateiUrl.length() - 1;
-
-            while (dateiUrl.charAt(i) != '\\') {
-                i--;
-            }
-            i++;
-
-            for (; i < dateiUrl.length(); i++) {
-                stufe = stufe + dateiUrl.charAt(i);
-                if (dateiUrl.charAt(i) == '.') {
-                    break;
-                }
-            }
-
-            HSSFWorkbook datei = null;
-
-            try {
-                datei = new HSSFWorkbook(new FileInputStream(this.dateiUrl));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            for (int i_x = 0; i_x < datei.getSheetAt(0).getLastRowNum(); i_x++) {
-                gelesenerNachname = datei.getSheetAt(0).getRow(i_x).getCell(0).getStringCellValue();
-                gelesenerVorname = datei.getSheetAt(0).getRow(i_x).getCell(1).getStringCellValue();
-
-                if(!gelesenerNachname.toLowerCase().equals("nachname")) {
-                //    schuelerListe.add(new Pupil(gelesenerNachname, gelesenerVorname, stufe));
-                }
-            }
-        }
-
-    }
 }
 

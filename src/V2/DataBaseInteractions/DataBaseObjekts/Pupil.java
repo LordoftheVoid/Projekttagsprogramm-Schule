@@ -48,14 +48,11 @@ public class Pupil extends DataBaseElementObject {
 
     @Override
     public void updateHash() throws IllegalArgumentException {
-
-
-
-            /*
+        
         if (this.getPublicIdentityValues()[0].length() < 3 || this.getPublicIdentityValues()[1].length() < 3) {
             throw new IllegalArgumentException();
         }
-            */
+
         this.pseudoHash = "";
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {

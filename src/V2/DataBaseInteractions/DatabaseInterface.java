@@ -80,18 +80,26 @@ public class DatabaseInterface {
     }
 
 
-    public void createEntry(String sTable_tm, String unique_id) throws SQLException {
-        PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + sTable_tm + "  (s_unique_ID) VALUES (?)");
-        insertInto.setString(1, unique_id);
+    public void createEntry(String tableReference, String newEntryID) throws SQLException {
+        System.out.println(this.tableColums.get(tableReference).get(1));
+        PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + tableReference + "  (" + this.tableColums.get(tableReference).get(1) + ") VALUES (?)");
+        insertInto.setString(1, newEntryID);
         insertInto.executeUpdate();
     }
 
-    public void updateEntry(String tableReference, String entryID, String colum, String newValue) throws SQLException {
-        PreparedStatement update_Entry = conDatabase.prepareStatement("UPDATE " + tableReference + " SET " + colum + " = " + newValue + " WHERE " + idColums.get(tableReference) + "= ?");
+    public void updateEntry(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
+
+
+        String sqlStatement = "UPDATE " + tableReference + " SET ";
+
+        sqlStatement = sqlStatement  + this.tableColums.get(pupilColums).get(columIndex);
+
+        sqlStatement = sqlStatement + " = " + newValue + " WHERE " + idColums.get(tableReference) + "= ?";
+
+        PreparedStatement update_Entry = conDatabase.prepareStatement(sqlStatement);
         update_Entry.setString(1, entryID);
         update_Entry.executeUpdate();
     }
-
 
     public boolean entryExists(String tableReference, String unique_id) throws SQLException {
         PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE " + idColums.get(tableReference) + " ? ");
@@ -131,7 +139,7 @@ public class DatabaseInterface {
 
             while (entry.next()) {
                 for (int j = 0; j < tableColums.get(table).size(); j++) {
-                    results[j] = entry.getString(j+1);
+                    results[j] = entry.getString(j + 1);
                 }
             }
         } catch (SQLException e) {
