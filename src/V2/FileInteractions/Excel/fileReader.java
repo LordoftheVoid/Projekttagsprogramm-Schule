@@ -62,8 +62,6 @@ public class fileReader extends Thread {
                     newID = newID + preName.charAt(j);
                 }
 
-
-
                 try {
                     Imports.objDatabaseManagerGlobal.createEntry("Pupil", newID);
                     Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 2, surName);
@@ -73,7 +71,6 @@ public class fileReader extends Thread {
                      *    System.out.println( e.getMessage());
                      *
                      */
-
 
                 }
 

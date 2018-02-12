@@ -4,6 +4,7 @@ import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.Settings.Imports;
 
+import javax.swing.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -23,12 +24,6 @@ public class ProjectFrame extends BaseFrame {
 */
     public ProjectFrame(int spaltenanzahl, String name, int creationParameters) {
         super(spaltenanzahl, name);
-
-        amountParametersnewEntry = creationParameters;
-        this.spaltenNamen[0] = "Projektnummer";
-        this.spaltenNamen[1] = "Lehrkraftskürzel";
-        this.spaltenNamen[2] = "Maximale Schüleranzahl";
-
     }
 
 
@@ -46,6 +41,17 @@ public class ProjectFrame extends BaseFrame {
         }
 
         return entrys;
+    }
+
+    @Override
+    public void setUpCreationGUIElements() {
+        for (int i = 0; i < 2; i++) {
+            arrCreateEntryFields[i] = new JTextField();
+            this.getContentPane().add(arrCreateEntryFields[i]);
+            arrCreateEntryFields[i].setBounds(BaseFrame.getWIDTH() * i, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
+            arrCreateEntryFields[i].setVisible(true);
+        }
+
     }
 
     @Override

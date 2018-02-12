@@ -27,16 +27,16 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 
 public abstract class BaseFrame extends JFrame {
 
-    static int amountParametersnewEntry;
-    public final int WIDTHGLOBAL = 120;
+
+    private final static  int WIDTHGLOBAL = 120;
     final int yCoordinateListEntrys = 260;
-    public CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
-    public JTextField[] suchLabel;
+    private CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
+    private  JTextField[] suchLabel;
     public JTextField[] columNames;
-    JTextField[] arrCreateEntryFields;
-    String[] spaltenNamen;
+    public JTextField[] arrCreateEntryFields;
     int columns;
-    private JButton btnEintragserzeugung;
+    public JButton btnCreateEntry;
+
 
 
     /*
@@ -50,19 +50,21 @@ public abstract class BaseFrame extends JFrame {
     private boolean[] sortdirections;
 
 
+   static  public int  getWIDTH(){
+        return WIDTHGLOBAL;
+    }
+
+
     public BaseFrame(int colums, String strFenstername) {
 
         super(strFenstername);
         this.getContentPane().setLayout(null);
 
         columNames = new JTextField[colums];
-        arrCreateEntryFields = new JTextField[colums];
         suchLabel = new JTextField[colums];
         suchFenster = new JTextField[colums];
         sortierButtons = new JButton[colums];
         sortdirections = new boolean[colums];
-        spaltenNamen = new String[colums];
-        JTextField[] createEntryField = new JTextField[amountParametersnewEntry];
 
         this.columns = colums;
 
@@ -73,11 +75,6 @@ public abstract class BaseFrame extends JFrame {
             this.getContentPane().add(columNames[i_x]);
             columNames[i_x].setBounds(WIDTHGLOBAL * i_x, 0, WIDTHGLOBAL, 20);
 
-
-            arrCreateEntryFields[i_x] = new JTextField();
-            this.getContentPane().add(arrCreateEntryFields[i_x]);
-            arrCreateEntryFields[i_x].setBounds(i_x * WIDTHGLOBAL, yCoordinateListEntrys - 40, WIDTHGLOBAL, 20);
-            arrCreateEntryFields[i_x].setVisible(true);
 
 
             suchLabel[i_x] = new JTextField();
@@ -97,6 +94,9 @@ public abstract class BaseFrame extends JFrame {
             sortierButtons[i_x].setVisible(true);
             sortierButtons[i_x].setText(" A ... Z");
             sortdirections[i_x] = true;
+
+
+            this.setUpCreationGUIElements();
 
 
             this.getContentPane().add(suchFenster[i_x]);
@@ -154,12 +154,6 @@ public abstract class BaseFrame extends JFrame {
 
         }
 
-        for (int i = 0; i < createEntryField.length; i++) {
-            createEntryField[i] = new JTextField();
-            this.getContentPane().add(createEntryField[i]);
-            createEntryField[i].setBounds(this.WIDTHGLOBAL * i, yCoordinateListEntrys - 60, WIDTHGLOBAL, 20);
-            createEntryField[i].setVisible(true);
-        }
 
         this.showfixedText();
 
@@ -170,16 +164,24 @@ public abstract class BaseFrame extends JFrame {
         }
 
 
-        this.updateRowYKoordinate(500);
+        this.updateRowYKoordinate(300);
     }
 
 
     public abstract ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException;
 
 
+    public abstract void setUpCreationGUIElements();
+
+
+
+
     void clearRows() {
 
     }
+
+
+
 
     void resetInterface() {
         this.clearRows();

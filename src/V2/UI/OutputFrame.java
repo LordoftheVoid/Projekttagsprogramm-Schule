@@ -23,6 +23,11 @@ public class OutputFrame extends BaseFrame {
         return null;
     }
 
+    @Override
+    public void setUpCreationGUIElements() {
+
+    }
+
 
     @Override
     public void showfixedText() {
