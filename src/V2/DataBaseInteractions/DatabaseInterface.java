@@ -81,7 +81,6 @@ public class DatabaseInterface {
 
 
     public void createEntry(String tableReference, String newEntryID) throws SQLException {
-        System.out.println(this.tableColums.get(tableReference).get(1));
         PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + tableReference + "  (" + this.tableColums.get(tableReference).get(1) + ") VALUES (?)");
         insertInto.setString(1, newEntryID);
         insertInto.executeUpdate();
@@ -90,13 +89,10 @@ public class DatabaseInterface {
     public void updateEntry(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
 
 
-        String sqlStatement = "UPDATE " + tableReference + " SET ";
 
-        sqlStatement = sqlStatement  + this.tableColums.get(pupilColums).get(columIndex);
+        String sqlString = "UPDATE " + tableReference + " SET " + this.tableColums.get(tableReference).get(columIndex)+ " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
 
-        sqlStatement = sqlStatement + " = " + newValue + " WHERE " + idColums.get(tableReference) + "= ?";
-
-        PreparedStatement update_Entry = conDatabase.prepareStatement(sqlStatement);
+        PreparedStatement update_Entry = conDatabase.prepareStatement(sqlString);
         update_Entry.setString(1, entryID);
         update_Entry.executeUpdate();
     }

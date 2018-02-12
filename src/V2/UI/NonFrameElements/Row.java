@@ -45,10 +45,10 @@ public class Row {
             System.out.println("I is "+i);
             if (i < amountIdentityValues) {
                 valuesEntry[i] = this.dataBaseEntry.getPublicIdentityValues()[i];
-                 valuesEntry[i] = "Identity";
+             //    valuesEntry[i] = "Identity";
             } else {
                 valuesEntry[i] = this.dataBaseEntry.getInterAktionValues()[i - amountIdentityValues];
-                   valuesEntry[i] = "Interaktion";
+             //      valuesEntry[i] = "Interaktion";
             }
         }
 

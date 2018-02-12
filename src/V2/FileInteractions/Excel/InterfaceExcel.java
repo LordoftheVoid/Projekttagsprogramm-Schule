@@ -14,7 +14,14 @@ public class InterfaceExcel extends Thread {
 
     public CopyOnWriteArrayList<String> dateiListe;
 
-    String urlOrdner = "";
+    String directoryURL = "";
+
+
+    public InterfaceExcel(String directoryURL){
+        this.directoryURL = directoryURL;
+        this.updateDataBase();
+    }
+
 
 
     CopyOnWriteArrayList<String> suchDateiURLs(String s_tm_starting_directory) {
@@ -46,14 +53,13 @@ public class InterfaceExcel extends Thread {
     }
 
 
-    public void updateDataBase(String urlOrdner) throws NullPointerException {
-        this.urlOrdner = urlOrdner;
+    public void updateDataBase() {
         this.start();
     }
 
 
     public void run() {
-        this.dateiListe = suchDateiURLs(urlOrdner);
+        this.dateiListe = suchDateiURLs(directoryURL);
         ArrayList<fileReader> threadListe = new ArrayList<>();
         for (String eintrag : this.dateiListe
                 ) {

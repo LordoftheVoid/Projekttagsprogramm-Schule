@@ -39,16 +39,12 @@ public class Pupil extends DataBaseElementObject {
         for (int i = 3; i <7  ; i++) {
             this.setInteraktionValue(valuesDataBase[i], i-3);
         }
-
-
-        this.updateHash();
-
     }
 
 
     @Override
     public void updateHash() throws IllegalArgumentException {
-        
+
         if (this.getPublicIdentityValues()[0].length() < 3 || this.getPublicIdentityValues()[1].length() < 3) {
             throw new IllegalArgumentException();
         }

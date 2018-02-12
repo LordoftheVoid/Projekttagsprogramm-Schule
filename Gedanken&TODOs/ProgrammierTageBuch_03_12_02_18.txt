@@ -1,0 +1,8 @@
+Sprache: Java
+
+Projekt: Projekttagsprogramm
+
+Ziel: Behebung der Errors rund um Schüler-Erhebung,
+
+Zeit: Mindestens 30 Minuten
+

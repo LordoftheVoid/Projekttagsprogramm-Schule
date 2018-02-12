@@ -53,10 +53,6 @@ public class fileReader extends Thread {
             preName = datei.getSheetAt(0).getRow(i_x).getCell(1).getStringCellValue();
 
             if (!surName.toLowerCase().equals("nachname")) {
-                System.out.println("-----");
-                System.out.println(surName);
-                System.out.println(preName);
-                System.out.println("-----");
 
                 String newID ="";
                 for (int j = 0; j < 3; j++) {
@@ -67,13 +63,18 @@ public class fileReader extends Thread {
                 }
 
 
-                System.out.println("id SOLLTE SEIN"+newID);
+
                 try {
                     Imports.objDatabaseManagerGlobal.createEntry("Pupil", newID);
                     Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 2, surName);
-                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 3, surName);
+                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 3, preName);
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
+                     *    System.out.println( e.getMessage());
+                     *
+                     */
+
+
                 }
 
 

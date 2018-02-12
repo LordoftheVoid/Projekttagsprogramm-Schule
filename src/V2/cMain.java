@@ -36,12 +36,9 @@ public class cMain {
     }
 
     public static void main(String args[]) {
-        /**
-         * Setup of the display shown to the user, mainly through JFrame.
-         */
 
 
-        //   System.out.println(System.getProperties());
+        Imports.setupImport();
 
 
         objFrameMain = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
@@ -50,13 +47,11 @@ public class cMain {
         objFrameMain.getContentPane().setLayout(null);
         objFrameMain.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-
         statusDisplay = new JTextArea();
         objFrameMain.getContentPane().add(statusDisplay);
         statusDisplay.setText("");
         statusDisplay.setBounds(0, 450, 600, 1000);
         statusDisplay.setBorder(new LineBorder(Color.black));
-
 
         JButton btnCreateUI = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
         objFrameMain.getContentPane().add(btnCreateUI);
@@ -64,13 +59,18 @@ public class cMain {
         btnCreateUI.setBounds(0, 0, 600, 450);
 
 
+
         updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
+
+
+        InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+
+
 
         btnCreateUI.addMouseListener(new MouseListener() {
                                          @Override
                                          public void mouseClicked(MouseEvent e) {
                                              try {
-                                                 Imports.setupImport();
                                                  btnCreateUI.setEnabled(false);
                                                  btnCreateUI.setVisible(false);
                                                  objFrameMain.getContentPane().remove(btnCreateUI);
@@ -115,9 +115,6 @@ public class cMain {
         objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
 
-        InterfaceExcel interfaceExcel = new InterfaceExcel();
-        interfaceExcel.updateDataBase(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
-
         BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster", 2);
 
         BaseFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster", 1);
@@ -137,6 +134,7 @@ public class cMain {
         btnRereadFiles.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+              InterfaceExcel  interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
             }
 
             @Override
