@@ -24,7 +24,12 @@ public class OutputFrame extends BaseFrame {
     }
 
     @Override
-    public void setUpCreationGUIElements() {
+    public void generateDataBaseEntry() {
+
+    }
+
+    @Override
+    public void setGUIElementsForCreation() {
 
     }
 

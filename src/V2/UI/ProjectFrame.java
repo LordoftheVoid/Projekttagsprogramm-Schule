@@ -4,7 +4,6 @@ import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.Settings.Imports;
 
-import javax.swing.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,16 +12,8 @@ import java.util.ArrayList;
  */
 public class ProjectFrame extends BaseFrame {
 
-    /*
 
-
-        arr_list_Database_References[1].add("s_unique_ID");
-        arr_list_Database_References[1].add("s_teacher_ID");
-        arr_list_Database_References[1].add("i_max_pupils");
-
-
-*/
-    public ProjectFrame(int spaltenanzahl, String name, int creationParameters) {
+    public ProjectFrame(int spaltenanzahl, String name) {
         super(spaltenanzahl, name);
     }
 
@@ -44,15 +35,10 @@ public class ProjectFrame extends BaseFrame {
     }
 
     @Override
-    public void setUpCreationGUIElements() {
-        for (int i = 0; i < 2; i++) {
-            arrCreateEntryFields[i] = new JTextField();
-            this.getContentPane().add(arrCreateEntryFields[i]);
-            arrCreateEntryFields[i].setBounds(BaseFrame.getWIDTH() * i, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
-            arrCreateEntryFields[i].setVisible(true);
-        }
+    public void generateDataBaseEntry() {
 
     }
+
 
     @Override
     public void showfixedText() {

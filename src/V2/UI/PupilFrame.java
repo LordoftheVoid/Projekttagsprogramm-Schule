@@ -4,7 +4,6 @@ import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.Settings.Imports;
 
-import javax.swing.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,10 +15,8 @@ import java.util.ArrayList;
 public class PupilFrame extends BaseFrame {
 
 
-    public PupilFrame(int spaltenAnzahl, String fensterName, int amountParameter) {
+    public PupilFrame(int spaltenAnzahl, String fensterName) {
         super(spaltenAnzahl, fensterName);
-
-
     }
 
 
@@ -38,15 +35,10 @@ public class PupilFrame extends BaseFrame {
     }
 
     @Override
-    public void setUpCreationGUIElements() {
-        for (int i = 0; i < 2; i++) {
-            this.arrCreateEntryFields[i] = new JTextField();
-            this.getContentPane().add(arrCreateEntryFields[i]);
-            this.arrCreateEntryFields[i].setBounds(BaseFrame.getWIDTH() * i, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
-            this.arrCreateEntryFields[i].setVisible(true);
-        }
+    public void generateDataBaseEntry() {
 
     }
+
 
     @Override
     public void showfixedText() {

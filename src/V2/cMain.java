@@ -115,9 +115,9 @@ public class cMain {
         objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
 
-        BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster", 2);
+        BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster");
 
-        BaseFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster", 1);
+        BaseFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster");
 
 
         JButton btnEnablePupilUI = new JButton("Schüler-Eingabe-Feld");

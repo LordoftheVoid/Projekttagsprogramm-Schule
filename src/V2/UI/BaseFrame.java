@@ -28,17 +28,14 @@ Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zu
 public abstract class BaseFrame extends JFrame {
 
 
-    private final static  int WIDTHGLOBAL = 120;
+    private final static int WIDTHGLOBAL = 120;
     final int yCoordinateListEntrys = 260;
-    private CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
-    private  JTextField[] suchLabel;
     public JTextField[] columNames;
-    public JTextField[] arrCreateEntryFields;
-    int columns;
     public JButton btnCreateEntry;
-
-
-
+    int columns;
+    JTextField[] arrCreateEntryFields = new JTextField[2];
+    private CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
+    private JTextField[] suchLabel;
     /*
     Other Variables every Frame uses
      */
@@ -48,11 +45,6 @@ public abstract class BaseFrame extends JFrame {
     private JTextField[] suchFenster;
     private JButton[] sortierButtons;
     private boolean[] sortdirections;
-
-
-   static  public int  getWIDTH(){
-        return WIDTHGLOBAL;
-    }
 
 
     public BaseFrame(int colums, String strFenstername) {
@@ -76,7 +68,6 @@ public abstract class BaseFrame extends JFrame {
             columNames[i_x].setBounds(WIDTHGLOBAL * i_x, 0, WIDTHGLOBAL, 20);
 
 
-
             suchLabel[i_x] = new JTextField();
             suchLabel[i_x].setText("Suche nach:");
             suchLabel[i_x].setBorder(new LineBorder(Color.RED, 1));
@@ -96,7 +87,7 @@ public abstract class BaseFrame extends JFrame {
             sortdirections[i_x] = true;
 
 
-            this.setUpCreationGUIElements();
+            this.setGUIElementsForCreation();
 
 
             this.getContentPane().add(suchFenster[i_x]);
@@ -167,20 +158,59 @@ public abstract class BaseFrame extends JFrame {
         this.updateRowYKoordinate(300);
     }
 
+    static public int getWIDTH() {
+        return WIDTHGLOBAL;
+    }
 
     public abstract ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException;
 
+    public abstract void generateDataBaseEntry();
 
-    public abstract void setUpCreationGUIElements();
+
+    public void setGUIElementsForCreation() {
+        for (int i = 0; i < 2; i++) {
+            arrCreateEntryFields[i] = new JTextField();
+            this.getContentPane().add(arrCreateEntryFields[i]);
+            arrCreateEntryFields[i].setBounds(BaseFrame.getWIDTH() * i, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
+            arrCreateEntryFields[i].setVisible(true);
+        }
+        btnCreateEntry = new JButton("Eintrag erzeugen");
+        super.getContentPane().add(btnCreateEntry);
+        btnCreateEntry.setBounds(arrCreateEntryFields[1].getX()+WIDTHGLOBAL,arrCreateEntryFields[1].getY(),WIDTHGLOBAL,60);
+        btnCreateEntry.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               JButton source = (JButton)  e.getSource();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
 
+    }
 
 
     void clearRows() {
 
     }
-
-
 
 
     void resetInterface() {
