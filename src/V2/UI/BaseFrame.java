@@ -79,8 +79,10 @@ public abstract class BaseFrame extends JFrame {
             sortdirections[i_x] = true;
 
 
-            this.setGUIElementsForCreation();
+            this.setGUITextFieldRowForCreation();
 
+
+            this.setGUIBtnForCreation(WIDTHGLOBAL);
 
             this.getContentPane().add(suchFenster[i_x]);
             suchFenster[i_x].setBounds(WIDTHGLOBAL * i_x, 70, 120, 20);
@@ -158,8 +160,12 @@ public abstract class BaseFrame extends JFrame {
 
     public abstract void generateDataBaseEntry();
 
+    public abstract void setGUIBtnForCreation(int width);
 
-    public void setGUIElementsForCreation() {
+
+
+
+    public void setGUITextFieldRowForCreation() {
         for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
             arrCreateEntryFields[arrayIndex] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[arrayIndex]);
@@ -171,36 +177,6 @@ public abstract class BaseFrame extends JFrame {
         /**TODO: Eine Ebene tiefer legen
          *
          */
-        btnCreateEntry = new JButton("Eintrag erzeugen");
-        super.getContentPane().add(btnCreateEntry);
-        btnCreateEntry.setBounds(arrCreateEntryFields[1].getX()+WIDTHGLOBAL,arrCreateEntryFields[1].getY(),WIDTHGLOBAL,60);
-        btnCreateEntry.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-               JButton source = (JButton)  e.getSource();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-
 
     }
 

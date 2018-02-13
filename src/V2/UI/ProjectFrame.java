@@ -3,7 +3,10 @@ package V2.UI;
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.Settings.Imports;
+import V2.UI.NonFrameElements.ButtonCreation;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -36,6 +39,40 @@ public class ProjectFrame extends BaseFrame {
 
     @Override
     public void generateDataBaseEntry() {
+
+    }
+
+    @Override
+    public void setGUIBtnForCreation(int width) {
+        btnCreateEntry = new ButtonCreation("Eintrag erzeugen",super.arrCreateEntryFields);
+        super.getContentPane().add(btnCreateEntry);
+        btnCreateEntry.setBounds(arrCreateEntryFields[1].getX()+width,arrCreateEntryFields[1].getY(),width*2,20);
+        btnCreateEntry.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
     }
 

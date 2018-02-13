@@ -11,6 +11,8 @@ public interface DataBaseElementInterFace {
 
     void savetoDataBase() throws SQLException;
 
+    void generateDataBaseEntry();
+
     boolean isValid();
 
     String[] getPublicIdentityValues() throws IndexOutOfBoundsException;
@@ -27,4 +29,8 @@ public interface DataBaseElementInterFace {
     void updateHash() throws IllegalArgumentException;
 
     void deleteEntry();
+
+    void updateFromDataBase();
+
+
 }

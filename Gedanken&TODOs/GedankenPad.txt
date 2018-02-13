@@ -1,0 +1,6 @@
+-Schüler initialisieren
+-Werte festlegen
+-auf Validität prüfen
+-in die Datenbank schreiben, selbige muss dann schauen ob es ein neuer Schüler ist oder ein Update
+
+Da sie das aber nicht sicher kann, muss ich beides machen.

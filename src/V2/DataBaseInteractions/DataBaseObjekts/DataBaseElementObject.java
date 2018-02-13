@@ -9,13 +9,13 @@ import java.sql.SQLException;
 public abstract class DataBaseElementObject implements DataBaseElementInterFace {
 
 
-    String id;
+    String uniquePseudoHash;
     private String[] publicIdentityValues;
     private String[] interAktionValues;
 
 
-    public DataBaseElementObject(String id, int identityLength, int aktionLength) {
-        this.id = id;
+    public DataBaseElementObject(String uniquePseudoHash, int identityLength, int aktionLength) {
+        this.uniquePseudoHash = uniquePseudoHash;
         this.publicIdentityValues = new String[identityLength];
         for (int arrayIndex = 0; arrayIndex < publicIdentityValues.length; arrayIndex++) {
             publicIdentityValues[arrayIndex] ="";

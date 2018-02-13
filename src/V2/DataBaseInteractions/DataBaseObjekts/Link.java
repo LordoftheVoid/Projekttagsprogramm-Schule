@@ -31,6 +31,15 @@ public class Link extends DataBaseElementObject {
 
     }
 
+    @Override
+    public void generateDataBaseEntry() {
+
+    }
+
+    @Override
+    public void updateFromDataBase() {
+
+    }
 
 
 }

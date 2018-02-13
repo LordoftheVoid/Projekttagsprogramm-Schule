@@ -43,6 +43,11 @@ public class Project extends DataBaseElementObject {
     }
 
     @Override
+    public void generateDataBaseEntry() {
+
+    }
+
+    @Override
     public boolean isValid() {
         return false;
     }
@@ -64,6 +69,10 @@ public class Project extends DataBaseElementObject {
 
     }
 
+    @Override
+    public void updateFromDataBase() {
+
+    }
 
 
     public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {

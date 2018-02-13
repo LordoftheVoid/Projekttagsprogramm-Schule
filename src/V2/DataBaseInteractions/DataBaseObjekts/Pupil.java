@@ -29,16 +29,15 @@ public class Pupil extends DataBaseElementObject {
 
     public Pupil(String idsString) {
         super(idsString,amountIdentityValues,amountInteraktionValues);
+    }
 
-        String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getallEntryValuesfromDataBase("Pupil", idsString);
+    public Pupil(String surName, String preName) throws  IllegalArgumentException{
+        super("",amountIdentityValues,amountInteraktionValues);
 
-        for (int arrayIndex = 0; arrayIndex < amountIdentityValues; arrayIndex++) {
-            this.setIdentityValue(valuesDataBase[arrayIndex+1], arrayIndex);
-        }
+        this.setIdentityValue(surName,0);
+        this.setIdentityValue(preName,1);
 
-        for (int arrayIndex = 3; arrayIndex <7  ; arrayIndex++) {
-            this.setInteraktionValue(valuesDataBase[arrayIndex], arrayIndex-3);
-        }
+        this.updateHash();
     }
 
 
@@ -57,8 +56,35 @@ public class Pupil extends DataBaseElementObject {
         }
     }
 
+    @Override
+    public void updateFromDataBase() {
+        String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getallEntryValuesfromDataBase("Pupil", this.uniquePseudoHash);
+
+        for (int arrayIndex = 0; arrayIndex < amountIdentityValues; arrayIndex++) {
+            this.setIdentityValue(valuesDataBase[arrayIndex+1], arrayIndex);
+        }
+
+        for (int arrayIndex = 3; arrayIndex <7  ; arrayIndex++) {
+            this.setInteraktionValue(valuesDataBase[arrayIndex], arrayIndex-3);
+        }
+    }
+
+
+    @Override
+    public void generateDataBaseEntry() {
+        try {
+            Imports.objDatabaseManagerGlobal.createEntry("Pupil",this.pseudoHash);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        //TODO: Wohin mit dem Fehler ?
+    }
 
     public boolean isValid() {
+        //Todo: Zwei validitätsMethoden ? Wenn nicht, was dann ?
+
+
         boolean returnValue = true;
         for (int arrayIndex = 0; arrayIndex < this.getPublicIdentityValues().length; arrayIndex++) {
             if (this.getPublicIdentityValues()[arrayIndex] != null && !this.getPublicIdentityValues()[arrayIndex].equals("")) {
@@ -67,7 +93,7 @@ public class Pupil extends DataBaseElementObject {
         }
         for (int arrayIndex = 0; arrayIndex < this.getInterAktionValues().length; arrayIndex++) {
             try {
-                returnValue = Imports.objDatabaseManagerGlobal.entryExists("Project", String.valueOf(arrayIndex));
+                returnValue = Imports.objDatabaseManagerGlobal.entryExists("Pupil", String.valueOf(arrayIndex));
             } catch (SQLException e) {
                 returnValue = false;
             }
