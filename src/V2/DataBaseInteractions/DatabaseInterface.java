@@ -53,14 +53,14 @@ public class DatabaseInterface {
                     ResultSet readColums = this.readEntrysAllAttributes("Pupil");
                     ResultSetMetaData metaData = readColums.getMetaData();
                     idColums.put("Pupil", metaData.getColumnName(1));
-                    for (int i = 1; i < metaData.getColumnCount(); i++) {
-                        pupilColums.put(i, metaData.getColumnName(i));
+                    for (int keyIndices = 1; keyIndices < metaData.getColumnCount(); keyIndices++) {
+                        pupilColums.put(keyIndices, metaData.getColumnName(keyIndices));
                     }
                     readColums = this.readEntrysAllAttributes("Project");
                     metaData = readColums.getMetaData();
                     idColums.put("Project", metaData.getColumnName(1));
-                    for (int i = 1; i < metaData.getColumnCount(); i++) {
-                        projectColums.put(i, metaData.getColumnName(i));
+                    for (int keyIndices = 1; keyIndices < metaData.getColumnCount(); keyIndices++) {
+                        projectColums.put(keyIndices, metaData.getColumnName(keyIndices));
                     }
 
 
@@ -115,8 +115,8 @@ public class DatabaseInterface {
     public String getValuefromDataBase(String table, String entryID, int index) {
         String result = "";
         try {
-            ResultSet data = this.readOneEntryOneAtribute(table, tableColums.get(table).get(index), entryID);
-            result = data.getString(1);
+            ResultSet values = this.readOneEntryOneAtribute(table, tableColums.get(table).get(index), entryID);
+            result = values.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -127,15 +127,15 @@ public class DatabaseInterface {
     public String[] getallEntryValuesfromDataBase(String table, String entryID) {
 
         String[] results = new String[tableColums.get(table).size()];
-        for (int i = 0; i < results.length; i++) {
-            results[i] = "";
+        for (int arrayIndex = 0; arrayIndex < results.length; arrayIndex++) {
+            results[arrayIndex] = "";
         }
         try {
             ResultSet entry = this.readEntryallAttributes(table, entryID);
 
             while (entry.next()) {
-                for (int j = 0; j < tableColums.get(table).size(); j++) {
-                    results[j] = entry.getString(j + 1);
+                for (int arrayIndex = 0; arrayIndex < tableColums.get(table).size(); arrayIndex++) {
+                    results[arrayIndex] = entry.getString(arrayIndex + 1);
                 }
             }
         } catch (SQLException e) {

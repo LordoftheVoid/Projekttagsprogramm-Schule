@@ -20,11 +20,11 @@ public class Row {
 
         this.dataBaseEntry = dataBaseEntry;
         this.displayElements = new JTextField[columns];
-        for (int i = 0; i < columns; i++) {
-            displayElements[i] = new JTextField();
-            displayElements[i].setVisible(true);
-            targetFrame.add(displayElements[i]);
-            displayElements[i].setBounds(i * 120, 600, 120, 20);
+        for (int arrayIndex = 0; arrayIndex < columns; arrayIndex++) {
+            displayElements[arrayIndex] = new JTextField();
+            displayElements[arrayIndex].setVisible(true);
+            targetFrame.add(displayElements[arrayIndex]);
+            displayElements[arrayIndex].setBounds(arrayIndex * 120, 600, 120, 20);
         }
         btnDeleteEntry = new JButton("Eintrag löschen");
         targetFrame.add(btnDeleteEntry);
@@ -41,31 +41,28 @@ public class Row {
         int amountInteraktionValues = this.dataBaseEntry.getInterAktionValues().length;
 
 
-        for (int i = 0; i < amountIdentityValues + amountInteraktionValues; i++) {
-            System.out.println("I is "+i);
-            if (i < amountIdentityValues) {
-                valuesEntry[i] = this.dataBaseEntry.getPublicIdentityValues()[i];
-             //    valuesEntry[i] = "Identity";
+        for (int arrayIndex = 0; arrayIndex < amountIdentityValues + amountInteraktionValues; arrayIndex++) {
+            if (arrayIndex < amountIdentityValues) {
+                valuesEntry[arrayIndex] = this.dataBaseEntry.getPublicIdentityValues()[arrayIndex];
             } else {
-                valuesEntry[i] = this.dataBaseEntry.getInterAktionValues()[i - amountIdentityValues];
-             //      valuesEntry[i] = "Interaktion";
+                valuesEntry[arrayIndex] = this.dataBaseEntry.getInterAktionValues()[arrayIndex - amountIdentityValues];
             }
         }
 
-        for (int i = 0; i < displayElements.length; i++) {
-            displayElements[i].setText(valuesEntry[i]);
+        for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
+            displayElements[arrayIndex].setText(valuesEntry[arrayIndex]);
         }
     }
 
     void removeFromFrame(Container targetFrame) {
-        for (int i = 0; i < this.displayElements.length; i++) {
-            targetFrame.remove(displayElements[i]);
+        for (int arrayIndex = 0; arrayIndex < this.displayElements.length; arrayIndex++) {
+            targetFrame.remove(displayElements[arrayIndex]);
         }
     }
 
     public void setYCoordinates(int yKoordinate) {
-        for (int i = 0; i < this.displayElements.length; i++) {
-            displayElements[i].setLocation(displayElements[i].getX(), yKoordinate);
+        for (int arrayIndex = 0; arrayIndex < this.displayElements.length; arrayIndex++) {
+            displayElements[arrayIndex].setLocation(displayElements[arrayIndex].getX(), yKoordinate);
         }
         btnDeleteEntry.setLocation(btnDeleteEntry.getX(), yKoordinate);
     }

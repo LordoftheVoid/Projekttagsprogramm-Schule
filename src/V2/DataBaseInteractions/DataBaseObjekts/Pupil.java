@@ -32,12 +32,12 @@ public class Pupil extends DataBaseElementObject {
 
         String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getallEntryValuesfromDataBase("Pupil", idsString);
 
-        for (int i = 0; i < amountIdentityValues; i++) {
-            this.setIdentityValue(valuesDataBase[i+1], i);
+        for (int arrayIndex = 0; arrayIndex < amountIdentityValues; arrayIndex++) {
+            this.setIdentityValue(valuesDataBase[arrayIndex+1], arrayIndex);
         }
 
-        for (int i = 3; i <7  ; i++) {
-            this.setInteraktionValue(valuesDataBase[i], i-3);
+        for (int arrayIndex = 3; arrayIndex <7  ; arrayIndex++) {
+            this.setInteraktionValue(valuesDataBase[arrayIndex], arrayIndex-3);
         }
     }
 
@@ -50,9 +50,9 @@ public class Pupil extends DataBaseElementObject {
         }
 
         this.pseudoHash = "";
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 3; j++) {
-                this.pseudoHash = this.pseudoHash + this.getPublicIdentityValues()[i].charAt(j);
+        for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
+            for (int charIndex = 0; charIndex < 3; charIndex++) {
+                this.pseudoHash = this.pseudoHash + this.getPublicIdentityValues()[arrayIndex].charAt(charIndex);
             }
         }
     }
@@ -60,14 +60,14 @@ public class Pupil extends DataBaseElementObject {
 
     public boolean isValid() {
         boolean returnValue = true;
-        for (int i = 0; i < this.getPublicIdentityValues().length; i++) {
-            if (this.getPublicIdentityValues()[i] != null && !this.getPublicIdentityValues()[i].equals("")) {
+        for (int arrayIndex = 0; arrayIndex < this.getPublicIdentityValues().length; arrayIndex++) {
+            if (this.getPublicIdentityValues()[arrayIndex] != null && !this.getPublicIdentityValues()[arrayIndex].equals("")) {
                 returnValue = false;
             }
         }
-        for (int i = 0; i < this.getInterAktionValues().length; i++) {
+        for (int arrayIndex = 0; arrayIndex < this.getInterAktionValues().length; arrayIndex++) {
             try {
-                returnValue = Imports.objDatabaseManagerGlobal.entryExists("Project", String.valueOf(i));
+                returnValue = Imports.objDatabaseManagerGlobal.entryExists("Project", String.valueOf(arrayIndex));
             } catch (SQLException e) {
                 returnValue = false;
             }
@@ -84,7 +84,7 @@ public class Pupil extends DataBaseElementObject {
     public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
         if(arg !=null) {
             try {
-                int i = Integer.parseInt(arg);
+                int arrayIndex = Integer.parseInt(arg);
             } catch (NumberFormatException e1) {
                 throw new IllegalArgumentException();
             }

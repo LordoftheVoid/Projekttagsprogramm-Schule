@@ -22,24 +22,30 @@ public class fileReader extends Thread {
     }
 
 
-    public void run() {
-        String surName;
-        String preName;
-        String stufe = "";
+    String generateGrade(){
+        String grade ="";
+        int charIndexBackTracking = dateiUrl.length() - 1;
 
-        int i = dateiUrl.length() - 1;
-
-        while (dateiUrl.charAt(i) != '\\') {
-            i--;
+        while (dateiUrl.charAt(charIndexBackTracking) != '\\') {
+            charIndexBackTracking--;
         }
-        i++;
+        charIndexBackTracking++;
 
-        for (; i < dateiUrl.length(); i++) {
-            stufe = stufe + dateiUrl.charAt(i);
-            if (dateiUrl.charAt(i) == '.') {
+        for (; charIndexBackTracking < dateiUrl.length(); charIndexBackTracking++) {
+            grade = grade + dateiUrl.charAt(charIndexBackTracking);
+            if (dateiUrl.charAt(charIndexBackTracking) == '.') {
                 break;
             }
         }
+
+        return grade;
+    }
+
+
+    public void run() {
+        String surName;
+        String preName;
+
 
         HSSFWorkbook datei = null;
 
@@ -55,17 +61,18 @@ public class fileReader extends Thread {
             if (!surName.toLowerCase().equals("nachname")) {
 
                 String newID ="";
-                for (int j = 0; j < 3; j++) {
-                    newID = newID + surName.charAt(j);
+                for (int charIndex = 0; charIndex < 3; charIndex++) {
+                    newID = newID + surName.charAt(charIndex);
                 }
-                for (int j = 0; j < 3; j++) {
-                    newID = newID + preName.charAt(j);
+                for (int charIndex = 0; charIndex < 3; charIndex++) {
+                    newID = newID + preName.charAt(charIndex);
                 }
 
                 try {
                     Imports.objDatabaseManagerGlobal.createEntry("Pupil", newID);
                     Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 2, surName);
                     Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 3, preName);
+                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 4, this.generateGrade());
                 } catch (SQLException e) {
                     /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
                      *    System.out.println( e.getMessage());

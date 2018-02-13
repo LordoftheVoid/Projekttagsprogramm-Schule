@@ -20,10 +20,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 
 
-/*
-Gemeinsame Klasse aller Fenster, realisiert Aufbau, Anlegung der Verknüpfung zur Datenbank etc
- */
-
 
 public abstract class BaseFrame extends JFrame {
 
@@ -36,12 +32,8 @@ public abstract class BaseFrame extends JFrame {
     JTextField[] arrCreateEntryFields = new JTextField[2];
     private CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
     private JTextField[] suchLabel;
-    /*
-    Other Variables every Frame uses
-     */
-    /*
-    GUI-Elements that every Frame shares
-     */
+
+
     private JTextField[] suchFenster;
     private JButton[] sortierButtons;
     private boolean[] sortdirections;
@@ -113,10 +105,10 @@ public abstract class BaseFrame extends JFrame {
                 @Override
                 public void mouseClicked(MouseEvent e) {
 
-                    for (int j = 0; j < sortierButtons.length; j++) {
+                    for (int arrayIndex = 0; arrayIndex < sortierButtons.length; arrayIndex++) {
 
-                        if (sortierButtons[j].equals(e.getSource())) {
-                            ordnen(sortdirections[j], j);
+                        if (sortierButtons[arrayIndex].equals(e.getSource())) {
+                            ordnen(sortdirections[arrayIndex], arrayIndex);
                         }
                     }
 
@@ -168,12 +160,17 @@ public abstract class BaseFrame extends JFrame {
 
 
     public void setGUIElementsForCreation() {
-        for (int i = 0; i < 2; i++) {
-            arrCreateEntryFields[i] = new JTextField();
-            this.getContentPane().add(arrCreateEntryFields[i]);
-            arrCreateEntryFields[i].setBounds(BaseFrame.getWIDTH() * i, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
-            arrCreateEntryFields[i].setVisible(true);
+        for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
+            arrCreateEntryFields[arrayIndex] = new JTextField();
+            this.getContentPane().add(arrCreateEntryFields[arrayIndex]);
+            arrCreateEntryFields[arrayIndex].setBounds(BaseFrame.getWIDTH() * arrayIndex, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
+            arrCreateEntryFields[arrayIndex].setVisible(true);
         }
+
+
+        /**TODO: Eine Ebene tiefer legen
+         *
+         */
         btnCreateEntry = new JButton("Eintrag erzeugen");
         super.getContentPane().add(btnCreateEntry);
         btnCreateEntry.setBounds(arrCreateEntryFields[1].getX()+WIDTHGLOBAL,arrCreateEntryFields[1].getY(),WIDTHGLOBAL,60);
@@ -224,15 +221,15 @@ public abstract class BaseFrame extends JFrame {
 
 
     void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
-        for (int i = 0; i < dataBaseEntrys.size(); i++) {
-            this.listTextRows.add(new Row(this.columns, dataBaseEntrys.get(i), this.getContentPane()));
+        for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
+            this.listTextRows.add(new Row(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
     }
 
 
     void updateRowYKoordinate(int yFirstElement) {
-        for (int i = 0; i < this.listTextRows.size(); i++) {
-            this.listTextRows.get(i).setYCoordinates(i * 20 + yFirstElement);
+        for (int listIndex = 0; listIndex < this.listTextRows.size(); listIndex++) {
+            this.listTextRows.get(listIndex).setYCoordinates(listIndex * 20 + yFirstElement);
         }
     }
 

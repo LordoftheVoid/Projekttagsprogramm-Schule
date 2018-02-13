@@ -17,12 +17,12 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
     public DataBaseElementObject(String id, int identityLength, int aktionLength) {
         this.id = id;
         this.publicIdentityValues = new String[identityLength];
-        for (int i = 0; i < publicIdentityValues.length; i++) {
-            publicIdentityValues[i] ="";
+        for (int arrayIndex = 0; arrayIndex < publicIdentityValues.length; arrayIndex++) {
+            publicIdentityValues[arrayIndex] ="";
         }
         this.interAktionValues = new String [aktionLength];
-        for (int i = 0; i < interAktionValues.length; i++) {
-           interAktionValues[i] ="";
+        for (int arrayIndex = 0; arrayIndex < interAktionValues.length; arrayIndex++) {
+           interAktionValues[arrayIndex] ="";
         }
     }
 

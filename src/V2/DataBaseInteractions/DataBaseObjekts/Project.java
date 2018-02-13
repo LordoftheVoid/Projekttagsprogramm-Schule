@@ -68,8 +68,8 @@ public class Project extends DataBaseElementObject {
 
     public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
         try{
-            int i = Integer.parseInt(arg);
-            if(i <0){
+            int resultArg = Integer.parseInt(arg);
+            if(resultArg <0){
                 throw new IllegalArgumentException();
             }
         }catch (NumberFormatException e1){
