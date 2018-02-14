@@ -1,0 +1,7 @@
+Sprache: Java
+
+Projekt: Projekttagsprogramm
+
+Ziel: Implementation der Erzeugen-Buttons f+r Schüler & Projekte
+
+Zeit: 45 Minuten

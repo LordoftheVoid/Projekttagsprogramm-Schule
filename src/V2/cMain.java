@@ -3,9 +3,9 @@ package V2;
 import V2.FileInteractions.DirectoryCreator;
 import V2.FileInteractions.Excel.InterfaceExcel;
 import V2.Settings.Imports;
-import V2.UI.BaseFrame;
-import V2.UI.ProjectFrame;
-import V2.UI.PupilFrame;
+import V2.UI.Frame.BaseFrame;
+import V2.UI.Frame.ProjectFrame;
+import V2.UI.Frame.PupilFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;

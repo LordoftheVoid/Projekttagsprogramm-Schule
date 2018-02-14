@@ -34,6 +34,10 @@ public class Pupil extends DataBaseElementObject {
     public Pupil(String surName, String preName) throws  IllegalArgumentException{
         super("",amountIdentityValues,amountInteraktionValues);
 
+        if(surName.length() <3 || preName.length() <3){
+            throw new IllegalArgumentException();
+        }
+
         this.setIdentityValue(surName,0);
         this.setIdentityValue(preName,1);
 
