@@ -88,8 +88,6 @@ public class DatabaseInterface {
 
     public void updateEntry(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
 
-
-
         String sqlString = "UPDATE " + tableReference + " SET " + this.tableColums.get(tableReference).get(columIndex)+ " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
 
         PreparedStatement update_Entry = conDatabase.prepareStatement(sqlString);

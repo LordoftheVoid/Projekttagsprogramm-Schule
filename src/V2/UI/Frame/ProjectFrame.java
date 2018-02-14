@@ -3,9 +3,9 @@ package V2.UI.Frame;
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.Settings.Imports;
-import V2.UI.NonFrameElements.Buttons.CreationButton;
 
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
@@ -44,8 +44,8 @@ public class ProjectFrame extends BaseFrame {
     }
 
     @Override
-    public void setGUIBtnForCreation(int width) {
-        btnCreateEntry = new CreationButton("Eintrag erzeugen",arrCreateEntryFields);
+    public void setupGUIBtnForCreation(int width) {
+        btnCreateEntry = new JButton("Eintrag erzeugen");
         super.getContentPane().add(btnCreateEntry);
         btnCreateEntry.setBounds(arrCreateEntryFields[1].getX()+width,arrCreateEntryFields[1].getY(),width*2,20);
 

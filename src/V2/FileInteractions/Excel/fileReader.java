@@ -54,9 +54,9 @@ public class fileReader extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (int i_x = 0; i_x < datei.getSheetAt(0).getLastRowNum(); i_x++) {
-            surName = datei.getSheetAt(0).getRow(i_x).getCell(0).getStringCellValue();
-            preName = datei.getSheetAt(0).getRow(i_x).getCell(1).getStringCellValue();
+        for (int arrayIndex = 0; arrayIndex < datei.getSheetAt(0).getLastRowNum(); arrayIndex++) {
+            surName = datei.getSheetAt(0).getRow(arrayIndex).getCell(0).getStringCellValue();
+            preName = datei.getSheetAt(0).getRow(arrayIndex).getCell(1).getStringCellValue();
 
             if (!surName.toLowerCase().equals("nachname")) {
 

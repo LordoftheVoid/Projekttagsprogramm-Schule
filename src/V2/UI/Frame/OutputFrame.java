@@ -29,12 +29,12 @@ public class OutputFrame extends BaseFrame {
     }
 
     @Override
-    public void setGUIBtnForCreation(int width) {
+    public void setupGUIBtnForCreation(int width) {
 
     }
 
     @Override
-    public void setGUITextFieldRowForCreation() {
+    public void setupGUITextFieldRowForCreation() {
 
     }
 

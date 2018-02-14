@@ -1,7 +1,6 @@
 package V2.UI.Frame;
 
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
-import V2.UI.NonFrameElements.Buttons.CreationButton;
 import V2.UI.NonFrameElements.Row;
 
 import javax.swing.*;
@@ -26,90 +25,37 @@ public abstract class BaseFrame extends JFrame {
     private final static int WIDTHGLOBAL = 120;
     final int yCoordinateListEntrys = 260;
     public JTextField[] columNames;
-    public CreationButton btnCreateEntry;
-    JTextField[] arrCreateEntryFields = new JTextField[2];
+    public JButton btnCreateEntry;
+    JTextField[] arrCreateEntryFields;
     int columns;
     private CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
     private JTextField[] suchLabel;
 
 
-    private JTextField[] suchFenster;
-    private JButton[] sortierButtons;
+    private JTextField[] arrTextFieldSortInput;
+    private JButton[] arrButtonsSort;
     private boolean[] sortdirections;
 
 
-    public BaseFrame(int colums, String strFenstername) {
-
-        super(strFenstername);
-        this.getContentPane().setLayout(null);
 
 
-        columNames = new JTextField[colums];
-        suchLabel = new JTextField[colums];
-        suchFenster = new JTextField[colums];
-        sortierButtons = new JButton[colums];
-        sortdirections = new boolean[colums];
+    void setupGUIElementsSort(){
+        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
+            arrButtonsSort[arrayIndex] = new JButton();
+            this.getContentPane().add(arrButtonsSort[arrayIndex]);
+            arrButtonsSort[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 120, 120, 50);
+            arrButtonsSort[arrayIndex].setBorder(new LineBorder(Color.RED, 1));
+            arrButtonsSort[arrayIndex].setVisible(true);
+            arrButtonsSort[arrayIndex].setText(" A ... Z");
+            sortdirections[arrayIndex] = true;
 
-        this.columns = colums;
-
-
-        for (int i_x = 0; i_x < colums; i_x++) {
-            columNames[i_x] = new JTextField();
-            columNames[i_x].setVisible(true);
-            this.getContentPane().add(columNames[i_x]);
-            columNames[i_x].setBounds(WIDTHGLOBAL * i_x, 0, WIDTHGLOBAL, 20);
-
-
-            suchLabel[i_x] = new JTextField();
-            suchLabel[i_x].setText("Suche nach:");
-            suchLabel[i_x].setBorder(new LineBorder(Color.RED, 1));
-
-            this.getContentPane().add(suchLabel[i_x]);
-            suchLabel[i_x].setBounds(WIDTHGLOBAL * i_x, 40, WIDTHGLOBAL, 20);
-            suchFenster[i_x] = new JTextField();
-            suchFenster[i_x].setText("");
-
-
-            sortierButtons[i_x] = new JButton();
-            this.getContentPane().add(sortierButtons[i_x]);
-            sortierButtons[i_x].setBounds(WIDTHGLOBAL * i_x, suchFenster[i_x].getY() + 100, 120, 50);
-            sortierButtons[i_x].setBorder(new LineBorder(Color.RED, 1));
-            sortierButtons[i_x].setVisible(true);
-            sortierButtons[i_x].setText(" A ... Z");
-            sortdirections[i_x] = true;
-
-
-            this.setGUITextFieldRowForCreation();
-
-
-            this.setGUIBtnForCreation(WIDTHGLOBAL);
-
-            this.getContentPane().add(suchFenster[i_x]);
-            suchFenster[i_x].setBounds(WIDTHGLOBAL * i_x, 70, 120, 20);
-            suchFenster[i_x].addKeyListener(new KeyListener() {
-                @Override
-                public void keyTyped(KeyEvent e) {
-
-                }
-
-                @Override
-                public void keyPressed(KeyEvent e) {
-                }
-
-                @Override
-                public void keyReleased(KeyEvent e) {
-                    //     suche();
-                }
-            });
-
-
-            sortierButtons[i_x].addMouseListener(new MouseListener() {
+            arrButtonsSort[arrayIndex].addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
 
-                    for (int arrayIndex = 0; arrayIndex < sortierButtons.length; arrayIndex++) {
+                    for (int arrayIndex = 0; arrayIndex < arrButtonsSort.length; arrayIndex++) {
 
-                        if (sortierButtons[arrayIndex].equals(e.getSource())) {
+                        if (arrButtonsSort[arrayIndex].equals(e.getSource())) {
                             ordnen(sortdirections[arrayIndex], arrayIndex);
                         }
                     }
@@ -136,9 +82,37 @@ public abstract class BaseFrame extends JFrame {
 
                 }
             });
-
         }
+    }
 
+    void setupGUIElementsText(){
+        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
+            columNames[arrayIndex] = new JTextField();
+            columNames[arrayIndex].setVisible(true);
+            this.getContentPane().add(columNames[arrayIndex]);
+            columNames[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 0, WIDTHGLOBAL, 20);
+        }
+    }
+
+    public BaseFrame(int colums, String strFenstername) {
+
+        super(strFenstername);
+        this.getContentPane().setLayout(null);
+
+
+        columNames = new JTextField[colums];
+        suchLabel = new JTextField[colums];
+        arrTextFieldSortInput = new JTextField[colums];
+        arrButtonsSort = new JButton[colums];
+        sortdirections = new boolean[colums];
+
+        this.columns = colums;
+
+        this.setupGUITextFieldRowForCreation();
+        this.setupGUIBtnForCreation(WIDTHGLOBAL);
+        this.setupGUIElementsSearch();
+        this.setupGUIElementsSort();
+        this.setupGUIElementsText();
 
         this.showfixedText();
 
@@ -147,7 +121,6 @@ public abstract class BaseFrame extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
 
         this.updateRowYKoordinate(300);
 
@@ -162,39 +135,17 @@ public abstract class BaseFrame extends JFrame {
 
     public abstract void generateDataBaseEntry();
 
-    public abstract void setGUIBtnForCreation(int width);
+    public abstract void setupGUIBtnForCreation(int width);
 
+    public void setupGUITextFieldRowForCreation() {
+        arrCreateEntryFields = new JTextField[2];
 
-    public void setGUITextFieldRowForCreation() {
         for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
             arrCreateEntryFields[arrayIndex] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[arrayIndex]);
             arrCreateEntryFields[arrayIndex].setBounds(BaseFrame.getWIDTH() * arrayIndex, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
             arrCreateEntryFields[arrayIndex].setVisible(true);
-            arrCreateEntryFields[arrayIndex].setBorder(new LineBorder(Color.RED, 5));
-            arrCreateEntryFields[arrayIndex].addKeyListener(new KeyListener() {
-                @Override
-                public void keyTyped(KeyEvent e) {
-
-                }
-
-                @Override
-                public void keyPressed(KeyEvent e) {
-
-                }
-
-                @Override
-                public void keyReleased(KeyEvent e) {
-                    JTextField source = (JTextField) e.getSource();
-                    System.out.println("+"+source.getText()+"+");
-                }
-            });
         }
-
-
-        /**TODO: Eine Ebene tiefer legen
-         *
-         */
 
     }
 
@@ -247,20 +198,60 @@ public abstract class BaseFrame extends JFrame {
 
         sortdirections[i_X_colum] = !sortdirections[i_X_colum];
         if (sortdirections[i_X_colum]) {
-            sortierButtons[i_X_colum].setText(" A ... Z");
+            arrButtonsSort[i_X_colum].setText(" A ... Z");
         } else {
-            sortierButtons[i_X_colum].setText("Z ... A");
+            arrButtonsSort[i_X_colum].setText("Z ... A");
         }
     }
 
 
-    public void displayFrame(int i_X, int k_Y, int dx, int dy) {
+    public void displayFrame(int xKoordinate, int yKoordinate, int dx, int dy) {
         this.setVisible(true);
-        this.setBounds(i_X, k_Y, dx, dy);
+        this.setBounds(xKoordinate, yKoordinate, dx, dy);
     }
 
 
     public abstract void showfixedText();
+
+
+    void setupGUIElementsSearch(){
+
+        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
+            suchLabel[arrayIndex] = new JTextField();
+            suchLabel[arrayIndex].setText("Suche nach:");
+            suchLabel[arrayIndex].setBorder(new LineBorder(Color.RED, 1));
+
+            this.getContentPane().add(suchLabel[arrayIndex]);
+            suchLabel[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 40, WIDTHGLOBAL, 20);
+            arrTextFieldSortInput[arrayIndex] = new JTextField();
+            arrTextFieldSortInput[arrayIndex].setText("");
+
+            this.getContentPane().add(arrTextFieldSortInput[arrayIndex]);
+
+            arrTextFieldSortInput[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 70, 120, 20);
+
+            arrTextFieldSortInput[arrayIndex].addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    //     suche();
+                }
+            });
+        }
+
+
+
+
+
+    }
 
 
 }
