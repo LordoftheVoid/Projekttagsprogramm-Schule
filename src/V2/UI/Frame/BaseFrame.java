@@ -1,6 +1,7 @@
 package V2.UI.Frame;
 
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.UI.NonFrameElements.Buttons.CreationButton;
 import V2.UI.NonFrameElements.Row;
 
 import javax.swing.*;
@@ -19,17 +20,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 
-
-
 public abstract class BaseFrame extends JFrame {
 
 
     private final static int WIDTHGLOBAL = 120;
     final int yCoordinateListEntrys = 260;
     public JTextField[] columNames;
-    public JButton btnCreateEntry;
+    public CreationButton btnCreateEntry;
+    JTextField[] arrCreateEntryFields = new JTextField[2];
     int columns;
-   public  JTextField[] arrCreateEntryFields = new JTextField[2];
     private CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
     private JTextField[] suchLabel;
 
@@ -39,14 +38,10 @@ public abstract class BaseFrame extends JFrame {
     private boolean[] sortdirections;
 
 
-
-
     public BaseFrame(int colums, String strFenstername) {
 
         super(strFenstername);
         this.getContentPane().setLayout(null);
-
-        this.setupMouseInputHandling();
 
 
         columNames = new JTextField[colums];
@@ -170,15 +165,30 @@ public abstract class BaseFrame extends JFrame {
     public abstract void setGUIBtnForCreation(int width);
 
 
-
-
     public void setGUITextFieldRowForCreation() {
         for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
             arrCreateEntryFields[arrayIndex] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[arrayIndex]);
             arrCreateEntryFields[arrayIndex].setBounds(BaseFrame.getWIDTH() * arrayIndex, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
             arrCreateEntryFields[arrayIndex].setVisible(true);
-            arrCreateEntryFields[arrayIndex].setBorder(new LineBorder(Color.RED,5));
+            arrCreateEntryFields[arrayIndex].setBorder(new LineBorder(Color.RED, 5));
+            arrCreateEntryFields[arrayIndex].addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    JTextField source = (JTextField) e.getSource();
+                    System.out.println("+"+source.getText()+"+");
+                }
+            });
         }
 
 
@@ -203,37 +213,6 @@ public abstract class BaseFrame extends JFrame {
         }
     }
 
-
-    void setupMouseInputHandling(){
-        this.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println("KLick"+e.getYOnScreen());
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-
-
-    }
 
     void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
@@ -282,8 +261,6 @@ public abstract class BaseFrame extends JFrame {
 
 
     public abstract void showfixedText();
-
-
 
 
 }

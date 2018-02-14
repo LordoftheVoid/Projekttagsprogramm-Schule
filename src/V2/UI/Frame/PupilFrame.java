@@ -3,10 +3,10 @@ package V2.UI.Frame;
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.Settings.Imports;
-import V2.UI.NonFrameElements.Listeners.MouseRedirect;
+import V2.UI.NonFrameElements.Buttons.CreationButton;
 
-
-import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -44,11 +44,41 @@ public class PupilFrame extends BaseFrame {
 
     @Override
     public void setGUIBtnForCreation(int btnWidth) {
-        btnCreateEntry = new JButton("Eintrag erzeugen");
+        btnCreateEntry = new CreationButton("Eintrag erzeugen", arrCreateEntryFields);
         super.getContentPane().add(btnCreateEntry);
         btnCreateEntry.setBounds(arrCreateEntryFields[1].getX() + btnWidth, arrCreateEntryFields[1].getY(), btnWidth * 2, 20);
-        btnCreateEntry.addMouseListener(new MouseRedirect(this));
 
+
+        btnCreateEntry.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                CreationButton btnSource = (CreationButton) e.getSource();
+                btnSource.valueFields[0].setText("WINK WINK WINK");
+                System.out.println(btnSource.valueFields[0].getText() + "+ " + btnSource.valueFields[1].getText());
+
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
 
 
