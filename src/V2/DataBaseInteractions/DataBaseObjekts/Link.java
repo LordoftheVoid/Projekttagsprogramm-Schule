@@ -1,7 +1,5 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
-import java.sql.SQLException;
-
 /**
  * Created by Aaron on 31.01.2018.
  */
@@ -27,9 +25,10 @@ public class Link extends DataBaseElementObject {
     }
 
     @Override
-    public void savetoDataBase() throws SQLException {
+    protected void savetoDataBase(String newValue, int index) {
 
     }
+
 
     @Override
     public void generateDataBaseEntry() {

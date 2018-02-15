@@ -1,7 +1,5 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
-import java.sql.SQLException;
-
 /**
  * Created by Aaron on 31.01.2018.
  */
@@ -9,7 +7,6 @@ public interface DataBaseElementInterFace {
 
     void setValue(int index, String value) throws IllegalArgumentException;
 
-    void savetoDataBase() throws SQLException;
 
     void generateDataBaseEntry();
 

@@ -1,0 +1,5 @@
+Sprache, Projekt logisch
+
+Ziel: Engültige, ausreichend saubere Implementation der Erzeugung von Schüler & Projekten
+
+Zeit: Mindestens 45 am Stück

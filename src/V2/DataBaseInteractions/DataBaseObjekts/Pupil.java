@@ -122,14 +122,26 @@ public class Pupil extends DataBaseElementObject {
         }else{
             super.setInteraktionValue("",index);
         }
+        this.savetoDataBase(arg,4+index);
+
 
     }
 
 
     public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
         super.setIdentityValue(arg,index);
+        this.savetoDataBase(arg,1+index);
     }
 
+    @Override
+    protected void savetoDataBase(String newValue, int index)  {
+        //TODO: Prüfungen ?
 
+        try {
+            Imports.objDatabaseManagerGlobal.updateEntry("Pupil",this.pseudoHash,index,newValue);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

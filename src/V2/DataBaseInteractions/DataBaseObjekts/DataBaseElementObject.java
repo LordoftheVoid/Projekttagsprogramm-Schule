@@ -1,8 +1,6 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
 
-import java.sql.SQLException;
-
 /**
  * Created by Aaron on 02.02.2018.
  */
@@ -42,11 +40,9 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
          */
     }
 
-    public void savetoDataBase() throws SQLException {
 
-        /**TODO Speicherung
-         */
-    }
+
+
 
     @Override
     public boolean isValid() {
@@ -101,4 +97,5 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
     }
 
 
+    protected abstract void savetoDataBase(String newValue, int index);
 }

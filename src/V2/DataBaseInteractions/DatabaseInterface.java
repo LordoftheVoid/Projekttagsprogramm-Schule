@@ -95,9 +95,9 @@ public class DatabaseInterface {
         update_Entry.executeUpdate();
     }
 
-    public boolean entryExists(String tableReference, String unique_id) throws SQLException {
-        PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE " + idColums.get(tableReference) + " ? ");
-        id_check.setString(1, unique_id);
+    public boolean entryExists(String tableReference, String entryID) throws SQLException {
+        PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE "+ idColums.get(tableReference) + "= ? ");
+        id_check.setString(1, entryID);
         ResultSet entrys_with_specific_id = id_check.executeQuery();
         return !entrys_with_specific_id.next();
 

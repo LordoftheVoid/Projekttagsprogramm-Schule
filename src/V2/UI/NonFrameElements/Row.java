@@ -4,7 +4,6 @@ import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.SQLException;
 
 /**
  * Created by Aaron on 05.02.2018.
@@ -68,22 +67,6 @@ public class Row {
     }
 
 
-    void updateDataBaseEntry() {
-        boolean valid = this.dataBaseEntry.isValid();
-
-        if (valid) {
-            try {
-                this.dataBaseEntry.savetoDataBase();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            /**TODO Nutzerausgabe ?
-             *
-             */
-        }
-
-    }
 
     void deleteDataBaseEntry() {
         this.dataBaseEntry.deleteEntry();
