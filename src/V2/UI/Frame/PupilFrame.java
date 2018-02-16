@@ -51,26 +51,21 @@ public class PupilFrame extends BaseFrame {
         btnCreateEntry.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (arrCreateEntryFields[0].getText().length() < 3 || arrCreateEntryFields[1].getText().length() < 3) {
-                    System.out.println("zu kurz!");
-                    //TODO: Sinnvoll maulen 2.0!
-                } else {
+                try {
                     Pupil newPupil = new Pupil(arrCreateEntryFields[0].getText(), arrCreateEntryFields[1].getText());
-                    try {
-                        if (!Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupil.getHash())) {
-                            //TODO: Maulen 2.0!
-                            System.out.println("Existiert ? !");
-                        } else {
-                            newPupil.generateDataBaseEntry();
-                            newPupil.setIdentityValue(arrCreateEntryFields[0].getText(),0);
-                            newPupil.setIdentityValue(arrCreateEntryFields[1].getText(),1);
-                            //Todo: Melden das es ging
-                        }
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
+                    if (!Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupil.getHash())) {
+                        //TODO: Maulen 2.0!
+                    } else {
+                        newPupil.generateDataBaseEntry();
+                        newPupil.setIdentityValue(arrCreateEntryFields[0].getText(), 0);
+                        newPupil.setIdentityValue(arrCreateEntryFields[1].getText(), 1);
+                        //Todo: Melden das es ging
                     }
                     arrCreateEntryFields[0].setText("");
                     arrCreateEntryFields[1].setText("");
+                }catch (IllegalArgumentException e1){
+                    System.out.println(e1.getMessage());
+                  e1.printStackTrace();
                 }
             }
 

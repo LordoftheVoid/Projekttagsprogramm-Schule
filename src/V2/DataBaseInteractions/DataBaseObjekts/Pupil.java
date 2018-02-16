@@ -13,11 +13,9 @@ import java.sql.SQLException;
 public class Pupil extends DataBaseElementObject {
 
 
-    /**TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
-     *
-     *
+    /**
+     * TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
      */
-
 
 
     static int amountIdentityValues = 3;
@@ -28,48 +26,53 @@ public class Pupil extends DataBaseElementObject {
     private String pseudoHash = "";
 
     public Pupil(String idsString) {
-        super(idsString,amountIdentityValues,amountInteraktionValues);
+        super(idsString, amountIdentityValues, amountInteraktionValues);
+        this.updateFromDataBase(idsString);
     }
 
-    public Pupil(String surName, String preName) throws  IllegalArgumentException{
-        super("",amountIdentityValues,amountInteraktionValues);
 
-        if(surName.length() <3 || preName.length() <3){
-            throw new IllegalArgumentException();
+    public Pupil(String surName, String preName) throws IllegalArgumentException {
+        super("", amountIdentityValues, amountInteraktionValues);
+
+
+        if (surName.length() < 3 || preName.length() < 3) {
+            throw new IllegalArgumentException("Die Namen waren zu kurz, sie müssen mindestens Länge drei haben");
         }
-
-        this.setIdentityValue(surName,0);
-        this.setIdentityValue(preName,1);
-
+        this.setHashValuesonCreation(surName,0);
+        this.setHashValuesonCreation(preName,1);
         this.updateHash();
     }
 
 
-    @Override
-    public void updateHash() throws IllegalArgumentException {
+    private void updateFromDataBase(String pseudoHash){
+        //Hash has to be transmitted since he is not set yet
 
-        if (this.getPublicIdentityValues()[0].length() < 3 || this.getPublicIdentityValues()[1].length() < 3) {
-            throw new IllegalArgumentException();
+        for (int i = 0; i < amountIdentityValues; i++) {
+           this.setHashValuesonCreation(Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil",pseudoHash,i+2),i);
+        }
+        for (int i = 0; i < amountInteraktionValues; i++) {
+            this.setInteraktionValuefromDataBase(Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil",pseudoHash,i+amountIdentityValues+2),i);
+        }
+    }
+
+
+
+    private void setHashValuesonCreation(String arg, int index) {
+        //Does not update hash, therefore dangerous, but necessary to set the values initially
+        super.setIdentityValue(arg,index);
+    }
+
+    private void updateHash() throws IllegalArgumentException {
+
+        if (this.getVisibleIdentityValues()[0].length() < 3 || this.getVisibleIdentityValues()[1].length() < 3) {
+            throw new IllegalArgumentException("Der Versuch, den Schüler zu identifizieren schlug fehl");
         }
 
         this.pseudoHash = "";
         for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
             for (int charIndex = 0; charIndex < 3; charIndex++) {
-                this.pseudoHash = this.pseudoHash + this.getPublicIdentityValues()[arrayIndex].charAt(charIndex);
+                this.pseudoHash = this.pseudoHash + this.getVisibleIdentityValues()[arrayIndex].charAt(charIndex);
             }
-        }
-    }
-
-    @Override
-    public void updateFromDataBase() {
-        String[] valuesDataBase = Imports.objDatabaseManagerGlobal.getallEntryValuesfromDataBase("Pupil", this.uniquePseudoHash);
-
-        for (int arrayIndex = 0; arrayIndex < amountIdentityValues; arrayIndex++) {
-            this.setIdentityValue(valuesDataBase[arrayIndex+1], arrayIndex);
-        }
-
-        for (int arrayIndex = 3; arrayIndex <7  ; arrayIndex++) {
-            this.setInteraktionValue(valuesDataBase[arrayIndex], arrayIndex-3);
         }
     }
 
@@ -77,7 +80,7 @@ public class Pupil extends DataBaseElementObject {
     @Override
     public void generateDataBaseEntry() {
         try {
-            Imports.objDatabaseManagerGlobal.createEntry("Pupil",this.pseudoHash);
+            Imports.objDatabaseManagerGlobal.createEntry("Pupil", this.pseudoHash);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,22 +88,20 @@ public class Pupil extends DataBaseElementObject {
         //TODO: Wohin mit dem Fehler ?
     }
 
-    public boolean isValid() {
+    public boolean isValidDataBaseEntry() {
         //Todo: Zwei validitätsMethoden ? Wenn nicht, was dann ?
 
-
         boolean returnValue = true;
-        for (int arrayIndex = 0; arrayIndex < this.getPublicIdentityValues().length; arrayIndex++) {
-            if (this.getPublicIdentityValues()[arrayIndex] != null && !this.getPublicIdentityValues()[arrayIndex].equals("")) {
+        for (int arrayIndex = 0; arrayIndex < this.getVisibleIdentityValues().length; arrayIndex++) {
+            if (this.getVisibleIdentityValues()[arrayIndex] == null) {
+                returnValue = false;
+            }
+            if (this.getVisibleIdentityValues()[arrayIndex].equals("")) {
                 returnValue = false;
             }
         }
         for (int arrayIndex = 0; arrayIndex < this.getInterAktionValues().length; arrayIndex++) {
-            try {
-                returnValue = Imports.objDatabaseManagerGlobal.entryExists("Pupil", String.valueOf(arrayIndex));
-            } catch (SQLException e) {
-                returnValue = false;
-            }
+            returnValue = returnValue & Imports.objDatabaseManagerGlobal.entryExists("Project", String.valueOf(arrayIndex));
         }
         return returnValue;
     }
@@ -110,35 +111,49 @@ public class Pupil extends DataBaseElementObject {
         return this.pseudoHash;
     }
 
-
-    public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
-        if(arg !=null) {
-            try {
-                int arrayIndex = Integer.parseInt(arg);
-            } catch (NumberFormatException e1) {
-                throw new IllegalArgumentException();
-            }
-            super.setInteraktionValue(arg,index);
-        }else{
-            super.setInteraktionValue("",index);
-        }
-        this.savetoDataBase(arg,4+index);
-
-
+    private void setInteraktionValuefromDataBase(String newValue, int index) throws IllegalArgumentException {
+        super.setInteraktionValuetoDataBase(newValue,index);
     }
 
 
-    public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
-        super.setIdentityValue(arg,index);
-        this.savetoDataBase(arg,1+index);
+    public void setInteraktionValuetoDataBase(String newValue, int index) throws IllegalArgumentException {
+        if (newValue == null) throw new IllegalArgumentException("Das Argumet war leer, erlaubt sind Ziffern von 0-9");
+        for (int charIndex = 0; charIndex < newValue.length(); charIndex++) {
+            if (!Character.isDigit(newValue.charAt(charIndex))) {
+                throw new IllegalArgumentException("Ein Zeichen war keine Ziffer, erlaubt sind Ziffern 0-9");
+            }
+        }
+
+        if (Imports.objDatabaseManagerGlobal.entryExists("Project", newValue)) {
+            super.setInteraktionValuetoDataBase(newValue, index);
+        } else {
+            throw new IllegalArgumentException("Es existiert kein Projekt mit " + newValue);
+        }
+
+        this.savetoDataBase(newValue, 4 + index);
+    }
+
+
+    public void setIdentityValue(String newValue, int index) throws IllegalArgumentException {
+        if (newValue == null)
+            throw new IllegalArgumentException("Der Wert war null, erlaubt sind alle Wörter, Namen der Länge größer drei");
+        if (newValue.equals(""))
+            throw new IllegalArgumentException("Das Argument war leer, gefordert wird mindestens ein Buchstabe");
+        if (index <= 2) {
+            if (newValue.length() < 3) {
+                throw new IllegalArgumentException("Der Name war zu kurz, gefordert sind Namen der Länge mindestens drei ");
+            }
+        }
+        super.setIdentityValue(newValue, index);
+        this.updateHash();
+        this.savetoDataBase(newValue, index);
     }
 
     @Override
-    protected void savetoDataBase(String newValue, int index)  {
+    protected void savetoDataBase(String newValue, int index) {
         //TODO: Prüfungen ?
-
         try {
-            Imports.objDatabaseManagerGlobal.updateEntry("Pupil",this.pseudoHash,index,newValue);
+            Imports.objDatabaseManagerGlobal.updateEntry("Pupil", this.getHash(), index+2, newValue);
         } catch (SQLException e) {
             e.printStackTrace();
         }

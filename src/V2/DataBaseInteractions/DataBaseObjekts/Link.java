@@ -3,6 +3,9 @@ package V2.DataBaseInteractions.DataBaseObjekts;
 /**
  * Created by Aaron on 31.01.2018.
  */
+
+
+
 public class Link extends DataBaseElementObject {
 
 
@@ -17,18 +20,6 @@ public class Link extends DataBaseElementObject {
         super(id,amountIdentityValues,amountInteraktionValues);
     }
 
-    @Override
-    public void setValue(String value, int colum) {
-
-
-
-    }
-
-    @Override
-    protected void savetoDataBase(String newValue, int index) {
-
-    }
-
 
     @Override
     public void generateDataBaseEntry() {
@@ -36,9 +27,7 @@ public class Link extends DataBaseElementObject {
     }
 
     @Override
-    public void updateFromDataBase() {
+    protected void savetoDataBase(String newValue, int index) {
 
     }
-
-
 }

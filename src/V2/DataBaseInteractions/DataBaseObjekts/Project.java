@@ -8,9 +8,6 @@ public class Project extends DataBaseElementObject {
 
 
     /**TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
-     *
-     *
-     *
      */
 
     static int amountIdentityValues = 2;
@@ -24,16 +21,6 @@ public class Project extends DataBaseElementObject {
     }
 
 
-    public void changeValue(String value, int colum) {
-
-    }
-
-
-    @Override
-    public void setValue(int index, String value) throws IllegalArgumentException {
-
-
-    }
 
 
 
@@ -43,7 +30,7 @@ public class Project extends DataBaseElementObject {
     }
 
     @Override
-    public boolean isValid() {
+    public boolean isValidDataBaseEntry() {
         return false;
     }
 
@@ -54,23 +41,17 @@ public class Project extends DataBaseElementObject {
         return null;
     }
 
-    @Override
-    public void updateHash() throws IllegalArgumentException {
 
-    }
 
     @Override
     public void deleteEntry() {
 
     }
 
-    @Override
-    public void updateFromDataBase() {
-
-    }
 
 
-    public void setInteraktionValue(String arg, int index) throws IllegalArgumentException {
+
+    public void setInteraktionValuetoDataBase(String arg, int index) throws IllegalArgumentException {
         try{
             int resultArg = Integer.parseInt(arg);
             if(resultArg <0){
@@ -79,7 +60,7 @@ public class Project extends DataBaseElementObject {
         }catch (NumberFormatException e1){
             throw new IllegalArgumentException();
         }
-        super.setInteraktionValue(arg,index);
+        super.setInteraktionValuetoDataBase(arg,index);
 
     }
 

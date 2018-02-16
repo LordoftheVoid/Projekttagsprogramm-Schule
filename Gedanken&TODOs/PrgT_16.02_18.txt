@@ -1,0 +1,8 @@
+Sprache: Java
+
+Projekt: Projekttagsprogramm
+
+
+Ziel: Änderungen an der Datenbank durch den Nutzer sauber
+
+Zeit: 60 Minuten

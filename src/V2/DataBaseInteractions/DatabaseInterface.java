@@ -87,21 +87,22 @@ public class DatabaseInterface {
     }
 
     public void updateEntry(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
-
+        System.out.println("id + "+entryID+"  valueColu  "+ tableColums.get(tableReference).get(columIndex)+" value  "+newValue);
         String sqlString = "UPDATE " + tableReference + " SET " + this.tableColums.get(tableReference).get(columIndex)+ " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
-
         PreparedStatement update_Entry = conDatabase.prepareStatement(sqlString);
         update_Entry.setString(1, entryID);
         update_Entry.executeUpdate();
     }
 
-    public boolean entryExists(String tableReference, String entryID) throws SQLException {
-        PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE "+ idColums.get(tableReference) + "= ? ");
-        id_check.setString(1, entryID);
-        ResultSet entrys_with_specific_id = id_check.executeQuery();
-        return !entrys_with_specific_id.next();
-
-
+    public boolean entryExists(String tableReference, String entryID)  {
+        try {
+            PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE "+ idColums.get(tableReference) + "= ? ");
+            id_check.setString(1, entryID);
+            ResultSet entrys_with_specific_id = id_check.executeQuery();
+            return !entrys_with_specific_id.next();
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     public void deleteEntry(String tableReference, String unique_ID) throws SQLException {
@@ -112,9 +113,13 @@ public class DatabaseInterface {
 
     public String getValuefromDataBase(String table, String entryID, int index) {
         String result = "";
+        System.out.println("Parameters"+table +"  "+ entryID+"      "+index);
         try {
             ResultSet values = this.readOneEntryOneAtribute(table, tableColums.get(table).get(index), entryID);
-            result = values.getString(1);
+            while(values.next()){
+                System.out.println("ReturnValue"+values.getString(1));
+                result = values.getString(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

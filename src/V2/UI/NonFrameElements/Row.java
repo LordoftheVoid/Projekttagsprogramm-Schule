@@ -4,6 +4,8 @@ import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  * Created by Aaron on 05.02.2018.
@@ -30,25 +32,53 @@ public class Row {
         btnDeleteEntry.setVisible(true);
         btnDeleteEntry.setBounds(this.displayElements.length * 120, 600, 120, 20);
 
+        this.setupKeyListener();
         this.showText();
     }
+
+    void setupKeyListener(){
+
+        for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
+            displayElements[arrayIndex].addKeyListener(new KeyListener() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyPressed(KeyEvent e) {
+
+                }
+
+                @Override
+                public void keyReleased(KeyEvent e) {
+
+                    System.out.println(e.getKeyChar());
+                }
+            });
+        }
+    }
+
 
     void showText() {
         String[] valuesEntry = new String[this.displayElements.length];
 
-        int amountIdentityValues = this.dataBaseEntry.getPublicIdentityValues().length;
+        int amountIdentityValues = this.dataBaseEntry.getVisibleIdentityValues().length;
         int amountInteraktionValues = this.dataBaseEntry.getInterAktionValues().length;
 
 
+        //TODO: Aus der Datenbank erfragen!!
+
         for (int arrayIndex = 0; arrayIndex < amountIdentityValues + amountInteraktionValues; arrayIndex++) {
             if (arrayIndex < amountIdentityValues) {
-                valuesEntry[arrayIndex] = this.dataBaseEntry.getPublicIdentityValues()[arrayIndex];
+                valuesEntry[arrayIndex] = this.dataBaseEntry.getVisibleIdentityValues()[arrayIndex];
             } else {
                 valuesEntry[arrayIndex] = this.dataBaseEntry.getInterAktionValues()[arrayIndex - amountIdentityValues];
             }
         }
 
         for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
+            System.out.println(valuesEntry[arrayIndex]+ "+");
             displayElements[arrayIndex].setText(valuesEntry[arrayIndex]);
         }
     }
