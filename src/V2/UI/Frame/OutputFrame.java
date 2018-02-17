@@ -23,10 +23,7 @@ public class OutputFrame extends BaseFrame {
         return null;
     }
 
-    @Override
-    public void generateDataBaseEntry() {
 
-    }
 
     @Override
     public void setupGUIBtnForCreation(int width) {

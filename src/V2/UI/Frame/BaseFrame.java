@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -33,66 +34,8 @@ public abstract class BaseFrame extends JFrame {
 
 
     private JTextField[] arrTextFieldSortInput;
-    private JButton[] arrButtonsSort;
     private boolean[] sortdirections;
-
-
-
-
-    void setupGUIElementsSort(){
-        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
-            arrButtonsSort[arrayIndex] = new JButton();
-            this.getContentPane().add(arrButtonsSort[arrayIndex]);
-            arrButtonsSort[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 120, 120, 50);
-            arrButtonsSort[arrayIndex].setBorder(new LineBorder(Color.RED, 1));
-            arrButtonsSort[arrayIndex].setVisible(true);
-            arrButtonsSort[arrayIndex].setText(" A ... Z");
-            sortdirections[arrayIndex] = true;
-
-            arrButtonsSort[arrayIndex].addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-
-                    for (int arrayIndex = 0; arrayIndex < arrButtonsSort.length; arrayIndex++) {
-
-                        if (arrButtonsSort[arrayIndex].equals(e.getSource())) {
-                            ordnen(sortdirections[arrayIndex], arrayIndex);
-                        }
-                    }
-
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
-        }
-    }
-
-    void setupGUIElementsText(){
-        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
-            columNames[arrayIndex] = new JTextField();
-            columNames[arrayIndex].setVisible(true);
-            this.getContentPane().add(columNames[arrayIndex]);
-            columNames[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 0, WIDTHGLOBAL, 20);
-        }
-    }
+    private JButton[] arrButtonsSort;
 
     public BaseFrame(int colums, String strFenstername) {
 
@@ -127,45 +70,103 @@ public abstract class BaseFrame extends JFrame {
 
     }
 
-    static public int getWIDTH() {
-        return WIDTHGLOBAL;
+
+
+    public void displayFrame(int xKoordinate, int yKoordinate, int dx, int dy) {
+        this.setVisible(true);
+        this.setBounds(xKoordinate, yKoordinate, dx, dy);
     }
 
-    public abstract ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException;
+    private void setupGUIElementsSort() {
+        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
+            arrButtonsSort[arrayIndex] = new JButton();
+            this.getContentPane().add(arrButtonsSort[arrayIndex]);
+            arrButtonsSort[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 120, 120, 50);
+            arrButtonsSort[arrayIndex].setBorder(new LineBorder(Color.RED, 1));
+            arrButtonsSort[arrayIndex].setVisible(true);
+            arrButtonsSort[arrayIndex].setText(" A ... Z");
+            sortdirections[arrayIndex] = false;
 
-    public abstract void generateDataBaseEntry();
+            arrButtonsSort[arrayIndex].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    for (int arrayIndex = 0; arrayIndex < arrButtonsSort.length; arrayIndex++) {
+                        if (arrButtonsSort[arrayIndex].equals(e.getSource())) {
+                            sortListVisibleElements(arrayIndex);
+                        }
+                    }
 
-    public abstract void setupGUIBtnForCreation(int width);
+                }
 
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+        }
+    }
+
+
+
+    private void setupGUIElementsText() {
+        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
+            columNames[arrayIndex] = new JTextField();
+            columNames[arrayIndex].setVisible(true);
+            this.getContentPane().add(columNames[arrayIndex]);
+            columNames[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 0, WIDTHGLOBAL, 20);
+        }
+    }
     public void setupGUITextFieldRowForCreation() {
         arrCreateEntryFields = new JTextField[2];
 
         for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
             arrCreateEntryFields[arrayIndex] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[arrayIndex]);
-            arrCreateEntryFields[arrayIndex].setBounds(BaseFrame.getWIDTH() * arrayIndex, yCoordinateListEntrys - 60, BaseFrame.getWIDTH(), 20);
+            arrCreateEntryFields[arrayIndex].setBounds(BaseFrame.WIDTHGLOBAL * arrayIndex, yCoordinateListEntrys - 60, BaseFrame.WIDTHGLOBAL, 20);
             arrCreateEntryFields[arrayIndex].setVisible(true);
         }
 
     }
 
 
-    void clearRows() {
+    public abstract ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException;
 
+    public abstract void setupGUIBtnForCreation(int width);
+
+    abstract void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys);
+
+
+    void clearRows() {
+        for (int i = 0; i < this.listTextRows.size(); i++) {
+            this.listTextRows.get(i).removeFromFrame(this.getContentPane());
+        }
     }
 
 
     void resetInterface() {
         this.clearRows();
+        this.listTextRows = new CopyOnWriteArrayList<>();
         try {
             this.generateRows(this.requestDataBaseContent());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-
-     abstract void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys);
 
 
     void updateRowYKoordinate(int yFirstElement) {
@@ -175,42 +176,11 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-    void search(String[] args) {
-
-    }
-
-
-    void displayText(ArrayList<String[]> rowValues) {
-
-    }
-
-
-    public void generateNewDataBaseEntry(String[] values) {
-
-    }
-
-
-    public void ordnen(boolean b_direction_tm, int i_X_colum) {
-
-        sortdirections[i_X_colum] = !sortdirections[i_X_colum];
-        if (sortdirections[i_X_colum]) {
-            arrButtonsSort[i_X_colum].setText(" A ... Z");
-        } else {
-            arrButtonsSort[i_X_colum].setText("Z ... A");
-        }
-    }
-
-
-    public void displayFrame(int xKoordinate, int yKoordinate, int dx, int dy) {
-        this.setVisible(true);
-        this.setBounds(xKoordinate, yKoordinate, dx, dy);
-    }
-
 
     public abstract void showfixedText();
 
 
-    void setupGUIElementsSearch(){
+    private void setupGUIElementsSearch() {
 
         for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
             suchLabel[arrayIndex] = new JTextField();
@@ -238,15 +208,35 @@ public abstract class BaseFrame extends JFrame {
 
                 @Override
                 public void keyReleased(KeyEvent e) {
-                    //     suche();
+                    searchListofRows();
                 }
             });
         }
 
 
+    }
+
+    private void searchListofRows(){
+
+    }
 
 
+    private void sortListVisibleElements(int indexColumtoCompare) {
 
+        AbstractRow.indexCompareElement = indexColumtoCompare;
+
+        Collections.sort(this.listTextRows);
+        if (sortdirections[indexColumtoCompare]) {
+            Collections.reverse(this.listTextRows);
+        }
+
+        sortdirections[indexColumtoCompare] = !sortdirections[indexColumtoCompare];
+        if (sortdirections[indexColumtoCompare]) {
+            arrButtonsSort[indexColumtoCompare].setText(" A ... Z");
+        } else {
+            arrButtonsSort[indexColumtoCompare].setText("Z ... A");
+        }
+        this.updateRowYKoordinate(250);
     }
 
 

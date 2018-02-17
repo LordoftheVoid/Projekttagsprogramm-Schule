@@ -11,7 +11,7 @@ import java.awt.event.FocusListener;
 /**
  * Created by Aaron on 05.02.2018.
  */
-public abstract class AbstractRow {
+public abstract class AbstractRow implements  Comparable {
 
 
     JTextField[] displayElements;
@@ -22,7 +22,7 @@ public abstract class AbstractRow {
 
         this.dataBaseEntry = dataBaseEntry;
         this.displayElements = new JTextField[columns];
-        
+
         this.generateTextFields();
         this.setupFocusListener();
         this.showText();
@@ -42,6 +42,15 @@ public abstract class AbstractRow {
 
     abstract void generateTextFields();
 
+    public static int indexCompareElement=0;
+
+    @Override
+    public int compareTo(Object o) {
+        AbstractRow comparedObj = (AbstractRow) o;
+        return this.displayElements[indexCompareElement].getText().compareTo(comparedObj.displayElements[indexCompareElement].getText());
+    }
+
+
     void setupFocusListener() {
 
         for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
@@ -56,13 +65,15 @@ public abstract class AbstractRow {
                 @Override
                 public void focusLost(FocusEvent e) {
                     CustomTextField objSource = (CustomTextField) e.getSource();
-                    if (objSource.isValidInput()) {
-                        objSource.dataBaseEntry.genericSetter(objSource.getText(), objSource.index);
-                        System.out.println("Es ging");
-                    } else {
-                        objSource.setText(objSource.oldValue);
-                        System.out.println("Es ging nicht!");
-                        //TODO: MAulen!
+                    if (objSource.getText().equals(objSource.oldValue)) {
+                        if (objSource.isValidInput()) {
+                            objSource.dataBaseEntry.genericSetter(objSource.getText(), objSource.index);
+                            System.out.println("Es ging");
+                        } else {
+                            objSource.setText(objSource.oldValue);
+                            System.out.println("Es ging nicht!");
+                            //TODO: MAulen!
+                        }
                     }
                 }
             });
@@ -94,7 +105,7 @@ public abstract class AbstractRow {
         }
     }
 
-    void removeFromFrame(Container targetFrame) {
+   public  void removeFromFrame(Container targetFrame) {
         for (int arrayIndex = 0; arrayIndex < this.displayElements.length; arrayIndex++) {
             targetFrame.remove(displayElements[arrayIndex]);
         }

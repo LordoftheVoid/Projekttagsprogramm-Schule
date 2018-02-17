@@ -38,10 +38,7 @@ public class PupilFrame extends BaseFrame {
         return entrys;
     }
 
-    @Override
-    public void generateDataBaseEntry() {
 
-    }
 
     @Override
     public void setupGUIBtnForCreation(int btnWidth) {
@@ -61,6 +58,7 @@ public class PupilFrame extends BaseFrame {
                         newPupil.setIdentityValue(arrCreateEntryFields[0].getText(), 0);
                         newPupil.setIdentityValue(arrCreateEntryFields[1].getText(), 1);
                         //Todo: Melden das es ging
+                        resetInterface();
                     }
                     arrCreateEntryFields[0].setText("");
                     arrCreateEntryFields[1].setText("");

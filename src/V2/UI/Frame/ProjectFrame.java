@@ -38,10 +38,6 @@ public class ProjectFrame extends BaseFrame {
         return entrys;
     }
 
-    @Override
-    public void generateDataBaseEntry() {
-
-    }
 
     @Override
     public void setupGUIBtnForCreation(int width) {
