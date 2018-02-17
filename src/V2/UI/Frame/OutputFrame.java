@@ -38,6 +38,11 @@ public class OutputFrame extends BaseFrame {
 
     }
 
+    @Override
+    void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
+
+    }
+
 
     @Override
     public void showfixedText() {

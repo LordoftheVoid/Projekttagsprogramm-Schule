@@ -27,6 +27,11 @@ public class Link extends DataBaseElementObject {
     }
 
     @Override
+    public void genericSetter(String newValue, int index) {
+
+    }
+
+    @Override
     protected void savetoDataBase(String newValue, int index) {
 
     }

@@ -3,7 +3,7 @@ package V2.UI.Frame;
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.Settings.Imports;
-
+import V2.UI.NonFrameElements.DisplayedRows.ProjectRow;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -76,6 +76,17 @@ public class ProjectFrame extends BaseFrame {
 
             }
         });
+
+    }
+
+
+
+    @Override
+    void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
+        for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
+            this.listTextRows.add(new ProjectRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
+        }
+
 
     }
 

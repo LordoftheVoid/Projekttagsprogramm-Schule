@@ -1,7 +1,7 @@
 package V2.UI.Frame;
 
 import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
-import V2.UI.NonFrameElements.Row;
+import V2.UI.NonFrameElements.DisplayedRows.AbstractRow;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -28,7 +28,7 @@ public abstract class BaseFrame extends JFrame {
     public JButton btnCreateEntry;
     JTextField[] arrCreateEntryFields;
     int columns;
-    private CopyOnWriteArrayList<Row> listTextRows = new CopyOnWriteArrayList<>();
+    CopyOnWriteArrayList<AbstractRow> listTextRows = new CopyOnWriteArrayList<>();
     private JTextField[] suchLabel;
 
 
@@ -165,11 +165,7 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-    void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
-        for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
-            this.listTextRows.add(new Row(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
-        }
-    }
+     abstract void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys);
 
 
     void updateRowYKoordinate(int yFirstElement) {

@@ -88,6 +88,15 @@ public class Pupil extends DataBaseElementObject {
         //TODO: Wohin mit dem Fehler ?
     }
 
+    @Override
+    public void genericSetter(String newValue, int index) {
+        if(index <amountIdentityValues){
+            this.setIdentityValue(newValue,index);
+        }else{
+            this.setInteraktionValuefromDataBase(newValue,index);
+        }
+    }
+
     public boolean isValidDataBaseEntry() {
         //Todo: Zwei validitätsMethoden ? Wenn nicht, was dann ?
 
@@ -139,7 +148,7 @@ public class Pupil extends DataBaseElementObject {
             throw new IllegalArgumentException("Der Wert war null, erlaubt sind alle Wörter, Namen der Länge größer drei");
         if (newValue.equals(""))
             throw new IllegalArgumentException("Das Argument war leer, gefordert wird mindestens ein Buchstabe");
-        if (index <= 2) {
+        if (index < 2) {
             if (newValue.length() < 3) {
                 throw new IllegalArgumentException("Der Name war zu kurz, gefordert sind Namen der Länge mindestens drei ");
             }

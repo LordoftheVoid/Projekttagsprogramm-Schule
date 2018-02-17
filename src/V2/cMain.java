@@ -22,6 +22,8 @@ import java.awt.event.MouseListener;
 public class cMain {
 
 
+    //TODO GLOBAL: Das man die Projektnummer nicht manuell ändern kann, sonder ein neues Projekt anlegen muss wenn man das will
+
     static JTextArea statusDisplay;
     static JFrame objFrameMain;
 

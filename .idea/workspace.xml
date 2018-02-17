@@ -8,92 +8,326 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/PrgT_16.02_18.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685508.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685509.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685510.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685511.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685512.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685583.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685604.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685643.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685671.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685742.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685743.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685776.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685785.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685791.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685826.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685868.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685898.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685943.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518685973.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686006.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686043.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686049.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686085.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686186.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686242.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686274.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686361.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686398.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686431.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686457.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686505.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686509.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686530.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686554.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686573.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686586.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686618.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686652.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686682.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686715.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686747.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686749.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686750.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686760.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686764.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686770.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686772.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686784.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686800.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686803.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686812.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686815.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686818.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686821.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686824.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686830.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686835.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686851.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686877.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686887.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686896.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686923.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686933.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686938.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686942.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686964.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686969.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686972.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686982.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518686999.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687002.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687021.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687128.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/AbstractTextField.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/17_02_18.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/ProjectRow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/CustomTextField.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/GenericTextField.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/NameTextField.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/ProjectNumberTextField.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687241.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687249.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687254.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687284.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687353.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687360.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687361.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687423.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687480.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687511.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687542.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687572.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687575.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687615.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687617.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687638.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687670.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687676.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687677.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687751.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687835.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687836.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687854.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687861.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687875.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687888.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687893.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518687906.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690232.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690284.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690316.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690347.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690373.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690384.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690389.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690397.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690427.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690471.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690514.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690555.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690590.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690646.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690680.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690714.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690742.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690783.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690816.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690831.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690836.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690886.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690929.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518690969.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691004.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691040.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691084.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691115.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691145.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691180.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691216.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691248.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691266.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691282.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691298.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691304.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691338.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691361.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691385.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691390.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691428.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691435.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691454.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691491.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691513.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691516.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691535.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691567.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691601.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691631.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691667.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691698.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691730.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691738.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691742.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691743.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691784.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691829.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691846.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691883.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691885.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691928.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691931.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691933.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691936.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691967.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518691998.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692022.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692037.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692038.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692040.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692046.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692049.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692090.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692091.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692092.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692094.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692095.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692149.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692191.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692210.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692218.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692220.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692221.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692223.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692271.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692302.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518692334.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767391.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767398.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767443.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767479.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767483.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767515.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767545.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767561.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767581.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767591.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767595.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767598.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767602.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767608.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767623.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767679.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767680.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767689.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767697.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767701.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767704.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767785.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767797.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767829.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767842.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767867.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767949.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767950.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767953.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767957.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518767988.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768012.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768013.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768045.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768122.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768231.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768288.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768299.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768300.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768337.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768361.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768403.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768456.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768493.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768520.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768542.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768572.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768604.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768635.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768646.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768651.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768653.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768660.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768665.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768666.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768670.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768681.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768734.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768738.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768753.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768755.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768757.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768758.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768760.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768794.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768833.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768834.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768843.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768844.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768902.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768905.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518768930.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769014.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769015.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769087.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769132.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769272.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769277.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769279.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769287.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769288.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769325.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769330.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769339.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769343.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769344.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769348.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769350.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769353.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769356.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769358.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769463.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769464.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769536.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769659.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769677.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769682.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769724.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769805.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769841.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769851.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769854.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769917.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769952.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769981.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769984.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769987.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518769992.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770008.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770032.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770062.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770097.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770101.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770363.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770364.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770474.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770507.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770545.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770565.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770586.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770627.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770634.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770644.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770647.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770689.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770710.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770749.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770758.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770765.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770780.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770801.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770815.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770845.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770879.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770912.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770951.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518770986.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771024.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771055.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771094.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771120.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771152.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771168.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771200.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771207.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771209.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771241.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771266.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518771297.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518772104.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518772110.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518772112.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773708.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773709.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773729.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773745.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773748.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773762.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773776.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773784.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773823.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773847.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773942.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518773989.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774037.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774070.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774102.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774133.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774166.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774199.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774237.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774238.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774260.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774292.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774323.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774353.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774360.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774394.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774414.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774445.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774446.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774447.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1518774449.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/KeyInputHandler.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testordner/Datenbank-Ordner/Schueler_Datenbank_V1.db" afterPath="$PROJECT_DIR$/Testordner/Datenbank-Ordner/Schueler_Datenbank_V1.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/Frame/OutputFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/Frame/OutputFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/cMain.java" afterPath="$PROJECT_DIR$/src/V2/cMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,7 +341,7 @@
     <SUITE FILE_PATH="coverage/Projekttagprogramm Schule$cMain.coverage" NAME="cMain Coverage Results" MODIFIED="1504520166507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Version_1_Java.Objekte.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Projekttagsprogramm-Schule$Jar_Execution.coverage" NAME="Jar-Execution Coverage Results" MODIFIED="1518692145077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Projekttagsprogramm-Schule$Jar_Execution.coverage" NAME="Jar-Execution Coverage Results" MODIFIED="1518807937502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -118,11 +352,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BaseFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java">
+      <file leaf-file-name="ProjectRow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/ProjectRow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="767">
-              <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+            <state relative-caret-position="340">
+              <caret line="20" column="75" lean-forward="false" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,46 +364,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pupil.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
+      <file leaf-file-name="PupilRow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="53" column="146" lean-forward="false" selection-start-line="53" selection-start-column="146" selection-end-line="53" selection-end-column="146" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PupilFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="60" column="88" lean-forward="false" selection-start-line="60" selection-start-column="88" selection-end-line="60" selection-end-column="88" />
+            <state relative-caret-position="408">
+              <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyInputHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/KeyInputHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Row.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="69" column="44" lean-forward="false" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
-              <folding>
-                <element signature="e#3350#3351#0" expanded="true" />
-                <element signature="e#3398#3399#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -178,54 +379,90 @@
       <file leaf-file-name="DataBaseElementObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+            <state relative-caret-position="393">
+              <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pupil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="154" column="9" lean-forward="false" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Link.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomTextField.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/CustomTextField.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
               <folding>
-                <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="e#1143#1144#0" expanded="true" />
-                <element signature="e#1409#1410#0" expanded="true" />
-                <element signature="e#1454#1455#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataBaseElementInterFace.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java">
+      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
+      <file leaf-file-name="AbstractRow.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="113" column="33" lean-forward="false" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
+            <state relative-caret-position="182">
+              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutputFileGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/OutputFileGenerator.java">
+      <file leaf-file-name="ProjectNumberTextField.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/ProjectNumberTextField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="170">
+              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#372#373#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fileReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
+      <file leaf-file-name="GenericTextField.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/GenericTextField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="74" column="58" lean-forward="true" selection-start-line="74" selection-start-column="58" selection-end-line="74" selection-end-column="58" />
-              <folding />
+            <state relative-caret-position="153">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#332#333#0" expanded="true" />
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#410#411#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -278,20 +515,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/NeuSortierung/UI/BaseFrame.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/UI/ProjectFrame.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/UI/PupilFrame.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DatabaseInterface.java" />
-        <option value="$PROJECT_DIR$/src/NeuSortierung/DataBaseInteractions/DataBaseObjekts/Ablage.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/FrameInterFace.java" />
-        <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/OutputFileGenerator.java" />
-        <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/ExcelInterface.java" />
-        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/Montag 05.02- Grundsätzliche Gedanken zur Struktur" />
-        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/Mittwoch 07.02- Gedanken zur Struktur II.txt" />
-        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/Freitag 09.02 - Gedanken Ausgabe.txt" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/ProgrammierTageBuch_03_12_02_18.txt" />
         <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/InterfaceExcel.java" />
-        <option value="$PROJECT_DIR$/src/V2/cMain.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/OutputFrame.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/BaseFrame.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/GedankenPad.txt" />
@@ -314,21 +539,33 @@
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButtonPupil.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButtonAbstract.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/KeyInputHandler.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java" />
         <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/PrgT-15.02.18.txt" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/PrgT_16.02_18.txt" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/AbstractTextField.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/CustomTextField.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/Row.java" />
+        <option value="$PROJECT_DIR$/src/V2/cMain.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/Frame/OutputFrame.java" />
+        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/17_02_18.txt" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/CustomTextField.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/GenericTextField.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/NameTextField.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/ProjectNumberTextField.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/ProjectRow.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java" />
       </list>
     </option>
   </component>
@@ -360,7 +597,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -430,6 +666,10 @@
               <option name="myItemId" value="NonFrameElements" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TextFields" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -457,7 +697,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Listeners" />
+              <option name="myItemId" value="DisplayedRows" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -635,6 +875,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
@@ -1141,7 +1382,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1160,7 +1401,6 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494929" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1176,6 +1416,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="557" y="334" width="481" height="176" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494929" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1235,55 +1476,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Montag 05.02- Grundsätzliche Gedanken zur Struktur.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Mittwoch 07.02- Gedanken zur Struktur II.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9860">
-          <caret line="613" column="22" lean-forward="false" selection-start-line="613" selection-start-column="22" selection-end-line="613" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/Freitag 09.02 - Gedanken Ausgabe.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="89" lean-forward="false" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/sql/SQLException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/ProgrammierTageBuch_03_12_02_18.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="695" column="29" lean-forward="false" selection-start-line="695" selection-start-column="29" selection-end-line="695" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7412">
@@ -1319,14 +1511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/PrgT_14.02.18.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1340,14 +1524,6 @@
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/ButtonProject.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/ButtonPupil.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/awt/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="5690" column="29" lean-forward="false" selection-start-line="5690" selection-start-column="29" selection-end-line="5690" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MouseProject.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MousePupil.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MouseAbstract.java" />
@@ -1372,33 +1548,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/OutputFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#311#312#0" expanded="false" />
-            <element signature="e#363#364#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/PrgT-15.02.18.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#257#258#0" expanded="false" />
-            <element signature="e#327#328#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1417,42 +1570,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/AbstractTextField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="68" column="14" lean-forward="false" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret line="47" column="55" lean-forward="false" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java" />
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/AbstractTextField.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/Settings/Imports.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1461,47 +1583,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="767">
-          <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/KeyInputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/KeyInputHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
-          <caret line="74" column="58" lean-forward="true" selection-start-line="74" selection-start-column="58" selection-end-line="74" selection-end-column="58" />
+          <caret line="74" column="58" lean-forward="false" selection-start-line="74" selection-start-column="58" selection-end-line="74" selection-end-column="58" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Row.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="69" column="44" lean-forward="false" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
-          <folding>
-            <element signature="e#3350#3351#0" expanded="true" />
-            <element signature="e#3398#3399#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementInterFace.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1522,33 +1616,178 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
+    <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        <state relative-caret-position="221">
+          <caret line="24" column="127" lean-forward="false" selection-start-line="24" selection-start-column="127" selection-end-line="24" selection-end-column="127" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2601">
+          <caret line="167" column="81" lean-forward="false" selection-start-line="167" selection-start-column="81" selection-end-line="167" selection-end-column="81" />
           <folding>
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="e#1143#1144#0" expanded="true" />
-            <element signature="e#1409#1410#0" expanded="true" />
-            <element signature="e#1454#1455#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3812#3813#0" expanded="false" />
+            <element signature="e#3846#3847#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="86" column="49" lean-forward="false" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+          <folding>
+            <element signature="e#532#533#0" expanded="false" />
+            <element signature="e#574#575#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/OutputFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/17_02_18.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="60" column="88" lean-forward="false" selection-start-line="60" selection-start-column="88" selection-end-line="60" selection-end-column="88" />
+        <state relative-caret-position="306">
+          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/NameTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/ProjectNumberTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/DataBaseElementObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/GenericTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="53" column="146" lean-forward="false" selection-start-line="53" selection-start-column="146" selection-end-line="53" selection-end-column="146" />
+        <state relative-caret-position="325">
+          <caret line="154" column="9" lean-forward="false" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="1243" column="19" lean-forward="false" selection-start-line="1243" selection-start-column="19" selection-end-line="1243" selection-end-column="19" />
+          <folding>
+            <element signature="e#41174#41175#0" expanded="false" />
+            <element signature="e#41220#41221#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/TextFields/CustomTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/ProjectRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="75" lean-forward="false" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
           <folding />
         </state>
       </provider>

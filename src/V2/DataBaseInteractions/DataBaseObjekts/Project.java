@@ -48,7 +48,14 @@ public class Project extends DataBaseElementObject {
 
     }
 
-
+    @Override
+    public void genericSetter(String newValue, int index) {
+        if(index <amountIdentityValues){
+            this.setIdentityValue(newValue,index);
+        }else{
+            this.setInteraktionValuetoDataBase(newValue,index);
+        }
+    }
 
 
     public void setInteraktionValuetoDataBase(String arg, int index) throws IllegalArgumentException {

@@ -25,6 +25,7 @@ public abstract class DataBaseElementObject implements DataBaseElementInterFace 
     }
 
 
+    public  abstract void  genericSetter(String newValue, int index);
 
     @Override
     public boolean isValidDataBaseEntry() {
