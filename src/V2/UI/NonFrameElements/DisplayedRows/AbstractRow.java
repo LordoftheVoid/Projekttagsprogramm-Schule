@@ -50,7 +50,7 @@ public abstract class AbstractRow implements  Comparable {
 
 
 
-    void showText() {
+    private void showText() {
         String[] valuesEntry = new String[this.displayElements.length];
 
         int amountIdentityValues = this.dataBaseEntry.getVisibleIdentityValues().length;

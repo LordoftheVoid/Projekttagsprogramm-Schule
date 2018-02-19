@@ -6,3 +6,5 @@ Zeit: Mindestens zwei Stunden über den Tag verteilt
 Seltsamer Bug: Ich hatte vergessen, ein Element zu löschen, das fiel in einem Frame aber nicht auf,
 weil ich die Elemente übereinander lagerte
 
+Frage: Wie bekomme ich es hin, dass ich aus der Datenbank generieren darf ?
+

@@ -11,7 +11,8 @@ import java.sql.SQLException;
 public class Project extends AbstractDataBaseRepresentation {
 
 
-    /**TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
+    /**
+     * TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
      */
 
     static int amountIdentityValues = 2;
@@ -19,31 +20,25 @@ public class Project extends AbstractDataBaseRepresentation {
     static int amountInteraktionValues = 1;
 
 
-
-    public Project(String id) {
-        super(id, amountIdentityValues, amountInteraktionValues);
-        this.setIdentityValue(id, 0);
-        this.updateHash();
+    //Constructor from the DataBase
+    public Project(String projectNumber) {
+        super("", amountIdentityValues, amountInteraktionValues);
+        this.setHash(projectNumber);
     }
 
-    private void updateHash() throws IllegalArgumentException {
-        for (int charIndex = 0; charIndex < this.getVisibleIdentityValues()[0].length(); charIndex++) {
-            if(!Character.isDigit(this.getVisibleIdentityValues()[0].charAt(charIndex))){
-                throw new IllegalArgumentException("Die Projektnummer ist keine Zahl");
-            }
-        }
-
-
-        this.setHash("");
-        this.setHash(this.getVisibleIdentityValues()[0]);
+    //Constructor from Outside Data
+    public Project(String projectNumber, String teacherID) {
+        super("", amountIdentityValues, amountInteraktionValues);
+        this.setHash(projectNumber);
+        this.generateDataBaseEntry();
+        this.setIdentityValue(teacherID, 1);
     }
-
 
 
     @Override
     public void generateDataBaseEntry() {
         try {
-            Imports.objDatabaseManagerGlobal.createEntry("Project",this.getHash());
+            Imports.objDatabaseManagerGlobal.createEntry("Project", this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -57,18 +52,16 @@ public class Project extends AbstractDataBaseRepresentation {
     }
 
 
-
     @Override
     public String getHash() throws NullPointerException {
-       return super.getHash();
+        return super.getHash();
     }
-
 
 
     @Override
     public void deleteEntry() {
         try {
-            Imports.objDatabaseManagerGlobal.deleteEntry("Project",this.getHash());
+            Imports.objDatabaseManagerGlobal.deleteEntry("Project", this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,36 +69,32 @@ public class Project extends AbstractDataBaseRepresentation {
 
     @Override
     public void genericSetter(String newValue, int index) {
-        if(index <amountIdentityValues){
-            this.setIdentityValue(newValue,index);
-        }else{
-            this.setInteraktionValuetoDataBase(newValue,index);
+        if (index < amountIdentityValues) {
+            this.setIdentityValue(newValue, index);
+        } else {
+            this.setInteraktionValuetoDataBase(newValue, index);
         }
     }
 
 
     public void setInteraktionValuetoDataBase(String arg, int index) throws IllegalArgumentException {
-        try{
-            int resultArg = Integer.parseInt(arg);
-            if(resultArg <0){
-                throw new IllegalArgumentException();
+        for (int charIndex = 0; charIndex < arg.length(); charIndex++) {
+            if (!Character.isDigit(arg.charAt(charIndex))) {
+                throw new IllegalArgumentException("Der Wert für die maximale Schüleranzahl war keine Zahl");
             }
-        }catch (NumberFormatException e1){
-            throw new IllegalArgumentException();
         }
-        super.setInteraktionValuetoDataBase(arg,index);
-
+        super.setInteraktionValuetoDataBase(arg, index);
     }
 
-
     public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
-        super.setIdentityValue(arg,index);
+        super.setIdentityValue(arg, index);
+        this.savetoDataBase(arg, index);
     }
 
     @Override
     protected void savetoDataBase(String newValue, int index) {
         try {
-            Imports.objDatabaseManagerGlobal.updateEntry("Project",this.getHash(),index,newValue);
+            Imports.objDatabaseManagerGlobal.updateEntry("Project", this.getHash(), index, newValue);
         } catch (SQLException e) {
             e.printStackTrace();
         }

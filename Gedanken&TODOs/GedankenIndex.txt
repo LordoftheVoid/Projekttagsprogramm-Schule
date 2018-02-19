@@ -1,0 +1,11 @@
+Also, Indexe, nur, damit das nochmal klar ist:
+
+Die Datenbank hat die Indexe 1-n
+
+Und ich will eine Tabelle anlegen, deren Indexe von 0-n gehen, damit ich von außen einfach zugreifen kann
+
+Im Umkehrschluss muss es dann so laufen:
+
+Input Null -> Output 1
+Input Eins -> Output 2
+usw

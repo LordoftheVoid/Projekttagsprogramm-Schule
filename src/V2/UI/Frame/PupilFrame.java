@@ -30,7 +30,6 @@ public class PupilFrame extends BaseFrame {
 
         ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
 
-
         for (String entry : listIDs
                 ) {
             entrys.add(new Pupil(entry));
@@ -54,9 +53,10 @@ public class PupilFrame extends BaseFrame {
                     if (!Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupil.getHash())) {
                         //TODO: Maulen 2.0!
                     } else {
+                        System.out.println("--------------Aufruf DatenBankSchreiben---------------");
                         newPupil.generateDataBaseEntry();
-                        newPupil.setIdentityValue(arrCreateEntryFields[0].getText(), 0);
-                        newPupil.setIdentityValue(arrCreateEntryFields[1].getText(), 1);
+                        newPupil.setIdentityValue(arrCreateEntryFields[0].getText(), 1);
+                        newPupil.setIdentityValue(arrCreateEntryFields[1].getText(), 2);
                         //Todo: Melden das es ging
                         resetInterface();
                     }

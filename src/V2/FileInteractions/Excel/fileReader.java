@@ -70,9 +70,9 @@ public class fileReader extends Thread {
 
                 try {
                     Imports.objDatabaseManagerGlobal.createEntry("Pupil", newID);
-                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 2, surName);
-                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 3, preName);
-                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 4, this.generateGrade());
+                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 1, surName);
+                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 2, preName);
+                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 3, this.generateGrade());
                 } catch (SQLException e) {
                     /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
                      *    System.out.println( e.getMessage());

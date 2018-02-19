@@ -15,7 +15,6 @@ Klasse, um conDatabase zu realisieren
  */
 public class DatabaseInterface {
 
-    boolean b_connection_running = false;
     private Connection conDatabase;
     private HashMap<Integer, String> pupilColums = new HashMap<>();
     private HashMap<Integer, String> projectColums = new HashMap<>();
@@ -24,79 +23,63 @@ public class DatabaseInterface {
     private HashMap<String, String> idColums = new HashMap<>();
 
 
-    public void v_initialization(String surlSource_tm) throws NullPointerException {
+    public DatabaseInterface(String urlDataBaseFile) throws ClassNotFoundException {
 
-        if (!b_connection_running) {
-            try {
-                final String DRIVER = "org.sqlite.JDBC";
-                final String DB_URL = "jdbc:sqlite:" + surlSource_tm;
-                Class.forName(DRIVER);
-                conDatabase = null;
-                try {
-                    SQLiteConfig config = new SQLiteConfig();
-                    config.enforceForeignKeys(true);
-                    conDatabase = DriverManager.getConnection(DB_URL, config.toProperties());
-                } catch (SQLException ex) {
-                    throw new NullPointerException();
-                }
-                b_connection_running = true;
-
-
-                /**These  names have to be hardcoded at the moment
-                 *
-                 */
-                this.tableColums.put("Pupil", pupilColums);
-                this.tableColums.put("Project", projectColums);
-
-
-                try {
-                    ResultSet readColums = this.readEntrysAllAttributes("Pupil");
-                    ResultSetMetaData metaData = readColums.getMetaData();
-                    idColums.put("Pupil", metaData.getColumnName(1));
-                    for (int keyIndices = 1; keyIndices < metaData.getColumnCount(); keyIndices++) {
-                        pupilColums.put(keyIndices, metaData.getColumnName(keyIndices));
-                    }
-                    readColums = this.readEntrysAllAttributes("Project");
-                    metaData = readColums.getMetaData();
-                    idColums.put("Project", metaData.getColumnName(1));
-                    for (int keyIndices = 1; keyIndices < metaData.getColumnCount(); keyIndices++) {
-                        projectColums.put(keyIndices, metaData.getColumnName(keyIndices));
-                    }
-
-
-                    /**TODO Read the Link-Table
-                     *
-                     *
-                     */
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+        final String DRIVER = "org.sqlite.JDBC";
+        final String DB_URL = "jdbc:sqlite:" + urlDataBaseFile;
+        Class.forName(DRIVER);
+        conDatabase = null;
+        try {
+            SQLiteConfig config = new SQLiteConfig();
+            config.enforceForeignKeys(true);
+            conDatabase = DriverManager.getConnection(DB_URL, config.toProperties());
+        } catch (SQLException ex) {
+            throw new NullPointerException();
         }
+
+
+        this.tableColums.put("Pupil", pupilColums);
+        this.tableColums.put("Project", projectColums);
+        try {
+            pupilColums = this.generateColumNameList("Pupil");
+            projectColums = this.generateColumNameList("Project");
+            linkColums = this.generateColumNameList("Link");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private HashMap<Integer, String> generateColumNameList(String tableReference) throws SQLException {
+        HashMap<Integer, String> result = new HashMap<>();
+        ResultSet readColums = this.readEntrysAllAttributes(tableReference);
+        ResultSetMetaData metaData = readColums.getMetaData();
+        idColums.put(tableReference, metaData.getColumnName(1));
+        for (int keyIndices = 0; keyIndices < metaData.getColumnCount(); keyIndices++) {
+            pupilColums.put(keyIndices, metaData.getColumnName(keyIndices + 1));
+        }
+        return result;
     }
 
 
     public void createEntry(String tableReference, String newEntryID) throws SQLException {
-        PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + tableReference + "  (" + this.tableColums.get(tableReference).get(1) + ") VALUES (?)");
+        System.out.println("New Entry" + newEntryID);
+        PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + tableReference + "  (" + this.tableColums.get(tableReference).get(0) + ") VALUES (?)");
         insertInto.setString(1, newEntryID);
         insertInto.executeUpdate();
     }
 
     public void updateEntry(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
-        System.out.println();
-        String sqlString = "UPDATE " + tableReference + " SET " + this.tableColums.get(tableReference).get(columIndex)+ " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
+        String sqlString = "UPDATE " + tableReference + " SET " + this.tableColums.get(tableReference).get(columIndex) + " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
         PreparedStatement update_Entry = conDatabase.prepareStatement(sqlString);
         update_Entry.setString(1, entryID);
         update_Entry.executeUpdate();
     }
 
-    public boolean entryExists(String tableReference, String entryID)  {
+    public boolean entryExists(String tableReference, String entryID) {
+        System.out.println("EntryAufruf mit " + entryID);
         try {
-            PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE "+ idColums.get(tableReference) + "= ? ");
+            PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE " + idColums.get(tableReference) + "= ? ");
             id_check.setString(1, entryID);
             ResultSet entrys_with_specific_id = id_check.executeQuery();
             return !entrys_with_specific_id.next();
@@ -112,10 +95,11 @@ public class DatabaseInterface {
     }
 
     public String getValuefromDataBase(String table, String entryID, int index) {
+        index = index + 1;
         String result = "";
         try {
             ResultSet values = this.readOneEntryOneAtribute(table, tableColums.get(table).get(index), entryID);
-            while(values.next()){
+            while (values.next()) {
                 result = values.getString(1);
             }
         } catch (SQLException e) {
@@ -150,7 +134,7 @@ public class DatabaseInterface {
     public ArrayList<String> getEntryIDs(String table) {
         ArrayList<String> entryList = new ArrayList<>();
         try {
-            ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(1));
+            ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(0));
 
             while (entrys.next()) {
                 entryList.add(entrys.getString(1));
@@ -158,7 +142,6 @@ public class DatabaseInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Amount of found Elements"+entryList.size());
         return entryList;
     }
 

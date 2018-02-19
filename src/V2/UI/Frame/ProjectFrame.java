@@ -29,9 +29,9 @@ public class ProjectFrame extends BaseFrame {
 
         ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Project");
 
-
         for (String entry : listIDs
                 ) {
+            System.out.println(entry);
             entrys.add(new Project(entry));
         }
 
@@ -49,22 +49,18 @@ public class ProjectFrame extends BaseFrame {
         btnCreateEntry.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                try {
-                    int a = Integer.parseInt(arrCreateEntryFields[0].getText());
-
-                    Project newProject = new Project(arrCreateEntryFields[0].getText());
-                    newProject.generateDataBaseEntry();
-                    newProject.setIdentityValue(arrCreateEntryFields[1].getText(), 1);
-                    resetInterface();
-                    arrCreateEntryFields[0].setText("");
-                    arrCreateEntryFields[1].setText("");
-
-                } catch (NumberFormatException e1) {
-                    //TODO MAULEN
+                boolean isNumber = true;
+                for (int charIndex = 0; charIndex < arrCreateEntryFields[0].getText().length(); charIndex++) {
+                    isNumber = isNumber && Character.isDigit(arrCreateEntryFields[0].getText().charAt(charIndex));
                 }
-
-
+                    if(!isNumber){
+                    //TODO: Maulen
+                    }else{
+                        Project newProject = new Project(arrCreateEntryFields[0].getText(),arrCreateEntryFields[1].getText() );
+                        resetInterface();
+                        arrCreateEntryFields[0].setText("");
+                        arrCreateEntryFields[1].setText("");
+                    }
             }
 
             @Override
@@ -93,7 +89,6 @@ public class ProjectFrame extends BaseFrame {
 
     @Override
     void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
-        System.out.println("Aufruf");
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
             this.listTextRows.add(new ProjectRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }

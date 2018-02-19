@@ -46,7 +46,7 @@ public class PupilRow extends AbstractRow {
                 @Override
                 public void focusLost(FocusEvent e) {
                     CustomTextField objSource = (CustomTextField) e.getSource();
-                    if (objSource.getText().equals(objSource.oldValue)) {
+                    if (!objSource.getText().equals(objSource.oldValue)) {
                         if (objSource.isValidInput()) {
                             objSource.dataBaseEntry.genericSetter(objSource.getText(), objSource.index);
                             System.out.println("Es ging");
