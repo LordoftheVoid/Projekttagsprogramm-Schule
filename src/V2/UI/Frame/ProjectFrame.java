@@ -43,22 +43,24 @@ public class ProjectFrame extends BaseFrame {
     public void setupGUIBtnForCreation(int width) {
         btnCreateEntry = new JButton("Eintrag erzeugen");
         super.getContentPane().add(btnCreateEntry);
-        btnCreateEntry.setBounds(arrCreateEntryFields[1].getX()+width,arrCreateEntryFields[1].getY(),width*2,20);
+        btnCreateEntry.setBounds(arrCreateEntryFields[1].getX() + width, arrCreateEntryFields[1].getY(), width * 2, 20);
 
 
         btnCreateEntry.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                try{
-                 int a = Integer.parseInt(   arrCreateEntryFields[0].getText());
+                try {
+                    int a = Integer.parseInt(arrCreateEntryFields[0].getText());
 
                     Project newProject = new Project(arrCreateEntryFields[0].getText());
                     newProject.generateDataBaseEntry();
-                    newProject.setIdentityValue(arrCreateEntryFields[1].getText(),1);
+                    newProject.setIdentityValue(arrCreateEntryFields[1].getText(), 1);
                     resetInterface();
+                    arrCreateEntryFields[0].setText("");
+                    arrCreateEntryFields[1].setText("");
 
-                }catch (NumberFormatException e1){
+                } catch (NumberFormatException e1) {
                     //TODO MAULEN
                 }
 
@@ -89,14 +91,11 @@ public class ProjectFrame extends BaseFrame {
     }
 
 
-
     @Override
     void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
             this.listTextRows.add(new ProjectRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
-
-
     }
 
 

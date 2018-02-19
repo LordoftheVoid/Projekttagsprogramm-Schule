@@ -87,7 +87,7 @@ public class DatabaseInterface {
     }
 
     public void updateEntry(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
-        System.out.println("id + "+entryID+"  valueColu  "+ tableColums.get(tableReference).get(columIndex)+" value  "+newValue);
+        System.out.println();
         String sqlString = "UPDATE " + tableReference + " SET " + this.tableColums.get(tableReference).get(columIndex)+ " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
         PreparedStatement update_Entry = conDatabase.prepareStatement(sqlString);
         update_Entry.setString(1, entryID);
@@ -113,11 +113,9 @@ public class DatabaseInterface {
 
     public String getValuefromDataBase(String table, String entryID, int index) {
         String result = "";
-        System.out.println("Parameters"+table +"  "+ entryID+"      "+index);
         try {
             ResultSet values = this.readOneEntryOneAtribute(table, tableColums.get(table).get(index), entryID);
             while(values.next()){
-                System.out.println("ReturnValue"+values.getString(1));
                 result = values.getString(1);
             }
         } catch (SQLException e) {
@@ -160,6 +158,7 @@ public class DatabaseInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("Amount of found Elements"+entryList.size());
         return entryList;
     }
 

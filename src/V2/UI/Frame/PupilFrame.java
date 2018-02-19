@@ -95,8 +95,6 @@ public class PupilFrame extends BaseFrame {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
             this.listTextRows.add(new PupilRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
-
-
     }
 
     @Override

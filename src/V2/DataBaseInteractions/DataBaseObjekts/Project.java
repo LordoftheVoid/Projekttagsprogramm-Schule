@@ -23,9 +23,20 @@ public class Project extends AbstractDataBaseRepresentation {
     public Project(String id) {
         super(id, amountIdentityValues, amountInteraktionValues);
         this.setIdentityValue(id, 0);
+        this.updateHash();
     }
 
+    private void updateHash() throws IllegalArgumentException {
+        for (int charIndex = 0; charIndex < this.getVisibleIdentityValues()[0].length(); charIndex++) {
+            if(!Character.isDigit(this.getVisibleIdentityValues()[0].charAt(charIndex))){
+                throw new IllegalArgumentException("Die Projektnummer ist keine Zahl");
+            }
+        }
 
+
+        this.setHash("");
+        this.setHash(this.getVisibleIdentityValues()[0]);
+    }
 
 
 

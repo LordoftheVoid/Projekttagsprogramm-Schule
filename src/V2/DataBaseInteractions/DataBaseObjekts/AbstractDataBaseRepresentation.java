@@ -6,8 +6,7 @@ package V2.DataBaseInteractions.DataBaseObjekts;
  */
 public abstract class AbstractDataBaseRepresentation implements InterfaceDataBaseRepresentation {
 
-
-    private String uniquePseudoHash;
+    private String uniquePseudoHash= "";
     private String[] visibleIdentityValues;
     private String[] interAktionValues;
 
@@ -43,6 +42,13 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
     public String getHash() throws NullPointerException {
         return this.uniquePseudoHash;
     }
+
+
+
+    protected void setHash(String newHash){
+        this.uniquePseudoHash = newHash;
+    }
+
 
 
     @Override

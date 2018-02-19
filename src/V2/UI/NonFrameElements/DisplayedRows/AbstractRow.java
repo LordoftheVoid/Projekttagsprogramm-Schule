@@ -1,12 +1,9 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
 import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
-import V2.UI.NonFrameElements.TextFields.CustomTextField;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 /**
  * Created by Aaron on 05.02.2018.
@@ -51,36 +48,7 @@ public abstract class AbstractRow implements  Comparable {
     }
 
 
-    void setupFocusListener() {
-
-        for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
-            displayElements[arrayIndex].addFocusListener(new FocusListener() {
-                @Override
-                public void focusGained(FocusEvent e) {
-                    CustomTextField objSource = (CustomTextField) e.getSource();
-                    objSource.oldValue = objSource.getText();
-
-                }
-
-                @Override
-                public void focusLost(FocusEvent e) {
-                    CustomTextField objSource = (CustomTextField) e.getSource();
-                    if (objSource.getText().equals(objSource.oldValue)) {
-                        if (objSource.isValidInput()) {
-                            objSource.dataBaseEntry.genericSetter(objSource.getText(), objSource.index);
-                            System.out.println("Es ging");
-                        } else {
-                            objSource.setText(objSource.oldValue);
-                            System.out.println("Es ging nicht!");
-                            //TODO: MAulen!
-                        }
-                    }
-                }
-            });
-        }
-
-
-    }
+    abstract void setupFocusListener();
 
 
     void showText() {
@@ -100,7 +68,6 @@ public abstract class AbstractRow implements  Comparable {
         }
 
         for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
-            System.out.println(valuesEntry[arrayIndex] + "+");
             displayElements[arrayIndex].setText(valuesEntry[arrayIndex]);
         }
     }

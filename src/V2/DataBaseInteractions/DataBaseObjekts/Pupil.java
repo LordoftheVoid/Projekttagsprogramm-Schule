@@ -23,8 +23,6 @@ public class Pupil extends AbstractDataBaseRepresentation {
     static int amountInteraktionValues = 4;
 
 
-    private String pseudoHash = "";
-
     public Pupil(String idsString) {
         super(idsString, amountIdentityValues, amountInteraktionValues);
         this.updateFromDataBase(idsString);
@@ -38,28 +36,27 @@ public class Pupil extends AbstractDataBaseRepresentation {
         if (surName.length() < 3 || preName.length() < 3) {
             throw new IllegalArgumentException("Die Namen waren zu kurz, sie müssen mindestens Länge drei haben");
         }
-        this.setHashValuesonCreation(surName,0);
-        this.setHashValuesonCreation(preName,1);
+        this.setHashValuesonCreation(surName, 0);
+        this.setHashValuesonCreation(preName, 1);
         this.updateHash();
     }
 
 
-    private void updateFromDataBase(String pseudoHash){
+    private void updateFromDataBase(String pseudoHash) {
         //Hash has to be transmitted since he is not set yet
 
         for (int i = 0; i < amountIdentityValues; i++) {
-           this.setHashValuesonCreation(Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil",pseudoHash,i+2),i);
+            this.setHashValuesonCreation(Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", pseudoHash, i + 2), i);
         }
         for (int i = 0; i < amountInteraktionValues; i++) {
-            this.setInteraktionValuefromDataBase(Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil",pseudoHash,i+amountIdentityValues+2),i);
+            this.setInteraktionValuefromDataBase(Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", pseudoHash, i + amountIdentityValues + 2), i);
         }
     }
 
 
-
     private void setHashValuesonCreation(String arg, int index) {
         //Does not update hash, therefore dangerous, but necessary to set the values initially
-        super.setIdentityValue(arg,index);
+        super.setIdentityValue(arg, index);
     }
 
     private void updateHash() throws IllegalArgumentException {
@@ -68,19 +65,21 @@ public class Pupil extends AbstractDataBaseRepresentation {
             throw new IllegalArgumentException("Der Versuch, den Schüler zu identifizieren schlug fehl");
         }
 
-        this.pseudoHash = "";
+        this.setHash("");
+        String newHash = "";
         for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
             for (int charIndex = 0; charIndex < 3; charIndex++) {
-                this.pseudoHash = this.pseudoHash + this.getVisibleIdentityValues()[arrayIndex].charAt(charIndex);
+                newHash = newHash + +this.getVisibleIdentityValues()[arrayIndex].charAt(charIndex);
             }
         }
+        this.setHash(newHash);
     }
 
 
     @Override
     public void generateDataBaseEntry() {
         try {
-            Imports.objDatabaseManagerGlobal.createEntry("Pupil", this.pseudoHash);
+            Imports.objDatabaseManagerGlobal.createEntry("Pupil", this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -90,10 +89,10 @@ public class Pupil extends AbstractDataBaseRepresentation {
 
     @Override
     public void genericSetter(String newValue, int index) {
-        if(index <amountIdentityValues){
-            this.setIdentityValue(newValue,index);
-        }else{
-            this.setInteraktionValuefromDataBase(newValue,index);
+        if (index < amountIdentityValues) {
+            this.setIdentityValue(newValue, index);
+        } else {
+            this.setInteraktionValuefromDataBase(newValue, index);
         }
     }
 
@@ -117,11 +116,11 @@ public class Pupil extends AbstractDataBaseRepresentation {
 
     @Override
     public String getHash() throws NullPointerException {
-        return this.pseudoHash;
+        return super.getHash();
     }
 
     private void setInteraktionValuefromDataBase(String newValue, int index) throws IllegalArgumentException {
-        super.setInteraktionValuetoDataBase(newValue,index);
+        super.setInteraktionValuetoDataBase(newValue, index);
     }
 
 
@@ -162,7 +161,7 @@ public class Pupil extends AbstractDataBaseRepresentation {
     protected void savetoDataBase(String newValue, int index) {
         //TODO: Prüfungen ?
         try {
-            Imports.objDatabaseManagerGlobal.updateEntry("Pupil", this.getHash(), index+2, newValue);
+            Imports.objDatabaseManagerGlobal.updateEntry("Pupil", this.getHash(), index + 2, newValue);
         } catch (SQLException e) {
             e.printStackTrace();
         }

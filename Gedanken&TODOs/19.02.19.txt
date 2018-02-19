@@ -1,0 +1,3 @@
+Ziel: Bugbehebung, Umbau der Elemente zur einfachen Nutzung in der Berechnung
+
+Zeit: Mindestens zwei Stunden über den Tag verteilt
