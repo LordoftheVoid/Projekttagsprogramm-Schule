@@ -1,3 +1,8 @@
 Ziel: Bugbehebung, Umbau der Elemente zur einfachen Nutzung in der Berechnung
 
 Zeit: Mindestens zwei Stunden über den Tag verteilt
+
+
+Seltsamer Bug: Ich hatte vergessen, ein Element zu löschen, das fiel in einem Frame aber nicht auf,
+weil ich die Elemente übereinander lagerte
+

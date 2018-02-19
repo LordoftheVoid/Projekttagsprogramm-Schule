@@ -42,7 +42,6 @@ public abstract class BaseFrame extends JFrame {
         super(strFenstername);
         this.getContentPane().setLayout(null);
 
-
         columNames = new JTextField[colums];
         suchLabel = new JTextField[colums];
         arrTextFieldSortInput = new JTextField[colums];
@@ -69,7 +68,6 @@ public abstract class BaseFrame extends JFrame {
 
 
     }
-
 
 
     public void displayFrame(int xKoordinate, int yKoordinate, int dx, int dy) {
@@ -122,7 +120,6 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-
     private void setupGUIElementsText() {
         for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
             columNames[arrayIndex] = new JTextField();
@@ -131,6 +128,7 @@ public abstract class BaseFrame extends JFrame {
             columNames[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 0, WIDTHGLOBAL, 20);
         }
     }
+
     public void setupGUITextFieldRowForCreation() {
         arrCreateEntryFields = new JTextField[2];
 
@@ -144,14 +142,7 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-    public abstract ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException;
-
-    public abstract void setupGUIBtnForCreation(int width);
-
-    abstract void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys);
-
-
-    void clearRows() {
+    private void clearRows() {
         for (int i = 0; i < this.listTextRows.size(); i++) {
             this.listTextRows.get(i).removeFromFrame(this.getContentPane());
         }
@@ -169,15 +160,11 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-    void updateRowYKoordinate(int yFirstElement) {
+    private void updateRowYKoordinate(int yFirstElement) {
         for (int listIndex = 0; listIndex < this.listTextRows.size(); listIndex++) {
             this.listTextRows.get(listIndex).setYCoordinates(listIndex * 20 + yFirstElement);
         }
     }
-
-
-
-    public abstract void showfixedText();
 
 
     private void setupGUIElementsSearch() {
@@ -216,10 +203,6 @@ public abstract class BaseFrame extends JFrame {
 
     }
 
-    private void searchListofRows(){
-
-    }
-
 
     private void sortListVisibleElements(int indexColumtoCompare) {
 
@@ -238,6 +221,20 @@ public abstract class BaseFrame extends JFrame {
         }
         this.updateRowYKoordinate(250);
     }
+
+
+    private void searchListofRows() {
+
+    }
+
+
+    public abstract void showfixedText();
+
+    public abstract ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException;
+
+    public abstract void setupGUIBtnForCreation(int width);
+
+    abstract void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys);
 
 
 }

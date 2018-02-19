@@ -15,6 +15,8 @@ public abstract class AbstractRow implements  Comparable {
     JButton btnDeleteEntry;
     AbstractDataBaseRepresentation dataBaseEntry;
 
+    public static int indexCompareElement=0;
+
     public AbstractRow(int columns, AbstractDataBaseRepresentation dataBaseEntry, Container targetFrame) {
 
         this.dataBaseEntry = dataBaseEntry;
@@ -37,9 +39,8 @@ public abstract class AbstractRow implements  Comparable {
 
     }
 
-    abstract void generateTextFields();
 
-    public static int indexCompareElement=0;
+
 
     @Override
     public int compareTo(Object o) {
@@ -47,8 +48,6 @@ public abstract class AbstractRow implements  Comparable {
         return this.displayElements[indexCompareElement].getText().compareTo(comparedObj.displayElements[indexCompareElement].getText());
     }
 
-
-    abstract void setupFocusListener();
 
 
     void showText() {
@@ -76,6 +75,7 @@ public abstract class AbstractRow implements  Comparable {
         for (int arrayIndex = 0; arrayIndex < this.displayElements.length; arrayIndex++) {
             targetFrame.remove(displayElements[arrayIndex]);
         }
+        targetFrame.remove(this.btnDeleteEntry);
     }
 
     public void setYCoordinates(int yKoordinate) {
@@ -90,5 +90,7 @@ public abstract class AbstractRow implements  Comparable {
         this.dataBaseEntry.deleteEntry();
     }
 
+    abstract void generateTextFields();
 
+    abstract void setupFocusListener();
 }
