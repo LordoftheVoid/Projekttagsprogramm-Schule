@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.TextFields;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 
 /**
  * Created by Aaron on 16.02.2018.
@@ -10,7 +10,7 @@ import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
 public class NameTextField extends  CustomTextField {
 
 
-    public NameTextField(int index, DataBaseElementObject dataBaseEnty) {
+    public NameTextField(int index, AbstractDataBaseRepresentation dataBaseEnty) {
         super(index, dataBaseEnty);
     }
 

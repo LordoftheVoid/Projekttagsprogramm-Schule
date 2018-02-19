@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.TextFields;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.Settings.Imports;
 
 /**
@@ -8,7 +8,7 @@ import V2.Settings.Imports;
  */
 public class ProjectNumberTextField extends CustomTextField {
 
-    public ProjectNumberTextField(int index, DataBaseElementObject dataBaseEnty) {
+    public ProjectNumberTextField(int index, AbstractDataBaseRepresentation dataBaseEnty) {
         super(index, dataBaseEnty);
     }
 

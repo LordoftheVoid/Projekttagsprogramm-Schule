@@ -1,6 +1,6 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.Settings.Imports;
 import V2.UI.NonFrameElements.DisplayedRows.PupilRow;
@@ -25,8 +25,8 @@ public class PupilFrame extends BaseFrame {
 
 
     @Override
-    public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
-        ArrayList<DataBaseElementObject> entrys = new ArrayList<>();
+    public ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException {
+        ArrayList<AbstractDataBaseRepresentation> entrys = new ArrayList<>();
 
         ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
 
@@ -91,7 +91,7 @@ public class PupilFrame extends BaseFrame {
     }
 
     @Override
-    void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
+    void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
             this.listTextRows.add(new PupilRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }

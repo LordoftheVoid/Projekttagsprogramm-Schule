@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.TextFields.CustomTextField;
 
 import javax.swing.*;
@@ -16,9 +16,9 @@ public abstract class AbstractRow implements  Comparable {
 
     JTextField[] displayElements;
     JButton btnDeleteEntry;
-    DataBaseElementObject dataBaseEntry;
+    AbstractDataBaseRepresentation dataBaseEntry;
 
-    public AbstractRow(int columns, DataBaseElementObject dataBaseEntry, Container targetFrame) {
+    public AbstractRow(int columns, AbstractDataBaseRepresentation dataBaseEntry, Container targetFrame) {
 
         this.dataBaseEntry = dataBaseEntry;
         this.displayElements = new JTextField[columns];

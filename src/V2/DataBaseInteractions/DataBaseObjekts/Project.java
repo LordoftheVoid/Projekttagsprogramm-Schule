@@ -1,10 +1,14 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
 
+import V2.Settings.Imports;
+
+import java.sql.SQLException;
+
 /**
  * Created by Aaron on 22.01.2018.
  */
-public class Project extends DataBaseElementObject {
+public class Project extends AbstractDataBaseRepresentation {
 
 
     /**TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
@@ -15,9 +19,10 @@ public class Project extends DataBaseElementObject {
     static int amountInteraktionValues = 1;
 
 
-    public Project(String id, int amountIdentityValues, int amountInteraktionValues) {
-        super(id, amountIdentityValues, amountInteraktionValues);
 
+    public Project(String id) {
+        super(id, amountIdentityValues, amountInteraktionValues);
+        this.setIdentityValue(id, 0);
     }
 
 
@@ -26,26 +31,36 @@ public class Project extends DataBaseElementObject {
 
     @Override
     public void generateDataBaseEntry() {
-
+        try {
+            Imports.objDatabaseManagerGlobal.createEntry("Project",this.getHash());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public boolean isValidDataBaseEntry() {
-        return false;
+
+
+        return true;
     }
 
 
 
     @Override
     public String getHash() throws NullPointerException {
-        return null;
+       return super.getHash();
     }
 
 
 
     @Override
     public void deleteEntry() {
-
+        try {
+            Imports.objDatabaseManagerGlobal.deleteEntry("Project",this.getHash());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -78,7 +93,11 @@ public class Project extends DataBaseElementObject {
 
     @Override
     protected void savetoDataBase(String newValue, int index) {
-
+        try {
+            Imports.objDatabaseManagerGlobal.updateEntry("Project",this.getHash(),index,newValue);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

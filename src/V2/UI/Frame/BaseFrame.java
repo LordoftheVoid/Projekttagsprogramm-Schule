@@ -1,6 +1,6 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.DisplayedRows.AbstractRow;
 
 import javax.swing.*;
@@ -144,11 +144,11 @@ public abstract class BaseFrame extends JFrame {
     }
 
 
-    public abstract ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException;
+    public abstract ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException;
 
     public abstract void setupGUIBtnForCreation(int width);
 
-    abstract void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys);
+    abstract void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys);
 
 
     void clearRows() {

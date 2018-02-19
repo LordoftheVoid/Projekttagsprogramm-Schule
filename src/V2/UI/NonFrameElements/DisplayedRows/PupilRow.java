@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.TextFields.GenericTextField;
 import V2.UI.NonFrameElements.TextFields.NameTextField;
 import V2.UI.NonFrameElements.TextFields.ProjectNumberTextField;
@@ -13,7 +13,7 @@ import java.awt.*;
 
 public class PupilRow extends AbstractRow {
 
-    public PupilRow(int columns, DataBaseElementObject dataBaseEntry, Container targetFrame) {
+    public PupilRow(int columns, AbstractDataBaseRepresentation dataBaseEntry, Container targetFrame) {
         super(columns, dataBaseEntry, targetFrame);
     }
 

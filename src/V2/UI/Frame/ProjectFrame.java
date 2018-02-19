@@ -1,6 +1,6 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.Settings.Imports;
 import V2.UI.NonFrameElements.DisplayedRows.ProjectRow;
@@ -23,16 +23,16 @@ public class ProjectFrame extends BaseFrame {
 
 
     @Override
-    public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
+    public ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException {
 
-        ArrayList<DataBaseElementObject> entrys = new ArrayList<>();
+        ArrayList<AbstractDataBaseRepresentation> entrys = new ArrayList<>();
 
         ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Project");
 
 
         for (String entry : listIDs
                 ) {
-            entrys.add(new Project(entry, 2, 1));
+            entrys.add(new Project(entry));
         }
 
         return entrys;
@@ -49,6 +49,19 @@ public class ProjectFrame extends BaseFrame {
         btnCreateEntry.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                try{
+                 int a = Integer.parseInt(   arrCreateEntryFields[0].getText());
+
+                    Project newProject = new Project(arrCreateEntryFields[0].getText());
+                    newProject.generateDataBaseEntry();
+                    newProject.setIdentityValue(arrCreateEntryFields[1].getText(),1);
+                    resetInterface();
+
+                }catch (NumberFormatException e1){
+                    //TODO MAULEN
+                }
+
 
             }
 
@@ -78,7 +91,7 @@ public class ProjectFrame extends BaseFrame {
 
 
     @Override
-    void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
+    void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
             this.listTextRows.add(new ProjectRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }

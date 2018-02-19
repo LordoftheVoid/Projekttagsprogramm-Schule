@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.TextFields.GenericTextField;
 
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.*;
  */
 
 public class ProjectRow extends AbstractRow {
-    public ProjectRow(int columns, DataBaseElementObject dataBaseEntry, Container targetFrame) {
+    public ProjectRow(int columns, AbstractDataBaseRepresentation dataBaseEntry, Container targetFrame) {
         super(columns, dataBaseEntry, targetFrame);
     }
 

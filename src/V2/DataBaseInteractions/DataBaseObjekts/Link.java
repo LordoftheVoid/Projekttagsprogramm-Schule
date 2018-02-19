@@ -6,15 +6,20 @@ package V2.DataBaseInteractions.DataBaseObjekts;
 
 
 
-public class Link extends DataBaseElementObject {
+public class Link extends AbstractDataBaseRepresentation {
 
+        //Vorname, Nachname, Klasse, Projektnummer, Welche Wahl
 
-
-    static int amountIdentityValues = 0;
+    static int amountIdentityValues = 3;
 
     static int amountInteraktionValues = 0;
 
 
+    /*
+
+    Der Link bekommt einen Schüler und ein Projekt als Argument
+
+     */
 
     Link(String id){
         super(id,amountIdentityValues,amountInteraktionValues);

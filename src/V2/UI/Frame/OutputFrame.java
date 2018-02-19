@@ -1,6 +1,6 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class OutputFrame extends BaseFrame {
     }
 
     @Override
-    public ArrayList<DataBaseElementObject> requestDataBaseContent() throws SQLException {
+    public ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException {
         return null;
     }
 
@@ -36,7 +36,7 @@ public class OutputFrame extends BaseFrame {
     }
 
     @Override
-    void generateRows(ArrayList<DataBaseElementObject> dataBaseEntrys) {
+    void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
 
     }
 

@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 
 
-public class Pupil extends DataBaseElementObject {
+public class Pupil extends AbstractDataBaseRepresentation {
 
 
     /**

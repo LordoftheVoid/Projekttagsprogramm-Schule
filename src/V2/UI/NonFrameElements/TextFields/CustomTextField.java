@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.TextFields;
 
-import V2.DataBaseInteractions.DataBaseObjekts.DataBaseElementObject;
+import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 
 import javax.swing.*;
 
@@ -14,11 +14,11 @@ public  abstract  class CustomTextField extends JTextField {
 
     public String oldValue;
 
-   public DataBaseElementObject dataBaseEntry;
+   public AbstractDataBaseRepresentation dataBaseEntry;
 
 
 
-    CustomTextField(int index, DataBaseElementObject dataBaseEntry){
+    CustomTextField(int index, AbstractDataBaseRepresentation dataBaseEntry){
         super();
         this.index =index;
       this.dataBaseEntry = dataBaseEntry;

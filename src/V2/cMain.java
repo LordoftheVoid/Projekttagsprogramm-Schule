@@ -24,6 +24,8 @@ public class cMain {
 
     //TODO GLOBAL: Das man die Projektnummer nicht manuell ändern kann, sonder ein neues Projekt anlegen muss wenn man das will
 
+    //TODO: FeinSchliff: Das Suchen die Einträge zählt
+
     static JTextArea statusDisplay;
     static JFrame objFrameMain;
 
@@ -68,8 +70,6 @@ public class cMain {
 
 
         InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
-
-
 
         btnCreateUI.addMouseListener(new MouseListener() {
                                          @Override
@@ -230,6 +230,57 @@ public class cMain {
         btnEnableOutputUI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+
+
+
+
+
+
+
+
+                //Main-Function of the Programm
+
+                /*
+                PseudoCode:
+
+                Erzeuge die Schüler & Projekte aus der Datenbank, inklusive WertePrüfung
+
+                Erst Projekte, dann Schüler
+
+
+                Teste für alle Präferenzen die Verteilung auf Projekte durch, speicher das Ergebnis in einer Liste
+
+
+                 Teste diese Liste, generiere sie ausreichend oft neu
+
+                 Behalte die beste
+
+                 Generiere für jeden Link auf der Liste ein DatenbankElement Link
+
+                 Geb das Frame aus
+
+
+
+
+
+                 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             }
 

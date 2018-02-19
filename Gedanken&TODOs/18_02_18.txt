@@ -1,0 +1,5 @@
+Ziel: Beginn der Arbeit an der Berechnung der Kobinationen
+
+Stattdessen: Project-Interface Erzeugung
+
+Zeit: 45 Minuten
