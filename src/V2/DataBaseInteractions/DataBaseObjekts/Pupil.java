@@ -22,6 +22,10 @@ public class Pupil extends AbstractDataBaseRepresentation {
 
     static int amountInteraktionValues = 4;
 
+    private  boolean isAssigned = false;
+
+    private  int indexChoiceAssigned= 0;
+
 
     public Pupil(String idsString) {
         super(idsString, amountIdentityValues, amountInteraktionValues);
@@ -31,7 +35,6 @@ public class Pupil extends AbstractDataBaseRepresentation {
 
     public Pupil(String surName, String preName) throws IllegalArgumentException {
         super("", amountIdentityValues, amountInteraktionValues);
-
 
         if (surName.length() < 3 || preName.length() < 3) {
             throw new IllegalArgumentException("Die Namen waren zu kurz, sie müssen mindestens Länge drei haben");
@@ -165,6 +168,15 @@ public class Pupil extends AbstractDataBaseRepresentation {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean isAssigned(){
+        return this.isAssigned;
+    }
+
+    public void assignToProject(int index){
+        this.isAssigned = true;
+        this.indexChoiceAssigned = index;
     }
 
 }

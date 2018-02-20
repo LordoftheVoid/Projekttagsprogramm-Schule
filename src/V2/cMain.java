@@ -1,17 +1,18 @@
 package V2;
 
-import V2.FileInteractions.DirectoryCreator;
+import V2.DataBaseInteractions.DataBaseObjekts.Link;
+import V2.DataBaseInteractions.DataBaseObjekts.Project;
+import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
+import V2.DataBaseInteractions.DatabaseInterface;
 import V2.FileInteractions.Excel.InterfaceExcel;
 import V2.Settings.Imports;
-import V2.UI.Frame.BaseFrame;
-import V2.UI.Frame.ProjectFrame;
-import V2.UI.Frame.PupilFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 
 /**
@@ -44,7 +45,23 @@ public class cMain {
     public static void main(String args[]) {
 
 
-        Imports.setupImport();
+        if( args.length ==1){
+            if(args[0].equals("-DEBUG")){
+
+                String url = "C:\\Einziger Arbeitsordner Windows\\Fortsetzung Projekttagsprogramm Windows\\Projekttagsprogramm-Schule\\Testordner\\Debug-Konfig\\DataBaseNormValues.db";
+                try {
+                    Imports.objDatabaseManagerGlobal = new DatabaseInterface(url);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }else {
+            Imports.setupImport();
+        }
+
+
+
+
 
 
         objFrameMain = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
@@ -63,7 +80,6 @@ public class cMain {
         objFrameMain.getContentPane().add(btnCreateUI);
         btnCreateUI.setVisible(true);
         btnCreateUI.setBounds(0, 0, 600, 450);
-
 
 
         updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
@@ -112,6 +128,7 @@ public class cMain {
 
     public static void setupMainInterface() {
 
+        /*
         DirectoryCreator objDirectoryManager = new DirectoryCreator();
 
         objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Datenbank-Ordner");
@@ -138,7 +155,7 @@ public class cMain {
         btnRereadFiles.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-              InterfaceExcel  interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+                InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
             }
 
             @Override
@@ -222,7 +239,7 @@ public class cMain {
             }
         });
 
-
+        */
         JButton btnEnableOutputUI = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
         btnEnableOutputUI.setVisible(true);
         btnEnableOutputUI.setBounds(0, 300, 600, 150);
@@ -232,12 +249,53 @@ public class cMain {
             public void mouseClicked(MouseEvent e) {
 
 
+                //TODO: Datenverifikation!!
 
 
+                ArrayList<Pupil> listPupilswithoutProject = new ArrayList<>();
+                ArrayList<Project> listProjects = new ArrayList<>();
+                ArrayList<Link> pupilProjectLinkList = new ArrayList<>();
+
+                ArrayList<String> listDataBaseIDs = new ArrayList<>();
+
+                listDataBaseIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
+
+                for (String listElement : listDataBaseIDs
+                        ) {
+                    listPupilswithoutProject.add(new Pupil(listElement));
+                }
+                listDataBaseIDs.clear();
+
+                listDataBaseIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Project");
+
+                for (String listElement : listDataBaseIDs
+                        ) {
+                    System.out.println("listeneintra"+listElement);
+                    listProjects.add(new Project(listElement));
+                }
 
 
+                while (listPupilswithoutProject.size() > 0) {
+                    for (int projectPreferenceIndex = 0; projectPreferenceIndex < 4; projectPreferenceIndex++) {
+                        Pupil pupilRandomlyChoosenfromList = listPupilswithoutProject.get((int) (Math.random() * listPupilswithoutProject.size()));
+                        String preferedProject = pupilRandomlyChoosenfromList.getInterAktionValues()[projectPreferenceIndex];
+                        for (Project projectInList : listProjects
+                                ) {
+                            System.out.println(listProjects.size());
+                            System.out.println("Hash equals" + projectInList.getHash());
 
-
+                            if (projectInList.getHash().equals(preferedProject)) {
+                                try {
+                                    projectInList.assignNewPupil();
+                                    pupilProjectLinkList.add(new Link(pupilRandomlyChoosenfromList.getHash(), projectInList.getHash()));
+                                    listPupilswithoutProject.remove(pupilRandomlyChoosenfromList);
+                                } catch (IndexOutOfBoundsException e1) {
+                                    listProjects.remove(projectInList);
+                                }
+                            }
+                        }
+                    }
+                }
 
                 //Main-Function of the Programm
 
@@ -261,26 +319,7 @@ public class cMain {
                  Geb das Frame aus
 
 
-
-
-
                  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             }
 

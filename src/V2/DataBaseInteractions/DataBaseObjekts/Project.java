@@ -15,10 +15,12 @@ public class Project extends AbstractDataBaseRepresentation {
      * TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
      */
 
-    static int amountIdentityValues = 2;
+    private static int amountIdentityValues = 2;
 
-    static int amountInteraktionValues = 1;
+    private static int amountInteraktionValues = 1;
 
+
+    private  int assignedPupil=0;
 
     //Constructor from the DataBase
     public Project(String projectNumber) {
@@ -47,9 +49,18 @@ public class Project extends AbstractDataBaseRepresentation {
     @Override
     public boolean isValidDataBaseEntry() {
 
-
         return true;
     }
+
+    public void assignNewPupil() throws IndexOutOfBoundsException {
+        if(this.hasReachedMaxCapacity()) throw  new IndexOutOfBoundsException();
+        this.assignedPupil++;
+    }
+
+    private boolean hasReachedMaxCapacity (){
+        return this.assignedPupil < Integer.valueOf(this.getInterAktionValues()[0]);
+    }
+
 
 
     @Override

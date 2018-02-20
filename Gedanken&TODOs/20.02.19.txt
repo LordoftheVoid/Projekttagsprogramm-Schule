@@ -1,0 +1,3 @@
+Ziel: Kompatibilität der Klassen mit dem Berechnungs-Algorithmus, Grobe Struktur für letzteren
+
+Zeit: 2 Stunden

@@ -56,7 +56,7 @@ public class DatabaseInterface {
         ResultSetMetaData metaData = readColums.getMetaData();
         idColums.put(tableReference, metaData.getColumnName(1));
         for (int keyIndices = 0; keyIndices < metaData.getColumnCount(); keyIndices++) {
-            pupilColums.put(keyIndices, metaData.getColumnName(keyIndices + 1));
+            result.put(keyIndices, metaData.getColumnName(keyIndices + 1));
         }
         return result;
     }
@@ -134,10 +134,11 @@ public class DatabaseInterface {
     public ArrayList<String> getEntryIDs(String table) {
         ArrayList<String> entryList = new ArrayList<>();
         try {
-            ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(0));
+            ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(1));
 
             while (entrys.next()) {
                 entryList.add(entrys.getString(1));
+                System.out.println("databaseValue  " + entrys.getString(1) + "Colum is  " + this.tableColums.get(table).get(1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
