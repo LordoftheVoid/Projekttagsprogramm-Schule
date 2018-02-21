@@ -37,17 +37,17 @@ public class DatabaseInterface {
             throw new NullPointerException();
         }
 
-
-        this.tableColums.put("Pupil", pupilColums);
-        this.tableColums.put("Project", projectColums);
         try {
-            pupilColums = this.generateColumNameList("Pupil");
-            projectColums = this.generateColumNameList("Project");
-            linkColums = this.generateColumNameList("Link");
+            pupilColums = generateColumNameList("Pupil");
+            projectColums = generateColumNameList("Project");
+            linkColums = generateColumNameList("Link");
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        this.tableColums.put("Pupil", pupilColums);
+        this.tableColums.put("Project", projectColums);
+
     }
 
     private HashMap<Integer, String> generateColumNameList(String tableReference) throws SQLException {
@@ -63,7 +63,6 @@ public class DatabaseInterface {
 
 
     public void createEntry(String tableReference, String newEntryID) throws SQLException {
-        System.out.println("New Entry" + newEntryID);
         PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + tableReference + "  (" + this.tableColums.get(tableReference).get(0) + ") VALUES (?)");
         insertInto.setString(1, newEntryID);
         insertInto.executeUpdate();
@@ -77,15 +76,17 @@ public class DatabaseInterface {
     }
 
     public boolean entryExists(String tableReference, String entryID) {
-        System.out.println("EntryAufruf mit " + entryID);
         try {
-            PreparedStatement id_check = conDatabase.prepareStatement("SELECT * FROM " + tableReference + " WHERE " + idColums.get(tableReference) + "= ? ");
-            id_check.setString(1, entryID);
-            ResultSet entrys_with_specific_id = id_check.executeQuery();
-            return !entrys_with_specific_id.next();
+            String queryCheck = "SELECT *  from " + tableReference + " WHERE " + idColums.get(tableReference) + " = ?";
+            PreparedStatement ps = conDatabase.prepareStatement(queryCheck);
+            ps.setString(1, entryID);
+            final ResultSet resultSet = ps.executeQuery();
+            return resultSet.next();
         } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
+
     }
 
     public void deleteEntry(String tableReference, String unique_ID) throws SQLException {
@@ -95,7 +96,6 @@ public class DatabaseInterface {
     }
 
     public String getValuefromDataBase(String table, String entryID, int index) {
-        index = index + 1;
         String result = "";
         try {
             ResultSet values = this.readOneEntryOneAtribute(table, tableColums.get(table).get(index), entryID);
@@ -117,7 +117,6 @@ public class DatabaseInterface {
         }
         try {
             ResultSet entry = this.readEntryallAttributes(table, entryID);
-
             while (entry.next()) {
                 for (int arrayIndex = 0; arrayIndex < tableColums.get(table).size(); arrayIndex++) {
                     results[arrayIndex] = entry.getString(arrayIndex + 1);
@@ -134,11 +133,10 @@ public class DatabaseInterface {
     public ArrayList<String> getEntryIDs(String table) {
         ArrayList<String> entryList = new ArrayList<>();
         try {
-            ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(1));
+            ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(0));
 
             while (entrys.next()) {
                 entryList.add(entrys.getString(1));
-                System.out.println("databaseValue  " + entrys.getString(1) + "Colum is  " + this.tableColums.get(table).get(1));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -40,8 +40,6 @@ public abstract class AbstractRow implements  Comparable {
     }
 
 
-
-
     @Override
     public int compareTo(Object o) {
         AbstractRow comparedObj = (AbstractRow) o;
@@ -51,21 +49,7 @@ public abstract class AbstractRow implements  Comparable {
 
 
     private void showText() {
-        String[] valuesEntry = new String[this.displayElements.length];
-
-        int amountIdentityValues = this.dataBaseEntry.getVisibleIdentityValues().length;
-        int amountInteraktionValues = this.dataBaseEntry.getInterAktionValues().length;
-
-
-        //TODO: Aus der Datenbank erfragen!!
-        for (int arrayIndex = 0; arrayIndex < amountIdentityValues + amountInteraktionValues; arrayIndex++) {
-            if (arrayIndex < amountIdentityValues) {
-                valuesEntry[arrayIndex] = this.dataBaseEntry.getVisibleIdentityValues()[arrayIndex];
-            } else {
-                valuesEntry[arrayIndex] = this.dataBaseEntry.getInterAktionValues()[arrayIndex - amountIdentityValues];
-            }
-        }
-
+        String[] valuesEntry = this.dataBaseEntry.getNonHashdataBaseValues();
         for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
             displayElements[arrayIndex].setText(valuesEntry[arrayIndex]);
         }

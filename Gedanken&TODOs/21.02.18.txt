@@ -1,0 +1,3 @@
+Ziel: Bugfixes Interfaces & vollständige Implementierung selbiger zwecks Berechnung
+
+Zeit: 2 Stunden

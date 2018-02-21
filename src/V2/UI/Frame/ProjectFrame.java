@@ -31,7 +31,6 @@ public class ProjectFrame extends BaseFrame {
 
         for (String entry : listIDs
                 ) {
-            System.out.println(entry);
             entrys.add(new Project(entry));
         }
 
@@ -53,14 +52,20 @@ public class ProjectFrame extends BaseFrame {
                 for (int charIndex = 0; charIndex < arrCreateEntryFields[0].getText().length(); charIndex++) {
                     isNumber = isNumber && Character.isDigit(arrCreateEntryFields[0].getText().charAt(charIndex));
                 }
-                    if(!isNumber){
+                if (!isNumber) {
                     //TODO: Maulen
+                } else {
+                    if(Imports.objDatabaseManagerGlobal.entryExists("Project",arrCreateEntryFields[0].getText())){
+                        //TODO: Maulen
                     }else{
-                        Project newProject = new Project(arrCreateEntryFields[0].getText(),arrCreateEntryFields[1].getText() );
-                        resetInterface();
-                        arrCreateEntryFields[0].setText("");
-                        arrCreateEntryFields[1].setText("");
+                        Project newProject = new Project(arrCreateEntryFields[0].getText());
+                        newProject.setDisplayayableValue(1,arrCreateEntryFields[1].getText());
                     }
+
+                    resetInterface();
+                    arrCreateEntryFields[0].setText("");
+                    arrCreateEntryFields[1].setText("");
+                }
             }
 
             @Override

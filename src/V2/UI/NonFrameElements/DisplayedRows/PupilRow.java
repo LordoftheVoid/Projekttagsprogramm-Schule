@@ -48,11 +48,9 @@ public class PupilRow extends AbstractRow {
                     CustomTextField objSource = (CustomTextField) e.getSource();
                     if (!objSource.getText().equals(objSource.oldValue)) {
                         if (objSource.isValidInput()) {
-                            objSource.dataBaseEntry.genericSetter(objSource.getText(), objSource.index);
-                            System.out.println("Es ging");
+                            objSource.dataBaseEntry.setDisplayayableValue(objSource.index, objSource.getText());
                         } else {
                             objSource.setText(objSource.oldValue);
-                            System.out.println("Es ging nicht!");
                             //TODO: MAulen!
                         }
                     }

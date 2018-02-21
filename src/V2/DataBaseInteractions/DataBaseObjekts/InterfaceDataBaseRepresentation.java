@@ -6,23 +6,18 @@ package V2.DataBaseInteractions.DataBaseObjekts;
 public interface InterfaceDataBaseRepresentation {
 
 
-    void generateDataBaseEntry();
-
-
     boolean isValidDataBaseEntry();
 
-    String[] getVisibleIdentityValues() throws IndexOutOfBoundsException;
+    String getDisplayableValue(int index);
 
-    String [] getInterAktionValues() throws IndexOutOfBoundsException;
-
-    void setInteraktionValuetoDataBase(String arg, int index) throws IllegalArgumentException;
-
-    void setIdentityValue(String arg, int index) throws IllegalArgumentException;
+    void setDisplayayableValue(int index, String newValue);
 
     String getHash() throws NullPointerException;
 
     void deleteEntry();
 
+    int getamountofDisplayableValues();
 
+    String getTableReference();
 
 }

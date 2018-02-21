@@ -8,244 +8,125 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/20.02.19.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026503.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026505.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026538.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026552.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026582.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026586.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026590.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026600.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026636.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026669.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026709.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026764.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026797.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026911.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026916.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026917.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026940.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519026970.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027000.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027056.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027087.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027115.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027124.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027170.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027185.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027219.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027294.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027325.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027355.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027386.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027429.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027431.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027433.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027558.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027559.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027562.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027595.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027602.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027616.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027620.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027717.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027719.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027757.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027760.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027767.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027771.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027772.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027786.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027790.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027796.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027872.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027881.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027885.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027901.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027933.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027964.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519027997.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028035.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028095.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028097.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028128.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028168.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028198.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028206.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028224.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028225.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028233.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028241.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028256.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028266.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519028297.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519041510.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049116.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049150.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049162.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049163.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049169.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049207.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049237.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049280.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049338.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049397.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049432.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049475.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049505.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049535.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049565.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049595.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049690.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049720.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049769.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049800.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049835.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049878.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049917.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049960.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519049991.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519050016.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519050048.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519050077.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519050082.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519050112.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519050141.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519050997.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051119.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051344.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051351.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051353.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051354.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051357.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051373.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051375.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051379.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051382.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051434.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051438.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051475.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051479.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051552.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051582.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051588.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051627.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051632.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051669.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519051670.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519054709.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519054755.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519054793.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519054835.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057519.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057529.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057560.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057593.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057597.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057619.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057620.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057628.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057629.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057660.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057672.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057718.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057763.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057769.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057781.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057808.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057811.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057843.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057849.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057855.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057904.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057905.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057906.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057907.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057957.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057973.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057984.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057990.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519057998.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058006.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058018.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058027.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058063.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058064.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058137.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058452.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058474.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058525.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058688.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058696.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058706.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058722.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519058727.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059041.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059093.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059101.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059102.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059103.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059104.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059107.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059112.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059113.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059119.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059122.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059128.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059130.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059131.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059162.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059186.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059194.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059200.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059209.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059213.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059250.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059287.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059292.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059327.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059328.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059338.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059431.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059433.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059494.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059496.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059497.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059499.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059505.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059521.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059543.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059553.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059561.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059574.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059588.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059592.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059659.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059661.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059662.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059666.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059674.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059675.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059678.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059679.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059683.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059687.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059694.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059714.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059715.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059725.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059797.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059810.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519059815.event" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Datenbank-Ordner/Schueler_Datenbank_V1.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Excel-Datei-Ordner/Schuljahr 16_17 7a.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Excel-Datei-Ordner/Schuljahr 17_18 5b.xls" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gedanken&amp;TODOs/21.02.18.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519060268.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519060997.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113599.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113600.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113601.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113602.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113718.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113719.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113751.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113758.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113762.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113794.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113824.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113860.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113957.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519113958.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114081.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114113.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114166.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114222.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114266.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114297.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114345.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114380.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114411.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114472.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114512.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114589.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114623.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114656.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114697.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114744.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114776.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114809.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114848.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114873.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114874.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114879.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114942.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519114973.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115004.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115034.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115065.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115115.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115161.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115195.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115223.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115224.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115238.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115243.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115274.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115307.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115481.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115649.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115689.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115734.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115776.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115809.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115852.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115858.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115874.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115909.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115947.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115949.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115957.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519115959.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116012.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116044.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116076.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116129.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116159.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116189.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116222.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116265.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116266.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116305.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116332.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116351.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116387.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116477.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116512.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116551.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116557.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116626.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116689.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116720.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116756.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116818.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116835.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116871.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116902.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519116932.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117138.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117174.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117205.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117208.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117226.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117264.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117301.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117333.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117435.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519117436.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Schuljahr 16_17 7a.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Schuljahr 17_18 5b.xls" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testordner/Datenbank-Ordner/DefaultDataBase.db" afterPath="$PROJECT_DIR$/Testordner/Datenbank-Ordner/DefaultDataBase.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testordner/Debug-Konfig/DataBaseNormValues.db" afterPath="$PROJECT_DIR$/Testordner/Debug-Konfig/DataBaseNormValues.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/InterfaceDataBaseRepresentation.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/InterfaceDataBaseRepresentation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" afterPath="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" afterPath="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java" afterPath="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/cMain.java" afterPath="$PROJECT_DIR$/src/V2/cMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -257,6 +138,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Projekttagsprogramm-Schule$Debug_Konfig__RealWerteDatenBank.coverage" NAME="Debug-Konfig -RealWerteDatenBank Coverage Results" MODIFIED="1519154453250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Projekttagprogramm Schule$cMain.coverage" NAME="cMain Coverage Results" MODIFIED="1504520166507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Version_1_Java.Objekte.*</FILTER>
     </SUITE>
@@ -274,8 +156,8 @@
       <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-73">
-              <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+            <state relative-caret-position="461">
+              <caret line="70" column="71" lean-forward="false" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -284,76 +166,12 @@
       <file leaf-file-name="Pupil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="178" column="41" lean-forward="false" selection-start-line="178" selection-start-column="41" selection-end-line="178" selection-end-column="41" />
+            <state relative-caret-position="180">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <element signature="e#6058#6059#0" expanded="true" />
-                <element signature="e#6096#6097#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Link.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
-              <folding>
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#489#490#0" expanded="true" />
-                <element signature="e#521#522#0" expanded="true" />
-                <element signature="e#560#561#0" expanded="true" />
-                <element signature="e#597#598#0" expanded="true" />
-                <element signature="e#694#695#0" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cMain.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="50" column="182" lean-forward="false" selection-start-line="50" selection-start-column="182" selection-end-line="50" selection-end-column="182" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Imports.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/Settings/Imports.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractDataBaseRepresentation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractRow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#3074#3075#0" expanded="false" />
-                <element signature="e#3122#3123#0" expanded="false" />
+                <element signature="e#482#483#0" expanded="true" />
+                <element signature="e#1094#1095#0" expanded="true" />
+                <element signature="e#1118#1119#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -362,12 +180,10 @@
       <file leaf-file-name="ProjectFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="17">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#541#542#0" expanded="false" />
-                <element signature="e#583#584#0" expanded="false" />
+                <element signature="e#583#584#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -376,22 +192,77 @@
       <file leaf-file-name="PupilFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="51" column="43" lean-forward="false" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+            <state relative-caret-position="214">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
-                <element signature="e#542#543#0" expanded="false" />
-                <element signature="e#591#592#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseInterface.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatabaseInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="140" column="125" lean-forward="false" selection-start-line="140" selection-start-column="125" selection-end-line="140" selection-end-column="125" />
+            <state relative-caret-position="214">
+              <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InterfaceExcel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/InterfaceExcel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fileReader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractDataBaseRepresentation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#869#870#0" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InterfaceDataBaseRepresentation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/InterfaceDataBaseRepresentation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="63" column="90" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -444,8 +315,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/ButtonPupil.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MouseAbstract.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MousePupil.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MouseRedirect.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Events/AbstractMouseEvent.java" />
@@ -481,20 +350,22 @@
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/ProjectRow.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/19.02.19.txt" />
-        <option value="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" />
         <option value="$PROJECT_DIR$/src/V2/Settings/Imports.java" />
-        <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/GedankenIndex.txt" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/20.02.19.txt" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/InterfaceDataBaseRepresentation.java" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" />
+        <option value="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" />
+        <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" />
+        <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/21.02.18.txt" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java" />
         <option value="$PROJECT_DIR$/src/V2/cMain.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
       </list>
     </option>
   </component>
@@ -828,7 +699,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Debug-Konfig">
+  <component name="RunManager" selected="Application.Debug-Konfig -RealWerteDatenBank">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -1218,7 +1089,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Debug-Konfig" type="Application" factoryName="Application">
+    <configuration default="false" name="Debug-Konfig-Standard-Werte" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Version_1_Java.Objekte.*" />
@@ -1227,7 +1098,22 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="V2.cMain" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-DEBUG" />
+      <option name="PROGRAM_PARAMETERS" value="-DEBUG -STANDARD" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Projekttagprogramm Schule" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Debug-Konfig -RealWerteDatenBank" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="V2.cMain" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-DEBUG -REALWERTE" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -1251,9 +1137,10 @@
         </option>
       </method>
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.Debug-Konfig" />
-      <item index="1" class="java.lang.String" itemvalue="JAR Application.Jar-Execution" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.Debug-Konfig-Standard-Werte" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Debug-Konfig -RealWerteDatenBank" />
+      <item index="2" class="java.lang.String" itemvalue="JAR Application.Jar-Execution" />
     </list>
   </component>
   <component name="SbtLocalSettings">
@@ -1299,8 +1186,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1311,8 +1198,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31034482" sideWeight="0.421875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23630832" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23630832" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1322,8 +1209,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39655173" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1377,104 +1264,114 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint type="java-method">
           <url>jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/util/Comparator.java</url>
           <line>183</line>
           <properties class="java.util.Comparator" method="reversed" />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>277</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java</url>
+          <line>48</line>
           <properties />
-          <option name="timeStamp" value="140" />
+          <option name="timeStamp" value="275" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="276" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>278</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java</url>
+          <line>21</line>
           <properties />
-          <option name="timeStamp" value="141" />
+          <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>279</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java</url>
+          <line>85</line>
           <properties />
-          <option name="timeStamp" value="142" />
+          <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>280</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java</url>
+          <line>84</line>
           <properties />
-          <option name="timeStamp" value="143" />
+          <option name="timeStamp" value="285" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>281</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java</url>
+          <line>83</line>
           <properties />
-          <option name="timeStamp" value="144" />
+          <option name="timeStamp" value="286" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>282</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java</url>
+          <line>82</line>
           <properties />
-          <option name="timeStamp" value="145" />
+          <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>286</line>
+          <url>file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java</url>
+          <line>70</line>
           <properties />
-          <option name="timeStamp" value="146" />
+          <option name="timeStamp" value="290" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>287</line>
+          <url>file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java</url>
+          <line>71</line>
           <properties />
-          <option name="timeStamp" value="147" />
+          <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>288</line>
+          <url>file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java</url>
+          <line>72</line>
           <properties />
-          <option name="timeStamp" value="148" />
+          <option name="timeStamp" value="294" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>289</line>
+          <url>file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java</url>
+          <line>65</line>
           <properties />
-          <option name="timeStamp" value="149" />
+          <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>290</line>
+          <url>file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java</url>
+          <line>66</line>
           <properties />
-          <option name="timeStamp" value="150" />
+          <option name="timeStamp" value="299" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>291</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java</url>
+          <line>80</line>
           <properties />
-          <option name="timeStamp" value="151" />
+          <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>292</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java</url>
+          <line>78</line>
           <properties />
-          <option name="timeStamp" value="152" />
+          <option name="timeStamp" value="301" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>293</line>
+          <url>file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java</url>
+          <line>83</line>
           <properties />
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/V2/cMain.java</url>
-          <line>294</line>
-          <properties />
-          <option name="timeStamp" value="154" />
+          <option name="timeStamp" value="302" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="155" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="303" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1483,8 +1380,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/MouseInputHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/ButtonProject.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/ButtonPupil.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MouseProject.java" />
@@ -1534,14 +1429,6 @@
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/AbstractTextField.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/KeyInputHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/OutputFileGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/17_02_18.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1573,6 +1460,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="1243" column="19" lean-forward="false" selection-start-line="1243" selection-start-column="19" selection-end-line="1243" selection-end-column="19" />
+          <folding>
+            <element signature="e#41174#41175#0" expanded="false" />
+            <element signature="e#41220#41221#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1598,22 +1489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="74" column="46" lean-forward="false" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/InterfaceDataBaseRepresentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1651,66 +1526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="47" column="27" lean-forward="false" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3074#3075#0" expanded="false" />
-            <element signature="e#3122#3123#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="51" column="43" lean-forward="false" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-          <folding>
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#591#592#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#541#542#0" expanded="false" />
-            <element signature="e#583#584#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/19.02.19.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1718,59 +1537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="94" lean-forward="false" selection-start-line="0" selection-start-column="94" selection-end-line="0" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="178" column="41" lean-forward="false" selection-start-line="178" selection-start-column="41" selection-end-line="178" selection-end-column="41" />
-          <folding>
-            <element signature="e#6058#6059#0" expanded="true" />
-            <element signature="e#6096#6097#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
-          <folding>
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="140" column="125" lean-forward="false" selection-start-line="140" selection-start-column="125" selection-end-line="140" selection-end-column="125" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1782,13 +1548,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="50" column="182" lean-forward="false" selection-start-line="50" selection-start-column="182" selection-end-line="50" selection-end-column="182" />
+        <state relative-caret-position="308">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/OutputFileGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/BaseFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="50" column="74" lean-forward="false" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/InterfaceExcel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/21.02.18.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/InterfaceDataBaseRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="70" column="71" lean-forward="false" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#583#584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1118#1119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#869#870#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="63" column="90" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -8,6 +8,8 @@ import java.sql.SQLException;
 /**
  * Created by Aaron on 22.01.2018.
  */
+
+
 public class Project extends AbstractDataBaseRepresentation {
 
 
@@ -15,53 +17,24 @@ public class Project extends AbstractDataBaseRepresentation {
      * TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
      */
 
-    private static int amountIdentityValues = 2;
-
-    private static int amountInteraktionValues = 1;
-
-
-    private  int assignedPupil=0;
+    private int assignedPupil = 0;
 
     //Constructor from the DataBase
     public Project(String projectNumber) {
-        super("", amountIdentityValues, amountInteraktionValues);
-        this.setHash(projectNumber);
-    }
-
-    //Constructor from Outside Data
-    public Project(String projectNumber, String teacherID) {
-        super("", amountIdentityValues, amountInteraktionValues);
-        this.setHash(projectNumber);
-        this.generateDataBaseEntry();
-        this.setIdentityValue(teacherID, 1);
+        super(projectNumber);
     }
 
 
     @Override
-    public void generateDataBaseEntry() {
-        try {
-            Imports.objDatabaseManagerGlobal.createEntry("Project", this.getHash());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public int getamountofDisplayableValues() {
+        return 3;
     }
+
 
     @Override
-    public boolean isValidDataBaseEntry() {
-
-        return true;
+    public String getTableReference() {
+        return "Project";
     }
-
-    public void assignNewPupil() throws IndexOutOfBoundsException {
-        if(this.hasReachedMaxCapacity()) throw  new IndexOutOfBoundsException();
-        this.assignedPupil++;
-    }
-
-    private boolean hasReachedMaxCapacity (){
-        return this.assignedPupil < Integer.valueOf(this.getInterAktionValues()[0]);
-    }
-
-
 
     @Override
     public String getHash() throws NullPointerException {
@@ -70,40 +43,30 @@ public class Project extends AbstractDataBaseRepresentation {
 
 
     @Override
-    public void deleteEntry() {
-        try {
-            Imports.objDatabaseManagerGlobal.deleteEntry("Project", this.getHash());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public boolean isValidDataBaseEntry() {
+
+        return true;
+    }
+
+
+    public void setDisplayayableValue(int index, String newValue) {
+        super.setDisplayayableValue(index, newValue);
+        savetoDataBase(index, newValue);
+    }
+
+    public void assignNewPupil() throws IndexOutOfBoundsException {
+        if (this.hasReachedMaxCapacity()) throw new IndexOutOfBoundsException();
+        this.assignedPupil++;
+    }
+
+    private boolean hasReachedMaxCapacity() {
+        //Todo: Reimplement
+        //return this.assignedPupil < Integer.valueOf(this.getInterAktionValues()[0]);
+        return false;
     }
 
     @Override
-    public void genericSetter(String newValue, int index) {
-        if (index < amountIdentityValues) {
-            this.setIdentityValue(newValue, index);
-        } else {
-            this.setInteraktionValuetoDataBase(newValue, index);
-        }
-    }
-
-
-    public void setInteraktionValuetoDataBase(String arg, int index) throws IllegalArgumentException {
-        for (int charIndex = 0; charIndex < arg.length(); charIndex++) {
-            if (!Character.isDigit(arg.charAt(charIndex))) {
-                throw new IllegalArgumentException("Der Wert für die maximale Schüleranzahl war keine Zahl");
-            }
-        }
-        super.setInteraktionValuetoDataBase(arg, index);
-    }
-
-    public void setIdentityValue(String arg, int index) throws IllegalArgumentException {
-        super.setIdentityValue(arg, index);
-        this.savetoDataBase(arg, index);
-    }
-
-    @Override
-    protected void savetoDataBase(String newValue, int index) {
+    protected void savetoDataBase(int index, String newValue) {
         try {
             Imports.objDatabaseManagerGlobal.updateEntry("Project", this.getHash(), index, newValue);
         } catch (SQLException e) {

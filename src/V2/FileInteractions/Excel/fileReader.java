@@ -1,5 +1,6 @@
 package V2.FileInteractions.Excel;
 
+import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.Settings.Imports;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
@@ -60,26 +61,25 @@ public class fileReader extends Thread {
 
             if (!surName.toLowerCase().equals("nachname")) {
 
-                String newID ="";
-                for (int charIndex = 0; charIndex < 3; charIndex++) {
-                    newID = newID + surName.charAt(charIndex);
-                }
-                for (int charIndex = 0; charIndex < 3; charIndex++) {
-                    newID = newID + preName.charAt(charIndex);
+
+                String newID = Pupil.generateHash(surName,preName);
+                if(Imports.objDatabaseManagerGlobal.entryExists("Pupil",newID)){
+                    //TODO: Sagen, das ein Schüler bereits exisitierte
+                }else{
+                    try {
+                        Imports.objDatabaseManagerGlobal.createEntry("Pupil", newID);
+                        Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 1, surName);
+                        Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 2, preName);
+                        Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 3, this.generateGrade());
+                    } catch (SQLException e) {
+                        /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
+                         *    System.out.println( e.getMessage());
+                         *
+                         */
+
+                    }
                 }
 
-                try {
-                    Imports.objDatabaseManagerGlobal.createEntry("Pupil", newID);
-                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 1, surName);
-                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 2, preName);
-                    Imports.objDatabaseManagerGlobal.updateEntry("Pupil", newID, 3, this.generateGrade());
-                } catch (SQLException e) {
-                    /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
-                     *    System.out.println( e.getMessage());
-                     *
-                     */
-
-                }
 
 
             }

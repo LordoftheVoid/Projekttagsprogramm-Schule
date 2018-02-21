@@ -38,7 +38,6 @@ public class PupilFrame extends BaseFrame {
     }
 
 
-
     @Override
     public void setupGUIBtnForCreation(int btnWidth) {
         btnCreateEntry = new JButton("Eintrag erzeugen");
@@ -49,22 +48,22 @@ public class PupilFrame extends BaseFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    Pupil newPupil = new Pupil(arrCreateEntryFields[0].getText(), arrCreateEntryFields[1].getText());
-                    if (!Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupil.getHash())) {
+
+                    String newPupilHash = Pupil.generateHash(arrCreateEntryFields[0].getText(), arrCreateEntryFields[1].getText());
+                    if (!Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupilHash)) {
                         //TODO: Maulen 2.0!
                     } else {
-                        System.out.println("--------------Aufruf DatenBankSchreiben---------------");
-                        newPupil.generateDataBaseEntry();
-                        newPupil.setIdentityValue(arrCreateEntryFields[0].getText(), 1);
-                        newPupil.setIdentityValue(arrCreateEntryFields[1].getText(), 2);
+                        Pupil newPupil = new Pupil(newPupilHash);
+                        newPupil.setDisplayayableValue(0,arrCreateEntryFields[0].getText());
+                        newPupil.setDisplayayableValue(1,arrCreateEntryFields[1].getText());
                         //Todo: Melden das es ging
                         resetInterface();
                     }
                     arrCreateEntryFields[0].setText("");
                     arrCreateEntryFields[1].setText("");
-                }catch (IllegalArgumentException e1){
+                } catch (IllegalArgumentException e1) {
                     System.out.println(e1.getMessage());
-                  e1.printStackTrace();
+                    e1.printStackTrace();
                 }
             }
 

@@ -1,24 +1,23 @@
 package V2;
 
-import V2.DataBaseInteractions.DataBaseObjekts.Link;
-import V2.DataBaseInteractions.DataBaseObjekts.Project;
-import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.DataBaseInteractions.DatabaseInterface;
+import V2.FileInteractions.DirectoryCreator;
 import V2.FileInteractions.Excel.InterfaceExcel;
 import V2.Settings.Imports;
+import V2.UI.Frame.BaseFrame;
+import V2.UI.Frame.ProjectFrame;
+import V2.UI.Frame.PupilFrame;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
 
 /**
  * Created by Aaron on 29.03.2017.
  */
-
 
 public class cMain {
 
@@ -45,9 +44,8 @@ public class cMain {
     public static void main(String args[]) {
 
 
-        if( args.length ==1){
-            if(args[0].equals("-DEBUG")){
-
+        if( args.length ==2){
+            if(args[1].equals("-STANDARD")){
                 String url = "C:\\Einziger Arbeitsordner Windows\\Fortsetzung Projekttagsprogramm Windows\\Projekttagsprogramm-Schule\\Testordner\\Debug-Konfig\\DataBaseNormValues.db";
                 try {
                     Imports.objDatabaseManagerGlobal = new DatabaseInterface(url);
@@ -55,13 +53,36 @@ public class cMain {
                     e.printStackTrace();
                 }
             }
+            if(args[1].equals("-REALWERTE")){
+                String url = "C:\\Einziger Arbeitsordner Windows\\Fortsetzung Projekttagsprogramm Windows\\Projekttagsprogramm-Schule\\Testordner\\Datenbank-Ordner\\DefaultDataBase.db";
+                try {
+                    Imports.objDatabaseManagerGlobal = new DatabaseInterface(url);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                String baseURLtoExdelDirectory = "C:\\Einziger Arbeitsordner Windows\\Fortsetzung Projekttagsprogramm Windows\\Projekttagsprogramm-Schule\\Testordner";
+                InterfaceExcel interfaceExcel = new InterfaceExcel(baseURLtoExdelDirectory + "\\Excel-Datei-Ordner");
+            }
         }else {
             Imports.setupImport();
+            InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+
+            DirectoryCreator objDirectoryManager = new DirectoryCreator();
+
+            objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Datenbank-Ordner");
+            objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Excel-Datei-Ordner");
+            objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
+
         }
 
 
 
+        //TESTCODEKONFIG
 
+
+
+
+        //TESTCODEKONFIG END
 
 
         objFrameMain = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");
@@ -81,11 +102,8 @@ public class cMain {
         btnCreateUI.setVisible(true);
         btnCreateUI.setBounds(0, 0, 600, 450);
 
-
         updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
 
-
-        InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
         btnCreateUI.addMouseListener(new MouseListener() {
                                          @Override
@@ -128,18 +146,10 @@ public class cMain {
 
     public static void setupMainInterface() {
 
-        /*
-        DirectoryCreator objDirectoryManager = new DirectoryCreator();
-
-        objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Datenbank-Ordner");
-        objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Excel-Datei-Ordner");
-        objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
-
 
         BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster");
 
         BaseFrame frameProjekte = new ProjectFrame(3, "Projekte-Anzeige-Fenster");
-
 
         JButton btnEnablePupilUI = new JButton("Schüler-Eingabe-Feld");
         btnEnablePupilUI.setVisible(true);
@@ -239,7 +249,7 @@ public class cMain {
             }
         });
 
-        */
+
         JButton btnEnableOutputUI = new JButton("Kalkulation und Ausgabe der moeglichen Projektverteilungen");
         btnEnableOutputUI.setVisible(true);
         btnEnableOutputUI.setBounds(0, 300, 600, 150);
@@ -251,6 +261,7 @@ public class cMain {
 
                 //TODO: Datenverifikation!!
 
+                /*
 
                 ArrayList<Pupil> listPupilswithoutProject = new ArrayList<>();
                 ArrayList<Project> listProjects = new ArrayList<>();
@@ -270,7 +281,6 @@ public class cMain {
 
                 for (String listElement : listDataBaseIDs
                         ) {
-                    System.out.println("listeneintra"+listElement);
                     listProjects.add(new Project(listElement));
                 }
 
@@ -281,9 +291,6 @@ public class cMain {
                         String preferedProject = pupilRandomlyChoosenfromList.getInterAktionValues()[projectPreferenceIndex];
                         for (Project projectInList : listProjects
                                 ) {
-                            System.out.println(listProjects.size());
-                            System.out.println("Hash equals" + projectInList.getHash());
-
                             if (projectInList.getHash().equals(preferedProject)) {
                                 try {
                                     projectInList.assignNewPupil();
