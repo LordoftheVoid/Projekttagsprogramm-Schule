@@ -13,6 +13,7 @@ import java.util.HashMap;
 /*
 Klasse, um conDatabase zu realisieren
  */
+
 public class DatabaseInterface {
 
     private Connection conDatabase;

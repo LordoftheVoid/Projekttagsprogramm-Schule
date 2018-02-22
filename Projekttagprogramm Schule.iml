@@ -20,5 +20,15 @@
     <orderEntry type="library" name="apidocs" level="project" />
     <orderEntry type="library" name="org.xerial:sqlite-jdbc:3.8.5-pre1" level="project" />
     <orderEntry type="library" name="org.apache.poi:poi:3.10-FINAL" level="project" />
+    <orderEntry type="module-library">
+      <library name="JUnit5">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/junit-jupiter-api-5.0.0-M3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/opentest4j-1.0.0-M1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

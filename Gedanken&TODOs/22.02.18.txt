@@ -1,0 +1,1 @@
+Ziel: Interface zu Ende reparieren, idealerweise mit Unit-Tests
