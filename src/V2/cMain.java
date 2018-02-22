@@ -44,26 +44,28 @@ public class cMain {
     public static void main(String args[]) {
 
 
-        if( args.length ==2){
-            if(args[1].equals("-STANDARD")){
-                String url = "C:\\Einziger Arbeitsordner Windows\\Fortsetzung Projekttagsprogramm Windows\\Projekttagsprogramm-Schule\\Testordner\\Debug-Konfig\\DataBaseNormValues.db";
-                try {
-                    Imports.objDatabaseManagerGlobal = new DatabaseInterface(url);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+        if (args[0].equals("Normiert")) {
+            String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
+            try {
+                Imports.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            if(args[1].equals("-REALWERTE")){
-                String url = "C:\\Einziger Arbeitsordner Windows\\Fortsetzung Projekttagsprogramm Windows\\Projekttagsprogramm-Schule\\Testordner\\Datenbank-Ordner\\DefaultDataBase.db";
-                try {
-                    Imports.objDatabaseManagerGlobal = new DatabaseInterface(url);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                String baseURLtoExdelDirectory = "C:\\Einziger Arbeitsordner Windows\\Fortsetzung Projekttagsprogramm Windows\\Projekttagsprogramm-Schule\\Testordner";
-                InterfaceExcel interfaceExcel = new InterfaceExcel(baseURLtoExdelDirectory + "\\Excel-Datei-Ordner");
+        }
+        if (args[0].equals("Real")) {
+            String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\DateiUmgebungen\\Real\\DatenBank-Ordner\\DefaultDataBase.db";
+
+            try {
+                Imports.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-        }else {
+            String baseURLtoExdelDirectory = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\DateiUmgebungen\\Real";
+            InterfaceExcel interfaceExcel = new InterfaceExcel(baseURLtoExdelDirectory + "\\Excel-Datei-Ordner");
+        }
+
+
+        if (args.length == 0) {
             Imports.setupImport();
             InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
@@ -74,15 +76,6 @@ public class cMain {
             objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
         }
-
-
-
-        //TESTCODEKONFIG
-
-
-
-
-        //TESTCODEKONFIG END
 
 
         objFrameMain = new JFrame("Projekttagsverwaltungsprogramm Version 1.0");

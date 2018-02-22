@@ -56,25 +56,43 @@ public class DatabaseInterface {
         ResultSet readColums = this.readEntrysAllAttributes(tableReference);
         ResultSetMetaData metaData = readColums.getMetaData();
         idColums.put(tableReference, metaData.getColumnName(1));
-        for (int keyIndices = 0; keyIndices < metaData.getColumnCount(); keyIndices++) {
-            result.put(keyIndices, metaData.getColumnName(keyIndices + 1));
+        for (int keyIndices = 0; keyIndices < metaData.getColumnCount() - 1; keyIndices++) {
+            result.put(keyIndices, metaData.getColumnName(keyIndices + 2));
         }
         return result;
     }
 
 
+    public void releaseDataBaseConnection() {
+        try {
+            this.conDatabase.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
     public void createEntry(String tableReference, String newEntryID) throws SQLException {
-        PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + tableReference + "  (" + this.tableColums.get(tableReference).get(0) + ") VALUES (?)");
+        PreparedStatement insertInto = conDatabase.prepareStatement("INSERT INTO " + tableReference + "  (" + this.idColums.get(tableReference) + ") VALUES (?)");
         insertInto.setString(1, newEntryID);
         insertInto.executeUpdate();
     }
 
-    public void updateEntry(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
+    public void updateNonIDValues(String tableReference, String entryID, int columIndex, String newValue) throws SQLException {
         String sqlString = "UPDATE " + tableReference + " SET " + this.tableColums.get(tableReference).get(columIndex) + " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
         PreparedStatement update_Entry = conDatabase.prepareStatement(sqlString);
         update_Entry.setString(1, entryID);
         update_Entry.executeUpdate();
     }
+
+    public void updateIDValue(String tableReference, String entryID, String newValue) throws SQLException {
+        String sqlString = "UPDATE " + tableReference + " SET " + this.idColums.get(tableReference) + " = '" + newValue + "' WHERE " + idColums.get(tableReference) + "= ?";
+        PreparedStatement update_Entry = conDatabase.prepareStatement(sqlString);
+        update_Entry.setString(1, entryID);
+        update_Entry.executeUpdate();
+    }
+
 
     public boolean entryExists(String tableReference, String entryID) {
         try {

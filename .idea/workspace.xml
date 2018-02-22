@@ -7,13 +7,103 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584ceee4-4d64-4909-abbd-1fbfa8d9b9ae" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Datenbank-Ordner/DefaultDataBase.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Debug-Konfig/DataBaseNormValues.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Excel-Datei-Ordner/Schuljahr 16_17 7a.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testordner/Excel-Datei-Ordner/Schuljahr 17_18 5b.xls" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/PJS_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/PJS_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UnitTests/DataBaseTests/Project/testEqualityofValues.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UnitTests/DataBaseTests/Pupil/testEqualityofValues.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsNegativ.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsPositiv.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230024.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230025.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230027.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230028.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230031.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230132.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230206.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230215.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230220.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230235.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230243.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230249.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230269.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230328.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519230659.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519240223.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519249514.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519304674.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519304678.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519304736.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519304767.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519304768.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519304798.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307427.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307429.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307430.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307475.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307479.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307519.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307535.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307536.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307559.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307560.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307563.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307594.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307595.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307619.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307620.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307639.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307646.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307650.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307751.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307770.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307772.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307773.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307916.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307929.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307963.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519307994.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308000.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308011.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308050.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308102.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308131.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308162.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308232.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308348.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308356.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308388.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308424.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308436.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308467.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308508.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308548.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308587.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308617.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308648.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308700.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308735.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308775.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519308807.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309102.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309132.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309219.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309299.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309396.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309466.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309497.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309592.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309666.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309667.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309669.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519309670.event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gtm/1519331522.event" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DateiUmgebungen/Real/Datenbank-Ordner/DefaultDataBase.db" afterPath="$PROJECT_DIR$/DateiUmgebungen/Real/Datenbank-Ordner/DefaultDataBase.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DateiUmgebungen/TestUmgebungen/DataBaseNormValues.db" afterPath="$PROJECT_DIR$/DateiUmgebungen/TestUmgebungen/DataBaseNormValues.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projekttagprogramm Schule.iml" afterPath="$PROJECT_DIR$/Projekttagprogramm Schule.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" afterPath="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" afterPath="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/V2/cMain.java" afterPath="$PROJECT_DIR$/src/V2/cMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +132,8 @@
       <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="70" column="71" lean-forward="false" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
+            <state relative-caret-position="1000">
+              <caret line="70" column="63" lean-forward="false" selection-start-line="70" selection-start-column="63" selection-end-line="70" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -52,51 +142,58 @@
       <file leaf-file-name="Pupil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="250">
               <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
-                <element signature="e#583#584#0" expanded="true" />
+                <element signature="e#450#451#0" expanded="true" />
+                <element signature="e#482#483#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PupilFrame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java">
+      <file leaf-file-name="testEqualityofValues.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/Pupil/testEqualityofValues.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="62" column="5" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            <state relative-caret-position="546">
+              <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testEqualityofValues.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/Project/testEqualityofValues.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="149" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseInterface.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatabaseInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            <state relative-caret-position="-260">
+              <caret line="76" column="142" lean-forward="false" selection-start-line="76" selection-start-column="142" selection-end-line="76" selection-end-column="142" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="22.02.18.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gedanken&amp;TODOs/22.02.18.txt">
+      <file leaf-file-name="testEntryExistsPositiv.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsPositiv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="63" lean-forward="false" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
-              <folding />
+            <state relative-caret-position="425">
+              <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1142#1143#0" expanded="true" />
+                <element signature="e#1230#1231#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,8 +201,34 @@
       <file leaf-file-name="fileReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="575">
+              <caret line="72" column="92" lean-forward="false" selection-start-line="72" selection-start-column="92" selection-end-line="72" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testEntryExistsNegativ.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsNegativ.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#676#677#0" expanded="true" />
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="e#796#797#0" expanded="true" />
+                <element signature="e#885#886#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,20 +237,10 @@
       <file leaf-file-name="AbstractDataBaseRepresentation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="63" column="90" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
+            <state relative-caret-position="182">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,6 +255,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -181,14 +295,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Events/AbstractMouseEvent.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/test.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/CustomMouseEvent.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/MouseRedirect.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/CreationButton.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButtonProject.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButtonPupil.java" />
-        <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButtonAbstract.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/KeyInputHandler.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButton.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/PrgT-15.02.18.txt" />
@@ -219,19 +325,27 @@
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/20.02.19.txt" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/InterfaceDataBaseRepresentation.java" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/AbstractRow.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/NonFrameElements/DisplayedRows/PupilRow.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/Frame/PupilFrame.java" />
         <option value="$PROJECT_DIR$/src/V2/UI/Frame/ProjectFrame.java" />
-        <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/21.02.18.txt" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/V2/cMain.java" />
         <option value="$PROJECT_DIR$/Gedanken&amp;TODOs/22.02.18.txt" />
-        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
         <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/testEntryExistsPositiv.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/testEntryExists.java" />
+        <option value="$PROJECT_DIR$/UnitTests/testEntryExists.java" />
+        <option value="$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExists.java" />
+        <option value="$PROJECT_DIR$/UnitTests/V2/DataBaseInteractions/DataBaseObjekts/testEqualityofValues.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java" />
+        <option value="$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java" />
+        <option value="$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsNegativ.java" />
+        <option value="$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsPositiv.java" />
+        <option value="$PROJECT_DIR$/UnitTests/DataBaseTests/Project/testEqualityofValues.java" />
+        <option value="$PROJECT_DIR$/UnitTests/DataBaseTests/Pupil/testEqualityofValues.java" />
+        <option value="$PROJECT_DIR$/src/V2/cMain.java" />
+        <option value="$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java" />
       </list>
     </option>
   </component>
@@ -265,35 +379,183 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
+              <option name="myItemId" value="ProjektTagsProgramm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
+              <option name="myItemId" value="ProjektTagsProgramm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
+              <option name="myItemId" value="ProjektTagsProgramm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Projekttagsprogramm-Schule" />
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UnitTests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UnitTests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataBaseTests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UnitTests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataBaseTests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pupil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UnitTests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataBaseTests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataBaseInteractions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="V2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataBaseInteractions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataBaseObjekts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -301,11 +563,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DateiUmgebungen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Real" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjektTagsProgramm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DateiUmgebungen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Real" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Datenbank-Ordner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -315,7 +615,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/DateiUmgebungen/Real/Projekttagprogramm Schule.jar" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -324,18 +624,26 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="V2.DataBaseInteractions.DataBaseObjekts" />
       <recent name="V2.DataBaseInteractions" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Einziger Arbeitsordner Windows\Fortsetzung Projekttagsprogramm Windows\Projekttagsprogramm-Schule\DateiUmgebungen\TestUmgebungen" />
-      <recent name="C:\Einziger Arbeitsordner Windows\Fortsetzung Projekttagsprogramm Windows\Projekttagsprogramm-Schule\DateiUmgebungen\Real" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Einziger Arbeitsordner Windows\Fortsetzung Projekttagsprogramm Windows\Projekttagsprogramm-Schule\DateiUmgebungen\Real\Output-Ordner (Excel-Dateien)" />
       <recent name="C:\Einziger Arbeitsordner Windows\Fortsetzung Projekttagsprogramm Windows\Projekttagsprogramm-Schule\src\Version2_0" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="DataBaseTests.Project" />
+      <recent name="DataBaseTests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Einziger Arbeitsordner Windows\Fortsetzung Projekttagsprogramm Windows\Projekttagsprogramm-Schule\DateiUmgebungen\TestUmgebungen" />
+      <recent name="C:\Einziger Arbeitsordner Windows\Fortsetzung Projekttagsprogramm Windows\Projekttagsprogramm-Schule\DateiUmgebungen\Real" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -350,7 +658,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.Jar-Execution">
+  <component name="RunManager" selected="Application.Debug Reale Werte">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -740,7 +1048,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Debug-Konfig-Standard-Werte" type="Application" factoryName="Application">
+    <configuration default="false" name="Debug Normierte Werte" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Version_1_Java.Objekte.*" />
@@ -749,7 +1057,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="V2.cMain" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-DEBUG -STANDARD" />
+      <option name="PROGRAM_PARAMETERS" value="Normiert" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -760,11 +1068,11 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Debug-Konfig -RealWerteDatenBank" type="Application" factoryName="Application">
+    <configuration default="false" name="Debug Reale Werte" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="V2.cMain" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-DEBUG -REALWERTE" />
+      <option name="PROGRAM_PARAMETERS" value="Real" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -778,7 +1086,7 @@
     <configuration default="false" name="Jar-Execution" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="JAR_PATH" value="$PROJECT_DIR$/DateiUmgebungen/Real/Projekttagprogramm Schule.jar" />
-      <option name="WORKING_DIRECTORY" value="C:\Einziger Arbeitsordner Windows\Fortsetzung Projekttagsprogramm Windows\Projekttagsprogramm-Schule" />
+      <option name="WORKING_DIRECTORY" value="C:\Einziger Arbeitsordner Windows\Code\ProjektTagsProgramm" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk1.8.0_73\jre" />
       <envs />
@@ -788,10 +1096,32 @@
         </option>
       </method>
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.Debug-Konfig-Standard-Werte" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Debug-Konfig -RealWerteDatenBank" />
+    <configuration default="false" name="All in Projekttagprogramm Schule" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Projekttagprogramm Schule" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Application.Debug Normierte Werte" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Debug Reale Werte" />
       <item index="2" class="java.lang.String" itemvalue="JAR Application.Jar-Execution" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.All in Projekttagprogramm Schule" />
     </list>
   </component>
   <component name="SbtLocalSettings">
@@ -824,6 +1154,38 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 13m 33s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 14m 14s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 14m 49s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 19m 52s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 21m 51s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 23m 07s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 25m 29s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 26m 19s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 27m 02s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Projekttagprogramm_Schule - 2018.02.22 at 22h 32m 30s.xml">
+      <configuration name="All in Projekttagprogramm Schule" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="21787000" />
   </component>
@@ -838,7 +1200,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -849,13 +1211,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31034482" sideWeight="0.421875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23630832" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23630832" sideWeight="0.578125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494929" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -871,7 +1234,6 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="557" y="334" width="481" height="176" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494929" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -965,10 +1327,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MouseProject.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MousePupil.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/Mouse/MouseAbstract.java" />
-    <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Events/AbstractMouseEvent.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/CustomMouseEvent.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Listeners/MouseRedirect.java" />
     <entry file="file://$PROJECT_DIR$/src/V2/UI/NonFrameElements/Buttons/CreationButtonProject.java" />
@@ -1105,14 +1463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/Settings/Imports.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Link.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1167,17 +1517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" column="90" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1186,32 +1525,8 @@
         <state relative-caret-position="187">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1219,7 +1534,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
           <caret line="62" column="5" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#542#543#0" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1231,23 +1550,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/testEntryExistsPositiv.java" />
+    <entry file="file://$PROJECT_DIR$/src/V2/Settings/Imports.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/FileInteractions/Excel/fileReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="72" column="92" lean-forward="false" selection-start-line="72" selection-start-column="92" selection-end-line="72" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Pupil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+          <folding>
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsNegativ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/testEntryExistsPositiv.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1230#1231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/AbstractDataBaseRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#929#930#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DataBaseObjekts/Project.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="70" column="71" lean-forward="false" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
+        <state relative-caret-position="1000">
+          <caret line="70" column="63" lean-forward="false" selection-start-line="70" selection-start-column="63" selection-end-line="70" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/Pupil/testEqualityofValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UnitTests/DataBaseTests/Project/testEqualityofValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="149" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/V2/cMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/DatabaseInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        <state relative-caret-position="-260">
+          <caret line="76" column="142" lean-forward="false" selection-start-line="76" selection-start-column="142" selection-end-line="76" selection-end-column="142" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/V2/DataBaseInteractions/testEntryExistsPositiv.java" />
   </component>
   <component name="masterDetails">
     <states>

@@ -68,7 +68,7 @@ public class Project extends AbstractDataBaseRepresentation {
     @Override
     protected void savetoDataBase(int index, String newValue) {
         try {
-            Imports.objDatabaseManagerGlobal.updateEntry("Project", this.getHash(), index, newValue);
+            Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", this.getHash(), index, newValue);
         } catch (SQLException e) {
             e.printStackTrace();
         }

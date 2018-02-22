@@ -69,7 +69,13 @@ public class Pupil extends AbstractDataBaseRepresentation {
         if (getNonHashdataBaseValues()[0].equals("") && getNonHashdataBaseValues()[1].equals("")) {
             throw new IllegalArgumentException();
         }
+        String oldHash = this.getHash();
         this.setHash(generateHash(getNonHashdataBaseValues()[0], getNonHashdataBaseValues()[1]));
+        try {
+            Imports.objDatabaseManagerGlobal.updateIDValue(this.getTableReference(),oldHash,this.getHash());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -77,7 +83,7 @@ public class Pupil extends AbstractDataBaseRepresentation {
     protected void savetoDataBase(int index, String newValue) {
         //TODO: Prüfungen ?
         try {
-            Imports.objDatabaseManagerGlobal.updateEntry("Pupil", this.getHash(), index, newValue);
+            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", this.getHash(), index, newValue);
         } catch (SQLException e) {
             e.printStackTrace();
         }
