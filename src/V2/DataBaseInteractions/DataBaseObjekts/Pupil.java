@@ -4,6 +4,8 @@ package V2.DataBaseInteractions.DataBaseObjekts;
 import V2.Settings.Imports;
 
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Aaron on 22.01.2018.
@@ -32,8 +34,26 @@ public class Pupil extends AbstractDataBaseRepresentation {
     }
 
     public boolean isValidDataBaseEntry() {
+
+        boolean isValid = true;
+
+        for (String valueFromDataBase:this.getNonHashdataBaseValues()
+             ) {
+           isValid = isValid && (!valueFromDataBase.equals(""));
+        }
+
+        for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
+            isValid = isValid && Imports.objDatabaseManagerGlobal.entryExists("Project",this.getDisplayableValue(arrayIndex));
+        }
+
+        Set<String> uniqueProjectIDS = new HashSet<>();
+        for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
+        uniqueProjectIDS.add(this.getDisplayableValue(arrayIndex));
+        }
+        isValid = isValid && uniqueProjectIDS.size()==4;
+
         //Todo: Eine Validitätsmethode, dafür ordentlich!
-        return false;
+        return isValid;
     }
 
     @Override
@@ -61,7 +81,7 @@ public class Pupil extends AbstractDataBaseRepresentation {
     @Override
     public void setDisplayayableValue(int index, String newValue) {
         super.setDisplayayableValue(index, newValue);
-        this.savetoDataBase(index, newValue);
+        this.updateHash();
     }
 
 
@@ -71,11 +91,13 @@ public class Pupil extends AbstractDataBaseRepresentation {
         }
         String oldHash = this.getHash();
         this.setHash(generateHash(getNonHashdataBaseValues()[0], getNonHashdataBaseValues()[1]));
+
         try {
             Imports.objDatabaseManagerGlobal.updateIDValue(this.getTableReference(),oldHash,this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
 

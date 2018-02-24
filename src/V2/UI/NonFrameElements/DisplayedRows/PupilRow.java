@@ -22,7 +22,6 @@ public class PupilRow extends AbstractRow {
 
     @Override
     void generateTextFields() {
-
         this.displayElements[0] = new NameTextField(0, this.dataBaseEntry);
         this.displayElements[1] = new NameTextField(1, this.dataBaseEntry);
         this.displayElements[2] = new GenericTextField(2, this.dataBaseEntry);
@@ -46,12 +45,13 @@ public class PupilRow extends AbstractRow {
                 @Override
                 public void focusLost(FocusEvent e) {
                     CustomTextField objSource = (CustomTextField) e.getSource();
+                    System.out.println("sot"+objSource.oldValue);
                     if (!objSource.getText().equals(objSource.oldValue)) {
                         if (objSource.isValidInput()) {
                             objSource.dataBaseEntry.setDisplayayableValue(objSource.index, objSource.getText());
                         } else {
                             objSource.setText(objSource.oldValue);
-                            //TODO: MAulen!
+                            System.out.println("Es existiert kein solches Project");
                         }
                     }
                 }

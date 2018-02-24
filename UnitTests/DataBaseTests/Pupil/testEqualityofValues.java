@@ -34,7 +34,7 @@ class testEqualityofValues {
     @AfterEach
     void tearDown() {
         try {
-            Imports.objDatabaseManagerGlobal.deleteEntry("Pupil", "-1000");
+            Imports.objDatabaseManagerGlobal.deleteEntry("Pupil", testPupil.getHash());
             Imports.objDatabaseManagerGlobal.releaseDataBaseConnection();
         } catch (SQLException e) {
             e.printStackTrace();

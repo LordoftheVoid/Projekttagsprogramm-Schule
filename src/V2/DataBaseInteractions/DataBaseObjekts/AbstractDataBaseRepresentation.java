@@ -32,6 +32,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
 
     public void setDisplayayableValue(int index, String newValue) {
         this.nonHashdataBaseValues[index] = newValue;
+        savetoDataBase(index,newValue);
     }
 
 

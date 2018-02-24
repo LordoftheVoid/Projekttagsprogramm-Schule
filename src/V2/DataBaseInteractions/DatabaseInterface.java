@@ -152,7 +152,7 @@ public class DatabaseInterface {
     public ArrayList<String> getEntryIDs(String table) {
         ArrayList<String> entryList = new ArrayList<>();
         try {
-            ResultSet entrys = this.readEntrysOneAttribut(table, this.tableColums.get(table).get(0));
+            ResultSet entrys = this.readEntrysOneAttribut(table, idColums.get(table));
 
             while (entrys.next()) {
                 entryList.add(entrys.getString(1));

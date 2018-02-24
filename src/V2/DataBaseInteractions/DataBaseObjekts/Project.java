@@ -51,7 +51,6 @@ public class Project extends AbstractDataBaseRepresentation {
 
     public void setDisplayayableValue(int index, String newValue) {
         super.setDisplayayableValue(index, newValue);
-        savetoDataBase(index, newValue);
     }
 
     public void assignNewPupil() throws IndexOutOfBoundsException {

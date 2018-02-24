@@ -15,14 +15,11 @@ import java.util.ArrayList;
  * Created by Aaron on 22.01.2018.
  */
 
-
 public class PupilFrame extends BaseFrame {
-
 
     public PupilFrame(int spaltenAnzahl, String fensterName) {
         super(spaltenAnzahl, fensterName);
     }
-
 
     @Override
     public ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException {
@@ -30,13 +27,15 @@ public class PupilFrame extends BaseFrame {
 
         ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
 
-        for (String entry : listIDs
+        for (String idNewPupil : listIDs
                 ) {
-            entrys.add(new Pupil(entry));
+            Pupil newEntry = new Pupil(idNewPupil);
+
+            //TODO: MAULEN!!
+            entrys.add(newEntry);
         }
         return entrys;
     }
-
 
     @Override
     public void setupGUIBtnForCreation(int btnWidth) {
@@ -48,19 +47,24 @@ public class PupilFrame extends BaseFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-
                     String newPupilHash = Pupil.generateHash(arrCreateEntryFields[0].getText(), arrCreateEntryFields[1].getText());
-                    if (!Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupilHash)) {
-                        //TODO: Maulen 2.0!
+                    if (Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupilHash)) {
+                        //TODO: Sagen, das ein Schüler bereits exisitierte
                     } else {
-                        Pupil newPupil = new Pupil(newPupilHash);
-                        newPupil.setDisplayayableValue(0,arrCreateEntryFields[0].getText());
-                        newPupil.setDisplayayableValue(1,arrCreateEntryFields[1].getText());
-                        //Todo: Melden das es ging
-                        resetInterface();
+                        try {
+                            Imports.objDatabaseManagerGlobal.createEntry("Pupil", newPupilHash);
+                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 0, arrCreateEntryFields[0].getText());
+                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 1, arrCreateEntryFields[0].getText());
+                        } catch (SQLException e1) {
+                            /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
+                             *    System.out.println( e.getMessage());
+                             *
+                             */
+                        }
                     }
                     arrCreateEntryFields[0].setText("");
                     arrCreateEntryFields[1].setText("");
+                    resetInterface();
                 } catch (IllegalArgumentException e1) {
                     System.out.println(e1.getMessage());
                     e1.printStackTrace();

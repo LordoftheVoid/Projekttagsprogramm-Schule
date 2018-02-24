@@ -1,0 +1,3 @@
+Ziel: Implementierung Test auf validen DatenbankEintrag, Fortschritt im Berechnungsalgorithmus
+
+Zeit: 3 Stunden

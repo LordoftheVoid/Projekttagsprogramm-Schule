@@ -52,19 +52,29 @@ public class ProjectFrame extends BaseFrame {
                 for (int charIndex = 0; charIndex < arrCreateEntryFields[0].getText().length(); charIndex++) {
                     isNumber = isNumber && Character.isDigit(arrCreateEntryFields[0].getText().charAt(charIndex));
                 }
-                if (!isNumber) {
-                    //TODO: Maulen
-                } else {
-                    if(Imports.objDatabaseManagerGlobal.entryExists("Project",arrCreateEntryFields[0].getText())){
-                        //TODO: Maulen
-                    }else{
-                        Project newProject = new Project(arrCreateEntryFields[0].getText());
-                        newProject.setDisplayayableValue(1,arrCreateEntryFields[1].getText());
-                    }
 
-                    resetInterface();
+                if (isNumber) {
+                    if (Imports.objDatabaseManagerGlobal.entryExists("Project", arrCreateEntryFields[0].getText())) {
+                        //TODO: Sagen, das ein Schüler bereits exisitierte
+                    } else {
+                        try {
+                            Imports.objDatabaseManagerGlobal.createEntry("Project", arrCreateEntryFields[0].getText());
+                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 0, arrCreateEntryFields[0].getText());
+                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", arrCreateEntryFields[0].getText(), 1, arrCreateEntryFields[1].getText());
+                        } catch (SQLException e1) {
+                            /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
+                             *    System.out.println( e.getMessage());
+                             *
+                             */
+                        }
+                    }
                     arrCreateEntryFields[0].setText("");
                     arrCreateEntryFields[1].setText("");
+                    resetInterface();
+
+
+                } else {
+                    //TODO: MAULEN
                 }
             }
 
