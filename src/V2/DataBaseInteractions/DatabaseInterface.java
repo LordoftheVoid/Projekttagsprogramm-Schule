@@ -48,6 +48,7 @@ public class DatabaseInterface {
         }
         this.tableColums.put("Pupil", pupilColums);
         this.tableColums.put("Project", projectColums);
+        this.tableColums.put("Link",linkColums);
 
     }
 
@@ -130,14 +131,14 @@ public class DatabaseInterface {
 
     public String[] getallEntryValuesfromDataBase(String table, String entryID) {
 
-        String[] results = new String[tableColums.get(table).size()];
+        String[] results = new String[tableColums.get(table).size()+1];
         for (int arrayIndex = 0; arrayIndex < results.length; arrayIndex++) {
             results[arrayIndex] = "";
         }
         try {
             ResultSet entry = this.readEntryallAttributes(table, entryID);
             while (entry.next()) {
-                for (int arrayIndex = 0; arrayIndex < tableColums.get(table).size(); arrayIndex++) {
+                for (int arrayIndex = 0; arrayIndex < tableColums.get(table).size()+1; arrayIndex++) {
                     results[arrayIndex] = entry.getString(arrayIndex + 1);
                 }
             }

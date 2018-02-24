@@ -60,18 +60,16 @@ public class ProjectFrame extends BaseFrame {
                         try {
                             Imports.objDatabaseManagerGlobal.createEntry("Project", arrCreateEntryFields[0].getText());
                             Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 0, arrCreateEntryFields[0].getText());
-                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", arrCreateEntryFields[0].getText(), 1, arrCreateEntryFields[1].getText());
+                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 1, arrCreateEntryFields[1].getText());
                         } catch (SQLException e1) {
                             /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
                              *    System.out.println( e.getMessage());
-                             *
                              */
                         }
                     }
                     arrCreateEntryFields[0].setText("");
                     arrCreateEntryFields[1].setText("");
                     resetInterface();
-
 
                 } else {
                     //TODO: MAULEN

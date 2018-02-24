@@ -1,9 +1,12 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
 import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
+import V2.UI.Frame.BaseFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * Created by Aaron on 05.02.2018.
@@ -29,12 +32,38 @@ public abstract class AbstractRow implements  Comparable {
         for (int arrayIndex = 0; arrayIndex < columns; arrayIndex++) {
             displayElements[arrayIndex].setVisible(true);
             targetFrame.add(displayElements[arrayIndex]);
-            displayElements[arrayIndex].setBounds(arrayIndex * 120, 600, 120, 20);
+            displayElements[arrayIndex].setBounds(arrayIndex * BaseFrame.WIDTHGLOBAL, 600, BaseFrame.WIDTHGLOBAL, 20);
         }
         btnDeleteEntry = new JButton("Eintrag löschen");
         targetFrame.add(btnDeleteEntry);
         btnDeleteEntry.setVisible(true);
-        btnDeleteEntry.setBounds(this.displayElements.length * 120, 600, 120, 20);
+        btnDeleteEntry.setBounds(this.displayElements.length * BaseFrame.WIDTHGLOBAL, 600, BaseFrame.WIDTHGLOBAL, 20);
+        btnDeleteEntry.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                deleteDataBaseEntry();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
 
     }
@@ -50,7 +79,7 @@ public abstract class AbstractRow implements  Comparable {
 
     private void showText() {
         String[] valuesEntry = this.dataBaseEntry.getNonHashdataBaseValues();
-        for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
+        for (int arrayIndex = 0; arrayIndex < this.displayElements.length; arrayIndex++) {
             displayElements[arrayIndex].setText(valuesEntry[arrayIndex]);
         }
     }

@@ -1,5 +1,8 @@
 package V2;
 
+import V2.DataBaseInteractions.DataBaseObjekts.Link;
+import V2.DataBaseInteractions.DataBaseObjekts.Project;
+import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.DataBaseInteractions.DatabaseInterface;
 import V2.FileInteractions.DirectoryCreator;
 import V2.FileInteractions.Excel.InterfaceExcel;
@@ -13,6 +16,8 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 /**
@@ -254,13 +259,12 @@ public class cMain {
 
                 //TODO: Datenverifikation!!
 
-                /*
 
-                ArrayList<Pupil> listPupilswithoutProject = new ArrayList<>();
-                ArrayList<Project> listProjects = new ArrayList<>();
-                ArrayList<Link> pupilProjectLinkList = new ArrayList<>();
+                CopyOnWriteArrayList<Pupil> listPupilswithoutProject = new CopyOnWriteArrayList<>();
+                CopyOnWriteArrayList<Project> listProjects = new CopyOnWriteArrayList<>();
+                CopyOnWriteArrayList<Link> pupilProjectLinkList = new CopyOnWriteArrayList<>();
 
-                ArrayList<String> listDataBaseIDs = new ArrayList<>();
+               ArrayList<String> listDataBaseIDs = new ArrayList<>();
 
                 listDataBaseIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
 
@@ -280,14 +284,23 @@ public class cMain {
 
                 while (listPupilswithoutProject.size() > 0) {
                     for (int projectPreferenceIndex = 0; projectPreferenceIndex < 4; projectPreferenceIndex++) {
-                        Pupil pupilRandomlyChoosenfromList = listPupilswithoutProject.get((int) (Math.random() * listPupilswithoutProject.size()));
-                        String preferedProject = pupilRandomlyChoosenfromList.getInterAktionValues()[projectPreferenceIndex];
+                        Pupil pupilRandomlyChoosenfromList;
+                        try {
+                            pupilRandomlyChoosenfromList = listPupilswithoutProject.get((int) (Math.random() * listPupilswithoutProject.size()));
+                        }catch (IndexOutOfBoundsException e1){
+                            System.out.println("Fertig");
+                            break;
+                        }
+                        String preferedProject = pupilRandomlyChoosenfromList.getDisplayableValue(3+projectPreferenceIndex);
                         for (Project projectInList : listProjects
                                 ) {
                             if (projectInList.getHash().equals(preferedProject)) {
                                 try {
                                     projectInList.assignNewPupil();
-                                    pupilProjectLinkList.add(new Link(pupilRandomlyChoosenfromList.getHash(), projectInList.getHash()));
+                                    Link result = new Link(pupilRandomlyChoosenfromList.getHash(), projectInList.getHash());
+                                    result.setDisplayayableValue(0,pupilRandomlyChoosenfromList.getDisplayableValue(0));
+                                    result.setDisplayayableValue(1,pupilRandomlyChoosenfromList.getDisplayableValue(1));
+                                    pupilProjectLinkList.add(result);
                                     listPupilswithoutProject.remove(pupilRandomlyChoosenfromList);
                                 } catch (IndexOutOfBoundsException e1) {
                                     listProjects.remove(projectInList);
@@ -296,6 +309,13 @@ public class cMain {
                         }
                     }
                 }
+
+                for (Link entry:pupilProjectLinkList
+                     ) {
+                    System.out.println(entry.getPupilHash() +"     ---"+ entry.getProjectID());
+                }
+
+
 
                 //Main-Function of the Programm
 
@@ -318,9 +338,7 @@ public class cMain {
 
                  Geb das Frame aus
 
-
                  */
-
             }
 
             @Override

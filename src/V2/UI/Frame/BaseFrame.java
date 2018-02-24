@@ -23,7 +23,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class BaseFrame extends JFrame {
 
 
-    private final static int WIDTHGLOBAL = 120;
+    public final static int WIDTHGLOBAL = 140;
     final int yCoordinateListEntrys = 260;
     public JTextField[] columNames;
     public JButton btnCreateEntry;
@@ -65,8 +65,6 @@ public abstract class BaseFrame extends JFrame {
         }
 
         this.updateRowYKoordinate(300);
-
-
     }
 
 
@@ -79,7 +77,7 @@ public abstract class BaseFrame extends JFrame {
         for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
             arrButtonsSort[arrayIndex] = new JButton();
             this.getContentPane().add(arrButtonsSort[arrayIndex]);
-            arrButtonsSort[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 120, 120, 50);
+            arrButtonsSort[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 120, WIDTHGLOBAL, 50);
             arrButtonsSort[arrayIndex].setBorder(new LineBorder(Color.RED, 1));
             arrButtonsSort[arrayIndex].setVisible(true);
             arrButtonsSort[arrayIndex].setText(" A ... Z");
@@ -181,7 +179,7 @@ public abstract class BaseFrame extends JFrame {
 
             this.getContentPane().add(arrTextFieldSortInput[arrayIndex]);
 
-            arrTextFieldSortInput[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 70, 120, 20);
+            arrTextFieldSortInput[arrayIndex].setBounds(WIDTHGLOBAL * arrayIndex, 70, WIDTHGLOBAL, 20);
 
             arrTextFieldSortInput[arrayIndex].addKeyListener(new KeyListener() {
                 @Override
@@ -235,6 +233,5 @@ public abstract class BaseFrame extends JFrame {
     public abstract void setupGUIBtnForCreation(int width);
 
     abstract void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys);
-
 
 }

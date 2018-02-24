@@ -83,7 +83,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
     private void updateToDataBaseValues() {
         this.initNullValues();
         String[] dataBaseValues = Imports.objDatabaseManagerGlobal.getallEntryValuesfromDataBase(this.getTableReference(), this.getHash());
-        for (int valueIndex = 1; valueIndex < this.getamountofDisplayableValues(); valueIndex++) {
+        for (int valueIndex = 1; valueIndex < dataBaseValues.length; valueIndex++) {
             this.nonHashdataBaseValues[valueIndex-1] = dataBaseValues[valueIndex];
         }
     }
