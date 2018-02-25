@@ -63,7 +63,7 @@ public class ProjectFrame extends BaseFrame {
                             Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 0, arrCreateEntryFields[0].getText());
                             Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 1, arrCreateEntryFields[1].getText());
                         } catch (SQLException e1) {
-                           //TODO :Fehlerursachen ?
+                            //TODO :Fehlerursachen ?
                         }
                     }
                     arrCreateEntryFields[0].setText("");
@@ -104,6 +104,19 @@ public class ProjectFrame extends BaseFrame {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
             this.listTextRows.add(new ProjectRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
+        int brokenDataBaseEntrys = 0;
+        for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
+            if (!dataBaseEntrys.get(listIndex).isValidDataBaseEntry()) {
+                brokenDataBaseEntrys++;
+            }
+        }
+        if (brokenDataBaseEntrys == 0) {
+            cMain.updateStatus("Die Projekt-Datenbank ist in Ordnung soweit, man könnte eine Zuordnung anlegen");
+        } else {
+            cMain.updateStatus("" + brokenDataBaseEntrys + " Projekte haben nicht korrekte Werte, beispielsweise keine  leere Werte.");
+        }
+
+
     }
 
 

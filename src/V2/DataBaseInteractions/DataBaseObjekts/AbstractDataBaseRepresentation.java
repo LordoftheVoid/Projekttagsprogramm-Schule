@@ -38,7 +38,23 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
 
     @Override
     public boolean isValidDataBaseEntry() {
-        return false;
+
+        boolean isValid = true;
+
+        String[] dataBaseValues = this.getNonHashdataBaseValues();
+
+        try {
+            for (String valueFromDataBase : dataBaseValues
+                    ) {
+                isValid = isValid && (!valueFromDataBase.equals(""));
+            }
+        } catch (NullPointerException e1) {
+            isValid = false;
+        }
+
+
+
+        return isValid;
     }
 
     public String[] getNonHashdataBaseValues() {

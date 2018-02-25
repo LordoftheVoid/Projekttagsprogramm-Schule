@@ -35,18 +35,7 @@ public class Pupil extends AbstractDataBaseRepresentation {
 
     public boolean isValidDataBaseEntry() {
 
-        boolean isValid = true;
-
-        String[] dataBaseValues = this.getNonHashdataBaseValues();
-
-        try {
-            for (String valueFromDataBase : dataBaseValues
-                    ) {
-                isValid = isValid && (!valueFromDataBase.equals(""));
-            }
-        } catch (NullPointerException e1) {
-            isValid = false;
-        }
+        boolean isValid = super.isValidDataBaseEntry();
 
 
         for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {

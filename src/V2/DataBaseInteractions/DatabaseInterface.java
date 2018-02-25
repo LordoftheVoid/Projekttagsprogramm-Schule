@@ -150,6 +150,29 @@ public class DatabaseInterface {
     }
 
 
+    public String[] getVisibleValuesfromDataBase(String table, String entryID) {
+
+        String[] results = new String[tableColums.get(table).size()];
+        for (int arrayIndex = 0; arrayIndex < results.length; arrayIndex++) {
+            results[arrayIndex] = "";
+        }
+        try {
+            ResultSet entry = this.readEntryallAttributes(table, entryID);
+            while (entry.next()) {
+                for (int arrayIndex = 0; arrayIndex < tableColums.get(table).size(); arrayIndex++) {
+                    results[arrayIndex] = entry.getString(arrayIndex + 2);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
+
+
+
     public ArrayList<String> getEntryIDs(String table) {
         ArrayList<String> entryList = new ArrayList<>();
         try {

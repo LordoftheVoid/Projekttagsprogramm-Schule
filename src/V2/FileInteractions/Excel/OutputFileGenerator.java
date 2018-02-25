@@ -6,14 +6,8 @@ package V2.FileInteractions.Excel;
  */
 public class OutputFileGenerator {
 
-/*
-    cHash_Map_ID_projects_to_List_ID_pupils obj_output_Map;
 
-
-    public OutputFileGenerator(cHash_Map_ID_projects_to_List_ID_pupils argMap_tm) {
-        obj_output_Map = argMap_tm;
-
-    }
+    /*
 
     static int iAmountofUsages = 0;
 
@@ -23,6 +17,16 @@ public class OutputFileGenerator {
         DirectoryCreator objDirectory_Creator = new DirectoryCreator();
 
         objDirectory_Creator.v_creation(sTargetDirectory, "Zuweisung_" + String.valueOf(iAmountofUsages));
+
+
+
+
+
+
+
+
+
+
 
 
         for (String s_loop_objekt : obj_output_Map.keySet()
@@ -88,5 +92,5 @@ public class OutputFileGenerator {
         }
     }
 
-*/
+    */
 }

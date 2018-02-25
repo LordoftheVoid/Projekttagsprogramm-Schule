@@ -5,6 +5,8 @@ import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.DataBaseInteractions.DatabaseInterface;
 import V2.FileInteractions.DirectoryCreator;
+import V2.FileInteractions.Excel.ExcelGridFile;
+import V2.FileInteractions.Excel.ExcelGridFileGenerator;
 import V2.FileInteractions.Excel.InterfaceExcel;
 import V2.Settings.Imports;
 import V2.UI.Frame.BaseFrame;
@@ -34,6 +36,9 @@ public class cMain {
     //TODO GLOBAL: Das man die Projektnummer nicht manuell ändern kann, sonder ein neues Projekt anlegen muss wenn man das will
 
     //TODO: FeinSchliff: Das Suchen die Einträge zählt
+
+    //TODO: HARDCODES ENTFERNEN
+
 
     static JTextArea statusDisplay;
     static JFrame objFrameMain;
@@ -104,12 +109,14 @@ public class cMain {
 
 
 
+
+
+
+
         JButton btnCreateUI = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
         objFrameMain.getContentPane().add(btnCreateUI);
         btnCreateUI.setVisible(true);
         btnCreateUI.setBounds(0, 0, 600, 450);
-
-
 
 
         btnCreateUI.addMouseListener(new MouseListener() {
@@ -311,7 +318,7 @@ public class cMain {
                 }
 
                 if (validData) {
-
+                    cMain.updateStatus("Die Berechnungen haben begonnen und können sich hinziehen, Updates werden erfolgen");
 
                     listDataBaseIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Link");
                     for (String listElement : listDataBaseIDs
@@ -384,6 +391,8 @@ public class cMain {
                                 listResultLinks.add(result);
                                 listPupilswithoutProjectOverall.remove(0);
                             }
+
+                            cMain.updateStatus("Diese Nachricht markiert das Ende einer vollen Berechnung,  weitere sollten ähnlich lange dauern");
                         }
 
 
@@ -410,7 +419,7 @@ public class cMain {
                                 }
                             }
 
-                            System.out.println(sumPreferencesThisResult + " ZwischenErgebnis" + invalidLinksthisResult);
+                            //   System.out.println(sumPreferencesThisResult + " ZwischenErgebnis" + invalidLinksthisResult);
 
                             if (invalidLinksthisResult <= invalidLinksFinalResult && sumPreferencesThisResult < sumfinalResult) {
                                 sumfinalResult = sumPreferencesThisResult;
@@ -446,19 +455,31 @@ public class cMain {
                         }
                     }
 
-                    System.out.println(sumfinalResult + " Bestes Ergebnis" + invalidLinksFinalResult);
+                    // System.out.println(sumfinalResult + " Bestes Ergebnis" + invalidLinksFinalResult);
 
-                    System.out.println("-----------------------------------");
+                    //   System.out.println("-----------------------------------");
 
                     BaseFrame frameOutput = new OutputFrame(5, "Das beste Ergebnis");
                     frameOutput.displayFrame(0, 0, 1000, 1000);
 
+                    ExcelGridFileGenerator testOne = new ExcelGridFileGenerator("C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\DateiUmgebungen\\Real\\Output");
 
+
+                    ArrayList<ExcelGridFile> fileTestsOne = testOne.generateFilesFromDataBase(2);
+
+                    for (ExcelGridFile element : fileTestsOne
+                            ) {
+                        element.saveFiletoDisk();
+                    }
+
+                    fileTestsOne = testOne.generateFilesFromDataBase(3);
+
+                    for (ExcelGridFile element : fileTestsOne
+                            ) {
+                        element.saveFiletoDisk();
+                    }
                 } else {
-
-                    //MAULEN!!
-                    System.out.println("DAS WAR NICHT VALID");
-
+                    cMain.updateStatus("Die Datenbank war nicht vollständig und oder hatte falsche Werte, bitte eintragen/ändern");
                 }
             }
 

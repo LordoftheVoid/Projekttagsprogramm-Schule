@@ -96,6 +96,17 @@ public class PupilFrame extends BaseFrame {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
             this.listTextRows.add(new PupilRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
+        int brokenDataBaseEntrys = 0;
+        for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
+            if (!dataBaseEntrys.get(listIndex).isValidDataBaseEntry()) {
+                brokenDataBaseEntrys++;
+            }
+        }
+        if (brokenDataBaseEntrys == 0) {
+            cMain.updateStatus("Die Schüler- Datenbank ist in Ordnung soweit, man könnte eine Zuordnung anlegen");
+        } else {
+            cMain.updateStatus("" + brokenDataBaseEntrys + " Schüler haben nicht korrekte Werte, beispielsweise keine  vier Projektpräferenzen.");
+        }
     }
 
     @Override

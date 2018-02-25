@@ -44,17 +44,10 @@ public class Project extends AbstractDataBaseRepresentation {
 
     @Override
     public boolean isValidDataBaseEntry() {
-        boolean isValid = true;
+
+        boolean isValid = super.isValidDataBaseEntry();
 
         String[] dataBaseValues = this.getNonHashdataBaseValues();
-        try {
-            for (String valueFromDataBase : dataBaseValues
-                    ) {
-                isValid = isValid && (!valueFromDataBase.equals(""));
-            }
-        } catch (NullPointerException e1) {
-            isValid = false;
-        }
 
         for (int charIndex = 0; charIndex < dataBaseValues[0].length(); charIndex++) {
             isValid = isValid && Character.isDigit(dataBaseValues[0].charAt(charIndex));
@@ -63,7 +56,6 @@ public class Project extends AbstractDataBaseRepresentation {
         for (int charIndex = 0; charIndex < dataBaseValues[2].length(); charIndex++) {
             isValid = isValid && Character.isDigit(dataBaseValues[2].charAt(charIndex));
         }
-
 
         return isValid;
     }
