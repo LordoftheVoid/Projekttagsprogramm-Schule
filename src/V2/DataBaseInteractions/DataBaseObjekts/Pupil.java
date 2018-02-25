@@ -37,20 +37,27 @@ public class Pupil extends AbstractDataBaseRepresentation {
 
         boolean isValid = true;
 
-        for (String valueFromDataBase:this.getNonHashdataBaseValues()
-             ) {
-           isValid = isValid && (!valueFromDataBase.equals(""));
+        String[] dataBaseValues = this.getNonHashdataBaseValues();
+
+        try {
+            for (String valueFromDataBase : dataBaseValues
+                    ) {
+                isValid = isValid && (!valueFromDataBase.equals(""));
+            }
+        } catch (NullPointerException e1) {
+            isValid = false;
         }
 
+
         for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
-            isValid = isValid && Imports.objDatabaseManagerGlobal.entryExists("Project",this.getDisplayableValue(arrayIndex));
+            isValid = isValid && Imports.objDatabaseManagerGlobal.entryExists("Project", this.getDisplayableValue(arrayIndex));
         }
 
         Set<String> uniqueProjectIDS = new HashSet<>();
         for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
-        uniqueProjectIDS.add(this.getDisplayableValue(arrayIndex));
+            uniqueProjectIDS.add(this.getDisplayableValue(arrayIndex));
         }
-        isValid = isValid && uniqueProjectIDS.size()==4;
+        isValid = isValid && uniqueProjectIDS.size() == 4;
 
         //Todo: Eine Validitätsmethode, dafür ordentlich!
         return isValid;
@@ -93,7 +100,7 @@ public class Pupil extends AbstractDataBaseRepresentation {
         this.setHash(generateHash(getNonHashdataBaseValues()[0], getNonHashdataBaseValues()[1]));
 
         try {
-            Imports.objDatabaseManagerGlobal.updateIDValue(this.getTableReference(),oldHash,this.getHash());
+            Imports.objDatabaseManagerGlobal.updateIDValue(this.getTableReference(), oldHash, this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }

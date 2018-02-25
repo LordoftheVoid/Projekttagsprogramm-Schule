@@ -38,8 +38,6 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
 
     @Override
     public boolean isValidDataBaseEntry() {
-        /**TODO Verifizierung gegen die Daten, Tests auf Null etc
-         */
         return false;
     }
 

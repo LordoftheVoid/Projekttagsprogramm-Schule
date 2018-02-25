@@ -4,6 +4,7 @@ import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.Settings.Imports;
 import V2.UI.NonFrameElements.DisplayedRows.ProjectRow;
+import V2.cMain;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -55,16 +56,14 @@ public class ProjectFrame extends BaseFrame {
 
                 if (isNumber) {
                     if (Imports.objDatabaseManagerGlobal.entryExists("Project", arrCreateEntryFields[0].getText())) {
-                        //TODO: Sagen, das ein Schüler bereits exisitierte
+                        cMain.updateStatus("Ein Projekt mit dieser Nummer existiert bereits, bitte erst das alte löschen");
                     } else {
                         try {
                             Imports.objDatabaseManagerGlobal.createEntry("Project", arrCreateEntryFields[0].getText());
                             Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 0, arrCreateEntryFields[0].getText());
                             Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 1, arrCreateEntryFields[1].getText());
                         } catch (SQLException e1) {
-                            /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
-                             *    System.out.println( e.getMessage());
-                             */
+                           //TODO :Fehlerursachen ?
                         }
                     }
                     arrCreateEntryFields[0].setText("");
@@ -72,7 +71,7 @@ public class ProjectFrame extends BaseFrame {
                     resetInterface();
 
                 } else {
-                    //TODO: MAULEN
+                    cMain.updateStatus("Diese Eingabe war keine Nummer, erlaubt sind nur die Ziffern von 0-9");
                 }
             }
 

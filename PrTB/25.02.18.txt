@@ -1,0 +1,2 @@
+Ziel: Main-Algorithmus implementieren, kleinere Verbesserungen
+

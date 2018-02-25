@@ -7,7 +7,7 @@ import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
  */
 
 
-public class NameTextField extends  CustomTextField {
+public class NameTextField extends CustomTextField {
 
 
     public NameTextField(int index, AbstractDataBaseRepresentation dataBaseEnty) {
@@ -17,7 +17,7 @@ public class NameTextField extends  CustomTextField {
 
     @Override
     public boolean isValidInput() {
-        return  this.getText().length()>2;
+        return this.getText().length() > 2;
     }
 
 

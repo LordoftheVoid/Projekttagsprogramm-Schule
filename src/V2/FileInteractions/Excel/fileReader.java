@@ -2,6 +2,7 @@ package V2.FileInteractions.Excel;
 
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.Settings.Imports;
+import V2.cMain;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.FileInputStream;
@@ -23,8 +24,8 @@ public class fileReader extends Thread {
     }
 
 
-    String generateGrade(){
-        String grade ="";
+    String generateGrade() {
+        String grade = "";
         int charIndexBackTracking = dateiUrl.length() - 1;
 
         while (dateiUrl.charAt(charIndexBackTracking) != '\\') {
@@ -62,24 +63,20 @@ public class fileReader extends Thread {
             if (!surName.toLowerCase().equals("nachname")) {
 
 
-                String newID = Pupil.generateHash(surName,preName);
-                if(Imports.objDatabaseManagerGlobal.entryExists("Pupil",newID)){
-                    //TODO: Sagen, das ein Schüler bereits exisitierte
-                }else{
+                String newID = Pupil.generateHash(surName, preName);
+                if (Imports.objDatabaseManagerGlobal.entryExists("Pupil", newID)) {
+                    cMain.updateStatus("Es wurde versucht, einen Schüler aus Excel anzulegen der bereits existiert");
+                } else {
                     try {
+                        cMain.updateStatus("Ein neuer Schüler wurde aus Exel importiert");
                         Imports.objDatabaseManagerGlobal.createEntry("Pupil", newID);
                         Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newID, 0, surName);
                         Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newID, 1, preName);
                         Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newID, 2, this.generateGrade());
-                    } catch (SQLException e) {
-                        /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
-                         *    System.out.println( e.getMessage());
-                         *
-                         */
 
+                    } catch (SQLException e) {
                     }
                 }
-
 
 
             }

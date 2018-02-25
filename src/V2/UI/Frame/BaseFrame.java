@@ -155,6 +155,7 @@ public abstract class BaseFrame extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        this.updateRowYKoordinate(300);
     }
 
 

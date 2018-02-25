@@ -4,6 +4,7 @@ import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.Settings.Imports;
 import V2.UI.NonFrameElements.DisplayedRows.PupilRow;
+import V2.cMain;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -31,7 +32,7 @@ public class PupilFrame extends BaseFrame {
                 ) {
             Pupil newEntry = new Pupil(idNewPupil);
 
-            //TODO: MAULEN!!
+            cMain.updateStatus("Ein neuer Schüler wird angezeigt");
             entrys.add(newEntry);
         }
         return entrys;
@@ -49,17 +50,14 @@ public class PupilFrame extends BaseFrame {
                 try {
                     String newPupilHash = Pupil.generateHash(arrCreateEntryFields[0].getText(), arrCreateEntryFields[1].getText());
                     if (Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupilHash)) {
-                        //TODO: Sagen, das ein Schüler bereits exisitierte
+                        cMain.updateStatus("Ein Schüler mit diesem Namen existierte bereits, bitte Namen ändern");
                     } else {
                         try {
                             Imports.objDatabaseManagerGlobal.createEntry("Pupil", newPupilHash);
                             Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 0, arrCreateEntryFields[0].getText());
-                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 1, arrCreateEntryFields[0].getText());
+                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 1, arrCreateEntryFields[1].getText());
                         } catch (SQLException e1) {
-                            /**Todo: Maulen das ein Schüler bereits exisitert, alle weiteren Fehlerursachen untersuchen
-                             *    System.out.println( e.getMessage());
-                             *
-                             */
+                            //TODO: Fehlerursachen ?
                         }
                     }
                     arrCreateEntryFields[0].setText("");

@@ -1,5 +1,9 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
+import V2.Settings.Imports;
+
+import java.sql.SQLException;
+
 /**
  * Created by Aaron on 31.01.2018.
  */
@@ -10,27 +14,14 @@ public class Link extends AbstractDataBaseRepresentation{
         //Vorname, Nachname, Klasse, Projektnummer, Welche Wahl
 
 
-        private String pupilHash;
-        private String projectID;
+
         private boolean isValidProject;
 
 
-        public Link(String pupilHash, String projectID) {
-            super(pupilHash + projectID);
-            if (projectID.equals("-1")) {
-                this.isValidProject = false;
-            }
-            this.pupilHash = pupilHash;
-            this.projectID = projectID;
+        public Link(String pseudoHash) {
+            super(pseudoHash);
         }
 
-        public String getProjectID() {
-            return projectID;
-        }
-
-        public String getPupilHash() {
-            return pupilHash;
-        }
 
         public boolean isValidProject() {
             return isValidProject;
@@ -43,7 +34,7 @@ public class Link extends AbstractDataBaseRepresentation{
 
         @Override
         public int getamountofDisplayableValues() {
-            return 0;
+            return 5;
         }
 
         @Override
@@ -53,9 +44,16 @@ public class Link extends AbstractDataBaseRepresentation{
 
         @Override
         protected void savetoDataBase(int index, String newValue) {
-
+            try {
+                Imports.objDatabaseManagerGlobal.updateNonIDValues("Link" +
+                        "", this.getHash(), index, newValue);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
-
+       public static String generateHash( String pupilID,String projectID){
+            return  pupilID +","+projectID;
+        }
 }
 

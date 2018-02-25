@@ -7,24 +7,23 @@ import javax.swing.*;
 /**
  * Created by Aaron on 16.02.2018.
  */
-public  abstract  class CustomTextField extends JTextField {
+public abstract class CustomTextField extends JTextField {
 
     public int index;
 
 
     public String oldValue;
 
-   public AbstractDataBaseRepresentation dataBaseEntry;
+    public AbstractDataBaseRepresentation dataBaseEntry;
 
 
-
-    CustomTextField(int index, AbstractDataBaseRepresentation dataBaseEntry){
+    CustomTextField(int index, AbstractDataBaseRepresentation dataBaseEntry) {
         super();
-        this.index =index;
-      this.dataBaseEntry = dataBaseEntry;
+        this.index = index;
+        this.dataBaseEntry = dataBaseEntry;
     }
 
 
-    public  abstract  boolean isValidInput();
+    public abstract boolean isValidInput();
 
 }

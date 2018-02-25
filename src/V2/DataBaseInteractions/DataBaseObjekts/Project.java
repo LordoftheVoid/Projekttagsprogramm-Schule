@@ -19,7 +19,7 @@ public class Project extends AbstractDataBaseRepresentation {
 
     private int assignedPupil = 0;
 
-    //Constructor from the DataBase
+
     public Project(String projectNumber) {
         super(projectNumber);
     }
@@ -44,8 +44,28 @@ public class Project extends AbstractDataBaseRepresentation {
 
     @Override
     public boolean isValidDataBaseEntry() {
+        boolean isValid = true;
 
-        return true;
+        String[] dataBaseValues = this.getNonHashdataBaseValues();
+        try {
+            for (String valueFromDataBase : dataBaseValues
+                    ) {
+                isValid = isValid && (!valueFromDataBase.equals(""));
+            }
+        } catch (NullPointerException e1) {
+            isValid = false;
+        }
+
+        for (int charIndex = 0; charIndex < dataBaseValues[0].length(); charIndex++) {
+            isValid = isValid && Character.isDigit(dataBaseValues[0].charAt(charIndex));
+        }
+
+        for (int charIndex = 0; charIndex < dataBaseValues[2].length(); charIndex++) {
+            isValid = isValid && Character.isDigit(dataBaseValues[2].charAt(charIndex));
+        }
+
+
+        return isValid;
     }
 
 
@@ -54,15 +74,19 @@ public class Project extends AbstractDataBaseRepresentation {
     }
 
     public void assignNewPupil() throws IndexOutOfBoundsException {
-        if (this.hasReachedMaxCapacity()) throw new IndexOutOfBoundsException();
+        if (!this.hasSlotsavailable()) throw new IndexOutOfBoundsException();
         this.assignedPupil++;
     }
 
-    private boolean hasReachedMaxCapacity() {
-        //Todo: Reimplement
-        //return this.assignedPupil < Integer.valueOf(this.getInterAktionValues()[0]);
-        return false;
+    public void resetPupilCount() {
+        this.assignedPupil = 0;
     }
+
+
+    public boolean hasSlotsavailable() {
+        return this.assignedPupil < Integer.valueOf(this.getDisplayableValue(2));
+    }
+
 
     @Override
     protected void savetoDataBase(int index, String newValue) {
