@@ -1,7 +1,7 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
 
-import V2.Settings.Imports;
+import V2.cMain;
 
 import java.sql.SQLException;
 import java.util.HashSet;
@@ -37,19 +37,23 @@ public class Pupil extends AbstractDataBaseRepresentation {
 
         boolean isValid = super.isValidDataBaseEntry();
 
+        if (!isValid) {
+            return false;
+        } else {
 
-        for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
-            isValid = isValid && Imports.objDatabaseManagerGlobal.entryExists("Project", this.getDisplayableValue(arrayIndex));
+            for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
+                isValid = isValid && cMain.objDatabaseManagerGlobal.entryExists("Project", this.getDisplayableValue(arrayIndex));
+            }
+
+            Set<String> uniqueProjectIDS = new HashSet<>();
+            for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
+                uniqueProjectIDS.add(this.getDisplayableValue(arrayIndex));
+            }
+            isValid = isValid && uniqueProjectIDS.size() == 4;
+
+            //Todo: Eine Validitätsmethode, dafür ordentlich!
+            return isValid;
         }
-
-        Set<String> uniqueProjectIDS = new HashSet<>();
-        for (int arrayIndex = 3; arrayIndex < this.getamountofDisplayableValues(); arrayIndex++) {
-            uniqueProjectIDS.add(this.getDisplayableValue(arrayIndex));
-        }
-        isValid = isValid && uniqueProjectIDS.size() == 4;
-
-        //Todo: Eine Validitätsmethode, dafür ordentlich!
-        return isValid;
     }
 
     @Override
@@ -89,7 +93,7 @@ public class Pupil extends AbstractDataBaseRepresentation {
         this.setHash(generateHash(getNonHashdataBaseValues()[0], getNonHashdataBaseValues()[1]));
 
         try {
-            Imports.objDatabaseManagerGlobal.updateIDValue(this.getTableReference(), oldHash, this.getHash());
+            cMain.objDatabaseManagerGlobal.updateIDValue(this.getTableReference(), oldHash, this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -101,7 +105,7 @@ public class Pupil extends AbstractDataBaseRepresentation {
     protected void savetoDataBase(int index, String newValue) {
         //TODO: Prüfungen ?
         try {
-            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", this.getHash(), index, newValue);
+            cMain.objDatabaseManagerGlobal.updateNonIDValues("Pupil", this.getHash(), index, newValue);
         } catch (SQLException e) {
             e.printStackTrace();
         }

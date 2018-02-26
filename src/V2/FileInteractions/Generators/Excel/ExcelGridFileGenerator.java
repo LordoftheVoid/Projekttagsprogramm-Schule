@@ -1,6 +1,7 @@
 package V2.FileInteractions.Generators.Excel;
 
-import V2.Settings.Imports;
+
+import V2.cMain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +21,7 @@ public class ExcelGridFileGenerator {
     public ArrayList<ExcelGridFile> generateFilesFromDataBase(int indexToSeperateIntoFiles) {
         ArrayList<ExcelGridFile> listOfProducedFiles = new ArrayList<>();
 
-        ArrayList<String> listOfLinkIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Link");
+        ArrayList<String> listOfLinkIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Link");
 
         HashMap<String, ExcelGridFile> filetowritetoHashMap = new HashMap<>();
 
@@ -37,12 +38,12 @@ public class ExcelGridFileGenerator {
 
 
         for (int listIndex = 0; listIndex < listOfLinkIDs.size(); listIndex++) {
-            String separatingValue = Imports.objDatabaseManagerGlobal.getValuefromDataBase("Link", listOfLinkIDs.get(listIndex), indexToSeperateIntoFiles);
+            String separatingValue = cMain.objDatabaseManagerGlobal.getValuefromDataBase("Link", listOfLinkIDs.get(listIndex), indexToSeperateIntoFiles);
             if (filetowritetoHashMap.keySet().contains(separatingValue)) {
-                filetowritetoHashMap.get(separatingValue).addContent(Imports.objDatabaseManagerGlobal.getVisibleValuesfromDataBase("Link", listOfLinkIDs.get(listIndex)));
+                filetowritetoHashMap.get(separatingValue).addContent(cMain.objDatabaseManagerGlobal.getVisibleValuesfromDataBase("Link", listOfLinkIDs.get(listIndex)));
             } else {
                 filetowritetoHashMap.put(separatingValue, new ExcelGridFile(parentDirectoryURL));
-                filetowritetoHashMap.get(separatingValue).addContent(Imports.objDatabaseManagerGlobal.getVisibleValuesfromDataBase("Link", listOfLinkIDs.get(listIndex)));
+                filetowritetoHashMap.get(separatingValue).addContent(cMain.objDatabaseManagerGlobal.getVisibleValuesfromDataBase("Link", listOfLinkIDs.get(listIndex)));
             }
             filetowritetoHashMap.get(separatingValue).setFileName(newFileName + separatingValue);
         }

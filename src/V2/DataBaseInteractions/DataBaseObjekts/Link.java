@@ -1,6 +1,7 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
-import V2.Settings.Imports;
+
+import V2.cMain;
 
 import java.sql.SQLException;
 
@@ -45,7 +46,7 @@ public class Link extends AbstractDataBaseRepresentation{
         @Override
         protected void savetoDataBase(int index, String newValue) {
             try {
-                Imports.objDatabaseManagerGlobal.updateNonIDValues("Link" +
+                cMain.objDatabaseManagerGlobal.updateNonIDValues("Link" +
                         "", this.getHash(), index, newValue);
             } catch (SQLException e) {
                 e.printStackTrace();

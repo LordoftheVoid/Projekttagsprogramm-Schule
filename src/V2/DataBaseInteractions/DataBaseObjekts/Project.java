@@ -1,7 +1,7 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
 
-import V2.Settings.Imports;
+import V2.cMain;
 
 import java.sql.SQLException;
 
@@ -47,17 +47,22 @@ public class Project extends AbstractDataBaseRepresentation {
 
         boolean isValid = super.isValidDataBaseEntry();
 
-        String[] dataBaseValues = this.getNonHashdataBaseValues();
+        if(!isValid){
+            return false;
+        }else{
+            String[] dataBaseValues = this.getNonHashdataBaseValues();
 
-        for (int charIndex = 0; charIndex < dataBaseValues[0].length(); charIndex++) {
-            isValid = isValid && Character.isDigit(dataBaseValues[0].charAt(charIndex));
+            for (int charIndex = 0; charIndex < dataBaseValues[0].length(); charIndex++) {
+                isValid = isValid && Character.isDigit(dataBaseValues[0].charAt(charIndex));
+            }
+
+            for (int charIndex = 0; charIndex < dataBaseValues[2].length(); charIndex++) {
+                isValid = isValid && Character.isDigit(dataBaseValues[2].charAt(charIndex));
+            }
+
+            return isValid;
         }
 
-        for (int charIndex = 0; charIndex < dataBaseValues[2].length(); charIndex++) {
-            isValid = isValid && Character.isDigit(dataBaseValues[2].charAt(charIndex));
-        }
-
-        return isValid;
     }
 
 
@@ -83,7 +88,7 @@ public class Project extends AbstractDataBaseRepresentation {
     @Override
     protected void savetoDataBase(int index, String newValue) {
         try {
-            Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", this.getHash(), index, newValue);
+            cMain.objDatabaseManagerGlobal.updateNonIDValues("Project", this.getHash(), index, newValue);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -2,7 +2,6 @@ package V2.UI.Frame;
 
 import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
-import V2.Settings.Imports;
 import V2.UI.NonFrameElements.DisplayedRows.PupilRow;
 import V2.cMain;
 
@@ -26,7 +25,7 @@ public class PupilFrame extends BaseFrame {
     public ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException {
         ArrayList<AbstractDataBaseRepresentation> entrys = new ArrayList<>();
 
-        ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
+        ArrayList<String> listIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Pupil");
 
         for (String idNewPupil : listIDs
                 ) {
@@ -49,13 +48,13 @@ public class PupilFrame extends BaseFrame {
             public void mouseClicked(MouseEvent e) {
                 try {
                     String newPupilHash = Pupil.generateHash(arrCreateEntryFields[0].getText(), arrCreateEntryFields[1].getText());
-                    if (Imports.objDatabaseManagerGlobal.entryExists("Pupil", newPupilHash)) {
+                    if (cMain.objDatabaseManagerGlobal.entryExists("Pupil", newPupilHash)) {
                         cMain.updateStatus("Ein Schüler mit diesem Namen existierte bereits, bitte Namen ändern");
                     } else {
                         try {
-                            Imports.objDatabaseManagerGlobal.createEntry("Pupil", newPupilHash);
-                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 0, arrCreateEntryFields[0].getText());
-                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 1, arrCreateEntryFields[1].getText());
+                            cMain.objDatabaseManagerGlobal.createEntry("Pupil", newPupilHash);
+                            cMain.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 0, arrCreateEntryFields[0].getText());
+                            cMain.objDatabaseManagerGlobal.updateNonIDValues("Pupil", newPupilHash, 1, arrCreateEntryFields[1].getText());
                         } catch (SQLException e1) {
                             //TODO: Fehlerursachen ?
                         }

@@ -2,8 +2,8 @@ package V2.UI.Frame;
 
 import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.DataBaseInteractions.DataBaseObjekts.Link;
-import V2.Settings.Imports;
 import V2.UI.NonFrameElements.DisplayedRows.LinkRow;
+import V2.cMain;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class OutputFrame extends BaseFrame {
     public ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException {
         ArrayList<AbstractDataBaseRepresentation> entrys = new ArrayList<>();
 
-        ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Link");
+        ArrayList<String> listIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Link");
 
         for (String idNewPupil : listIDs
                 ) {

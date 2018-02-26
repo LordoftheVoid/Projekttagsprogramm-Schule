@@ -3,7 +3,7 @@ package DataBaseTests.Pupil;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.FileInteractions.Readers.DatabaseInterface;
-import V2.Settings.Imports;
+import V2.cMain;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +31,7 @@ class testIsValidDataBaseEntryPositiv {
 
         String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
         try {
-            Imports.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
+            cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -57,18 +57,18 @@ class testIsValidDataBaseEntryPositiv {
     void tearDown() {
 
         try {
-            Imports.objDatabaseManagerGlobal.deleteEntry("Pupil", testObj.getHash());
+            cMain.objDatabaseManagerGlobal.deleteEntry("Pupil", testObj.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         for (int arrayIndex = 0; arrayIndex < projectIds.length; arrayIndex++) {
             try {
-                Imports.objDatabaseManagerGlobal.deleteEntry("Project", projectIds[arrayIndex]);
+                cMain.objDatabaseManagerGlobal.deleteEntry("Project", projectIds[arrayIndex]);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        Imports.objDatabaseManagerGlobal.releaseDataBaseConnection();
+        cMain.objDatabaseManagerGlobal.releaseDataBaseConnection();
 
     }
 

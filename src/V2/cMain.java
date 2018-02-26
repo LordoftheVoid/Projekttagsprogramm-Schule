@@ -6,9 +6,10 @@ import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.FileInteractions.Generators.Excel.ExcelGridFile;
 import V2.FileInteractions.Generators.Excel.ExcelGridFileGenerator;
 import V2.FileInteractions.Readers.DatabaseInterface;
-import V2.FileInteractions.Readers.InterfaceExcel;
+import V2.FileInteractions.Readers.ExcelFileReader;
 import V2.FileInteractions.URLManipulation.URLInterFace;
-import V2.Settings.Imports;
+
+
 import V2.UI.Frame.BaseFrame;
 import V2.UI.Frame.OutputFrame;
 import V2.UI.Frame.ProjectFrame;
@@ -43,6 +44,9 @@ public class cMain {
     static JTextArea statusDisplay;
     static JFrame objFrameMain;
 
+    static  URLInterFace sourceURLS;
+
+    public static DatabaseInterface objDatabaseManagerGlobal;
 
     /**
      * Updates the main display for interactions with a user,
@@ -73,31 +77,45 @@ public class cMain {
         updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
 
 
-        URLInterFace sourceURLS = new URLInterFace(args);
+         sourceURLS = new URLInterFace(args);
 
 
-        String [] requiredDirectories = new String[3];
+        String[] requiredDirectories = new String[3];
 
-        requiredDirectories[0]= "\\Datenbank-Ordner";
+        requiredDirectories[0] = "\\Datenbank-Ordner";
         requiredDirectories[1] = "\\Zu lesende Excel-Dateien";
-        requiredDirectories[2]= "\\Ergebnis-Ordner";
+        requiredDirectories[2] = "\\Ergebnis-Ordner";
 
         sourceURLS.setupDirectories(requiredDirectories);
 
         try {
-            Imports.objDatabaseManagerGlobal = new DatabaseInterface(sourceURLS.setupDataBaseURL());
+            cMain.objDatabaseManagerGlobal = new DatabaseInterface(sourceURLS.setupDataBaseURL());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
+        boolean readFromExcel = true;
 
+        try {
+            readFromExcel = Boolean.parseBoolean(args[1]);
+        } catch (ArrayIndexOutOfBoundsException e1) {
+
+        }
+        if (readFromExcel) {
+            ArrayList<String> listExCelFilesFound = sourceURLS.listExelURL();
+
+            for (String fileURL : listExCelFilesFound
+                    ) {
+                ExcelFileReader newReader = new ExcelFileReader(fileURL);
+            }
+        }
 
         /*
         if (args.length == 1) {
             if (args[0].equals("Normiert")) {
                 String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
                 try {
-                    Imports.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
+                    cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -106,7 +124,7 @@ public class cMain {
                 String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\DateiUmgebungen\\Real\\DatenBank-Ordner\\DefaultDataBase.db";
 
                 try {
-                    Imports.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
+                    cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -116,21 +134,19 @@ public class cMain {
         } else {
 
 
-            Imports.setupImport();
-            InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+            cMain.setupImport();
+            InterfaceExcel interfaceExcel = new InterfaceExcel(cMain.fileJAR.getParent() + "/Excel-Datei-Ordner");
 
             DirectoryCreator objDirectoryManager = new DirectoryCreator();
 
-            objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Datenbank-Ordner");
-            objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Excel-Datei-Ordner");
-            objDirectoryManager.v_creation(Imports.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
+            objDirectoryManager.v_creation(cMain.fileJAR.getParent(), "Datenbank-Ordner");
+            objDirectoryManager.v_creation(cMain.fileJAR.getParent(), "Excel-Datei-Ordner");
+            objDirectoryManager.v_creation(cMain.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
 
         }
 
 
         */
-
-
 
 
         JButton btnCreateUI = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
@@ -200,8 +216,8 @@ public class cMain {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                //TODO: Neu konfigurieren!! 
-                InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
+                //TODO: Neu konfigurieren!!
+                // InterfaceExcel interfaceExcel = new InterfaceExcel(cMain.fileJAR.getParent() + "/Excel-Datei-Ordner");
             }
 
             @Override
@@ -300,7 +316,7 @@ public class cMain {
                 CopyOnWriteArrayList<Project> listProjects = new CopyOnWriteArrayList<>();
                 CopyOnWriteArrayList<notaValidLinkName> listResultLinks = new CopyOnWriteArrayList<>();
 
-                listDataBaseIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Pupil");
+                listDataBaseIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Pupil");
 
                 for (String listElement : listDataBaseIDs
                         ) {
@@ -308,7 +324,7 @@ public class cMain {
                 }
                 listDataBaseIDs.clear();
 
-                listDataBaseIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Project");
+                listDataBaseIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Project");
                 HashMap<String, Project> idProjectHashMap = new HashMap<>();
                 for (String listElement : listDataBaseIDs
                         ) {
@@ -324,7 +340,6 @@ public class cMain {
                         ) {
                     validData = validData && pupilInDataBase.isValidDataBaseEntry();
                     if (!validData) {
-                        System.out.println("PupilHash" + pupilInDataBase.getHash());
                         break;
                     }
                 }
@@ -334,7 +349,6 @@ public class cMain {
                         ) {
                     validData = validData && projectInDataBase.isValidDataBaseEntry();
                     if (!validData) {
-                        System.out.println("ProjectHash" + projectInDataBase.getHash());
                         break;
                     }
                 }
@@ -342,11 +356,11 @@ public class cMain {
                 if (validData) {
                     cMain.updateStatus("Die Berechnungen haben begonnen und können sich hinziehen, Updates werden erfolgen");
 
-                    listDataBaseIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Link");
+                    listDataBaseIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Link");
                     for (String listElement : listDataBaseIDs
                             ) {
                         try {
-                            Imports.objDatabaseManagerGlobal.deleteEntry("Link", listElement);
+                            cMain.objDatabaseManagerGlobal.deleteEntry("Link", listElement);
                         } catch (SQLException e1) {
                             e1.printStackTrace();
                         }
@@ -467,9 +481,9 @@ public class cMain {
 
 
                         if (!Objects.equals(finalLink.getProjectHash(), "-1")) {
-                            newResultLink.setDisplayayableValue(0, Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 0));
-                            newResultLink.setDisplayayableValue(1, Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 1));
-                            newResultLink.setDisplayayableValue(2, Imports.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 2));
+                            newResultLink.setDisplayayableValue(0,  cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 0));
+                            newResultLink.setDisplayayableValue(1, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 1));
+                            newResultLink.setDisplayayableValue(2,  cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 2));
                             newResultLink.setDisplayayableValue(3, finalLink.getProjectHash());
                             newResultLink.setDisplayayableValue(4, String.valueOf(finalLink.getPupilPreferenceNumber() + 1));
                         } else {
@@ -484,7 +498,7 @@ public class cMain {
                     BaseFrame frameOutput = new OutputFrame(5, "Das beste Ergebnis");
                     frameOutput.displayFrame(0, 0, 1000, 1000);
 
-                    ExcelGridFileGenerator testOne = new ExcelGridFileGenerator("C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\DateiUmgebungen\\Real\\Output");
+                    ExcelGridFileGenerator testOne = new ExcelGridFileGenerator(sourceURLS.getURLoutputDirectory());
 
 
                     ArrayList<ExcelGridFile> fileTestsOne = testOne.generateFilesFromDataBase(2);

@@ -1,7 +1,7 @@
 package V2.DataBaseInteractions.DataBaseObjekts;
 
 
-import V2.Settings.Imports;
+import V2.cMain;
 
 import java.sql.SQLException;
 
@@ -18,7 +18,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
         initNullValues();
 
 
-        if (Imports.objDatabaseManagerGlobal.entryExists(this.getTableReference(), this.getHash())) {
+        if (cMain.objDatabaseManagerGlobal.entryExists(this.getTableReference(), this.getHash())) {
             updateToDataBaseValues();
         } else {
             initDataBaseEntry();
@@ -52,8 +52,6 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
             isValid = false;
         }
 
-
-
         return isValid;
     }
 
@@ -75,7 +73,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
     @Override
     public void deleteEntry() {
         try {
-            Imports.objDatabaseManagerGlobal.deleteEntry(this.getTableReference(), this.getHash());
+            cMain.objDatabaseManagerGlobal.deleteEntry(this.getTableReference(), this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,7 +94,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
 
     private void updateToDataBaseValues() {
         this.initNullValues();
-        String[] dataBaseValues = Imports.objDatabaseManagerGlobal.getallEntryValuesfromDataBase(this.getTableReference(), this.getHash());
+        String[] dataBaseValues = cMain.objDatabaseManagerGlobal.getallEntryValuesfromDataBase(this.getTableReference(), this.getHash());
         for (int valueIndex = 1; valueIndex < dataBaseValues.length; valueIndex++) {
             this.nonHashdataBaseValues[valueIndex-1] = dataBaseValues[valueIndex];
         }
@@ -105,7 +103,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
 
     private void initDataBaseEntry() {
         try {
-            Imports.objDatabaseManagerGlobal.createEntry(this.getTableReference(), this.getHash());
+            cMain.objDatabaseManagerGlobal.createEntry(this.getTableReference(), this.getHash());
         } catch (SQLException e) {
             e.printStackTrace();
         }

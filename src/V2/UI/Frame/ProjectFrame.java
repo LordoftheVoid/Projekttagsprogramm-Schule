@@ -2,7 +2,6 @@ package V2.UI.Frame;
 
 import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
-import V2.Settings.Imports;
 import V2.UI.NonFrameElements.DisplayedRows.ProjectRow;
 import V2.cMain;
 
@@ -28,7 +27,7 @@ public class ProjectFrame extends BaseFrame {
 
         ArrayList<AbstractDataBaseRepresentation> entrys = new ArrayList<>();
 
-        ArrayList<String> listIDs = Imports.objDatabaseManagerGlobal.getEntryIDs("Project");
+        ArrayList<String> listIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Project");
 
         for (String entry : listIDs
                 ) {
@@ -55,13 +54,13 @@ public class ProjectFrame extends BaseFrame {
                 }
 
                 if (isNumber) {
-                    if (Imports.objDatabaseManagerGlobal.entryExists("Project", arrCreateEntryFields[0].getText())) {
+                    if (cMain.objDatabaseManagerGlobal.entryExists("Project", arrCreateEntryFields[0].getText())) {
                         cMain.updateStatus("Ein Projekt mit dieser Nummer existiert bereits, bitte erst das alte löschen");
                     } else {
                         try {
-                            Imports.objDatabaseManagerGlobal.createEntry("Project", arrCreateEntryFields[0].getText());
-                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 0, arrCreateEntryFields[0].getText());
-                            Imports.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 1, arrCreateEntryFields[1].getText());
+                            cMain.objDatabaseManagerGlobal.createEntry("Project", arrCreateEntryFields[0].getText());
+                            cMain.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 0, arrCreateEntryFields[0].getText());
+                            cMain.objDatabaseManagerGlobal.updateNonIDValues("Project", arrCreateEntryFields[0].getText(), 1, arrCreateEntryFields[1].getText());
                         } catch (SQLException e1) {
                             //TODO :Fehlerursachen ?
                         }

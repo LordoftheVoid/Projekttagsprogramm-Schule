@@ -2,7 +2,7 @@ package DataBaseTests.Pupil;
 
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
 import V2.FileInteractions.Readers.DatabaseInterface;
-import V2.Settings.Imports;
+import V2.cMain;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +21,7 @@ class testEqualityofValues {
     void setUp() {
         String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
         try {
-            Imports.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
+            cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -34,8 +34,8 @@ class testEqualityofValues {
     @AfterEach
     void tearDown() {
         try {
-            Imports.objDatabaseManagerGlobal.deleteEntry("Pupil", testPupil.getHash());
-            Imports.objDatabaseManagerGlobal.releaseDataBaseConnection();
+            cMain.objDatabaseManagerGlobal.deleteEntry("Pupil", testPupil.getHash());
+            cMain.objDatabaseManagerGlobal.releaseDataBaseConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }

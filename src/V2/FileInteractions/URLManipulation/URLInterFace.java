@@ -47,7 +47,6 @@ public class URLInterFace {
             } else {
                 cMain.updateStatus("Die Ordner existierten bereits, Daten werden gelesen");
             }
-            cMain.updateStatus(dir.getAbsolutePath());
         }
 
     }
@@ -63,7 +62,10 @@ public class URLInterFace {
 
             DataBaseGenerator newDataBaseGenerator = new DataBaseGenerator();
 
-            newDataBaseGenerator.createNewDatabase(baseURL, "\\Standard-Schüler-Projekt-DatenBank.db");
+            String dataBaseName = "Standard-Schüler-Projekt-DatenBank.db";
+
+            String databaseURL = baseURL + "\\Datenbank-Ordner\\";
+            newDataBaseGenerator.createNewDatabase(databaseURL, dataBaseName);
 
 
             try {
@@ -96,10 +98,15 @@ public class URLInterFace {
             }
 
 
-            return baseURL + "\\Standard-Schüler-Projekt-DatenBank.db";
+            return databaseURL + dataBaseName;
         }
 
 
+    }
+
+
+    public String getURLoutputDirectory(){
+        return baseURL+ "\\Ergebnis-Ordner";
     }
 
 
@@ -133,7 +140,7 @@ public class URLInterFace {
 
 
     public ArrayList<String> listExelURL() {
-        CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
+        CopyOnWriteArrayList<String> list;
 
         list = searchFilesRecursivly(baseURL, ".xls");
 
