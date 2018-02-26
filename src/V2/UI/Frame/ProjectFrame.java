@@ -1,7 +1,7 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
-import V2.DataBaseInteractions.DataBaseObjekts.Project;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.Project;
 import V2.UI.NonFrameElements.DisplayedRows.ProjectRow;
 import V2.cMain;
 
@@ -101,7 +101,7 @@ public class ProjectFrame extends BaseFrame {
     @Override
     void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
-            this.listTextRows.add(new ProjectRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
+            this.listvisibleTextRows.add(new ProjectRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
         int brokenDataBaseEntrys = 0;
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {

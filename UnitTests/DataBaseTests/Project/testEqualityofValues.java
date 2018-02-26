@@ -1,6 +1,6 @@
 package DataBaseTests.Project;
 
-import V2.DataBaseInteractions.DataBaseObjekts.Project;
+import V2.DataBaseInternalClasses.Project;
 import V2.FileInteractions.Readers.DatabaseInterface;
 import V2.cMain;
 import org.junit.jupiter.api.AfterEach;

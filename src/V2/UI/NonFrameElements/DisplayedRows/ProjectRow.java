@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.TextFields.CustomTextField;
 import V2.UI.NonFrameElements.TextFields.GenericTextField;
 import V2.cMain;

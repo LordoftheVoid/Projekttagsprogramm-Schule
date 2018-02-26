@@ -43,7 +43,7 @@ public class URLInterFace {
             File dir = new File(baseURL + nameArgs[arrayIndex]);
             if (!dir.exists()) {
                 dir.mkdir();
-                cMain.updateStatus("Die Ordner wurden angelegt, bitte mit Datein füllen");
+                cMain.updateStatus("Die Ordner wurden angelegt, bitte mit Dateien füllen");
             } else {
                 cMain.updateStatus("Die Ordner existierten bereits, Daten werden gelesen");
             }
@@ -57,9 +57,10 @@ public class URLInterFace {
 
 
         if (results.size() == 1) {
+            cMain.updateStatus("Es wurde eine Datenbank registriert");
             return results.get(0);
         } else {
-
+            cMain.updateStatus("Es musste eine neue Datenbank angelegt werden, diese wird leer sein");
             DataBaseGenerator newDataBaseGenerator = new DataBaseGenerator();
 
             String dataBaseName = "Standard-Schüler-Projekt-DatenBank.db";

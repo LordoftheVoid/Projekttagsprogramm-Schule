@@ -1,7 +1,7 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
-import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.Pupil;
 import V2.UI.NonFrameElements.DisplayedRows.PupilRow;
 import V2.cMain;
 
@@ -93,7 +93,7 @@ public class PupilFrame extends BaseFrame {
     @Override
     void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
-            this.listTextRows.add(new PupilRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
+            this.listvisibleTextRows.add(new PupilRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
         int brokenDataBaseEntrys = 0;
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {

@@ -1,6 +1,6 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.DisplayedRows.AbstractRow;
 
 import javax.swing.*;
@@ -29,7 +29,8 @@ public abstract class BaseFrame extends JFrame {
     public JButton btnCreateEntry;
     JTextField[] arrCreateEntryFields;
     int columns;
-    CopyOnWriteArrayList<AbstractRow> listTextRows = new CopyOnWriteArrayList<>();
+    CopyOnWriteArrayList<AbstractRow> listvisibleTextRows = new CopyOnWriteArrayList<>();
+    CopyOnWriteArrayList<AbstractRow> listtextRowsInVisible = new CopyOnWriteArrayList<>();
     private JTextField[] suchLabel;
 
 
@@ -141,15 +142,15 @@ public abstract class BaseFrame extends JFrame {
 
 
     private void clearRows() {
-        for (int i = 0; i < this.listTextRows.size(); i++) {
-            this.listTextRows.get(i).removeFromFrame(this.getContentPane());
+        for (int i = 0; i < this.listvisibleTextRows.size(); i++) {
+            this.listvisibleTextRows.get(i).removeFromFrame(this.getContentPane());
         }
     }
 
 
     void resetInterface() {
         this.clearRows();
-        this.listTextRows = new CopyOnWriteArrayList<>();
+        this.listvisibleTextRows = new CopyOnWriteArrayList<>();
         try {
             this.generateRows(this.requestDataBaseContent());
         } catch (SQLException e) {
@@ -160,8 +161,8 @@ public abstract class BaseFrame extends JFrame {
 
 
     private void updateRowYKoordinate(int yFirstElement) {
-        for (int listIndex = 0; listIndex < this.listTextRows.size(); listIndex++) {
-            this.listTextRows.get(listIndex).setYCoordinates(listIndex * 20 + yFirstElement);
+        for (int listIndex = 0; listIndex < this.listvisibleTextRows.size(); listIndex++) {
+            this.listvisibleTextRows.get(listIndex).setYCoordinates(listIndex * 20 + yFirstElement);
         }
     }
 
@@ -207,9 +208,9 @@ public abstract class BaseFrame extends JFrame {
 
         AbstractRow.indexCompareElement = indexColumtoCompare;
 
-        Collections.sort(this.listTextRows);
+        Collections.sort(this.listvisibleTextRows);
         if (sortdirections[indexColumtoCompare]) {
-            Collections.reverse(this.listTextRows);
+            Collections.reverse(this.listvisibleTextRows);
         }
 
         sortdirections[indexColumtoCompare] = !sortdirections[indexColumtoCompare];
@@ -224,6 +225,60 @@ public abstract class BaseFrame extends JFrame {
 
     private void searchListofRows() {
 
+
+        //List der Indexe anlegen
+
+        //Wenn Liste leer ist, einfach sort aufrufen
+
+        //wenn nicht, für jeden der Indexe den Texte abrufen und prüfen
+
+        //Wenn erfüllt, in Liste schieben
+
+        //wenn nicht, in andere
+
+        //eine Liste nach oben sortieren, die andere nach unten
+
+        ArrayList<Integer> listIndexeswithContent = new ArrayList<>();
+
+        ArrayList<AbstractRow> listAllRows = new ArrayList<>();
+
+        listAllRows.addAll(listtextRowsInVisible);
+        listAllRows.addAll(listvisibleTextRows);
+        listvisibleTextRows.clear();
+        listtextRowsInVisible.clear();
+
+
+        for (int arrayIndex = 0; arrayIndex < this.columns; arrayIndex++) {
+            if (!arrTextFieldSortInput[arrayIndex].getText().equals("")) {
+                listIndexeswithContent.add(arrayIndex);
+            }
+        }
+
+        if (listIndexeswithContent.size() > 0) {
+            for (AbstractRow row : listAllRows
+                    ) {
+                boolean shouldbeVisible = true;
+                for (Integer indexSearchfor : listIndexeswithContent
+                        ) {
+                    shouldbeVisible = shouldbeVisible && row.getText(indexSearchfor).contains(arrTextFieldSortInput[indexSearchfor].getText());
+                }
+                if (shouldbeVisible) {
+                    listvisibleTextRows.add(row);
+                } else {
+                    listtextRowsInVisible.add(row);
+                }
+            }
+        } else {
+            listvisibleTextRows.addAll(listAllRows);
+        }
+
+        sortListVisibleElements(0);
+
+        for (AbstractRow row : listtextRowsInVisible
+                ) {
+            row.setYCoordinates(10000);
+        }
+        
     }
 
 

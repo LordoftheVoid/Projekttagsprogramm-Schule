@@ -1,8 +1,8 @@
 package V2;
 
-import V2.DataBaseInteractions.DataBaseObjekts.Link;
-import V2.DataBaseInteractions.DataBaseObjekts.Project;
-import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
+import V2.DataBaseInternalClasses.Link;
+import V2.DataBaseInternalClasses.Project;
+import V2.DataBaseInternalClasses.Pupil;
 import V2.FileInteractions.Generators.Excel.ExcelGridFile;
 import V2.FileInteractions.Generators.Excel.ExcelGridFileGenerator;
 import V2.FileInteractions.Readers.DatabaseInterface;
@@ -10,6 +10,7 @@ import V2.FileInteractions.Readers.ExcelFileReader;
 import V2.FileInteractions.URLManipulation.URLInterFace;
 
 
+import V2.HelperClasses.LinkwithoutDataBaseBackUp;
 import V2.UI.Frame.BaseFrame;
 import V2.UI.Frame.OutputFrame;
 import V2.UI.Frame.ProjectFrame;
@@ -41,12 +42,10 @@ public class cMain {
     //TODO: HARDCODES ENTFERNEN
 
 
+    public static DatabaseInterface objDatabaseManagerGlobal;
     static JTextArea statusDisplay;
     static JFrame objFrameMain;
-
-    static  URLInterFace sourceURLS;
-
-    public static DatabaseInterface objDatabaseManagerGlobal;
+    static URLInterFace sourceURLS;
 
     /**
      * Updates the main display for interactions with a user,
@@ -77,7 +76,7 @@ public class cMain {
         updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
 
 
-         sourceURLS = new URLInterFace(args);
+        sourceURLS = new URLInterFace(args);
 
 
         String[] requiredDirectories = new String[3];
@@ -109,44 +108,6 @@ public class cMain {
                 ExcelFileReader newReader = new ExcelFileReader(fileURL);
             }
         }
-
-        /*
-        if (args.length == 1) {
-            if (args[0].equals("Normiert")) {
-                String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
-                try {
-                    cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (args[0].equals("Real")) {
-                String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\DateiUmgebungen\\Real\\DatenBank-Ordner\\DefaultDataBase.db";
-
-                try {
-                    cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                String baseURLtoExdelDirectory = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\DateiUmgebungen\\Real";
-                InterfaceExcel interfaceExcel = new InterfaceExcel(baseURLtoExdelDirectory + "\\Excel-Datei-Ordner");
-            }
-        } else {
-
-
-            cMain.setupImport();
-            InterfaceExcel interfaceExcel = new InterfaceExcel(cMain.fileJAR.getParent() + "/Excel-Datei-Ordner");
-
-            DirectoryCreator objDirectoryManager = new DirectoryCreator();
-
-            objDirectoryManager.v_creation(cMain.fileJAR.getParent(), "Datenbank-Ordner");
-            objDirectoryManager.v_creation(cMain.fileJAR.getParent(), "Excel-Datei-Ordner");
-            objDirectoryManager.v_creation(cMain.fileJAR.getParent(), "Output-Ordner (Excel-Dateien)");
-
-        }
-
-
-        */
 
 
         JButton btnCreateUI = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
@@ -216,8 +177,18 @@ public class cMain {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                //TODO: Neu konfigurieren!!
-                // InterfaceExcel interfaceExcel = new InterfaceExcel(cMain.fileJAR.getParent() + "/Excel-Datei-Ordner");
+                ArrayList<String> filesFound = sourceURLS.listExelURL();
+
+                if(filesFound.size()>1) {
+                    for (String aFilesFound : filesFound) {
+                        cMain.updateStatus("Es wurde eine Excel-Datei unter " + aFilesFound + " gefunden, das Lesen beginnt");
+                        ExcelFileReader newReader = new ExcelFileReader(aFilesFound);
+                    }
+                }else {
+                    cMain.updateStatus("Es wurden keine Dateien gefunden, bitte stellen sie sicher, dass sie existieren");
+                    cMain.updateStatus("Es wird nach Dateien des Typs .xls im Pfad");
+                    cMain.updateStatus(URLInterFace.baseURL+"  gesucht");
+                }
             }
 
             @Override
@@ -314,7 +285,7 @@ public class cMain {
 
                 CopyOnWriteArrayList<Pupil> listPupilswithoutProjectOverall = new CopyOnWriteArrayList<>();
                 CopyOnWriteArrayList<Project> listProjects = new CopyOnWriteArrayList<>();
-                CopyOnWriteArrayList<notaValidLinkName> listResultLinks = new CopyOnWriteArrayList<>();
+                CopyOnWriteArrayList<LinkwithoutDataBaseBackUp> listResultLinks = new CopyOnWriteArrayList<>();
 
                 listDataBaseIDs = cMain.objDatabaseManagerGlobal.getEntryIDs("Pupil");
 
@@ -373,7 +344,7 @@ public class cMain {
 
                     int amountofTrys = 0;
 
-                    CopyOnWriteArrayList<notaValidLinkName> listFinalResult = new CopyOnWriteArrayList<>();
+                    CopyOnWriteArrayList<LinkwithoutDataBaseBackUp> listFinalResult = new CopyOnWriteArrayList<>();
 
                     boolean firstTimeInLoop = true;
                     int sumfinalResult = 0;
@@ -403,7 +374,7 @@ public class cMain {
 
                                     if (idProjectHashMap.get(preferedProject).hasSlotsavailable()) {
                                         idProjectHashMap.get(preferedProject).assignNewPupil();
-                                        notaValidLinkName result = new notaValidLinkName(idProjectHashMap.get(preferedProject).getHash(), pupilRandomlyChoosenfromList.getHash());
+                                        LinkwithoutDataBaseBackUp result = new LinkwithoutDataBaseBackUp(idProjectHashMap.get(preferedProject).getHash(), pupilRandomlyChoosenfromList.getHash());
                                         listResultLinks.add(result);
                                         result.setPupilPreferenceNumber(projectPreferenceIndex);
                                         listPupilswithoutProjectOverall.remove(pupilRandomlyChoosenfromList);
@@ -422,7 +393,7 @@ public class cMain {
 
 
                             while (listPupilswithoutProjectOverall.size() > 0) {
-                                notaValidLinkName result = new notaValidLinkName("-1", listPupilswithoutProjectOverall.get(0).getHash());
+                                LinkwithoutDataBaseBackUp result = new LinkwithoutDataBaseBackUp("-1", listPupilswithoutProjectOverall.get(0).getHash());
                                 result.setPupilPreferenceNumber(5);
                                 listResultLinks.add(result);
                                 listPupilswithoutProjectOverall.remove(0);
@@ -435,7 +406,7 @@ public class cMain {
                         if (firstTimeInLoop) {
                             firstTimeInLoop = false;
                             listFinalResult.addAll(listResultLinks);
-                            for (notaValidLinkName element : listResultLinks
+                            for (LinkwithoutDataBaseBackUp element : listResultLinks
                                     ) {
                                 sumfinalResult = sumfinalResult + element.getPupilPreferenceNumber();
                                 if (!element.isValidProject()) {
@@ -447,7 +418,7 @@ public class cMain {
 
                             int sumPreferencesThisResult = 0;
                             int invalidLinksthisResult = 0;
-                            for (notaValidLinkName element : listResultLinks
+                            for (LinkwithoutDataBaseBackUp element : listResultLinks
                                     ) {
                                 sumPreferencesThisResult = sumPreferencesThisResult + element.getPupilPreferenceNumber();
                                 if (!element.isValidProject()) {
@@ -474,16 +445,16 @@ public class cMain {
                     }
 
 
-                    for (notaValidLinkName finalLink : listFinalResult
+                    for (LinkwithoutDataBaseBackUp finalLink : listFinalResult
                             ) {
                         String newHash = Link.generateHash(finalLink.getProjectHash(), finalLink.getPupilHash());
                         Link newResultLink = new Link(newHash);
 
 
                         if (!Objects.equals(finalLink.getProjectHash(), "-1")) {
-                            newResultLink.setDisplayayableValue(0,  cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 0));
+                            newResultLink.setDisplayayableValue(0, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 0));
                             newResultLink.setDisplayayableValue(1, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 1));
-                            newResultLink.setDisplayayableValue(2,  cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 2));
+                            newResultLink.setDisplayayableValue(2, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 2));
                             newResultLink.setDisplayayableValue(3, finalLink.getProjectHash());
                             newResultLink.setDisplayayableValue(4, String.valueOf(finalLink.getPupilPreferenceNumber() + 1));
                         } else {

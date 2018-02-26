@@ -1,10 +1,11 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.TextFields.CustomTextField;
 import V2.UI.NonFrameElements.TextFields.GenericTextField;
 import V2.UI.NonFrameElements.TextFields.NameTextField;
 import V2.UI.NonFrameElements.TextFields.ProjectNumberTextField;
+import V2.cMain;
 
 import java.awt.*;
 import java.awt.event.FocusEvent;
@@ -45,13 +46,14 @@ public class PupilRow extends AbstractRow {
                 @Override
                 public void focusLost(FocusEvent e) {
                     CustomTextField objSource = (CustomTextField) e.getSource();
-                    System.out.println("sot"+objSource.oldValue);
                     if (!objSource.getText().equals(objSource.oldValue)) {
                         if (objSource.isValidInput()) {
                             objSource.dataBaseEntry.setDisplayayableValue(objSource.index, objSource.getText());
+                            cMain.updateStatus("Ein DatenBankWert konnte erfolgreich verändert werden");
                         } else {
                             objSource.setText(objSource.oldValue);
-                            System.out.println("Es existiert kein solches Project");
+                            cMain.updateStatus("Die Werte konnten nicht geändert werden, vermutlich wegen nicht erlaubter Eingaben");
+                            cMain.updateStatus("Es gilt: Die Projekte müssen zuerst angelegt werden");
                         }
                     }
                 }

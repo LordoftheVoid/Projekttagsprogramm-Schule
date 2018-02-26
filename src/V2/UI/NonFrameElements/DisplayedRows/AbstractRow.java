@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.DisplayedRows;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
 import V2.UI.Frame.BaseFrame;
 
 import javax.swing.*;
@@ -75,6 +75,9 @@ public abstract class AbstractRow implements  Comparable {
         return this.displayElements[indexCompareElement].getText().compareTo(comparedObj.displayElements[indexCompareElement].getText());
     }
 
+    public String getText(int index){
+        return this.displayElements [index].getText();
+    }
 
 
     private void showText() {

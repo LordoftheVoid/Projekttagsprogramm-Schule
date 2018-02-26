@@ -1,6 +1,6 @@
 package V2.UI.NonFrameElements.TextFields;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
 
 import javax.swing.*;
 

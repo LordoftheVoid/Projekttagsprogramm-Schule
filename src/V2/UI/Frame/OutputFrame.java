@@ -1,7 +1,7 @@
 package V2.UI.Frame;
 
-import V2.DataBaseInteractions.DataBaseObjekts.AbstractDataBaseRepresentation;
-import V2.DataBaseInteractions.DataBaseObjekts.Link;
+import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
+import V2.DataBaseInternalClasses.Link;
 import V2.UI.NonFrameElements.DisplayedRows.LinkRow;
 import V2.cMain;
 
@@ -50,7 +50,7 @@ public class OutputFrame extends BaseFrame {
     @Override
     void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
         for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
-            this.listTextRows.add(new LinkRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
+            this.listvisibleTextRows.add(new LinkRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
         }
     }
 

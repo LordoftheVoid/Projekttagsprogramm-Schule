@@ -1,6 +1,6 @@
 package V2.FileInteractions.Readers;
 
-import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
+import V2.DataBaseInternalClasses.Pupil;
 import V2.cMain;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
