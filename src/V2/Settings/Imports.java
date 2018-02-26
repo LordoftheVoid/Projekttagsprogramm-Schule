@@ -1,6 +1,6 @@
 package V2.Settings;
 
-import V2.DataBaseInteractions.DatabaseInterface;
+import V2.FileInteractions.Readers.DatabaseInterface;
 import V2.cMain;
 
 import java.io.File;

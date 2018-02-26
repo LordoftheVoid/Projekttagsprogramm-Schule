@@ -3,11 +3,11 @@ package V2;
 import V2.DataBaseInteractions.DataBaseObjekts.Link;
 import V2.DataBaseInteractions.DataBaseObjekts.Project;
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
-import V2.DataBaseInteractions.DatabaseInterface;
-import V2.FileInteractions.DirectoryCreator;
-import V2.FileInteractions.Excel.ExcelGridFile;
-import V2.FileInteractions.Excel.ExcelGridFileGenerator;
-import V2.FileInteractions.Excel.InterfaceExcel;
+import V2.FileInteractions.Generators.Excel.ExcelGridFile;
+import V2.FileInteractions.Generators.Excel.ExcelGridFileGenerator;
+import V2.FileInteractions.Readers.DatabaseInterface;
+import V2.FileInteractions.Readers.InterfaceExcel;
+import V2.FileInteractions.URLManipulation.URLInterFace;
 import V2.Settings.Imports;
 import V2.UI.Frame.BaseFrame;
 import V2.UI.Frame.OutputFrame;
@@ -73,6 +73,26 @@ public class cMain {
         updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
 
 
+        URLInterFace sourceURLS = new URLInterFace(args);
+
+
+        String [] requiredDirectories = new String[3];
+
+        requiredDirectories[0]= "\\Datenbank-Ordner";
+        requiredDirectories[1] = "\\Zu lesende Excel-Dateien";
+        requiredDirectories[2]= "\\Ergebnis-Ordner";
+
+        sourceURLS.setupDirectories(requiredDirectories);
+
+        try {
+            Imports.objDatabaseManagerGlobal = new DatabaseInterface(sourceURLS.setupDataBaseURL());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+
+        /*
         if (args.length == 1) {
             if (args[0].equals("Normiert")) {
                 String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
@@ -108,7 +128,7 @@ public class cMain {
         }
 
 
-
+        */
 
 
 
@@ -179,6 +199,8 @@ public class cMain {
         btnRereadFiles.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                //TODO: Neu konfigurieren!! 
                 InterfaceExcel interfaceExcel = new InterfaceExcel(Imports.fileJAR.getParent() + "/Excel-Datei-Ordner");
             }
 

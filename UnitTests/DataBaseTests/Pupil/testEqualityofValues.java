@@ -1,7 +1,7 @@
 package DataBaseTests.Pupil;
 
 import V2.DataBaseInteractions.DataBaseObjekts.Pupil;
-import V2.DataBaseInteractions.DatabaseInterface;
+import V2.FileInteractions.Readers.DatabaseInterface;
 import V2.Settings.Imports;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

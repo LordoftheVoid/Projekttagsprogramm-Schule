@@ -1,6 +1,6 @@
 package DataBaseTests;
 
-import V2.DataBaseInteractions.DatabaseInterface;
+import V2.FileInteractions.Readers.DatabaseInterface;
 import org.junit.jupiter.api.Assertions;
 
 /**
