@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class DataBaseGenerator {
 
 
-    Connection connection;
+    private Connection connection;
 
     public void createNewDatabase(String baseUrl, String fileName) {
 

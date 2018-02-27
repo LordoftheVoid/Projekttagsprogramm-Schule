@@ -13,7 +13,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
     private String uniquePseudoHash = "";
     private String[] nonHashdataBaseValues;
 
-    public AbstractDataBaseRepresentation(String uniquePseudoHash) {
+    AbstractDataBaseRepresentation(String uniquePseudoHash) {
         this.uniquePseudoHash = uniquePseudoHash;
         initNullValues();
 
@@ -65,7 +65,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
     }
 
 
-    protected void setHash(String newHash) {
+    void setHash(String newHash) {
         this.uniquePseudoHash = newHash;
     }
 
@@ -95,9 +95,7 @@ public abstract class AbstractDataBaseRepresentation implements InterfaceDataBas
     private void updateToDataBaseValues() {
         this.initNullValues();
         String[] dataBaseValues = cMain.objDatabaseManagerGlobal.getallEntryValuesfromDataBase(this.getTableReference(), this.getHash());
-        for (int valueIndex = 1; valueIndex < dataBaseValues.length; valueIndex++) {
-            this.nonHashdataBaseValues[valueIndex-1] = dataBaseValues[valueIndex];
-        }
+        System.arraycopy(dataBaseValues, 1, this.nonHashdataBaseValues, 0, dataBaseValues.length - 1);
     }
 
 

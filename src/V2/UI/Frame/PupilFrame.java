@@ -92,12 +92,12 @@ public class PupilFrame extends BaseFrame {
 
     @Override
     void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys) {
-        for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
-            this.listvisibleTextRows.add(new PupilRow(this.columns, dataBaseEntrys.get(listIndex), this.getContentPane()));
+        for (AbstractDataBaseRepresentation dataBaseEntry1 : dataBaseEntrys) {
+            this.listvisibleTextRows.add(new PupilRow(this.columns, dataBaseEntry1, this.getContentPane()));
         }
         int brokenDataBaseEntrys = 0;
-        for (int listIndex = 0; listIndex < dataBaseEntrys.size(); listIndex++) {
-            if (!dataBaseEntrys.get(listIndex).isValidDataBaseEntry()) {
+        for (AbstractDataBaseRepresentation dataBaseEntry : dataBaseEntrys) {
+            if (!dataBaseEntry.isValidDataBaseEntry()) {
                 brokenDataBaseEntrys++;
             }
         }

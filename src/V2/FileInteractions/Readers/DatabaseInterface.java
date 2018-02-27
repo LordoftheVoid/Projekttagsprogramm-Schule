@@ -17,9 +17,6 @@ Klasse, um conDatabase zu realisieren
 public class DatabaseInterface {
 
     private Connection conDatabase;
-    private HashMap<Integer, String> pupilColums = new HashMap<>();
-    private HashMap<Integer, String> projectColums = new HashMap<>();
-    private HashMap<Integer, String> linkColums = new HashMap<>();
     private HashMap<String, HashMap<Integer, String>> tableColums = new HashMap<>();
     private HashMap<String, String> idColums = new HashMap<>();
 
@@ -38,6 +35,9 @@ public class DatabaseInterface {
             throw new NullPointerException();
         }
 
+        HashMap<Integer, String> linkColums = new HashMap<>();
+        HashMap<Integer, String> projectColums = new HashMap<>();
+        HashMap<Integer, String> pupilColums = new HashMap<>();
         try {
             pupilColums = generateColumNameList("Pupil");
             projectColums = generateColumNameList("Project");
@@ -48,7 +48,7 @@ public class DatabaseInterface {
         }
         this.tableColums.put("Pupil", pupilColums);
         this.tableColums.put("Project", projectColums);
-        this.tableColums.put("Link",linkColums);
+        this.tableColums.put("Link", linkColums);
 
     }
 

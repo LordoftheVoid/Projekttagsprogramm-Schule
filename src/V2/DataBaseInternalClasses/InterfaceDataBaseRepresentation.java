@@ -3,7 +3,7 @@ package V2.DataBaseInternalClasses;
 /**
  * Created by Aaron on 31.01.2018.
  */
-public interface InterfaceDataBaseRepresentation {
+interface InterfaceDataBaseRepresentation {
 
 
     boolean isValidDataBaseEntry();

@@ -1,0 +1,19 @@
+In dieser Datei stehen einige nützliche Dinge, um den Gebrauch des Programms zu erleichtern
+
+   Das Programm testet auf invalide Eingabe seitens des Benutzers, die wichtigsten Regeln für die Eingaben sind: 
+       -Die Felder, die Nummern erwarten dürfen nur die Ziffern 0-9 enthalten  
+       -Namensfelder sind soweit unbeschränkt. 
+       -Eine leere Eingabe ist nie erlaubt 
+
+   Die Prioritäten des Programms sind erst Projekte, dann Schüler, somit kann es sein, das das Programm Eingaben verweigert.
+   In solchen Fällen sicherstellen, dass die Projekte existieren. 
+
+Hinweise zum Testen:   -Es liegt in ihrer Verantwortung, die Korrektheit der Ergebnisse sicherzustellen! 
+      Allerdings wäre es gleichzeitig unsinnig, alle zu überprüfen, dann macht man letztlich doch nur die Arbeit,   die einem der Computer abnimmt.
+   
+   Somit gilt es, ein effektives Testsystem anzuwenden, beispielsweise wie folgt: 
+       -Für alle Projekte zählen, wie viele Schüler zugeteilt worden, dies ist über das Suchen gut realisierbar, da
+        die Ergebnisse der Suche direkt gezählt werden.
+       -Für kleine Projekte alle Schüler testen, ob sie eine entsprechende Präferenz geäußert haben
+       -Die Gesamt-Anzahl der Schüler überprüfen
+       -Stichprobenartig aus allen Klassen Schüler testen

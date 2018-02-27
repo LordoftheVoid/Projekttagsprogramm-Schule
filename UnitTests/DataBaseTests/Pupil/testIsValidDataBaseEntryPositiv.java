@@ -16,9 +16,9 @@ import java.sql.SQLException;
  */
 class testIsValidDataBaseEntryPositiv {
 
-    Pupil testObj;
+    private Pupil testObj;
 
-    String[] projectIds = new String[4];
+    private String[] projectIds = new String[4];
 
 
     @BeforeEach
@@ -29,7 +29,7 @@ class testIsValidDataBaseEntryPositiv {
         projectIds[2] = "24";
         projectIds[3] = "25";
 
-        String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
+        String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Data\\TestSpaces\\TestValues\\DataBaseNormValues.db";
         try {
             cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
         } catch (ClassNotFoundException e) {
@@ -38,8 +38,8 @@ class testIsValidDataBaseEntryPositiv {
 
         testObj = new Pupil("-123");
 
-        for (int arrayIndex = 0; arrayIndex < projectIds.length; arrayIndex++) {
-            Project newEntry = new Project(projectIds[arrayIndex]);
+        for (String projectId : projectIds) {
+            Project newEntry = new Project(projectId);
         }
 
         for (int valueIndex = 0; valueIndex < testObj.getamountofDisplayableValues(); valueIndex++) {
@@ -61,9 +61,9 @@ class testIsValidDataBaseEntryPositiv {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for (int arrayIndex = 0; arrayIndex < projectIds.length; arrayIndex++) {
+        for (String projectId : projectIds) {
             try {
-                cMain.objDatabaseManagerGlobal.deleteEntry("Project", projectIds[arrayIndex]);
+                cMain.objDatabaseManagerGlobal.deleteEntry("Project", projectId);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

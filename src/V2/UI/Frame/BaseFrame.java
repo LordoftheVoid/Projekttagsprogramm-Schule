@@ -2,6 +2,7 @@ package V2.UI.Frame;
 
 import V2.DataBaseInternalClasses.AbstractDataBaseRepresentation;
 import V2.UI.NonFrameElements.DisplayedRows.AbstractRow;
+import V2.cMain;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -24,13 +25,12 @@ public abstract class BaseFrame extends JFrame {
 
 
     public final static int WIDTHGLOBAL = 140;
-    final int yCoordinateListEntrys = 260;
-    public JTextField[] columNames;
-    public JButton btnCreateEntry;
+    JTextField[] columNames;
+    JButton btnCreateEntry;
     JTextField[] arrCreateEntryFields;
     int columns;
     CopyOnWriteArrayList<AbstractRow> listvisibleTextRows = new CopyOnWriteArrayList<>();
-    CopyOnWriteArrayList<AbstractRow> listtextRowsInVisible = new CopyOnWriteArrayList<>();
+    private CopyOnWriteArrayList<AbstractRow> listtextRowsInVisible = new CopyOnWriteArrayList<>();
     private JTextField[] suchLabel;
 
 
@@ -38,7 +38,7 @@ public abstract class BaseFrame extends JFrame {
     private boolean[] sortdirections;
     private JButton[] arrButtonsSort;
 
-    public BaseFrame(int colums, String strFenstername) {
+    BaseFrame(int colums, String strFenstername) {
 
         super(strFenstername);
         this.getContentPane().setLayout(null);
@@ -128,12 +128,13 @@ public abstract class BaseFrame extends JFrame {
         }
     }
 
-    public void setupGUITextFieldRowForCreation() {
+    void setupGUITextFieldRowForCreation() {
         arrCreateEntryFields = new JTextField[2];
 
         for (int arrayIndex = 0; arrayIndex < 2; arrayIndex++) {
             arrCreateEntryFields[arrayIndex] = new JTextField();
             this.getContentPane().add(arrCreateEntryFields[arrayIndex]);
+            int yCoordinateListEntrys = 260;
             arrCreateEntryFields[arrayIndex].setBounds(BaseFrame.WIDTHGLOBAL * arrayIndex, yCoordinateListEntrys - 60, BaseFrame.WIDTHGLOBAL, 20);
             arrCreateEntryFields[arrayIndex].setVisible(true);
         }
@@ -142,8 +143,8 @@ public abstract class BaseFrame extends JFrame {
 
 
     private void clearRows() {
-        for (int i = 0; i < this.listvisibleTextRows.size(); i++) {
-            this.listvisibleTextRows.get(i).removeFromFrame(this.getContentPane());
+        for (AbstractRow listvisibleTextRow : this.listvisibleTextRows) {
+            listvisibleTextRow.removeFromFrame(this.getContentPane());
         }
     }
 
@@ -254,6 +255,7 @@ public abstract class BaseFrame extends JFrame {
             }
         }
 
+        int counterVisibleElements;
         if (listIndexeswithContent.size() > 0) {
             for (AbstractRow row : listAllRows
                     ) {
@@ -268,25 +270,29 @@ public abstract class BaseFrame extends JFrame {
                     listtextRowsInVisible.add(row);
                 }
             }
+            counterVisibleElements = listvisibleTextRows.size();
         } else {
             listvisibleTextRows.addAll(listAllRows);
+            counterVisibleElements = listAllRows.size();
         }
 
         sortListVisibleElements(0);
+        cMain.updateStatus("Es wurden " + counterVisibleElements + "  Elemente mit den gewünschten Eigenschaften gefunden");
+
 
         for (AbstractRow row : listtextRowsInVisible
                 ) {
             row.setYCoordinates(10000);
         }
-        
+
     }
 
 
-    public abstract void showfixedText();
+    protected abstract void showfixedText();
 
-    public abstract ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException;
+    protected abstract ArrayList<AbstractDataBaseRepresentation> requestDataBaseContent() throws SQLException;
 
-    public abstract void setupGUIBtnForCreation(int width);
+    protected abstract void setupGUIBtnForCreation(int width);
 
     abstract void generateRows(ArrayList<AbstractDataBaseRepresentation> dataBaseEntrys);
 

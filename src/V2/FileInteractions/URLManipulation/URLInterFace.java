@@ -16,10 +16,10 @@ public class URLInterFace {
 
 
     public static String baseURL;
-    public static boolean interAktionwithExcel;
 
     public URLInterFace(String[] systemWideArgs) {
 
+        boolean interAktionwithExcel;
         if (systemWideArgs.length == 2) {
             baseURL = systemWideArgs[0];
             interAktionwithExcel = Boolean.parseBoolean(systemWideArgs[1]);
@@ -39,8 +39,8 @@ public class URLInterFace {
 
 
     public void setupDirectories(String[] nameArgs) {
-        for (int arrayIndex = 0; arrayIndex < nameArgs.length; arrayIndex++) {
-            File dir = new File(baseURL + nameArgs[arrayIndex]);
+        for (String nameArg : nameArgs) {
+            File dir = new File(baseURL + nameArg);
             if (!dir.exists()) {
                 dir.mkdir();
                 cMain.updateStatus("Die Ordner wurden angelegt, bitte mit Dateien füllen");

@@ -15,11 +15,11 @@ import java.sql.SQLException;
  */
 class testEqualityofValues {
 
-    Project testProject;
+    private Project testProject;
 
     @BeforeEach
     void setUp() {
-        String dataBaseUrl = "C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Dateiumgebungen\\TestUmgebungen\\DataBaseNormValues.db";
+        String dataBaseUrl ="C:\\Einziger Arbeitsordner Windows\\Code\\ProjektTagsProgramm\\Data\\TestSpaces\\TestValues\\DataBaseNormValues.db";
         try {
             cMain.objDatabaseManagerGlobal = new DatabaseInterface(dataBaseUrl);
         } catch (ClassNotFoundException e) {

@@ -15,15 +15,6 @@ import java.util.Set;
 public class Pupil extends AbstractDataBaseRepresentation {
 
 
-    /**
-     * TODO:  Vollständige Datenverifikation um das Setzen nicht erlaubter Werte zu unterbinden
-     */
-
-    private boolean isAssigned = false;
-
-    private int indexChoiceAssigned = 0;
-
-
     public Pupil(String idsString) {
         super(idsString);
     }
@@ -111,13 +102,8 @@ public class Pupil extends AbstractDataBaseRepresentation {
         }
     }
 
-    public boolean isAssigned() {
-        return this.isAssigned;
-    }
 
-    public void assignToProject(int index) {
-        this.isAssigned = true;
-        this.indexChoiceAssigned = index;
-    }
+
+
 
 }

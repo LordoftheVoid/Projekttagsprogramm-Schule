@@ -5,6 +5,7 @@ import V2.UI.NonFrameElements.TextFields.CustomTextField;
 import V2.UI.NonFrameElements.TextFields.GenericTextField;
 import V2.cMain;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -28,8 +29,8 @@ public class ProjectRow extends AbstractRow {
 
     @Override
     void setupFocusListener() {
-        for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
-            displayElements[arrayIndex].addFocusListener(new FocusListener() {
+        for (JTextField displayElement : displayElements) {
+            displayElement.addFocusListener(new FocusListener() {
                 @Override
                 public void focusGained(FocusEvent e) {
 

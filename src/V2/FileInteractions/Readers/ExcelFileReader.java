@@ -23,7 +23,7 @@ public class ExcelFileReader extends Thread {
     }
 
 
-    String generateGrade() {
+    private String generateGrade() {
         String grade = "";
         int charIndexBackTracking = dateiUrl.length() - 1;
 

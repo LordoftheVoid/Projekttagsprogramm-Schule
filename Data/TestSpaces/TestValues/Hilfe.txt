@@ -1,0 +1,30 @@
+In dieser Datei finden sie Handlungsratschläge bei Fehlfunktion des Programms.
+
+   Zunächst sei darauf hingewiesen, dass sich trotz bester Bemühungen nicht alle Fehlerursachen abfangen lassen,
+   Software hat allein der Komplexität wegen Fehler.
+   Dementsprechend ist es wichtig, einen kühlen Kopf zu bewahren, sowie konkrete Schritte einzuleiten um wahlweise fortzufahren oder 
+   dem Entwickler bestmöglich bei der Behebung des Problems zu helfen.
+
+   Konkrete Schritte in diesem Fall sind zunächst einmal die Kontrolle der Ausgabe: Es gibt viele Fälle, 
+   in dem das Programm in der Lage ist, Fehler abzufangen. Entsprechende Ausgaben gilt es zu beachten, beispielsweise falsche Eingaben 
+   oder fehlende Programmteile. 
+
+   Sollte es weiterhin zu unerwartetem Verhalten kommen, so ist ein Neustart des Programms meistens zu empfehlen,
+   auf diese Weise kann die Programmlogik wieder von null beginnen. 
+
+
+Dieser Abschnitt beschäftigt sich mit wiedeholt auftretendem, vermutlich nicht geplantem und wiedersprüchlichem Verhalten, beispielsweise: 
+       -Abstürze.
+       -Keine Reaktion auf Eingaben.
+       -Falsche Verarbeitung der Eingabe.
+       -Falsche Ausgabe bzw die Ergebnisse werden nach manueller Probe als falsch befunden. 
+
+   In solchen Fällen hilft es, dem Entwckickler hilfreiche Informationen bereitzustellen, damit dieser weiß wonach er zu suchen hat. 
+       Solche Informationen können beispielsweise umfassen: 
+           -Wo/ Wann trat das Problem auf ? 
+           -Was war das erwartete Verhalten ? Was geschah stattdessen ? 
+           -Ist das Fehlverhalten eventuell sogar reproduzierbar ? Wenn ja, wie ? 
+           -Die entsprechenden Dateien mitschicken, in diesem Fall wird nur die .db-Datei gebraucht. 
+
+
+   Entsprechende Informationen an aaronwey@posteo.de mailen, eine Rückmeldung innerhalb der nächsten 24 Stunden ist zu erwarten.

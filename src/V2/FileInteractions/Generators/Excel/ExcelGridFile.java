@@ -1,5 +1,6 @@
 package V2.FileInteractions.Generators.Excel;
 
+import V2.cMain;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  */
 public class ExcelGridFile {
 
-    String fileURl;
+    private String fileURl;
     private ArrayList<String[]> content;
     private String fileName;
 
@@ -38,6 +39,7 @@ public class ExcelGridFile {
 
 
         File file = new File(fileURl + "\\" + fileName + ".xls");
+        cMain.updateStatus("Es wurde eine neue Excel-Datei mit dem Namen " + fileName + ".xls" + " erzeugt");
 
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet s = wb.createSheet();

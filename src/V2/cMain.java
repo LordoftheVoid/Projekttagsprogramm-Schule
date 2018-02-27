@@ -3,13 +3,10 @@ package V2;
 import V2.DataBaseInternalClasses.Link;
 import V2.DataBaseInternalClasses.Project;
 import V2.DataBaseInternalClasses.Pupil;
-import V2.FileInteractions.Generators.Excel.ExcelGridFile;
-import V2.FileInteractions.Generators.Excel.ExcelGridFileGenerator;
+import V2.FileInteractions.Generators.InstructionFileGenerator;
 import V2.FileInteractions.Readers.DatabaseInterface;
 import V2.FileInteractions.Readers.ExcelFileReader;
 import V2.FileInteractions.URLManipulation.URLInterFace;
-
-
 import V2.HelperClasses.LinkwithoutDataBaseBackUp;
 import V2.UI.Frame.BaseFrame;
 import V2.UI.Frame.OutputFrame;
@@ -43,19 +40,23 @@ public class cMain {
 
 
     public static DatabaseInterface objDatabaseManagerGlobal;
-    static JTextArea statusDisplay;
-    static JFrame objFrameMain;
-    static URLInterFace sourceURLS;
+    public static URLInterFace sourceURLS;
+    private static JTextArea statusDisplay;
+    private static JFrame objFrameMain;
 
     /**
      * Updates the main display for interactions with a user,
      * examples might include "This is an invalid input", "Please change the following entry", etc.
      */
     public static void updateStatus(String newLine) {
-        if (statusDisplay.getText().length() > 2000) {
+        if (statusDisplay.getText().length() > 500) {
             statusDisplay.setText("");
         }
+
+
         statusDisplay.setText(statusDisplay.getText() + "\n" + newLine);
+
+
     }
 
     public static void main(String args[]) {
@@ -73,7 +74,7 @@ public class cMain {
         statusDisplay.setText("");
         statusDisplay.setBounds(0, 450, 600, 1000);
         statusDisplay.setBorder(new LineBorder(Color.black));
-        updateStatus("Hier werden in Zukunft wichtige Nachrichten auftauchen");
+        updateStatus("Hier werden in Zukunft wichtige (!) Nachrichten auftauchen");
 
 
         sourceURLS = new URLInterFace(args);
@@ -108,6 +109,13 @@ public class cMain {
                 ExcelFileReader newReader = new ExcelFileReader(fileURL);
             }
         }
+
+
+        InstructionFileGenerator generator = new InstructionFileGenerator(URLInterFace.baseURL);
+
+        generator.generateHelpFile();
+
+        generator.generateAdviceFile();
 
 
         JButton btnCreateUI = new JButton("Herzlich willkommen,   \n hier klicken um Programm zu starten");
@@ -155,7 +163,7 @@ public class cMain {
     }
 
 
-    public static void setupMainInterface() {
+    private static void setupMainInterface() {
 
 
         BaseFrame frameSchueler = new PupilFrame(7, "Schueler-Anzeige-Fenster");
@@ -179,15 +187,15 @@ public class cMain {
 
                 ArrayList<String> filesFound = sourceURLS.listExelURL();
 
-                if(filesFound.size()>1) {
+                if (filesFound.size() > 1) {
                     for (String aFilesFound : filesFound) {
                         cMain.updateStatus("Es wurde eine Excel-Datei unter " + aFilesFound + " gefunden, das Lesen beginnt");
                         ExcelFileReader newReader = new ExcelFileReader(aFilesFound);
                     }
-                }else {
+                } else {
                     cMain.updateStatus("Es wurden keine Dateien gefunden, bitte stellen sie sicher, dass sie existieren");
                     cMain.updateStatus("Es wird nach Dateien des Typs .xls im Pfad");
-                    cMain.updateStatus(URLInterFace.baseURL+"  gesucht");
+                    cMain.updateStatus(URLInterFace.baseURL + "  gesucht");
                 }
             }
 
@@ -277,10 +285,13 @@ public class cMain {
         btnEnableOutputUI.setVisible(true);
         btnEnableOutputUI.setBounds(0, 300, 600, 150);
         objFrameMain.getContentPane().add(btnEnableOutputUI);
+
         btnEnableOutputUI.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
+
+                cMain.updateStatus("Die Berechnung hat begonnen");
                 ArrayList<String> listDataBaseIDs;
 
                 CopyOnWriteArrayList<Pupil> listPupilswithoutProjectOverall = new CopyOnWriteArrayList<>();
@@ -434,7 +445,7 @@ public class cMain {
                                 listFinalResult.clear();
                                 listFinalResult.addAll(listResultLinks);
                                 amountofTrys = 0;
-                                System.out.println("Reset");
+                                cMain.updateStatus("Es kam zu einem neuen besten Ergebnis");
                             } else {
                                 amountofTrys++;
                             }
@@ -449,16 +460,17 @@ public class cMain {
                             ) {
                         String newHash = Link.generateHash(finalLink.getProjectHash(), finalLink.getPupilHash());
                         Link newResultLink = new Link(newHash);
-
+                        newResultLink.setDisplayayableValue(0, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 0));
+                        newResultLink.setDisplayayableValue(1, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 1));
+                        newResultLink.setDisplayayableValue(2, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 2));
 
                         if (!Objects.equals(finalLink.getProjectHash(), "-1")) {
-                            newResultLink.setDisplayayableValue(0, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 0));
-                            newResultLink.setDisplayayableValue(1, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 1));
-                            newResultLink.setDisplayayableValue(2, cMain.objDatabaseManagerGlobal.getValuefromDataBase("Pupil", finalLink.getPupilHash(), 2));
+
                             newResultLink.setDisplayayableValue(3, finalLink.getProjectHash());
                             newResultLink.setDisplayayableValue(4, String.valueOf(finalLink.getPupilPreferenceNumber() + 1));
                         } else {
-
+                            newResultLink.setDisplayayableValue(3, "Schüler ohne Projekt!!");
+                            newResultLink.setDisplayayableValue(4, "Schüler ohne Projekt!!");
                         }
                     }
 
@@ -468,23 +480,13 @@ public class cMain {
 
                     BaseFrame frameOutput = new OutputFrame(5, "Das beste Ergebnis");
                     frameOutput.displayFrame(0, 0, 1000, 1000);
+                    cMain.updateStatus("");
+                    cMain.updateStatus("");
+                    cMain.updateStatus("Hier etwas ändern wird keinerlei Einfluss haben, dies dient lediglich der Kontrolle");
+                    cMain.updateStatus("Ich bitte darum, entsprechende Hinweise zur Kontrolle in der Datei Hinweise zu beachten! ");
+                    cMain.updateStatus("");
+                    cMain.updateStatus("");
 
-                    ExcelGridFileGenerator testOne = new ExcelGridFileGenerator(sourceURLS.getURLoutputDirectory());
-
-
-                    ArrayList<ExcelGridFile> fileTestsOne = testOne.generateFilesFromDataBase(2);
-
-                    for (ExcelGridFile element : fileTestsOne
-                            ) {
-                        element.saveFiletoDisk();
-                    }
-
-                    fileTestsOne = testOne.generateFilesFromDataBase(3);
-
-                    for (ExcelGridFile element : fileTestsOne
-                            ) {
-                        element.saveFiletoDisk();
-                    }
                 } else {
                     cMain.updateStatus("Die Datenbank war nicht vollständig und oder hatte falsche Werte, bitte eintragen/ändern");
                 }
@@ -492,6 +494,7 @@ public class cMain {
 
             @Override
             public void mousePressed(MouseEvent e) {
+
 
             }
 
@@ -502,8 +505,7 @@ public class cMain {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
-
+                cMain.updateStatus("Das Berechnen wird seine Zeit dauern, im Zweifel kurz warten");
             }
 
             @Override

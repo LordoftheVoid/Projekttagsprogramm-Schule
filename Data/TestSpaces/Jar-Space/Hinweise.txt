@@ -1,0 +1,9 @@
+In dieser Datei stehen einige nützliche Dinge, um den Gebrauch des Programms zu erleichtern
+
+   Das Programm testet auf invalide Eingabe seitens des Benutzers, die wichtigsten Regeln für die Eingaben sind: 
+       -Die Felder, die Nummern erwarten dürfen nur die Ziffern 0-9 enthalten  
+       -Namensfelder sind soweit unbeschränkt. 
+       -Eine leere Eingabe ist nie erlaubt 
+
+   Die Prioritäten des Programms sind erst Projekte, dann Schüler, somit kann es sein, das das Programm Eingaben verweigert.
+   In solchen Fällen sicherstellen, dass die Projekte existieren. 

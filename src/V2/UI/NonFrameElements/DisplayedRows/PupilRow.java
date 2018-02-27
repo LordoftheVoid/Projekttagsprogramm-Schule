@@ -7,6 +7,7 @@ import V2.UI.NonFrameElements.TextFields.NameTextField;
 import V2.UI.NonFrameElements.TextFields.ProjectNumberTextField;
 import V2.cMain;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -34,8 +35,8 @@ public class PupilRow extends AbstractRow {
 
     @Override
     void setupFocusListener() {
-        for (int arrayIndex = 0; arrayIndex < displayElements.length; arrayIndex++) {
-            displayElements[arrayIndex].addFocusListener(new FocusListener() {
+        for (JTextField displayElement : displayElements) {
+            displayElement.addFocusListener(new FocusListener() {
                 @Override
                 public void focusGained(FocusEvent e) {
                     CustomTextField objSource = (CustomTextField) e.getSource();

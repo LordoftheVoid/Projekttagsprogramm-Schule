@@ -15,12 +15,12 @@ public abstract class AbstractRow implements  Comparable {
 
 
     JTextField[] displayElements;
-    JButton btnDeleteEntry;
+    private JButton btnDeleteEntry;
     AbstractDataBaseRepresentation dataBaseEntry;
 
     public static int indexCompareElement=0;
 
-    public AbstractRow(int columns, AbstractDataBaseRepresentation dataBaseEntry, Container targetFrame) {
+    AbstractRow(int columns, AbstractDataBaseRepresentation dataBaseEntry, Container targetFrame) {
 
         this.dataBaseEntry = dataBaseEntry;
         this.displayElements = new JTextField[columns];
@@ -88,21 +88,21 @@ public abstract class AbstractRow implements  Comparable {
     }
 
    public  void removeFromFrame(Container targetFrame) {
-        for (int arrayIndex = 0; arrayIndex < this.displayElements.length; arrayIndex++) {
-            targetFrame.remove(displayElements[arrayIndex]);
-        }
+       for (JTextField displayElement : this.displayElements) {
+           targetFrame.remove(displayElement);
+       }
         targetFrame.remove(this.btnDeleteEntry);
     }
 
     public void setYCoordinates(int yKoordinate) {
-        for (int arrayIndex = 0; arrayIndex < this.displayElements.length; arrayIndex++) {
-            displayElements[arrayIndex].setLocation(displayElements[arrayIndex].getX(), yKoordinate);
+        for (JTextField displayElement : this.displayElements) {
+            displayElement.setLocation(displayElement.getX(), yKoordinate);
         }
         btnDeleteEntry.setLocation(btnDeleteEntry.getX(), yKoordinate);
     }
 
 
-    void deleteDataBaseEntry() {
+    private void deleteDataBaseEntry() {
         this.dataBaseEntry.deleteEntry();
     }
 
